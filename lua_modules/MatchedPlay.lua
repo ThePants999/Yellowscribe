@@ -324,17 +324,17 @@ function showCard(cardName, playerColor, doBeforeShowing, doAfterShowing)
         local formattedCardName = "ymc-"..cardName.."-"..unitData.uuid.."-"..playerColor
         local shownYet = false
 
-        -- TODO: I think i can just update the attributes
-        -- TODO: does the return from setAttribute tell me if the element exists or not?
         -- yes, I know we go through the table twice, I don't like it
         for _,element in ipairs(globalUI) do
             recursivelyCleanElement(element)
 
             if element.attributes.id == formattedCardName then
                 shownYet = true
-                
-                element.attributes.visibility = playerColor
-                element.attributes.active = true
+
+                if element.attributes.visibility ~= playerColor or not element.attributes.active then
+                    element.attributes.visibility = playerColor
+                    element.attributes.active = true
+                end
             end
         end
     
@@ -360,31 +360,36 @@ function hideCard(player, card)
 
     local formattedCardName = "ymc-"..card.."-"..unitData.uuid.."-"..playerColor
 
-    UI.setAttributes(formattedCardName, {
-        visibility = "None",
-        active = false
-    })
+    UI.setAttribute(formattedCardName, "visibility", "None")
+    
+    UI.setAttribute(formattedCardName, "active", false)
+    --UI.hide(formattedCardName)
 
-    local currentUI = UI.getXmlTable()
+    Wait.time(function()
+        local currentUI = UI.getXmlTable()
+        local foundVisibleCard = false
 
-    for _,element in ipairs(currentUI) do
-        if element.attributes ~= nil and
-            element.attributes.id ~= nil and
-            (element.attributes.id:find("^ymc%-")) ~= nil and -- if we find a card 
-            element.attributes.active = true then
-                return -- we found a card that is still visible, so we dont want to reset the UI
+        for _,element in ipairs(currentUI) do
+            if element.attributes ~= nil and
+                element.attributes.id ~= nil and
+                (element.attributes.id:find("^ymc-")) ~= nil and -- if we find a card
+                element.attributes.visibility ~= nil and
+                element.attributes.visibility ~= "" and
+                element.attributes.visibility ~= "None" then
+                    foundVisibleCard = true
+                    break
+            end
+
+            recursivelyCleanElement(element)
         end
 
-        recursivelyCleanElement(element)
-    end
+        if foundVisibleCard then return end
 
-    currentUI = filter(currentUI, |element| element.attributes.id == nil or (element.attributes.id:find("^ymc%-")) == nil)
+        currentUI = filter(currentUI, |element| element.attributes.id == nil or (element.attributes.id:find("^ymc-")) == nil)
 
-    UI.setXmlTable(currentUI)
-    --[[ Wait.time(function()
-        
+        UI.setXmlTable(currentUI)
         --UI.setAttribute("container", "visibility", "hidden")
-    end, 0.11) --]]
+    end, 0.11)
 end
 
 -- builds the XML string for the given section based on data defined in unitData (see top of file)

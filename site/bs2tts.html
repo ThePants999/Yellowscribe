@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Yellowscribe</title>
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+    <template id="unitDisplayTemplate">
+        <section class="unitDisplay" data-uuid="">
+            <h2 class="unitName"><input type="text" onFocus="this.select();" /></h2>
+            <div class="modelContainer"></div>
+        </section>
+    </template>
+    <template id="modelDisplayTemplate">
+        <section class="modelDisplay">
+            <h3>
+                <span class="modelNum"></span><span>x </span><span class="modelName"></span>
+            </h3>
+            <section class="weaponDisplay">
+                <h4>Weapons:</h4>
+                <ul></ul>
+            </section>
+            <section class="abilityDisplay">
+                <h4>Abilities:</h4>
+                <ul></ul>
+            </section>
+            <section class="unassignedDisplay">
+                <h4>Unassigned Weapons:</h4>
+                <ul></ul>
+            </section>
+        </section>
+    </template>
+    <template id="loadedCodeDisplayTemplate">
+        <section class="rosterCode">
+            <div>
+                <label class="codeLabel">Your code: <input type="text" id="codeContainer" readonly="true" /></label>
+            </div>
+            <p>Your code will be valid for about 10 minutes</p>
+            <p>Remember: if you run into any problems, please come to the support server found in the Help page</p>
+        </section>
+    </template>
+    <nav>
+        <ul>
+            <li data-page="rosterDisplay" class="hiddenLink">Roster</li>
+            <li data-page="rosterInput" class="selected">Upload</li>
+            <li data-page="new">What's New</li>
+            <li data-page="howTo">How To Use</li>
+            <li data-page="help">Help</li>
+        </ul>
+        <ul id="settingsContainer" class="settingsList">
+            <li>Settings</li>
+            <li class="settingsContainer">
+                <label for="uiHeight">
+                    UI height:
+                    <input type="number" value="700" id="uiHeight" min="1" />
+                </label>
+                <label for="uiWidth">
+                    UI width:
+                    <input type="number" value="1200" id="uiWidth" min="1" />
+                </label>
+                <label for="crusadeModule">
+                    Crusade scripting:
+                    <input type="checkbox" id="crusadeModule" checked />
+                </label>
+                <label for="decorativeNames">
+                    Unit name on all models in unit:
+                    <input type="checkbox" id="decorativeNames" />
+                </label>
+            </li>
+        </ul>
+        <div class="supportContainer">
+            <a href="https://www.paypal.com/donate?business=E7PQYPYJNYEAE&no_recurring=1&item_name=Coffee+Moneys&currency_code=USD" id="paypalButton"></a>
+            <a href="https://www.patreon.com/bePatron?u=34112622" id="patreonButton"></a>
+            <span>Wanna buy me a coffee?</span>
+        </ul>
+    </nav>
+    <main id="displayContainer">
+        <div id="rosterInputPage" class="visible page">
+            <header>
+                <img src="/img/battlescribe_icon_128.png" />
+                <span>Yellow Man's Battlescribe to TTS</span>
+                <img src="/img/tts_icon.png" />
+            </header>
+            <section id="errorContainer"></section>
+            <input type="file" name="rosterUpload" id="rosterUpload" />
+            <label for="rosterUpload" class="rosterUpload centered block" id="rosterUploadContainer">
+                <div id="preloadContainer">
+                    <div class="iconContainer">
+                        <img src="/img/upload.png" class="greyIcon" />
+                        <img src="/img/upload-yellow.png" class="blueIcon" />
+                    </div>
+                    <span>Upload Roster</span>
+                </div>
+                <div id="loadingContainer">
+                    <div id="loader"></div>
+                </div>
+            </label>
+        </div>
+        <div id="rosterDisplayPage" class="hidden page">
+            <footer>
+                <button class="submit" id="submit">Submit</button>
+            </footer>
+        </div>
+        <div id="newPage" class="hidden page">
+            <section>
+                <h4>
+                    To get the latest patch notes and the (very) occasional sneak previews I sometimes give, 
+                    make sure to check out the <a href="https://discord.gg/3hQ2VkBa3v">Discord</a>!
+                </h4>
+            </section>
+            <br /><br />
+            <section>
+                <h2>What's new?</h2>
+                <p>
+                    This is a rewrite of the original Battlescribe to TTS mod (with which I am not affiliated at all), 
+                    all credit for inspiration and the code for drawing measuring circles around models goes to thehivemind5.
+                    I have made some changes in this version to make life a bit easier for myself (and hopefully others as well):
+                    <ul>
+                        <li>The Datasheet attached to the unit has been cleaned up and hopefully looks a bit better now</li>
+                        <li>I have added a Crusade Card attached to each unit where you can keep track of crusade statistics (press scripting key 9 while hovering a model)</li>
+                        <li>I have added an easy way to keep track of agenda tallies (explained in "How To")</li>
+                        <li>Changing wounds up and down is now more colorful!</li>
+                        <li>For models with changing characteristics based on wounds (brackets), the description of the model will now display whatever its current statistics are (instead of just *s)</li>
+                        <li>Army creation should be a little more organized and allows for the editing of unit names as well as assigning weapons that were not assigned properly (should fix some issues in the original where models wouldnt have weapons)</li>
+                        <li>Finally, the spawning of an army in the in-game mod should now be much much faster</li>
+                    </ul>
+                </p>
+            </section>
+        </div>
+        <div id="howToPage" class="hidden page">
+            <h3>
+                If you have any questions, please don't hesitate to come to 
+                the <a href="https://discord.gg/3hQ2VkBa3v">support server</a>.
+            </h3>
+            <p>
+                This website is made to be used with the in-game mod found <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2536025249" target="_blank">HERE</a>. If you are familiar with the original Battlescribe2TTs,
+                getting your army roster into TTS will be mostly similar. 
+                If you are not familiar with that process, please follow the steps below (explained in further detail later on).
+            </p>
+            <ol>
+                <li>
+                    Create an army roster using Battlescribe and export the roster either by saving it (on a PC)
+                    or by exporting as a Battlescribe Roster file (on mobile). In either case, the exported file
+                    should be a .rosz file.
+                </li>
+                <li>
+                    Upload your saved roster file to this website using "Upload" in the menu bar to the left. 
+                    The uploaded roster will be stored for about 10 minutes after you finish editing it.
+                </li>
+                <li>
+                    Edit the roster as you see fit (this will usually involve assigning unassigned weapons or changing custom names).
+                    There are also some settings you can change in the menu bar. Then click Submit all the way at the bottom of the roster list.
+                </li>
+                <li>
+                    Copy the code that your are given on this site after uploading your roster, 
+                    and paste it into the box in the in-game mod (found 
+                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2536025249" target="_blank">HERE</a> 
+                    if you haven't subscribed yet)
+                </li>
+                <li>
+                    Choose models that you want to use for each model type in each unit. 
+                    <br />
+                    <i>
+                        NOTE: you can assign a model to multiple different model cards at a time
+                        by selecting multiple model cards before selecting a model.
+                    </i>
+                </li>
+                <li>
+                    Click "Create Army" and enjoy! For more information on how to use the scripting provided
+                    by Yellowscribe, see the "Scripting" section on this page.
+                </li>
+            </ol>
+            <section>
+                <h3>Editing Your Roster</h3>
+                <p>
+                    There are a few ways to edit the models and units in your roster:
+                    <ol>
+                        <li>
+                            You can set a custom name for the unit. This will apply the custom name given
+                            to the model in a unit if it is a single-model unit (eg a character or vehicle),
+                            or to every model in the unit if the appropriate setting is selected in the settings menu.
+                        </li>
+                        <li>
+                            <p>
+                                You can assign or unassign weapons to models in the unit if they have unassigned weapons.
+                                <b>PLEASE NOTE:</b> not all units have unassigned weapons. This <b>only</b> happens when Yellowscribe
+                                can't tell which model or models should have a given weapon in the Battlescribe Data
+                                (this can happen for a variety of reasons).
+                            </p>
+                            <p>
+                                To assign a weapon to a model group, there will be some buttons in the "Unassigned Weapons"
+                                section on that model group. There can be up to three buttons that show up (depending on the number of 
+                                models in the group): 
+                            </p>
+                            <ul>
+                                <li>a button with the name of the weapon. This assigns the weapon to a single model in the group</li>
+                                <li>an "All" button. This assigns the weapon to every model in the group</li>
+                                <li>a "Unit" button. This assigns the weapon to every model in the unit</li>
+                            </ul>
+                        </li>
+                        <li>
+                            There are several options in the settings menu that should be self-explanatory.
+                        </li>
+                    </ol>
+                </p>
+            </section>
+            <section>
+                <h3>Associating Models</h3>
+                <p>
+                    To Associate a model with a model card, simply click on the model card (or model cards) 
+                    with which you want to associate the model (or models). 
+                </p>
+                <p>
+                    You can assign a model (or models) to multiple model cards by selecting multiple model 
+                    cards before picking up any models; the subsequent model or models you pick up will be 
+                    assigned to all the selected model cards at once.
+                </p>
+                <p>
+                    You can assign multiple models to a model card (or cards) by picking up multiple models at once.
+                    When you assign multiple models to a model card, it will randomly select which model to use for each 
+                    model in that model group from the assigned models.
+                </p>
+            </section>
+            <br />
+            <section class="scriptingSection">
+                <h2>Scripting</h2>
+                <p>
+                    Several scripts are attached to your units when they are created with this tool.
+                    Several of them are the same as the original Battlescribe2TTS, but a few of them are new (or have changed slightly).
+                    The sections below will describe what happens when a particular scripting button is pressed.
+                    The numbering refers to the <b>scripting button number</b> pressed, <b>not</b> necessarily a particular key (depending on your keybindings).
+                    To see what key your scripting buttons are assigned to, or to change your keybindings, go to the
+                    Configuration menu in TTS, go to controls, then scroll down to the Scripting Button section.
+                </p>
+                <h3>Scripting Button 1</h3>
+                <p>
+                    This will show a datasheet for the unit just like it did in the original mod. 
+                    However, the data within it has been reorganized and should (hopefully) look a bit nicer.
+                </p>
+                <p>
+                    You can also highlight your units with the buttons that run along the bottom edge of the datasheet.
+                    To remove the highlight, click the grey button at the end of the row.
+                </p>
+                <p>
+                    Additionally, when you highlight a unit, any measuring circles added to it (see 4 and 5 below) will be
+                    in the highlighted color and <b>will not</b> overwrite previous measuring circles in other colors.
+                    This allows you to have multiple measuring circles on a model at a time.
+                </p>
+                <h3>Scripting Button 2 or 3</h3>
+                <p>
+                    This will either remove (2) or add (3) a wound to the model you are hovering over. 
+                    This should work exactly the same as the original mod with the following differences:
+                </p>
+                <ul>
+                    <li>
+                        The model's wounds should be helpfully colored according to how damaged it is 
+                        (green when fully healthy, red when almost dead, yellow somewhere in between)
+                    </li>
+                    <li>
+                        If the model has characteristics that change based on how many wounds it has, 
+                        these characteristics will change in its description based on its current wounds
+                    </li>
+                </ul>
+                <h3>Scripting Button 4 or 5</h3>
+                <p>
+                    Expands (4) or shrinks (5) a measuring circle around the model over which you are hovering. 
+                    A bonus feature has been added in this new version: a model can have multiple measuring rings around it at once.
+                    When a model is highlighted, it will produce a measuring ring in that color while also retaining any rings 
+                    it had in other highlight colors (or in pink if it measured without a highlight).
+                </p>
+                <h3>Scripting Button 6 and 7</h3>
+                <p>These do exactly what they did in the original version: switch which measuring ring is used for the model.</p>
+                <h3>Scripting Button 8</h3>
+                <p>This toggles whether or not the measuring ring should be rectangular for the model.</p>
+                <h3>Scripting Button 9</h3>
+                <p>
+                    If Crusade Scripting is included (see the settings menu when editing your roster), 
+                    this shows the unit's crusade card. The card is shared by all the models in the unit 
+                    and should hopefully be useable as a way to track your units within TTS.
+                </p>
+                <h3>Scripting Button 10</h3>
+                <p>
+                    If Crusade Scripting is included (see the settings menu when editing your roster), 
+                    this shows the unit's agenda tally card. To use it, you must have an Agenda Manager 
+                    spawned into the game and set up. The Agenda Manager is availible in the in-game mod 
+                    on the top right corner of the table, simply save it and spawn it into whatever game you want to use it in.
+                    Details on how to use the Agenda Manager can be found below.
+                </p>
+                <h3>Right-click Menu</h3>
+                <p>
+                    Currently there is only one function in a unit's right-click menu, but I may add more in the future, 
+                    keep a look out! 
+                </p>
+                <h4>Toggle Coherency check</h4>
+                <p>
+                    This turns on coherency checking for the unit until it is turned off again the same way.
+                    While checking coherency, any models in the unit that are out of coherency with other models will be
+                    highlighted red. If all the models in the unit are in coherency (other than models that are out of coherency),
+                    they will be highlighted green. If there are multiple (i.e. more than one) groups of models that are in 
+                    coherency with each other, but not with other groups, all such groups will be highlighted yellow.
+                    <br /><br />
+                    Any face-down models in the unit will be completely ignored for the purposes of coherency checking. 
+                    Coherency checking will automatically determine whether the unit has 6 or more models (and thus requires two models
+                    in coherency for each model), and should also handle vertical coherency checking fairly well (though I can't guarantee 
+                    that vertical checking is completely accurate).
+                    <br /><br />
+                    Coherency checking for models with oval bases is currently mostly imprecise (though itll do an ok job).
+                    There is no particularly reasonable way of making it more precise.
+                </p>
+            </section>
+            <section>
+                <h2>Agenda Manager</h2>
+                <p>
+                    The Agenda Manager is meant to help you keep track of agenda tallies (via spripting button 10 on your units), 
+                    as well as provide a helpful display to help you remember which agendas you selected.
+                </p>
+                <p>
+                    To use the Agenda Manager, first make sure to save the object (the little tile with a button on it at the top
+                    left of the table in the in-game mod). Once you're in a game and getting set up for a battle,
+                    spawn in your Agenda Manager and follow these steps:
+                </p>
+                <ol>
+                    <li>
+                        <p>
+                            Click the "Associate Models" button on the Agenda Manager.
+                            This tells the Agenda Manager that you have started associating models (and units) with it so that it
+                            keeps track of agendas for those units.
+                        </p>
+                        <p>
+                            While the Agenda Manager is in this "associating models" mode, any object you pick up will be associated with
+                            the Agenda Manager. When a model is associated with the Agenda Manager, it will be highlighted in green
+                            until you finish associating models. 
+                        </p>
+                        <p>
+                            Note: you do NOT need to pick up the models you want to associate with it all at once,
+                            you can do them in batches, one at a time, all at once, it doesn't really matter.
+                            The Agenda Manager will keep associating models with itself until you click the "Finish" button.
+                        </p>
+                        <p>
+                            If you accidentally pick up some object that isn't one of the models that you want
+                            to associate with it, it's OK: associating an object with the Agenda Manager only does something if that
+                            object is capable of showing a tally card (scripting button 10 on your units).
+                        </p>
+                    </li>
+                    <li>Click the "Finish" button to stop associating models</li>
+                    <li>Select the battle size you are playing</li>
+                    <li>Fill out the agendas you have selected</li>
+                    <li>
+                        Click the "Accept" button to lock in your agendas,
+                        And now you should be able to see your agenda tallies when you hit scripting button 10 on your units!
+                    </li>
+                </ol>
+            </section>
+        </div>
+        <div id="helpPage" class="hidden page">
+            <h1>Ran into a problem?</h1>
+            <p>
+                Please make sure you have your rosz file handy as I will need it to try and replicate whatever
+                issue is giving your trouble. If I don't have your rosz file, it will be much much harder for
+                me to fix the problem.
+            </p>
+            <p>
+                Once you have your rosz file ready, or if you have any questions, please don't hesitate to come 
+                to the <a href="https://discord.gg/FmTJ2tNVyr">support server</a>. If you are reporting an issue,
+                make sure you do so in #report-here and include the rosz file. (If you don't include your rosz file in the
+                bug report, I will invariably ask you for it anyway).
+            </p>
+            <br /><br /><br />
+            <h2>Code</h2>
+            <p>
+                If you are interested in taking a look at the code for this project, you can find the sources for 
+                everything other than the code found in the in-game mod in <a href="">my GitHub</a>.<br />
+                <i>
+                    <b>PLEASE NOTE:</b> I cannot guarantee that the sources in the GitHub are entirely up to date as
+                    I very often forget to update it.
+                </i>
+            </p>
+            <p>For the lua code found in the in-game mod, the sources can be found in the scripting editor in the mod.</p>
+            <p>
+                Again, if you have any questions, please feel free to jump into the 
+                <a href="https://discord.gg/3hQ2VkBa3v">support server</a> and go to #code-discussion.
+            </p>
+            <br /><br /><br />
+            <h2>Helping Me</h2>
+            <p>
+                If, for whatever reason, you feel like helping me out financially, first of all thank you so much &lt;3. 
+                But also here's either my <a href="https://www.patreon.com/bePatron?u=34112622">Patreon</a> or my 
+                <a href="https://www.paypal.com/donate?business=E7PQYPYJNYEAE&no_recurring=1&item_name=Coffee+Moneys&currency_code=USD">Paypal</a>. 
+                And thank you again!
+            </a>
+            </p>
+            <!-- #report-here: https://discord.gg/FmTJ2tNVyr-->
+        </div>
+    </main>
+    <div class="hidingPanel"></div>
+    <script src="RosterHandler.js"></script>
+</body>
+</html>

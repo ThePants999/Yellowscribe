@@ -1,0 +1,603 @@
+html {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 180px auto;
+    grid-template-rows: auto 60px;
+    grid-template-areas: 
+        "nav main"
+        "nav footer";
+    overflow: hidden;
+}
+
+main {
+    background-color: #bebebe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    grid-area: main / main / footer;
+    position: relative;
+}
+
+main.roster {
+    grid-row-end: main;
+}
+
+/* main:not(.roster) ~ footer {
+    display: none;
+} */
+
+main.loading ~ .hidingPanel {
+    opacity: 1;
+    pointer-events: all;
+}
+
+footer {
+    /* grid-area: footer; */
+    padding: 14px 0 7px 0;
+    background-color: #bebebe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #333;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+nav li {
+    color: #e7ca00;
+    border-bottom: 1px solid #e7ca00;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 15px 0;
+    text-align: center;
+    transition: color .25s, background-color .25s;
+}
+
+nav li.hiddenLink {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    transition: max-height 0.25s, padding 0.25s, color .25s, background-color .25s;;
+}
+
+nav li.hiddenLink.visible {
+    border-bottom: 1px solid #e7ca00;
+    max-height: 54px;
+    padding: 15px 0;
+}
+
+nav ul:not(.settingsList) li:hover, nav li.selected {
+    color: #333;
+    background-color: #e7ca00;
+}
+
+nav ul a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+}
+
+ul.settingsList {
+    opacity: 0;
+    pointer-events: none;
+    border-top: 1px solid #e7ca00;
+    margin-top: 100px;
+
+    transition: opacity 0.3s;
+}
+
+ul.settingsList.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+ul.settingsList li:first-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.settingsContainer label {
+    font-weight: normal;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    align-items: center;
+}
+
+.settingsContainer label:not(:first-child) {
+    padding-top: 7px;
+}
+
+.settingsContainer label input[type="number"] {
+    width: 80px;
+}
+
+header {
+    font-family: 'Courier New', Courier, monospace!important;
+    font-size: 1.8em;
+    margin-bottom:40px;
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    max-height: 40px;
+    overflow: hidden;
+    transition: max-height .5s, margin .5s;
+}
+
+header.loaded {
+    max-height: 0;
+    margin: 0;
+}
+
+header img {
+    height: 40px;
+    width: auto;
+    margin: 0 20px;
+}
+
+header img:first-of-type {
+    margin-right: 50px;
+}
+
+button {
+    cursor: pointer;
+}
+
+i {
+    font-size: 0.82em;
+}
+
+ol > li {
+    margin-bottom: 7px;
+}
+
+ol ul {
+    list-style-type: disc;
+}
+
+
+
+
+
+.rosterUpload {
+    position: relative;
+    background-color: #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 10px solid #999;
+    color: #999;
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color .25s, border 0.25s, font-size .25s, background-color .25s;
+    width: 600px;
+    height: 450px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rosterUpload:hover, .dragging + .rosterUpload, #rosterUploadContainer.loading {
+    color: #e7ca00!important;
+    border-color: #e7ca00!important;
+    background-color: #fffdad!important;
+    font-size: 3em!important;
+}
+
+.rosterUpload #preloadContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.rosterUpload #loadingContainer {
+    opacity: 0;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.rosterUpload .iconContainer {
+    width: 25%;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+
+.rosterUpload img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.rosterUpload img.blueIcon {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.rosterUpload:hover img.blueIcon, .dragging + .rosterUpload img.blueIcon {
+    opacity: 1;
+}
+
+#rosterUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#loader {
+    border: 16px solid #fffdad;
+    border-top: 16px solid #e7ca00;
+    border-bottom: 16px solid #e7ca00;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    animation: spin 1.5s linear infinite;
+    pointer-events: none;
+}
+
+.preventEvents {
+    pointer-events: none!important;
+}
+
+.unitDisplay {
+    background-color: #999;
+    width: 100%;
+    padding-bottom: 4px;
+}
+
+.unitDisplay:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+.unitName {
+    margin: 0;
+    margin-bottom: 0;
+    height: 40px;
+    width: 100%;
+}
+
+.unitName input {
+    width: 100%;
+    height: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modelContainer {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.modelContainer:before, .modelContainer:after {
+    content:'';
+    flex:1;
+}
+
+.modelDisplay {
+    background: #fffdad;
+    padding: 10px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modelDisplay:not(:last-of-type) {
+    margin-right: 7px;
+}
+
+.modelDisplay section:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+.modelDisplay h3 {
+    margin-top: 0;
+}
+
+.modelDisplay h4 {
+    margin: 0;
+}
+
+.modelDisplay ul {
+    list-style: none;
+    margin: 4px 0;
+    padding-left: 15px;
+}
+
+.unassignedDisplay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.weaponUnassignmentContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weaponUnassignmentContainer div {
+    height: 1.15em;
+}
+
+.weaponUnassignmentContainer button {
+    background-color:rgb(255,210,210);
+    border: 1px outset rgb(118,118,118);
+    border-radius: 2px;
+    height: 100%;
+    font-size: 0.8em;
+}
+
+.weaponAssignmentContainer {
+    display: flex;
+}
+
+.weaponAssignmentContainer button {
+    flex: 1;
+    text-align: left;
+    border: 1px outset rgb(118,118,118);
+}
+
+.weaponAssignmentContainer button:not(:first-of-type) {
+    flex: 0;
+    width: 40px;
+}
+
+[data-num="1"], [data-num="1"] + span {
+    display: none;
+}
+
+
+.submit {
+    color: white;
+    background-color:greenyellow;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    width: 240px;
+    border: 1px outset rgb(118,118,118)!important;
+    border-radius: 3px;
+
+    transition: background-color 0.15s;
+}
+
+.submit:active {
+    background-color:lawngreen;
+}
+
+.hidingPanel {
+    opacity: 0;
+    pointer-events: none;
+    grid-area: main / main / footer;
+    z-index: 1;
+    background-color: #bebebe;
+
+    transition: opacity 0.4s;
+}
+
+
+
+
+
+.page {
+    padding: 20px 50px;
+    width: 100%;
+    transition: opacity 0.3s, display 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+}
+
+.visible {
+    opacity: 1!important;
+    pointer-events: all;
+}
+
+.hidden {
+    /* transition: opacity 0.3s 0.3s; */
+    opacity: 0!important;
+    pointer-events: none;
+    display: none;
+}
+
+.flex {
+    display: felx;
+}
+
+.centered.flex {
+    justify-content: center;
+}
+
+.centered.block {
+    margin: auto;
+}
+
+
+
+.supportContainer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 10px;
+    color: #9f9d5d;
+    align-items: center;
+    user-select: none;
+}
+
+.supportContainer a {
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.supportContainer span {
+    margin-left: 5px;
+}
+
+#paypalButton {
+    background: url("paypalIcon.png");
+    background-size: cover;
+}
+
+#patreonButton {
+    background: url("patreonIcon.png");
+    background-size: cover;
+}
+
+
+
+.screenshot {
+    width: 500px;
+    height: auto;
+    margin-left: 10px;
+    float: right;
+}
+
+
+
+#errorContainer {
+    width: 650px;
+    margin: auto;
+    max-height: 200px;
+    padding: 7px 0;
+    opacity: 1;
+    color: #a20404;
+    font-weight: bold;
+    
+    transition: padding 0.3s, opacity 0.3s, max-height 0.3s;
+}
+
+#errorContainer:empty {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+#errorContainer h2 {
+    padding-top: 0;
+}
+
+
+
+.codeLabel {    
+    font-size: 48px;
+    font-weight: bold;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.codeLabel input {
+    font-size: 48px;
+    width: 5.2em;
+    border: none;
+    background: #bebebe;
+    outline: none;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
+#howToPage > section {
+    margin-top: 50px;
+}
+
+.scriptingSection h3 {
+    margin: 15px 0 7px 0;
+}
+
+.scriptingSection p {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+
+.rosterCode {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.rosterCode > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#rosterDisplayPage {
+    height: 100%;
+}
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

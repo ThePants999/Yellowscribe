@@ -1,0 +1,44 @@
+{
+    "WoundChanging": {
+        "Constants": "WoundChanging_Constants.lua",
+        "Module": "WoundChanging.lua",
+        "Postreq": "Utility.lua",
+        "ScriptKeys": {
+            "2": "function (playerColor, target) changeModelWoundCount(-1, target) end",
+            "3": "function (playerColor, target) changeModelWoundCount(1, target) end"
+        }
+    },
+    
+    "DataCard": {
+        "Constants": "DataCard_Constants.lua",
+        "Module": "DataCard.lua",
+        "Postreq": "Utility.lua",
+        "ScriptKeys": {
+            "1": "function (playerColor) showCard('dataCard', playerColor) end"
+        }
+    },
+
+    "MatchedPlay": {
+        "Constants": "MatchedPlay_Constants.lua",
+        "Module": "MatchedPlay.lua",
+        "ScriptKeys": {
+            "1": "function (playerColor) showCard('dataCard', playerColor) end",
+            "2": "function (playerColor, target) changeModelWoundCount(-1, target) end",
+            "3": "function (playerColor, target) changeModelWoundCount(1, target) end",
+            "4": "function (playerColor, target) changeMeasurementCircle(1, target) end",
+            "5": "function (playerColor, target) changeMeasurementCircle(-1, target) end",
+            "6": "function (playerColor, target) assignBase(-1, target) end",
+            "7": "function (playerColor, target) assignBase(1, target) end",
+            "8": "toggleRectangularMeasuring"
+        }
+    },
+
+    "Crusade": {
+        "Constants": "Crusade_Constants.lua",
+        "Module": "Crusade.lua",
+        "ScriptKeys": {
+            "9": "showCrusadeCard",
+            "10": "showTallyCard"
+        }
+    }
+}

@@ -13,7 +13,7 @@ const ModelCollection = require("./ModelCollection"),
     woundTrackTypeNameRegex = /^wound track|wound track$/i,
     psykerNameRegex = /^Psyker \((?<name>.+?)\)/,
     smiteTestRegex = /^smite\b/i,
-    
+
     keywordsToIgnore = ["HQ", "Troops", "Elites", "Fast Attack", "Heavy Support", "Flyer", "Dedicated Transport", "Lord of War", "No Force Org Slot", "Warlord"];
 
 module.exports = class Unit {
@@ -27,7 +27,7 @@ module.exports = class Unit {
     weapons = {};
     //weapons  = [];
     rules = [];
-    uuid = crypto.randomBytes(4).toString("hex"); 
+    uuid = crypto.randomBytes(4).toString("hex");
     unassignedWeapons = [];
     pl = 0;
     isSingleModel;
@@ -67,8 +67,8 @@ module.exports = class Unit {
             dangerousReplace = { "[": "(", "]": ")", '"': '\\"' };
 
         if (!this.abilities[trimmedName])
-            this.abilities[trimmedName] = { 
-                name: trimmedName.replace(/[\[\]"]/g, m => dangerousReplace[m]), 
+            this.abilities[trimmedName] = {
+                name: trimmedName.replace(/[\[\]"]/g, m => dangerousReplace[m]),
                 desc: profileData.characteristics[0].characteristic[0]._.replace(/[\[\]"]/g, m => dangerousReplace[m])
             };
     }
@@ -98,7 +98,7 @@ module.exports = class Unit {
     addWeapon (weaponData) {
         let data = { name: weaponData.$.name },
             mightIgnore = false;
-        
+
         for (const char of weaponData.characteristics[0].characteristic) {
             if (char.$.name === "Type" && (char._ === "-" || !char._)) {
                 if (mightIgnore) return;
@@ -113,7 +113,7 @@ module.exports = class Unit {
             data[char.$.name.toLowerCase()] = char._;
         }
 
-        if (!data.abilities) 
+        if (!data.abilities)
             data.abilities = "-";
 
         this.weapons[weaponData.$.name] = data;
@@ -135,11 +135,11 @@ module.exports = class Unit {
     addBracket (bracketData, modelName) {
         let data = [],
             bracket = "";
-            
+
         for (const char of bracketData.characteristics[0].characteristic) {
             if (char.$.name !== "Remaining W" && char.$.name !== "Wounds")
                 data.push(char._);
-            
+
             else {
                 if (!char._ || char._ === "-") return;
 
@@ -149,7 +149,7 @@ module.exports = class Unit {
 
         if (!this.woundTrack)
             this.woundTrack = {};
-        
+
         if (statDamageCheckRegex.test(modelName)) {
             // first check for a predefined model profile that this bracket should match
             // this seems problematic
@@ -186,11 +186,11 @@ module.exports = class Unit {
                         this.addModelSimpleData(selectionData.$.name, selectionData.selections, selectionData.$.number);
                         break;
                 }
-                
+
                 // sometimes the data creators mark a unit as a "model" for whatever reason,
                 // then later on describe the actual models in the unit (marking those as "unit" ugh)
-                if (selectionData.selections && 
-                    selectionData.selections[0] !== "" && 
+                if (selectionData.selections &&
+                    selectionData.selections[0] !== "" &&
                     selectionData.selections[0].selection.findIndex(selection => selection.$.type.toLowerCase() === "unit") >= 0)
                         break;
 
@@ -199,7 +199,7 @@ module.exports = class Unit {
             case "unit":
                 if (selectionData.selections && selectionData.selections[0] !== "") {
                     let found = false;
-        
+
                     // search selections for models or units.
                     // if we cant find any, assume the unit is supposed to be a model
                     for (const selection of selectionData.selections[0].selection) {
@@ -207,7 +207,7 @@ module.exports = class Unit {
                             found = true;
                             break;
                         }
-        
+
                         else if (selection.profiles && selection.profiles[0] !== "") {
                             for (const profile of selection.profiles[0].profile) {
                                 if (profile.$.typeName.toLowerCase() === "unit") {
@@ -215,11 +215,11 @@ module.exports = class Unit {
                                     break;
                                 }
                             }
-        
+
                             if (found) break;
                         }
                     }
-        
+
                     if (!found)
                         this.addModelSimpleData(selectionData.$.name, selectionData.selections, selectionData.$.number);
                 }
@@ -238,19 +238,19 @@ module.exports = class Unit {
 
                     if (found) break;
                 }
-                
-                // Sometimes the data creators mark models as "upgrade"s without even providing 
+
+                // Sometimes the data creators mark models as "upgrade"s without even providing
                 // a clue that theyre supposed to be models. This tries to catch that at least in a special
                 // case (Space Marine Bike Squad). Basically, if the model profile's name can be found in an upgrade's name,
                 // assume that the upgrade is referencing a model. I fear that this will have consequences with other units.
                 // If it does, just make this an actual special case called out by name.
-                if (Object.keys(this.modelProfiles).findIndex(name => 
+                if (Object.keys(this.modelProfiles).findIndex(name =>
                         selectionData.$.name.includes(name) && // if this selection's name includes a profile's name
                         !this.models.has(name) // but only if there isn't actually a model with that name
                     ) >= 0 &&
                     parentSelectionData.$.type.toLowerCase() === "unit") { // special case for heavy mortar batteries, the model will be added later so we dont need to add it here
                         this.addModelSimpleData(selectionData.$.name, selectionData.selections, selectionData.$.number);
-                    
+
                         // by this point, since there were no models defined in the unit's selections,
                         // the "unit" will have already been added as a model, so we need to remove it if it exists
                         this.models.remove(parentSelectionData.$.name);
@@ -261,7 +261,7 @@ module.exports = class Unit {
         if (selectionData.profiles && selectionData.profiles[0] !== "") {
             for (const profile of selectionData.profiles[0].profile) {
                 switch (profile.$.typeName.toLowerCase()) {
-                    case "unit": 
+                    case "unit":
                     case "model":
                         if (//selectionData.$.name.includes(profile.$.name) && // hopefully this isn't necessary
                             selectionData.$.type.toLowerCase() !== "unit" &&
@@ -271,11 +271,11 @@ module.exports = class Unit {
                                     selectionData.selections[0].selection.findIndex(selection => selection.$.type === "model") < 0))) // another special case for characters being marked as upgrade
                                 this.addModelSimpleData(profile.$.name, selectionData.selections, selectionData.$.number);
 
-                        if (selectionData.$.type.toLowerCase() === "model" && 
+                        if (selectionData.$.type.toLowerCase() === "model" &&
                             selectionData.$.name !== profile.$.name &&
                             !profile.$.name.match(woundTrackProfileNameRegex) || !profile.$.name.match(woundTrackProfileNameRegex2))
                             this.addModelProfileData(profile, selectionData.$.name);
-                        else 
+                        else
                             this.addModelProfileData(profile);
                         break;
                     case "abilities":
@@ -289,8 +289,8 @@ module.exports = class Unit {
                         break;
                     case "explosion":
                         let explosionData = profile.characteristics[0].characteristic.map(char => char._);
-                        
-                        this.addFormattedAbility(`Explodes (${explosionData.join("|")})`, 
+
+                        this.addFormattedAbility(`Explodes (${explosionData.join("|")})`,
                                         `When this model is destroyed, roll one D6 before removing it from play. On a ${explosionData[0]} it explodes, and each unit within ${explosionData[1]} suffers ${explosionData[2]} mortal wounds.`);
                         break;
                     case "psyker":
@@ -344,7 +344,7 @@ module.exports = class Unit {
                         // credit to @Caleth#9668 for this
                         if (profile.characteristics && profile.characteristics[0] !== "") {
                             const description = profile.characteristics[0].characteristic.find(char => char.$.name.toLowerCase() == "description");
-                            
+
                             if (description)
                                 this.addFormattedAbility(profile.$.name, description._);
                         }
@@ -359,7 +359,7 @@ module.exports = class Unit {
         if (selectionData.selections && selectionData.selections[0] !== "")
             for (const selection of selectionData.selections[0].selection)
                 this.handleSelectionDataRecursive(selection, selectionData); // recursively search selections
-                            
+
 
         if (selectionData.categories && selectionData.categories[0] !== "")
             for (const category of selectionData.categories[0].category)
@@ -384,7 +384,7 @@ module.exports = class Unit {
         this.checkIfIsSingleModel();
         this.checkModelNames();
         //Util.log(this);
-        
+
         return this;
     }
 
@@ -413,7 +413,7 @@ module.exports = class Unit {
             unassignedWeapons = Object.keys(this.weapons)
                                     .filter(weaponName => !assignedWeapons.includes(weaponName))
                                     .map(weaponName => { return { name: weaponName, number: 1 }});
-        
+
         /* for (const model of this.models)
             if (model.weapons.length === 0) {
                 model.setWeapons(unassignedWeapons);
@@ -439,7 +439,7 @@ module.exports = class Unit {
                     for (const model of this.models)
                         model.weapons = model.weapons.filter(weapon => !weaponsToRemove.includes(weapon.name))
             }
-                    
+
             this.unassignedWeapons = unassignedWeapons;
         }
     }
@@ -462,20 +462,20 @@ module.exports = class Unit {
                 characteristics,
                 defaultProfile,
                 profileName;
-                
+
             // hopefully fix some special cases where data creators named bracket profiles wrong
             // if there's only one kind of model in the unit, assume all the bracket profiles are for that model
-            if (Object.keys(this.models.models).length == 1 && 
+            if (Object.keys(this.models.models).length == 1 &&
                     Object.keys(this.modelProfiles).findIndex(name => !name.match(woundTrackWoundsRemainingRegex)) < 0) {
                 bracketProfiles[this.name] = Object.values(this.modelProfiles);
                 profileName = this.name;
             }
 
-            else { 
+            else {
                 for (const [name, profile] of Object.entries(this.modelProfiles)) {
                     if (name.match(woundTrackWoundsRemainingRegex)) {
                         profileName = name.match(woundTrackProfileNameRegex).groups.name.trim();
-                        if (!bracketProfiles[profileName]) 
+                        if (!bracketProfiles[profileName])
                             bracketProfiles[profileName] = [profile];
                         else
                             bracketProfiles[profileName].push(profile);
@@ -483,22 +483,24 @@ module.exports = class Unit {
                         // if the data creator just included the already formatted profile, ignore it
                         if (otherProfiles[profileName])
                             delete otherProfiles[profileName];
-                    } else if(name.match(woundTrackWoundsRemainingRegex2)){
+                    // This code wants to use woundTrackWoundsRemainingRegex2, but it doesn't exist.
+                    // A job for the future: figure out what it's supposed to be :-)
+                    /*} else if(name.match(woundTrackWoundsRemainingRegex2)){
                         profileName = name.match(woundTrackProfileNameRegex2).groups.name.trim();
-                        if (!bracketProfiles[profileName]) 
+                        if (!bracketProfiles[profileName])
                             bracketProfiles[profileName] = [profile];
                         else
                             bracketProfiles[profileName].push(profile);
 
                         // if the data creator just included the already formatted profile, ignore it
                         if (otherProfiles[profileName])
-                            delete otherProfiles[profileName];
+                            delete otherProfiles[profileName];*/
                     }
                     else
                         otherProfiles[name] = profile;
                 }
             }
-            
+
             this.woundTrack = {}; // set up a wound track
             this.modelProfiles = otherProfiles;
 
@@ -508,25 +510,25 @@ module.exports = class Unit {
             if (Object.keys(this.models.models).length == 1 && Object.keys(otherProfiles).length > 0)
                 for (const [key,profile] of Object.entries(otherProfiles))
                     this.models.add(new Model(key));
-            
+
             // sort the profiles so that we can be sure to pick the one that has the wounds for later
             for (const profiles of Object.values(bracketProfiles)) {
                 profiles.sort((a,b) => {
                     let aWounds = a.name.match(woundTrackWoundsRemainingRegex).groups.wounds,
                         bWounds = b.name.match(woundTrackWoundsRemainingRegex).groups.wounds;
-    
+
                     if (bWounds.indexOf("+") > 0) return 1;
                     if (aWounds.indexOf("+") > 0) return -1;
-    
+
                     let bMin = bWounds.match(bracketValueRegex).groups.min,
                         aMax = aWounds.match(bracketValueRegex).groups.max;
-    
+
                     return bMin - aMax;
                 });
             }
 
             let replaced = false;
-            
+
             for (const [name, profiles] of Object.entries(bracketProfiles)) {
                 this.woundTrack[profileName] = {};
                 characteristics = { m:[],ws:[],bs:[],s:[],t:[],w:[],a:[],ld:[],sv:[] };
@@ -537,9 +539,9 @@ module.exports = class Unit {
 
                     for (const model of this.models) {
                         if (model.name === bracket.name) {
-                            if (replaced) 
+                            if (replaced)
                                 this.models.remove(model.name);
-                                
+
                             else {
                                 replaced = true;
                                 model.name = profileName;
@@ -550,7 +552,7 @@ module.exports = class Unit {
                     for (const [key,characteristic] of Object.entries(bracket)){
                         if (key === "name")
                             this.woundTrack[profileName][characteristic.match(woundTrackWoundsRemainingRegex).groups.wounds] = [];
-                        
+
                         else if (characteristics[key])
                             characteristics[key].push(characteristic);
                     }
@@ -565,7 +567,7 @@ module.exports = class Unit {
 
                         for (const val of char)
                             this.woundTrack[profileName][bracketNames[current++]].push(val);
-                        
+
                         current = 0;
                     }
                     else
@@ -583,7 +585,7 @@ module.exports = class Unit {
      */
     sortWoundTracks () {
         if (!this.woundTrack) return;
-        
+
         let newTrack = {}
         for (const [name, track] of Object.entries(this.woundTrack)) {
             newTrack[name] = {};
@@ -596,7 +598,7 @@ module.exports = class Unit {
 
                 return bMin - aMax;
             });
-    
+
             for (const bracket of brackets)
                 newTrack[name][bracket] = this.woundTrack[name][bracket];
         }
@@ -641,7 +643,7 @@ module.exports = class Unit {
                     if (name.slice(0, -1) === model.name) { // remove the last letter and compare (ie remove "s" from a plural)
                         found.push({ wtName: name, modelName: model.name });
                         continue loop1;
-                    } 
+                    }
                 }
             }
 

@@ -6,6 +6,7 @@ const ModelCollection = require("./ModelCollection"),
     abilityTrimRegex = /(?:\d+(?:\.|:)|\d+\-\d+(?:\.|:))?\s*(?<ability>.+)/,
     woundTrackWoundsRemainingRegex = /(?<wounds>\d+\-\d+\+?|\d+\+)(?=\s*wounds(?: remaining)?)/i,
     woundTrackProfileNameRegex = /(?<name>^[^[\()]+?)\s*(?:(?:\[\d\]|\(\w\)| \w )\s*(?:\(\d+\-\d+\+?|\(\d+\+)|\s*\(\d+\-\d+\+?|\(\d+\+)/,
+    woundTrackProfileNameRegex2 = /(?<name>^[^[\()]+?)\s*(?:(?:\[\d\]|\(\w\)| \w )\s*(?:\(\d+\-\d+\+?|\[\d+\+)|\s*\(\d+\-\d+\+?|\(\d+\+)/,
     statDamageCheckRegex = /^stat damage /i,
     bracketValueRegex = /(?<min>\d+)\-(?<max>\d+)/,
     weaponToIgnoreRegex = /of the profiles below|select one of the following profiles|select one of the profiles/i,
@@ -272,7 +273,7 @@ module.exports = class Unit {
 
                         if (selectionData.$.type.toLowerCase() === "model" && 
                             selectionData.$.name !== profile.$.name &&
-                            !profile.$.name.match(woundTrackProfileNameRegex))
+                            !profile.$.name.match(woundTrackProfileNameRegex) || !profile.$.name.match(woundTrackProfileNameRegex2))
                             this.addModelProfileData(profile, selectionData.$.name);
                         else 
                             this.addModelProfileData(profile);
@@ -474,6 +475,16 @@ module.exports = class Unit {
                 for (const [name, profile] of Object.entries(this.modelProfiles)) {
                     if (name.match(woundTrackWoundsRemainingRegex)) {
                         profileName = name.match(woundTrackProfileNameRegex).groups.name.trim();
+                        if (!bracketProfiles[profileName]) 
+                            bracketProfiles[profileName] = [profile];
+                        else
+                            bracketProfiles[profileName].push(profile);
+
+                        // if the data creator just included the already formatted profile, ignore it
+                        if (otherProfiles[profileName])
+                            delete otherProfiles[profileName];
+                    } else if(name.match(woundTrackWoundsRemainingRegex2)){
+                        profileName = name.match(woundTrackProfileNameRegex2).groups.name.trim();
                         if (!bracketProfiles[profileName]) 
                             bracketProfiles[profileName] = [profile];
                         else

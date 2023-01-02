@@ -132,3 +132,6 @@ dist
 # VSCode
 .vscode
 *.code-workspace
+
+# Local rosters
+files/*

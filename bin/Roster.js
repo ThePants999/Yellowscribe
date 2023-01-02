@@ -9,6 +9,10 @@ module.exports.parse = (data) => {
     let units = new Map();
 
     for (const force of data[0].force) {
+        if (force.selections === undefined || force.selections.length !== 1) {
+            break;
+        }
+
         let armyUnitData = force.selections[0].selection.filter(hasUnitSomewhereRecursive);
 
         for (let unitData of armyUnitData) {

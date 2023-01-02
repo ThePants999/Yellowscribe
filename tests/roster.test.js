@@ -58,3 +58,10 @@ test("grey knight land raider", () => {
 test("servitors", () => {
     performRosterTest("sample-servitors.rosz");
 });
+
+test("empty roster", () => {
+    const fileContent = fs.readFileSync(path.join(__dirname, "../samples", "empty-roster.rosz"));
+    const roster = roszParse(fileContent);
+    expect(roster.units).toStrictEqual(new Map())
+    expect(roster.order).toHaveLength(0)
+})

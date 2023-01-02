@@ -19,10 +19,13 @@ module.exports = class Model {
         this.abilities.push(profileData.$.name.match(abilityTrimRegex).groups.ability);
     }
 
-    addWeaponData (weaponData, selection) {
+    addWeaponData (weaponData, selection, numberOfModelsInUnit) {
         let newMatch = weaponData.$.name.match(weaponNameWithoutNumberRegex).groups,
             selectionNumber = selection.$.name.match(weaponNameWithoutNumberRegex).groups.number,
-            newNumber = newMatch.number ? parseInt(newMatch.number, 10) : selectionNumber ? parseInt(selectionNumber, 10) : 1;
+            newNumber = newMatch.number ?
+                parseInt(newMatch.number, 10) / numberOfModelsInUnit : selectionNumber ?
+                    parseInt(selectionNumber, 10) / numberOfModelsInUnit : selection.$.number ?
+                        parseInt(selection.$.number, 10) / numberOfModelsInUnit : 1;
 
         for (const weapon of this.weapons) {
             if (weapon.name === newMatch.weaponName) {
@@ -34,7 +37,7 @@ module.exports = class Model {
         this.weapons.push({ name: newMatch.weaponName, number: newNumber });
     }
 
-    handleSelectionDataRecursive (selectionData) {
+    handleSelectionDataRecursive (selectionData, numberOfModelsInUnit) {
         for (const selection of selectionData[0].selection) {
             if (selection.profiles && selection.profiles[0] !== "")
                 for (const profile of selection.profiles[0].profile)
@@ -52,7 +55,7 @@ module.exports = class Model {
 
                             if (0 < ignore) continue;
 
-                            this.addWeaponData(profile, selection);
+                            this.addWeaponData(profile, selection, numberOfModelsInUnit);
                             break;
                         case "abilities":
                             this.addAbilityData(profile);
@@ -60,7 +63,7 @@ module.exports = class Model {
                     }
 
             if (selection.selections && selection.selections[0] !== "")
-                this.handleSelectionDataRecursive(selection.selections);
+                this.handleSelectionDataRecursive(selection.selections, numberOfModelsInUnit);
         }
     }
 

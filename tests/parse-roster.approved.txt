@@ -575,7 +575,7 @@
                         "weapons": [
                             {
                                 "name": "Twin volkite culverin",
-                                "number": 1
+                                "number": 2
                             }
                         ],
                         "number": 1
@@ -666,7 +666,7 @@
                         "weapons": [
                             {
                                 "name": "Twin volkite culverin",
-                                "number": 1
+                                "number": 2
                             }
                         ],
                         "number": 1
@@ -764,7 +764,7 @@
                         "weapons": [
                             {
                                 "name": "Plaguespurt gauntlet",
-                                "number": 1
+                                "number": 2
                             },
                             {
                                 "name": "Manreaper - Cleave",
@@ -925,7 +925,7 @@
                         "weapons": [
                             {
                                 "name": "Plaguespurt gauntlet",
-                                "number": 1
+                                "number": 2
                             },
                             {
                                 "name": "Manreaper - Cleave",

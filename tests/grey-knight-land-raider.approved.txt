@@ -30,7 +30,7 @@
                             },
                             {
                                 "name": "Twin Lascannon",
-                                "number": 1
+                                "number": 2
                             }
                         ],
                         "number": 1

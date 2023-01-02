@@ -4,7 +4,8 @@
             "name": "Celestine and Geminae Superia",
             "factionKeywords": [
                 "Imperium",
-                "Adeptus Ministorum"
+                "Adeptus Ministorum",
+                "Adepta Sororitas"
             ],
             "keywords": [
                 "Infantry",
@@ -14,8 +15,7 @@
                 "Sanctified",
                 "Jump Pack",
                 "Celestine",
-                "Geminae Superia",
-                "Adepta Sororitas"
+                "Geminae Superia"
             ],
             "abilities": {
                 "Lifewards": {
@@ -54,49 +54,6 @@
             "models": {
                 "models": {
                     "0101010101010101": {
-                        "name": "Celestine and Geminae Superia",
-                        "abilities": [
-                            "Lifewards",
-                            "Divine Guardians",
-                            "The Armour of Saint Katherine",
-                            "Miraculous Intervention",
-                            "Saintly Blessings (Aura)",
-                            "Sky Strike",
-                            "Angelic Saviour",
-                            "Healing Tears",
-                            "Acts of Faith",
-                            "Shield of Faith",
-                            "Sacred Rites"
-                        ],
-                        "weapons": [
-                            {
-                                "name": "The Ardent Blade (melee)",
-                                "number": 1
-                            },
-                            {
-                                "name": "The Ardent Blade (shooting)",
-                                "number": 1
-                            },
-                            {
-                                "name": "Bolt pistol",
-                                "number": 1
-                            },
-                            {
-                                "name": "Frag grenades",
-                                "number": 1
-                            },
-                            {
-                                "name": "Krak grenades",
-                                "number": 1
-                            },
-                            {
-                                "name": "Power sword",
-                                "number": 1
-                            }
-                        ],
-                        "number": 1
-                    },
-                    "0202020202020202": {
                         "name": "Celestine",
                         "abilities": [
                             "Lifewards",
@@ -109,7 +66,8 @@
                             "Healing Tears",
                             "Acts of Faith",
                             "Shield of Faith",
-                            "Sacred Rites"
+                            "Sacred Rites",
+                            "Armour of Contempt"
                         ],
                         "weapons": [
                             {
@@ -123,7 +81,7 @@
                         ],
                         "number": 1
                     },
-                    "0303030303030303": {
+                    "0202020202020202": {
                         "name": "Geminae Superia",
                         "abilities": [
                             "Lifewards",
@@ -136,7 +94,8 @@
                             "Healing Tears",
                             "Acts of Faith",
                             "Shield of Faith",
-                            "Sacred Rites"
+                            "Sacred Rites",
+                            "Armour of Contempt"
                         ],
                         "weapons": [
                             {
@@ -159,7 +118,7 @@
                         "number": 2
                     }
                 },
-                "totalNumberOfModels": 4
+                "totalNumberOfModels": 3
             },
             "modelProfiles": {
                 "Celestine": {
@@ -246,12 +205,13 @@
             "rules": [
                 "Acts of Faith",
                 "Shield of Faith",
-                "Sacred Rites"
+                "Sacred Rites",
+                "Armour of Contempt"
             ],
             "uuid": "00000000",
             "unassignedWeapons": [],
             "pl": 10,
-            "isSingleModel": true
+            "isSingleModel": false
         }
     },
     "order": [

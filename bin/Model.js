@@ -39,6 +39,13 @@ module.exports = class Model {
 
     handleSelectionDataRecursive (selectionData, numberOfModelsInUnit) {
         for (const selection of selectionData[0].selection) {
+            if (selection.$.type.toLowerCase() == "model") {
+                // If there are models within models, don't recurse into
+                // the child models while building the parent model - we'll
+                // pick up the children later.
+                continue;
+            }
+
             if (selection.profiles && selection.profiles[0] !== "")
                 for (const profile of selection.profiles[0].profile)
                     switch (profile.$.typeName.toLowerCase()) {

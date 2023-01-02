@@ -31,8 +31,8 @@
                     "0101010101010101": {
                         "name": "Commander in XV8 Crisis Battlesuit",
                         "abilities": [
-                            "Threat Identification Protocols",
                             "Master of War",
+                            "Threat Identification Protocols",
                             "For the Greater Good",
                             "Manta Strike",
                             "Saviour Protocols",
@@ -46,10 +46,6 @@
                             {
                                 "name": "Missile pod",
                                 "number": 1
-                            },
-                            {
-                                "name": "Pulse carbine",
-                                "number": 4
                             }
                         ],
                         "number": 1
@@ -58,6 +54,7 @@
                         "name": "MV1 Gun Drone",
                         "abilities": [
                             "Master of War",
+                            "Threat Identification Protocols",
                             "For the Greater Good",
                             "Manta Strike",
                             "Saviour Protocols",

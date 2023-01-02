@@ -136,3 +136,4 @@ dist
 # Local rosters
 files/*.ros
 files/*.rosz
+files/*.json

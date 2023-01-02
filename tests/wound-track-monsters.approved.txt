@@ -312,147 +312,6 @@
             ]
         },
         "02020202": {
-            "name": "Maleceptor",
-            "factionKeywords": [
-                "Hive Tendril",
-                "Tyranids",
-                "<Hive Fleet>"
-            ],
-            "keywords": [
-                "Monster",
-                "Psyker",
-                "Synapse",
-                "Horned Chitin"
-            ],
-            "abilities": {
-                "Psychic Overload": {
-                    "name": "Psychic Overload",
-                    "desc": "Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12\\\" suffers the number of mortal wounds shown in the table below."
-                },
-                "Encephalic Diffusion": {
-                    "name": "Encephalic Diffusion",
-                    "desc": "This unit can attempt to perform the following psychic action:\n\nEncephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:\n\nDiffusion Field (Aura): While a friendly <HIVE FLEET> unit is within 6\\\" of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack."
-                },
-                "Shadow in the Warp (Aura)": {
-                    "name": "Shadow in the Warp (Aura)",
-                    "desc": "While an enemy PSYKER unit is within 18\\\" of this unit:\n• Subtract 1 from Psychic tests taken for that enemy unit.\n• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound."
-                },
-                "Psychic Barrier": {
-                    "name": "Psychic Barrier",
-                    "desc": "This model has a 4+ invulnerable save."
-                },
-                "Synapse (Aura)": {
-                    "name": "Synapse (Aura)",
-                    "desc": "While a friendly <HIVE FLEET> unit is within 6\\\" of this unit, that unit automatically passes Morale tests."
-                },
-                "Death Throes (6\"/D3)": {
-                    "name": "Death Throes (6\\\"/D3)",
-                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
-                }
-            },
-            "models": {
-                "models": {
-                    "0808080808080808": {
-                        "name": "Maleceptor",
-                        "abilities": [
-                            "Psychic Overload",
-                            "Encephalic Diffusion",
-                            "Shadow in the Warp (Aura)",
-                            "Psychic Barrier",
-                            "Synapse (Aura)",
-                            "Death Throes (6\"/D3)"
-                        ],
-                        "weapons": [
-                            {
-                                "name": "Massive Scything Talons (Sweep)",
-                                "number": 1
-                            },
-                            {
-                                "name": "Massive Scything Talons (Strike)",
-                                "number": 1
-                            }
-                        ],
-                        "number": 1
-                    }
-                },
-                "totalNumberOfModels": 1
-            },
-            "modelProfiles": {
-                "Maleceptor": {
-                    "name": "Maleceptor",
-                    "m": "*",
-                    "ws": "*",
-                    "bs": "*",
-                    "s": "7",
-                    "t": "8",
-                    "w": "15",
-                    "a": "3",
-                    "ld": "10",
-                    "sv": "3+"
-                }
-            },
-            "weapons": {
-                "Massive Scything Talons (Sweep)": {
-                    "name": "Massive Scything Talons (Sweep)",
-                    "range": "Melee",
-                    "type": "Melee",
-                    "s": "User",
-                    "ap": "-3",
-                    "d": "2",
-                    "abilities": "Each time an attack is made with this profile, make 2 hit rolls instead of 1."
-                },
-                "Massive Scything Talons (Strike)": {
-                    "name": "Massive Scything Talons (Strike)",
-                    "range": "Melee",
-                    "type": "Melee",
-                    "s": "+3",
-                    "ap": "-4",
-                    "d": "2D3",
-                    "abilities": "-"
-                }
-            },
-            "rules": [],
-            "uuid": "02020202",
-            "unassignedWeapons": [],
-            "pl": 9,
-            "isSingleModel": true,
-            "psykerProfiles": [
-                {
-                    "name": "Maleceptor",
-                    "cast": "2",
-                    "deny": "2",
-                    "known": "Smite + 2 Hive Mind",
-                    "other": "-"
-                }
-            ],
-            "woundTrack": {
-                "Maleceptor": {
-                    "8+": [
-                        "8\"",
-                        "7\"",
-                        "3+",
-                        "4+",
-                        "3+",
-                        "4+"
-                    ],
-                    "5-7": [
-                        "5\"",
-                        "5+",
-                        "5+"
-                    ],
-                    "1-4": []
-                }
-            },
-            "powersKnown": [
-                {
-                    "name": "Smite",
-                    "warpCharge": "5",
-                    "range": "18\"",
-                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
-                }
-            ]
-        },
-        "03030303": {
             "name": "Dimachaeron",
             "factionKeywords": [
                 "Hive Tendril",
@@ -482,7 +341,7 @@
             },
             "models": {
                 "models": {
-                    "0909090909090909": {
+                    "0808080808080808": {
                         "name": "Dimachaeron",
                         "abilities": [
                             "Digestion Spine",
@@ -540,7 +399,7 @@
                 }
             },
             "rules": [],
-            "uuid": "03030303",
+            "uuid": "02020202",
             "unassignedWeapons": [],
             "pl": 14,
             "isSingleModel": true,
@@ -564,7 +423,7 @@
                 }
             }
         },
-        "04040404": {
+        "03030303": {
             "name": "Exocrine",
             "factionKeywords": [
                 "Hive Tendril",
@@ -586,7 +445,7 @@
             },
             "models": {
                 "models": {
-                    "0a0a0a0a0a0a0a0a": {
+                    "0909090909090909": {
                         "name": "Exocrine",
                         "abilities": [
                             "Symbiotic Targeting",
@@ -642,7 +501,7 @@
                 }
             },
             "rules": [],
-            "uuid": "04040404",
+            "uuid": "03030303",
             "unassignedWeapons": [],
             "pl": 9,
             "isSingleModel": true,
@@ -666,7 +525,7 @@
                 }
             }
         },
-        "05050505": {
+        "04040404": {
             "name": "Harpy",
             "factionKeywords": [
                 "Hive Tendril",
@@ -706,7 +565,7 @@
             },
             "models": {
                 "models": {
-                    "0b0b0b0b0b0b0b0b": {
+                    "0a0a0a0a0a0a0a0a": {
                         "name": "Harpy",
                         "abilities": [
                             "Spore Mine Cysts",
@@ -779,7 +638,7 @@
                 }
             },
             "rules": [],
-            "uuid": "05050505",
+            "uuid": "04040404",
             "unassignedWeapons": [],
             "pl": 9,
             "isSingleModel": true,
@@ -802,6 +661,148 @@
                     ]
                 }
             }
+        },
+        "05050505": {
+            "name": "Maleceptor",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Monster",
+                "Psyker",
+                "Synapse",
+                "Horned Chitin"
+            ],
+            "abilities": {
+                "Psychic Overload": {
+                    "name": "Psychic Overload",
+                    "desc": "Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12\\\" suffers the number of mortal wounds shown in the table below."
+                },
+                "Encephalic Diffusion": {
+                    "name": "Encephalic Diffusion",
+                    "desc": "This unit can attempt to perform the following psychic action:\n\nEncephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:\n\nDiffusion Field (Aura): While a friendly <HIVE FLEET> unit is within 6\\\" of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack."
+                },
+                "Shadow in the Warp (Aura)": {
+                    "name": "Shadow in the Warp (Aura)",
+                    "desc": "While an enemy PSYKER unit is within 18\\\" of this unit:\n• Subtract 1 from Psychic tests taken for that enemy unit.\n• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound."
+                },
+                "Psychic Barrier": {
+                    "name": "Psychic Barrier",
+                    "desc": "This model has a 4+ invulnerable save."
+                },
+                "Synapse (Aura)": {
+                    "name": "Synapse (Aura)",
+                    "desc": "While a friendly <HIVE FLEET> unit is within 6\\\" of this unit, that unit automatically passes Morale tests."
+                },
+                "Death Throes (6\"/D3)": {
+                    "name": "Death Throes (6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "0b0b0b0b0b0b0b0b": {
+                        "name": "Maleceptor",
+                        "abilities": [
+                            "Psychic Overload",
+                            "Encephalic Diffusion",
+                            "Shadow in the Warp (Aura)",
+                            "Psychic Barrier",
+                            "Synapse (Aura)",
+                            "Death Throes (6\"/D3)"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Massive Scything Talons (Sweep)",
+                                "number": 1
+                            },
+                            {
+                                "name": "Massive Scything Talons (Strike)",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Maleceptor": {
+                    "name": "Maleceptor",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "8",
+                    "w": "15",
+                    "a": "3",
+                    "ld": "10",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Massive Scything Talons (Sweep)": {
+                    "name": "Massive Scything Talons (Sweep)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this profile, make 2 hit rolls instead of 1."
+                },
+                "Massive Scything Talons (Strike)": {
+                    "name": "Massive Scything Talons (Strike)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-4",
+                    "d": "2D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "05050505",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Maleceptor",
+                    "cast": "2",
+                    "deny": "2",
+                    "known": "Smite + 2 Hive Mind",
+                    "other": "-"
+                }
+            ],
+            "woundTrack": {
+                "Maleceptor": {
+                    "8+": [
+                        "8\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "5-7": [
+                        "7\"",
+                        "4+",
+                        "4+"
+                    ],
+                    "1-4": [
+                        "5\"",
+                        "5+",
+                        "5+"
+                    ]
+                }
+            },
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
         }
     },
     "order": [

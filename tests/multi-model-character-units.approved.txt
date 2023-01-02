@@ -1,0 +1,543 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Dark Apostle",
+            "factionKeywords": [
+                "Chaos Undivided",
+                "Chaos",
+                "Heretic Astartes",
+                "Traitoris Astartes"
+            ],
+            "keywords": [
+                "Priest",
+                "Infantry",
+                "Character",
+                "Dark Apostle"
+            ],
+            "abilities": {
+                "Icons of Destruction": {
+                    "name": "Icons of Destruction",
+                    "desc": "Models in this unit have a 4+ invulnerable save."
+                },
+                "Demagogue (Aura)": {
+                    "name": "Demagogue (Aura)",
+                    "desc": "While a friendly <LEGION> CORE, <LEGION> DAEMONKIN or <LEGION> CULTISTS unit is within 6\\\" of this model, models in that unit can use this model's Leadership characteristic instead of their own."
+                },
+                "Priest": {
+                    "name": "Priest",
+                    "desc": "This unit's DARK APOSTLE model knows Dark Zealotry and one other prayer from the Prayers to the Dark Gods. In your Command phase, this unit's DARK APOSTLE model can attempt to chant one prayer it knows that has not already been attempted by a friendly model this turn. Roll one D6: on a 3+, the prayer is heard and takes effect until the start of your next Command phase. Each time a prayer chanted by this unit's DARK APOSTLE model is heard, measure distances and draw line of sight from that DARK APOSTLE model."
+                },
+                "Dark Disciples": {
+                    "name": "Dark Disciples",
+                    "desc": "Each time this unit chants a prayer, if this unit contains any DARK DISCIPLES models, add 1 to the dice roll to determine if that prayer is heard. The destruction of Dark Disciple models is ignored for the purposes of Morale tests. If this unit's DARK APOSTLE model is ever destroyed, all remaining DARK DISCIPLE models in this unit are also destroyed."
+                }
+            },
+            "models": {
+                "models": {
+                    "0303030303030303": {
+                        "name": "Dark Disciple",
+                        "abilities": [
+                            "Let the Galaxy Burn"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Close combat weapon",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    },
+                    "0404040404040404": {
+                        "name": "Dark Apostle",
+                        "abilities": [
+                            "Icons of Destruction",
+                            "Demagogue (Aura)",
+                            "Priest",
+                            "Dark Disciples",
+                            "Let the Galaxy Burn"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Accursed crozius",
+                                "number": 1
+                            },
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Dark Apostle": {
+                    "name": "Dark Apostle",
+                    "m": "6\"",
+                    "ws": "2+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "5",
+                    "a": "5",
+                    "ld": "10",
+                    "sv": "3+"
+                },
+                "Dark Disciple": {
+                    "name": "Dark Disciple",
+                    "m": "6\"",
+                    "ws": "4+",
+                    "bs": "4+",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "6",
+                    "sv": "6+"
+                }
+            },
+            "weapons": {
+                "Close combat weapon": {
+                    "name": "Close combat weapon",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Accursed crozius": {
+                    "name": "Accursed crozius",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+2",
+                    "ap": "-1",
+                    "d": "2",
+                    "abilities": "-"
+                },
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Let the Galaxy Burn"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 5,
+            "isSingleModel": false
+        },
+        "01010101": {
+            "name": "Brôkhyr Iron-master",
+            "factionKeywords": [
+                "Votann"
+            ],
+            "keywords": [
+                "Infantry",
+                "Character",
+                "Ironkin Assistant",
+                "COG",
+                "E-COG",
+                "Brôkhyr Iron-master"
+            ],
+            "abilities": {
+                "E-COG Support": {
+                    "name": "E-COG Support",
+                    "desc": "Each time this unit uses it's Brôkhyr's Guild ability, if this unit contains one or more E-COG models, the model being repaired regains one additional lost wound.\n\nThe destruction of an E-COG is ignored for the purposes of Morale tests. If this unit's BRÔKYR IRON-MASTER model is ever destroyed, all of this unit's remaining E-COG models are also destroyed."
+                },
+                "Brôkhyr's Guild": {
+                    "name": "Brôkhyr's Guild",
+                    "desc": "At the end of your Movement phase, this unit can repair one friendly <LEAGUE> VEHICLE or <LEAGUE> EXO-FRAME model within 3\\\" of it. That model regains up to D3 lost wounds. Each model can only be repaired once per turn."
+                },
+                "Multi-spectral Visor": {
+                    "name": "Multi-spectral Visor",
+                    "desc": "In your Command phase, if this unit contains a BRÔKYR IRON-MASTER model, you can select one friendly <LEAGUE> CORE or <LEAGUE> VEHICLE model within 9\\\" of this unit. If you do so, until the start of your next Command phase, each time a model in that friendly unit makes an attack with a ranged weapon, add 1 to that attack's hit roll."
+                },
+                "Ironkin Assistant": {
+                    "name": "Ironkin Assistant",
+                    "desc": "While this unit contains an IRONKIN ASSISTANT model, this unit can perform actions even if it has Advanced, and it can shoot without its action failing."
+                }
+            },
+            "models": {
+                "models": {
+                    "0505050505050505": {
+                        "name": "Ironkin Assistant",
+                        "abilities": [
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour",
+                            "Beam weapons"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Las-beam cutter",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0606060606060606": {
+                        "name": "E-COG",
+                        "abilities": [
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour",
+                            "Beam weapons"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Autoch-pattern bolt pistol",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0707070707070707": {
+                        "name": "E-COG",
+                        "abilities": [
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour",
+                            "Beam weapons"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Manipulator arms",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0808080808080808": {
+                        "name": "E-COG",
+                        "abilities": [
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour",
+                            "Beam weapons"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plasma torch",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0909090909090909": {
+                        "name": "Brôkhyr Iron-master",
+                        "abilities": [
+                            "E-COG Support",
+                            "Brôkhyr's Guild",
+                            "Multi-spectral Visor",
+                            "Ironkin Assistant",
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour",
+                            "Beam weapons"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Graviton rifle",
+                                "number": 1
+                            },
+                            {
+                                "name": "Graviton hammer",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 5
+            },
+            "modelProfiles": {
+                "Brôkhyr Iron-master": {
+                    "name": "Brôkhyr Iron-master",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "4",
+                    "a": "3",
+                    "ld": "9",
+                    "sv": "4+"
+                },
+                "Ironkin Assistant": {
+                    "name": "Ironkin Assistant",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "2",
+                    "ld": "9",
+                    "sv": "4+"
+                },
+                "E-COG": {
+                    "name": "E-COG",
+                    "m": "5\"",
+                    "ws": "4+",
+                    "bs": "4+",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "9",
+                    "sv": "4+"
+                }
+            },
+            "weapons": {
+                "Las-beam cutter": {
+                    "name": "Las-beam cutter",
+                    "range": "9\"",
+                    "type": "Pistol 1",
+                    "s": "6",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "Beam"
+                },
+                "Autoch-pattern bolt pistol": {
+                    "name": "Autoch-pattern bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Manipulator arms": {
+                    "name": "Manipulator arms",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Each time the bearer fights, it makes 2 additional attacks with this weapon."
+                },
+                "Plasma torch": {
+                    "name": "Plasma torch",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+4",
+                    "ap": "-4",
+                    "d": "2",
+                    "abilities": "-"
+                },
+                "Graviton rifle": {
+                    "name": "Graviton rifle",
+                    "range": "18\"",
+                    "type": "HunTR 3",
+                    "s": "5",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Each time an attack made with this weapon is allocated to a model with a Save characteristic of 3+ or better, that attack has a Damage characteristic of 3."
+                },
+                "Graviton hammer": {
+                    "name": "Graviton hammer",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "x2",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Each time an attack made with this weapon is allocated to a model with a Save characteristic of 3+ or better, that attack has a Damage characteristic of 3."
+                }
+            },
+            "rules": [
+                "Eye of the Ancestors",
+                "Steady Advance",
+                "Void Armour",
+                "Beam weapons"
+            ],
+            "uuid": "01010101",
+            "unassignedWeapons": [],
+            "pl": 4,
+            "isSingleModel": false
+        },
+        "02020202": {
+            "name": "Grimnyr",
+            "factionKeywords": [
+                "Votann"
+            ],
+            "keywords": [
+                "Infantry",
+                "COG",
+                "CORV",
+                "Character",
+                "Psyker",
+                "Shield Crest",
+                "Grimnyr"
+            ],
+            "abilities": {
+                "Ancestral Ward Crest": {
+                    "name": "Ancestral Ward Crest",
+                    "desc": "Each model in this unit has a 4+ invulnerable save."
+                },
+                "Grimnyr's Regard (Aura)": {
+                    "name": "Grimnyr's Regard (Aura)",
+                    "desc": "While a friendly <LEAGUE> CORE unit is within 6\\\" of this unit, add 1 to Combat Attrition tests taken for that unit."
+                },
+                "CORV Support": {
+                    "name": "CORV Support",
+                    "desc": "Each time this unit suffers Perils of the Warp, if this unit contains 1 or more CORV models, 1 of those models is destroyed and the effect(s) of that Perils of the Warp is ignored.\n\nThe destruction of a CORV model is ignored for the purposes of Morale tests. If this unit's GRIMNYR model is ever destroyed, all of this unit's remaining CORV models are also destroyed."
+                }
+            },
+            "models": {
+                "models": {
+                    "0a0a0a0a0a0a0a0a": {
+                        "name": "CORV",
+                        "abilities": [
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Autoch-pattern bolter",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    },
+                    "0b0b0b0b0b0b0b0b": {
+                        "name": "Grimnyr",
+                        "abilities": [
+                            "Ancestral Ward Crest",
+                            "Grimnyr's Regard (Aura)",
+                            "CORV Support",
+                            "Eye of the Ancestors",
+                            "Steady Advance",
+                            "Void Armour"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Ancestral ward stave",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Grimnyr": {
+                    "name": "Grimnyr",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "4",
+                    "a": "2",
+                    "ld": "9",
+                    "sv": "4+"
+                },
+                "CORV": {
+                    "name": "CORV",
+                    "m": "5\"",
+                    "ws": "4+",
+                    "bs": "4+",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "6",
+                    "sv": "4+"
+                }
+            },
+            "weapons": {
+                "Ancestral ward stave": {
+                    "name": "Ancestral ward stave",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-2",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Autoch-pattern bolter": {
+                    "name": "Autoch-pattern bolter",
+                    "range": "24\"",
+                    "type": "HunTR 2",
+                    "s": "4",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Eye of the Ancestors",
+                "Steady Advance",
+                "Void Armour"
+            ],
+            "uuid": "02020202",
+            "unassignedWeapons": [],
+            "pl": 4,
+            "isSingleModel": false,
+            "psykerProfiles": [
+                {
+                    "name": "Grimnyr",
+                    "cast": "2",
+                    "deny": "1",
+                    "known": "Smite and two powers from the Skeinwrought discipline",
+                    "other": "-"
+                },
+                {
+                    "name": "Grimnyr",
+                    "cast": "2",
+                    "deny": "1",
+                    "known": "Smite and two powers from the Skeinwrought discipline"
+                }
+            ],
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "Smite has a warp charge value of 5. If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds (pg 181). If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        }
+    },
+    "order": [
+        "00000000",
+        "01010101",
+        "02020202"
+    ]
+}

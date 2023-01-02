@@ -67,6 +67,10 @@ test("hemlock", () => {
     performRosterTest("sample-hemlock.ros");
 });
 
+test("multi-model character units", () => {
+    performRosterTest("sample-character-units.ros");
+});
+
 test("empty roster", () => {
     const fileContent = fs.readFileSync(path.join(__dirname, "../samples", "empty-roster.rosz"));
     const roster = roszParse(fileContent);

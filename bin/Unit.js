@@ -14,6 +14,7 @@ const ModelCollection = require("./ModelCollection"),
 
     keywordsToIgnore = ["HQ", "Troops", "Elites", "Fast Attack", "Heavy Support", "Flyer", "Dedicated Transport", "Lord of War", "No Force Org Slot", "Warlord"];
 const arrayUtils = require("./arrayUtils");
+const Model = require("./Model");
 
 module.exports = class Unit {
     name;
@@ -324,6 +325,9 @@ module.exports = class Unit {
 
                         this.powersKnown.push(power);
                         break;
+                    case "psychic overload":
+                        // Maleceptor nonsense. Skiiiip
+                        break;
                     default:
                         // Special Cases
                         let isStatDamage = statDamageCheckRegex.test(profile.$.typeName.toLowerCase())
@@ -374,6 +378,7 @@ module.exports = class Unit {
     }
 
     update () {
+        this.checkForMissingModels();
         this.addAbilitiesToAllModels();
         this.checkWeapons();
         this.checkForStrangeWoundTrackFormatting();
@@ -384,6 +389,45 @@ module.exports = class Unit {
         this.checkModelNames();
 
         return this;
+    }
+
+    /**
+     * Checks to see whether we have any model profiles (other than wound track profiles)
+     * with no matching models. If we do, it's likely because there's supposed to be a
+     * model for it, so create one.
+     */
+    checkForMissingModels () {
+        for (const profile of Object.keys(this.modelProfiles)) {
+            let profileLower = profile.toLowerCase();
+            // We're not interested in wound track profiles, and we need a somewhat fuzzy
+            // match to avoid false positives.
+            if (!profile.match(woundTrackProfileNameRegex)) {
+                let found = false;
+                for (const model of Object.keys(this.models.models)) {
+                    let modelLower = model.toLowerCase();
+                    if (profileLower.includes(modelLower) || modelLower.includes(profileLower)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    // Found a profile with no model!
+                    let newModel = new Model(profile, 1);
+
+                    // For a stab at what weapons this model has, let's assume it owns all of
+                    // the unassigned weapons.
+                    this.checkWeapons();
+                    newModel.setWeapons(this.unassignedWeapons);
+                    this.unassignedWeapons = [];
+
+                    // And all of the abilities on the unit.
+                    newModel.abilities = Object.keys(this.abilities);
+
+                    this.models.add(newModel);
+                }
+            }
+        }
     }
 
     /**

@@ -6,7 +6,7 @@
     <cost name="pts" typeId="points" value="1300.0"/>
   </costs>
   <forces>
-    <force id="6219-7dc5-a214-8a18" name="Patrol Detachment -2CP" entryId="a0c7-2a71-bae0-215d" catalogueId="7150-5917-ae80-68c5" catalogueRevision="109" catalogueName="Tyranids">
+    <force id="6219-7dc5-a214-8a18" name="Patrol Detachment -2CP" entryId="a0c7-2a71-bae0-215d" catalogueId="7150-5917-ae80-68c5" catalogueRevision="110" catalogueName="Tyranids">
       <selections>
         <selection id="ed28-1ac9-9f28-5222" name="Hive Fleet" entryId="9e04-2019-313e-0259::1e74-63b9-9478-0dc8" number="1" type="upgrade">
           <profiles>
@@ -29,7 +29,7 @@ If your hive fleet does not have an associated Hive Fleet Adaptation, you must i
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="f841-4855-f299-98cf" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+            <category id="7f94-7c4c-5f8f-2a53" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
           </categories>
         </selection>
         <selection id="962e-2d5e-75f0-ee00" name="Game Type" entryId="4bcc-b0f4-b425-f38e::bf09-85b2-c097-1071" number="1" type="upgrade">
@@ -39,7 +39,7 @@ If your hive fleet does not have an associated Hive Fleet Adaptation, you must i
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="07e5-3f71-7069-4b30" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+            <category id="e102-0e9b-d9f5-d478" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
           </categories>
         </selection>
         <selection id="41cf-209a-c4c9-9ff8" name="Detachment Command Cost" entryId="ec87-f19e-eee2-1ba8::9d97-2793-9882-d48a" number="1" type="upgrade">
@@ -49,7 +49,7 @@ If your hive fleet does not have an associated Hive Fleet Adaptation, you must i
             <cost name="pts" typeId="points" value="0.0"/>
           </costs>
           <categories>
-            <category id="d302-b704-a793-0d74" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+            <category id="49c8-bc7c-97c4-a0c5" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
           </categories>
         </selection>
         <selection id="8c7d-f964-8f76-ede0" name="Winged Hive Tyrant" entryId="14dd-83d3-99c9-b392::d0f1-4f2b-4aa2-e6c6" number="1" type="model">
@@ -192,7 +192,7 @@ If your hive fleet does not have an associated Hive Fleet Adaptation, you must i
                 <cost name="pts" typeId="points" value="0.0"/>
               </costs>
               <categories>
-                <category id="7972-32ef-c57c-0ce8" name="Lash Whip" entryId="040b-ae3f-7441-826f" primary="false"/>
+                <category id="95b1-662a-99ad-0627" name="Lash Whip" entryId="040b-ae3f-7441-826f" primary="false"/>
               </categories>
             </selection>
           </selections>
@@ -202,17 +202,17 @@ If your hive fleet does not have an associated Hive Fleet Adaptation, you must i
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="3364-a1ed-7ce2-0f69" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="d03c-39a9-628d-b437" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="ffef-4cf9-49c4-5310" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="387c-489a-bbd1-76bd" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
-            <category id="c4e0-60ec-19d6-0c5b" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="e501-ed64-572c-27b0" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
-            <category id="0d71-9338-664c-16b1" name="Hive Tyrant" entryId="9c32-eba0-ea9e-1e0d" primary="false"/>
-            <category id="2e46-7a01-1fbd-17c7" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
-            <category id="4847-f94f-6323-8f06" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
-            <category id="8b0f-c78c-9376-0305" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
-            <category id="3cb0-5f39-09de-72b2" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+            <category id="6bbe-7024-020a-cf42" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="16a3-3081-2bca-8fb3" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="13c8-9348-01b9-2eff" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="7c70-a0b7-9cc4-f370" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="0a96-652e-8167-1f5a" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="6031-c2fb-6ed4-e2f6" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="2bb1-75b7-dad1-e4af" name="Hive Tyrant" entryId="9c32-eba0-ea9e-1e0d" primary="false"/>
+            <category id="d429-cae4-cf86-47ab" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="d3ba-e703-a863-92b5" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
+            <category id="aebe-b5b3-07e4-aa45" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
+            <category id="111a-f477-4ad2-d7bb" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
           </categories>
         </selection>
         <selection id="9447-e9ea-af5f-68a1" name="Tervigon" entryId="2f34-dcaf-2024-c917::0507-f341-5267-7cc5" number="1" type="model">
@@ -357,162 +357,14 @@ TERVIGONS within range of a friendly &lt;HIVE FLEET&gt; TERMAGANT unit&apos;s Wa
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="f6c3-6205-341c-f626" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="7d58-6f73-64b8-d5d5" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="f4ec-893a-d209-d9a6" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="5496-7856-5e53-0c62" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
-            <category id="2483-152d-dc84-5c84" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
-            <category id="5d94-2189-0347-b11c" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="40f1-f69f-e093-4d40" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
-            <category id="5cd6-723c-b433-ce1f" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
-          </categories>
-        </selection>
-        <selection id="ffbe-d313-253c-c2aa" name="Maleceptor" entryId="7965-0c0a-9605-535c::9801-59fc-296b-6b85" number="1" type="model">
-          <profiles>
-            <profile id="7965-0c0a-9605-535c::6e66-da32-a0e0-c98b" name="Maleceptor [1] (8+ wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
-              <characteristics>
-                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
-                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
-                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
-                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
-                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
-                <characteristic name="W" typeId="f330-5e6e-4110-0978">15</characteristic>
-                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
-                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
-                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::9936-a63a-f160-7106" name="Maleceptor" page="" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
-              <characteristics>
-                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">2</characteristic>
-                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">2</characteristic>
-                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Hive Mind</characteristic>
-                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::17ce-9710-1b84-6205" name="Psychic Overload" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12&quot; suffers the number of mortal wounds shown in the table below.</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::89ff-8d48-a161-583d" name="Maleceptor [2] (5-7 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
-              <characteristics>
-                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">7&quot;</characteristic>
-                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
-                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
-                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
-                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
-                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
-                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
-                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
-                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::1249-ce3f-2e82-2c72" name="Maleceptor [3] (1-4 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
-              <characteristics>
-                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">5&quot;</characteristic>
-                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
-                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
-                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
-                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
-                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
-                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
-                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
-                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::8955-23e7-6546-16ae" name="(1) 8+ Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
-              <characteristics>
-                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">3</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::897d-b8a6-0eef-fce2" name="(2) 5-7 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
-              <characteristics>
-                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">2</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::18af-6467-e498-3dda" name="(3) 1-4 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
-              <characteristics>
-                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">1</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::a3e8-4a4a-48d9-8ad7" name="Encephalic Diffusion" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This unit can attempt to perform the following psychic action:
-
-Encephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:
-
-Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack.</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::6df4-7069-19d7-09ad::f587-afe6-7bbe-4eac" name="Shadow in the Warp (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While an enemy PSYKER unit is within 18&quot; of this unit:
-• Subtract 1 from Psychic tests taken for that enemy unit.
-• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound.</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::bf35-d585-9a2a-87ad::4df2-766b-6931-c259" name="Psychic Barrier" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This model has a 4+ invulnerable save.</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::612d-af1b-2a07-3fd1::1f08-bd8f-43a3-ce1b" name="Synapse (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this unit, that unit automatically passes Morale tests.</characteristic>
-              </characteristics>
-            </profile>
-            <profile id="7965-0c0a-9605-535c::48a8-7439-7e82-2609::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
-              <characteristics>
-                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <selections>
-            <selection id="4523-4abd-41a9-b5ab" name="Massive Scything Talons" entryId="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::f906-1281-9e25-d59e" number="1" type="upgrade">
-              <profiles>
-                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::1886-3394-5c0a-9f84::bc0b-38c4-9cce-e264" name="Massive Scything Talons (Sweep)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
-                  <characteristics>
-                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
-                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
-                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
-                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
-                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
-                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time an attack is made with this profile, make 2 hit rolls instead of 1.</characteristic>
-                  </characteristics>
-                </profile>
-                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::31db-b4a5-7787-e5ee::d5ee-735d-0c0d-782b" name="Massive Scything Talons (Strike)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
-                  <characteristics>
-                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
-                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
-                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
-                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
-                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2D3</characteristic>
-                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <costs>
-                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
-                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
-                <cost name="pts" typeId="points" value="0.0"/>
-              </costs>
-            </selection>
-          </selections>
-          <costs>
-            <cost name="pts" typeId="points" value="220.0"/>
-            <cost name=" PL" typeId="e356-c769-5920-6e14" value="9.0"/>
-            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
-          </costs>
-          <categories>
-            <category id="81f6-bea3-c490-0bbb" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="f1fa-1f36-4015-8aba" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="86dc-5253-1bfa-a2f9" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="6ba7-35f4-4017-aabd" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="5c9a-b213-2432-45e8" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
-            <category id="5e03-e053-5722-db7e" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
-            <category id="b9de-8601-9827-5ead" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
-            <category id="9b37-2a99-28d1-432f" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="true"/>
+            <category id="c40a-5d22-03bc-f9b4" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="1550-6c85-8c10-de6c" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="cfdf-de61-2cc0-1d4b" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="e537-deb4-8ffe-b894" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="6913-6cfb-3586-5795" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="05ca-2daa-3468-fd57" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="ca4c-3b6f-35a0-fb89" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="4a2a-ab48-db32-45be" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
           </categories>
         </selection>
         <selection id="b42a-c584-8e9f-d7ee" name="Dimachaeron" entryId="c5f6-b2a2-b2da-1093::31b7-cfad-2be9-9997" number="1" type="model">
@@ -623,11 +475,11 @@ Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quo
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="3f1f-f36d-8e28-1c14" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="d4c7-6bcd-f4a3-0755" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="641d-1983-0059-6d33" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="7bce-2eaa-c37a-8772" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="bf87-758a-757a-a753" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="true"/>
+            <category id="d7a4-bdad-a53d-ba17" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="f6f9-e2ff-5ac5-faa9" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="8bed-2bd3-5c1f-da2c" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="2651-bcfc-7a22-7770" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="e359-d5cf-b4cc-01bb" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="true"/>
           </categories>
         </selection>
         <selection id="ec4e-94d2-36cb-effc" name="Exocrine" entryId="0c79-1e6d-3d27-3af2::a886-3ba1-c505-1200" number="1" type="model">
@@ -728,11 +580,11 @@ Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quo
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="6d60-3fb1-fed3-d934" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="80a2-5953-7d11-a6a7" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="97a7-d30a-1a42-abbd" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="4629-90bd-5710-1675" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="0b79-8b56-b113-17d0" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
+            <category id="b6d9-b2d7-ef28-dcd2" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="6cd6-8ac6-5a41-d264" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="17ce-64da-4eef-0ff8" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="e666-1161-13a0-80b7" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="f307-fd12-c154-49a4" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
           </categories>
         </selection>
         <selection id="0b0b-8c13-656f-7810" name="Harpy" entryId="6cd2-f9e5-a9dc-ee83::ee16-7977-eb9b-88e7" number="1" type="model">
@@ -874,13 +726,161 @@ Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quo
             <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
           </costs>
           <categories>
-            <category id="f8c2-4d71-2c95-b1b1" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
-            <category id="dd7a-8895-1b26-0afa" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
-            <category id="f2bc-723c-b45e-b92c" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
-            <category id="d114-8cb1-0563-ec0e" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
-            <category id="89fd-619d-fb03-90d8" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
-            <category id="06c1-b16d-0b67-cf79" name="Aircraft" entryId="d569-3d56-cd24-6a31" primary="false"/>
-            <category id="0448-8577-4c20-71c5" name="Flyer" entryId="e888-1504-aa61-95ff" primary="true"/>
+            <category id="ac3a-7067-168b-b946" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="0d35-73b4-9208-49df" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="4d62-913e-062f-9af2" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="b3f6-f698-eac3-bcb7" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
+            <category id="4c4e-983c-ca34-4a29" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="b87d-6bc6-1b6e-9cd6" name="Aircraft" entryId="d569-3d56-cd24-6a31" primary="false"/>
+            <category id="ec82-28ec-d60c-a508" name="Flyer" entryId="e888-1504-aa61-95ff" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="9cd1-f4fe-05b8-232f" name="Maleceptor" entryId="7965-0c0a-9605-535c::9801-59fc-296b-6b85" number="1" type="model">
+          <profiles>
+            <profile id="7965-0c0a-9605-535c::6e66-da32-a0e0-c98b" name="Maleceptor [1] (8+ wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">15</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::9936-a63a-f160-7106" name="Maleceptor" page="" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">2</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">2</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Hive Mind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::17ce-9710-1b84-6205" name="Psychic Overload" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12&quot; suffers the number of mortal wounds shown in the table below.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::89ff-8d48-a161-583d" name="Maleceptor [2] (5-7 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">7&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::1249-ce3f-2e82-2c72" name="Maleceptor [3] (1-4 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">5&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::8955-23e7-6546-16ae" name="(1) 8+ Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">3</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::897d-b8a6-0eef-fce2" name="(2) 5-7 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">2</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::18af-6467-e498-3dda" name="(3) 1-4 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">1</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::a3e8-4a4a-48d9-8ad7" name="Encephalic Diffusion" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This unit can attempt to perform the following psychic action:
+
+Encephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:
+
+Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::6df4-7069-19d7-09ad::f587-afe6-7bbe-4eac" name="Shadow in the Warp (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While an enemy PSYKER unit is within 18&quot; of this unit:
+• Subtract 1 from Psychic tests taken for that enemy unit.
+• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::bf35-d585-9a2a-87ad::4df2-766b-6931-c259" name="Psychic Barrier" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This model has a 4+ invulnerable save.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::612d-af1b-2a07-3fd1::1f08-bd8f-43a3-ce1b" name="Synapse (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this unit, that unit automatically passes Morale tests.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::48a8-7439-7e82-2609::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="f6f6-4f33-f383-2fb9" name="Massive Scything Talons" entryId="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::f906-1281-9e25-d59e" number="1" type="upgrade">
+              <profiles>
+                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::1886-3394-5c0a-9f84::bc0b-38c4-9cce-e264" name="Massive Scything Talons (Sweep)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time an attack is made with this profile, make 2 hit rolls instead of 1.</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::31db-b4a5-7787-e5ee::d5ee-735d-0c0d-782b" name="Massive Scything Talons (Strike)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="220.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="9.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="44d4-4566-d668-691a" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="f223-ae99-4e62-ec8d" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="d11a-a37c-b039-d264" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="6352-abdb-b794-cb55" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="1d1f-0e4e-0348-1f44" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="ae74-05eb-7d86-fe89" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="5a53-ea60-1181-e355" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
+            <category id="13da-3afe-b230-09fe" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="true"/>
           </categories>
         </selection>
       </selections>
@@ -918,21 +918,21 @@ Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quo
         <publication id="28ec-711c-pubN73170" name="Chapter Approved 2017"/>
       </publications>
       <categories>
-        <category id="7ccc-de05-4d2b-3e74" name="Uncategorised" entryId="(No Category)" primary="false"/>
-        <category id="91ea-a537-02cc-2247" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
-        <category id="bcf0-ebbb-14b9-7a77" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
-        <category id="ad47-9304-f50f-8c19" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
-        <category id="f866-5ea6-fd83-6022" name="Agents of the Imperium" entryId="0f35-2c34-ba6a-8105" primary="false"/>
-        <category id="62cb-2baa-1dbe-e6ef" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
-        <category id="b89d-75f8-7853-adfe" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
-        <category id="107c-45c6-0fe1-00df" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
-        <category id="651d-6ab2-edaa-47fb" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
-        <category id="19df-f54b-acfc-beb9" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
-        <category id="da78-7804-e45d-c7f4" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
-        <category id="a972-b0ae-23ed-16d7" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
-        <category id="23ca-a969-e8f3-f46e" name="Relic Elites" entryId="8d86-9490-0f7d-a5b5" primary="false"/>
-        <category id="7cd3-1e14-0668-42ae" name="Relic Heavy Support" entryId="6c4c-a416-b8cb-c380" primary="false"/>
-        <category id="6bc7-5fa2-3aca-a5a0" name="Relic HQ" entryId="655f-e142-dfa9-11a4" primary="false"/>
+        <category id="471d-b8a6-0994-1b06" name="Uncategorised" entryId="(No Category)" primary="false"/>
+        <category id="5bc4-276d-18ef-dd25" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
+        <category id="b941-a1d4-14db-2d61" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
+        <category id="eb83-e15d-1ce4-de35" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
+        <category id="5a18-3a73-86c9-221f" name="Agents of the Imperium" entryId="0f35-2c34-ba6a-8105" primary="false"/>
+        <category id="205c-24a2-aa66-af93" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
+        <category id="53d8-8a4b-e5df-c3e9" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
+        <category id="db99-1115-826d-c4ec" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
+        <category id="0976-7037-a260-e21f" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
+        <category id="23d4-fa08-9fc6-d59e" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
+        <category id="fed7-9d33-15c5-0c1e" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
+        <category id="9e2d-95cc-1e73-dd24" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
+        <category id="c816-b96c-5908-ab97" name="Relic Elites" entryId="8d86-9490-0f7d-a5b5" primary="false"/>
+        <category id="164c-09e8-e1da-5bea" name="Relic Heavy Support" entryId="6c4c-a416-b8cb-c380" primary="false"/>
+        <category id="bd09-fa39-2c19-64b8" name="Relic HQ" entryId="655f-e142-dfa9-11a4" primary="false"/>
       </categories>
     </force>
   </forces>

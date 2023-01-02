@@ -71,6 +71,10 @@ test("multi-model character units", () => {
     performRosterTest("sample-character-units.ros");
 });
 
+test("assault squad", () => {
+    performRosterTest("sample-assault-squad.ros");
+});
+
 test("empty roster", () => {
     const fileContent = fs.readFileSync(path.join(__dirname, "../samples", "empty-roster.rosz"));
     const roster = roszParse(fileContent);

@@ -393,11 +393,13 @@ module.exports = class Unit {
     }
 
     /**
-     * Checks to see whether we have any model profiles (other than wound track profiles)
+     * Checks to see whether we have a single model profile (other than wound track profiles)
      * with no matching models. If we do, it's likely because there's supposed to be a
      * model for it, so create one.
      */
     checkForMissingModels () {
+        let foundProfiles = [];
+
         for (const profile of Object.keys(this.modelProfiles)) {
             let profileLower = profile.toLowerCase();
             // We're not interested in wound track profiles, and we need a somewhat fuzzy
@@ -413,21 +415,25 @@ module.exports = class Unit {
                 }
 
                 if (!found) {
-                    // Found a profile with no model!
-                    let newModel = new Model(profile, 1);
-
-                    // For a stab at what weapons this model has, let's assume it owns all of
-                    // the unassigned weapons.
-                    this.checkWeapons();
-                    newModel.setWeapons(this.unassignedWeapons);
-                    this.unassignedWeapons = [];
-
-                    // And all of the abilities on the unit.
-                    newModel.abilities = Object.keys(this.abilities);
-
-                    this.models.add(newModel);
+                    foundProfiles.push(profile);
                 }
             }
+        }
+
+        if (foundProfiles.length == 1) {
+            // Found a single profile with no model!
+            let newModel = new Model(foundProfiles[0], 1);
+
+            // For a stab at what weapons this model has, let's assume it owns all of
+            // the unassigned weapons.
+            this.checkWeapons();
+            newModel.setWeapons(this.unassignedWeapons);
+            this.unassignedWeapons = [];
+
+            // And all of the abilities on the unit.
+            newModel.abilities = Object.keys(this.abilities);
+
+            this.models.add(newModel);
         }
     }
 

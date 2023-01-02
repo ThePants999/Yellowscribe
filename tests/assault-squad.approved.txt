@@ -1,0 +1,279 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Assault Squad",
+            "factionKeywords": [
+                "Adeptus Astartes",
+                "Imperium",
+                "Dark Angels"
+            ],
+            "keywords": [
+                "Assault Squad",
+                "Infantry",
+                "Melta Bombs",
+                "Core"
+            ],
+            "abilities": {},
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Space Marine Sergeant",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Thunder hammer",
+                                "number": 1
+                            },
+                            {
+                                "name": "Grav-pistol",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0202020202020202": {
+                        "name": "Space Marine",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Astartes Chainsword",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 4
+                    },
+                    "0303030303030303": {
+                        "name": "Space Marine w/Special Weapon",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Flamer",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0404040404040404": {
+                        "name": "Space Marine w/Special Weapon",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Plasma pistol, Standard",
+                                "number": 1
+                            },
+                            {
+                                "name": "Plasma pistol, Supercharge",
+                                "number": 1
+                            },
+                            {
+                                "name": "Astartes Chainsword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0505050505050505": {
+                        "name": "Space Marine w/Eviscerator",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Eviscerator",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 8
+            },
+            "modelProfiles": {
+                "Assault Marine": {
+                    "name": "Assault Marine",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "1",
+                    "ld": "7",
+                    "sv": "3+"
+                },
+                "Assault Marine Sergeant": {
+                    "name": "Assault Marine Sergeant",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "2",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Thunder hammer": {
+                    "name": "Thunder hammer",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "x2",
+                    "ap": "-2",
+                    "d": "3",
+                    "abilities": "Each time an attack roll is made with this weapon, subtract 1 from the attack's hit roll"
+                },
+                "Grav-pistol": {
+                    "name": "Grav-pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "5",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "Each time an attack made with this weapon is allocated to a model with a Save characteristic of 3+ or better, that attack has a Damage characteristic of 2."
+                },
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Astartes Chainsword": {
+                    "name": "Astartes Chainsword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "When the bearer fights, it makes 1 additional attack with this weapon. "
+                },
+                "Flamer": {
+                    "name": "Flamer",
+                    "range": "12\"",
+                    "type": "Assault D6",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Each time an attack is made with this weapon, that attack automatically hits the target."
+                },
+                "Plasma pistol, Standard": {
+                    "name": "Plasma pistol, Standard",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "7",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Plasma pistol, Supercharge": {
+                    "name": "Plasma pistol, Supercharge",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "8",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "If any unmodified hit rolls of 1 are made for attacks with this weapon profile, the bearer is destroyed after shooting with this weapon."
+                },
+                "Eviscerator": {
+                    "name": "Eviscerator",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-4",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this weapon, subtract 1 from that attack's hit roll."
+                }
+            },
+            "rules": [
+                "Angels of Death",
+                "Combat Squads"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": false
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Hemlock Wraithfighter",
+            "factionKeywords": [
+                "<Craftworld>",
+                "Aeldari",
+                "Spirit Host",
+                "Asuryani"
+            ],
+            "keywords": [
+                "Fly",
+                "Hemlock Wraithfighter",
+                "Psyker",
+                "Vehicle",
+                "Wraith Construct",
+                "Aircraft"
+            ],
+            "abilities": {
+                "Mindshock Pod": {
+                    "name": "Mindshock Pod",
+                    "desc": "The bearer gains the following ability: Mindshock Pod (Aura): While an enemy unit is within 12\\\" of any models equipped with a minshock pod, subtract 2 from that unit's Leadership characteristic."
+                },
+                "Supersonic": {
+                    "name": "Supersonic",
+                    "desc": "Each time this model makes a Normal Move, Advances or Falls Back, first pivot it on the spot up to 90 degrees (this does not contribute to how far the model moves), then move the model straight forwards. It cannot pivot again after the initial pivot."
+                },
+                "Hard to Hit": {
+                    "name": "Hard to Hit",
+                    "desc": "Each time a ranged attack is made against this model, subtract 1 from that attack's hit roll."
+                },
+                "Airborne": {
+                    "name": "Airborne",
+                    "desc": "You cannot declare a charge with this model, and it can only be chosen as a target of a charge if the unit making the charge can FLY. You can only fight with this model if it is within Engagement Range of any enemy units that can FLY, and this model can only make melee attacks againt units that can FLY. Enemy units can only make melee attacks against this model if they can FLY."
+                },
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wounds."
+                },
+                "Wraithbone Form": {
+                    "name": "Wraithbone Form",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Hemlock Wraithfighter",
+                        "abilities": [
+                            "Mindshock Pod",
+                            "Supersonic",
+                            "Hard to Hit",
+                            "Airborne",
+                            "Explodes",
+                            "Wraithbone Form",
+                            "Strands of Fate"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Heavy D-scythe",
+                                "number": 2
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Hemlock Wraithfighter": {
+                    "name": "Hemlock Wraithfighter",
+                    "m": "*",
+                    "ws": "6+",
+                    "bs": "*",
+                    "s": "6",
+                    "t": "6",
+                    "w": "12",
+                    "a": "*",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Heavy D-scythe": {
+                    "name": "Heavy D-scythe",
+                    "range": "18\"",
+                    "type": "Heavy D6",
+                    "s": "12",
+                    "ap": "-4",
+                    "d": "2",
+                    "abilities": "Blast. Each time an attack is made with this weapon, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage."
+                }
+            },
+            "rules": [
+                "Strands of Fate"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 11,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Hemlock Wraithfighter",
+                    "cast": "1",
+                    "deny": "1",
+                    "known": "1 - Runes of Battle",
+                    "other": "When this model attempts to manifest a psychic power from the Runes of Battle discipline. you can only select that power's second effect.\nSmite."
+                }
+            ],
+            "woundTrack": {
+                "Hemlock Wraithfighter": {
+                    "4+": [
+                        "20-60\"",
+                        "3+",
+                        "3"
+                    ],
+                    "2-3": [
+                        "20-40\"",
+                        "4+",
+                        "D3"
+                    ],
+                    "1-1": [
+                        "20-25\"",
+                        "5+",
+                        "1"
+                    ]
+                }
+            },
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

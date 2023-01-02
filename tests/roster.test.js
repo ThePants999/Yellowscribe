@@ -59,6 +59,14 @@ test("servitors", () => {
     performRosterTest("sample-servitors.rosz");
 });
 
+test("wound track monsters", () => {
+    performRosterTest("sample-wound-track-monsters.ros");
+});
+
+test("hemlock", () => {
+    performRosterTest("sample-hemlock.ros");
+});
+
 test("empty roster", () => {
     const fileContent = fs.readFileSync(path.join(__dirname, "../samples", "empty-roster.rosz"));
     const roster = roszParse(fileContent);

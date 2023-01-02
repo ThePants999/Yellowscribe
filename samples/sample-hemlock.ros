@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<roster id="e830-216c-2c41-ed17" name="New Roster" battleScribeVersion="2.03" gameSystemId="28ec-711c-d87f-3aeb" gameSystemName="Warhammer 40,000 9th Edition" gameSystemRevision="225" xmlns="http://www.battlescribe.net/schema/rosterSchema">
+  <costs>
+    <cost name=" PL" typeId="e356-c769-5920-6e14" value="11.0"/>
+    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-2.0"/>
+    <cost name="pts" typeId="points" value="215.0"/>
+  </costs>
+  <forces>
+    <force id="37a0-d013-c095-dbbe" name="Patrol Detachment -2CP" entryId="a0c7-2a71-bae0-215d" catalogueId="30b2-6f64-b85e-b4dc" catalogueRevision="158" catalogueName="Aeldari - Craftworlds">
+      <selections>
+        <selection id="b20c-f866-9204-63d6" name="Craftworld Selection" entryId="504c-656e-5d57-c24a::1b5c-b38b-24a2-63d9" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="54e8-999e-3cb5-0d30" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="a2bd-7028-92ba-24a2" name="Game Type" entryId="4bcc-b0f4-b425-f38e::bf09-85b2-c097-1071" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="0689-ab32-dfd0-13ba" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="ae89-f664-0904-351c" name="Detachment Command Cost" entryId="ec87-f19e-eee2-1ba8::9d97-2793-9882-d48a" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-2.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="d117-8abd-506c-ce04" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="2945-5b8a-5bc4-57d1" name="Hemlock Wraithfighter" entryId="8269-f2a5-6748-2650::c537-8d87-968f-5355" number="1" type="model">
+          <rules>
+            <rule id="8269-f2a5-6748-2650::8d79-afb7-fb75-33d2::f5cf-ac08-7c58-c76d" name="Strands of Fate" hidden="false">
+              <description>Refer to your Codex for details.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="8269-f2a5-6748-2650::c0c8-b529-56d3-9138" name="1. Hemlock Wraithfighter (4+ wounds remaining)" publicationId="1f62-db93-63f4-4dc7" page="176" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">20-60&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">6+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">6</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">12</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::f4fd-2d33-e30b-d757" name="Mindshock Pod" publicationId="1f62-db93-63f4-4dc7" page="177" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">The bearer gains the following ability: Mindshock Pod (Aura): While an enemy unit is within 12&quot; of any models equipped with a minshock pod, subtract 2 from that unit&apos;s Leadership characteristic.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::694c-9827-114e-65cb" name="Psyker (Hemlock)" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">1</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">1</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">1 - Runes of Battle</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">When this model attempts to manifest a psychic power from the Runes of Battle discipline. you can only select that power&apos;s second effect.
+Smite.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::8ebf-f6e5-e673-710f" name="2. Hemlock Wraithfighter (2-3 wounds remaining)" publicationId="1f62-db93-63f4-4dc7" page="176" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">20-40&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">6+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">6</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">D3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::47e2-4681-5097-ae09" name="3. Hemlock Wraithfighter (1 wound remaining)" publicationId="1f62-db93-63f4-4dc7" page="176" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">20-25&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">6+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">6</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">1</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::d007-6292-504c-9d5e::d7a5-4c4d-987a-b976" name="Supersonic" publicationId="1f62-db93-63f4-4dc7" page="176" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time this model makes a Normal Move, Advances or Falls Back, first pivot it on the spot up to 90 degrees (this does not contribute to how far the model moves), then move the model straight forwards. It cannot pivot again after the initial pivot.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::6424-407f-7f34-c36e::b6c4-ad82-ad7d-5039" name="Hard to Hit" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time a ranged attack is made against this model, subtract 1 from that attack&apos;s hit roll.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::f0c2-20a4-df8a-11d8::e9a7-3bc3-707b-2fcb" name="Airborne" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">You cannot declare a charge with this model, and it can only be chosen as a target of a charge if the unit making the charge can FLY. You can only fight with this model if it is within Engagement Range of any enemy units that can FLY, and this model can only make melee attacks againt units that can FLY. Enemy units can only make melee attacks against this model if they can FLY.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::033a-3206-9bef-e831::5354-baf1-1114-d8a4" name="Explodes" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="8269-f2a5-6748-2650::0cbb-cf0b-c156-d7d0::ec20-6527-50c6-d3e0" name="Wraithbone Form" publicationId="1f62-db93-63f4-4dc7" page="164" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1).</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="eed2-e94b-8abd-cd2e" name="Heavy D-scythe" entryId="8269-f2a5-6748-2650::7512-df77-9731-c13c::b2a4-87aa-25d8-4c73" number="2" type="upgrade">
+              <profiles>
+                <profile id="8269-f2a5-6748-2650::7512-df77-9731-c13c::f9cb-a67e-16d3-13ce::6cbe-4f4f-bb0f-1ce4" name="Heavy D-scythe" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">18&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy D6</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">12</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Blast. Each time an attack is made with this weapon, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="11.0"/>
+            <cost name="pts" typeId="points" value="215.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="2c55-b803-5c8f-47f1" name="Faction: &lt;Craftworld&gt;" entryId="fb5a-2f35-6253-b891" primary="false"/>
+            <category id="c216-1a3f-bfde-94e8" name="Faction: Aeldari" entryId="05e9-e880-b1fb-ce90" primary="false"/>
+            <category id="eba6-72fb-b8f3-a737" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
+            <category id="f42f-7fda-c2b3-cb77" name="Flyer" entryId="e888-1504-aa61-95ff" primary="true"/>
+            <category id="7a95-abd8-44b9-475d" name="Hemlock Wraithfighter" entryId="ab4c-b7dd-220a-7ba6" primary="false"/>
+            <category id="22fd-06bd-01f3-06e6" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="6007-dd01-15d9-9f88" name="Faction: Spirit Host" entryId="9a3e-947f-26da-d343" primary="false"/>
+            <category id="20c9-24c0-2c27-53ce" name="Vehicle" entryId="c8fd-783f-3230-493e" primary="false"/>
+            <category id="c1e9-d449-9e37-4267" name="Wraith Construct" entryId="be4f-b265-1ffd-36cd" primary="false"/>
+            <category id="9182-8e50-68f0-e69a" name="Aircraft" entryId="d569-3d56-cd24-6a31" primary="false"/>
+            <category id="4d63-3532-b868-6580" name="Faction: Asuryani" entryId="20fc-5c6e-4a04-320f" primary="false"/>
+          </categories>
+        </selection>
+      </selections>
+      <publications>
+        <publication id="85df-1155-c986-4d71" name="Psychic Awakening IX: Pariah"/>
+        <publication id="c9fe-4431-b76d-267a" name="Psychic Awakening VIII: War of the Spider"/>
+        <publication id="ecea-8b62-fefb-9f8e" name="Psychic Awakening VII: Engine War"/>
+        <publication id="30b2-6f64-pubN137513" name="Codex: Craftworlds"/>
+        <publication id="28ec-711c-pubN118139" name="Index: Xenos 2"/>
+        <publication id="5c2d-db9f-58ca-e7b2" name="Psychic Awakening IV: Ritual of the Damned"/>
+        <publication id="6a4d-2a41-5e6b-c57a" name="White Dwarf May 2019"/>
+        <publication id="7d24-b92f-pubN65537" name="Codex: Harlequins"/>
+        <publication id="d36f-0c87-284a-7055" name="Warhammer Legends - Drukhari"/>
+        <publication id="fd38-751e-4164-fbdd" name="White Dwarf 473"/>
+        <publication id="0865-ee21-d1f1-ed38" name="War Zone Charadon, Act I: The Book of Rust"/>
+        <publication id="28ec-711c-pubN72690" name="Warhammer 40,000 Core Book"/>
+        <publication id="28ec-711c-pubN78977" name="Index: Imperium 1"/>
+        <publication id="28ec-711c-pubN98266" name="Imperium Nihilus: Vigilus Defiant"/>
+        <publication id="52c4-39c0-ae97-d4dc" name="Psychic Awakening VI: Saga of the Beast"/>
+        <publication id="b854-bcb5-5746-e0d3" name="War Zone Charadon, Act II: The Book of Fire"/>
+        <publication id="28ec-711c-pubN77581" name="Index: Imperium 2"/>
+        <publication id="db16-1a92-fdd3-95a9" name="The Balance Dataslate"/>
+        <publication id="09f4-6657-ccd5-6e61" name="War Zone Nephilim: Grand Tournament"/>
+        <publication id="1f62-db93-63f4-4dc7" name="Codex: Aeldari"/>
+        <publication id="5093-9448-d8cc-5327" name="Psychic Awakening II: Faith and Fury"/>
+        <publication id="255d-c624-9fcb-ca23" name="War Zone Octarius, Book 2: Critical Mass"/>
+        <publication id="e0a4-2172-pubN65537" name="Codex: Drukhari"/>
+        <publication id="28ec-711c-pubN76527" name="Index: Xenos 1"/>
+        <publication id="5b08-09e5-a80a-fd67" name="Psychic Awakening I: Phoenix Rising"/>
+        <publication id="977a-446b-737a-b571" name="Chapter Approved 2021"/>
+        <publication id="ce40-ec9e-21e2-2e42" name="Warhammer Quest: Blackstone Fortress"/>
+        <publication id="28ec-711c-pubN99666" name="Index: Chaos"/>
+        <publication id="f000-7b0c-01bf-7630" name="Psychic Awakening III: Blood of Baal"/>
+        <publication id="7573-8d1b-acdf-2de8" name="Imperial Armour: Compendium"/>
+        <publication id="b652-8bab-1453-da20" name="Warhammer Legends"/>
+        <publication id="4a3e-a6d9-b5f8-3e3d" name="Shadow Throne"/>
+        <publication id="e056-7215-247f-0a20" name="War Zone Octarius, Book 1: Rising Tide"/>
+        <publication id="4593-a2f0-546a-d6f2" name="Psychic Awakening V: The Greater Good"/>
+        <publication id="2ec0-6d53-e36b-9895" name="Chapter Approved 2018"/>
+        <publication id="28ec-711c-pubN73170" name="Chapter Approved 2017"/>
+      </publications>
+      <categories>
+        <category id="ad0c-2ea4-9345-5829" name="Uncategorised" entryId="(No Category)" primary="false"/>
+        <category id="1691-e2c0-3c89-10a9" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
+        <category id="9395-8c1b-a858-8bf6" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
+        <category id="c9b2-f503-e501-a54c" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
+        <category id="5d7d-43be-1c3b-489f" name="Agents of the Imperium" entryId="0f35-2c34-ba6a-8105" primary="false"/>
+        <category id="1f8d-86ea-a202-d9c1" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
+        <category id="46db-4937-eb20-a89e" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
+        <category id="b964-376b-ea23-72b9" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
+        <category id="77fb-885b-cacb-993c" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
+        <category id="312b-520a-3932-cb4d" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
+        <category id="3fb7-8f6c-bc20-be22" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
+        <category id="9745-b9ba-e680-3c16" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
+        <category id="7c42-4d38-9425-717f" name="Relic Elites" entryId="8d86-9490-0f7d-a5b5" primary="false"/>
+        <category id="2e1d-cdc7-2eea-4626" name="Relic Heavy Support" entryId="6c4c-a416-b8cb-c380" primary="false"/>
+        <category id="ac12-39f6-5454-a477" name="Relic HQ" entryId="655f-e142-dfa9-11a4" primary="false"/>
+      </categories>
+    </force>
+  </forces>
+</roster>

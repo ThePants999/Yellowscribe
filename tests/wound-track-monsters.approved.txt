@@ -1,0 +1,815 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Winged Hive Tyrant",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Lash Whip",
+                "Character",
+                "Monster",
+                "Psyker",
+                "Hive Tyrant",
+                "Synapse",
+                "Horned Chitin",
+                "Fly"
+            ],
+            "abilities": {
+                "Shadow in the Warp (Aura)": {
+                    "name": "Shadow in the Warp (Aura)",
+                    "desc": "While an enemy PSYKER unit is within 18\\\" of this unit:\n• Subtract 1 from Psychic tests taken for that enemy unit.\n• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound."
+                },
+                "Synapse (Aura)": {
+                    "name": "Synapse (Aura)",
+                    "desc": "While a friendly <HIVE FLEET> unit is within 6\\\" of this unit, that unit automatically passes Morale tests."
+                },
+                "Will of the Hive Mind": {
+                    "name": "Will of the Hive Mind",
+                    "desc": "In your Command phase, select one friendly <HIVE FLEET> CORE unit within Synaptic Link range (pg 87) of this model. Until the start of your next Command phase, each time a model in that unit makes an attack, re-roll a hit roll of 1."
+                },
+                "Psychic Barrier": {
+                    "name": "Psychic Barrier",
+                    "desc": "This model has a 4+ invulnerable save."
+                },
+                "Death Throes (6\"/D3)": {
+                    "name": "Death Throes (6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
+                },
+                "Death from Above": {
+                    "name": "Death from Above",
+                    "desc": "During deployment, you can set up this model high in the skies instead of setting it up on the battlefield. If you do so, then during the Reinforcements step of one of your Movement phases, you can set up this model anywhere on the battlefield that is more than 9\\\" away from any enemy models, and, until the end of the turn, you can re-roll charge rolls made for this model."
+                },
+                "Prehensile Pincer Tail": {
+                    "name": "Prehensile Pincer Tail",
+                    "desc": "Each time the bearer is selected to fight, when resolving its attacks you can re-roll one hit roll or one wound roll."
+                },
+                "Lash Whip": {
+                    "name": "Lash Whip",
+                    "desc": "The bearer gains the LASH WHIP keyword. Each time the bearer makes a melee attack, re-roll a hit roll of 1."
+                }
+            },
+            "models": {
+                "models": {
+                    "0606060606060606": {
+                        "name": "Winged Hive Tyrant",
+                        "abilities": [
+                            "Prehensile Pincer Tail",
+                            "Lash Whip",
+                            "Shadow in the Warp (Aura)",
+                            "Synapse (Aura)",
+                            "Will of the Hive Mind",
+                            "Psychic Barrier",
+                            "Death Throes (6\"/D3)",
+                            "Death from Above"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Tyrant Talons",
+                                "number": 1
+                            },
+                            {
+                                "name": "Monstrous Bonesword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Winged Hive Tyrant": {
+                    "name": "Winged Hive Tyrant",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "7",
+                    "w": "12",
+                    "a": "5",
+                    "ld": "10",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Tyrant Talons": {
+                    "name": "Tyrant Talons",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "Each time the bearer fights, it makes 2 additional attacks with this weapon."
+                },
+                "Monstrous Bonesword": {
+                    "name": "Monstrous Bonesword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-4",
+                    "d": "3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 11,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Winged Hive Tyrant",
+                    "cast": "2",
+                    "deny": "1",
+                    "known": "Smite + 2 Hive Mind",
+                    "other": "-"
+                }
+            ],
+            "woundTrack": {
+                "Winged Hive Tyrant": {
+                    "7+": [
+                        "16\"",
+                        "2+",
+                        "2+"
+                    ],
+                    "4-6": [
+                        "12\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "1-3": [
+                        "8\"",
+                        "4+",
+                        "4+"
+                    ]
+                }
+            },
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        },
+        "01010101": {
+            "name": "Tervigon",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Character",
+                "Psyker",
+                "Monster",
+                "Synapse"
+            ],
+            "abilities": {
+                "Brood Progenitor": {
+                    "name": "Brood Progenitor",
+                    "desc": "In your Command phase, select one friendly <HIVE FLEET> TERMAGANTS unit within Synaptic Link range (pg 87) of this model that has not already been selected for this ability this turn. Until the start of your next Command phase, each time a model in that unit makes a ranged attack, add 1 to that attack's hit roll."
+                },
+                "Wall of Flesh": {
+                    "name": "Wall of Flesh",
+                    "desc": "While a friendly <HIVE FLEET> TERMAGANTS unit is within 1\\\" of this model, if that unit contains 15 or more models and is closer to any enemy models than this model, this model can use the Look Out Sir rule even if this unit contains fewer than 3 models.\n\nTERVIGONS within range of a friendly <HIVE FLEET> TERMAGANT unit's Wall of Flesh ability gain the benefits of Look Out, Sir even though they are CHARACTERS with a Wounds characteristic greater than 9. Note that the Wall of Flesh ability still requires a unit of 15 or more Termagants to apply, even though other Bodyguard abilities apply with fewer than 3 models."
+                },
+                "Spawn Termagants": {
+                    "name": "Spawn Termagants",
+                    "desc": "In your Command phase, you can do one of the following:\n• Select one friendly <HIVE FLEET> TERMAGANTS unit within 6\\\" of this model. Up to 2D6 destroyed models from that unit are returned to it; set those models back up on the battlefield with their full wounds remaining. When setting these models up on the battlefield, they must be set up wholly within 6\\\" of this model and cannot be set up within Engagement Range of any enemy units, unless those units are already within Engagement Range of that TERMAGANTS unit.\n• Once per battle, this model can spawn a new unit of Termagants. If it does so, set up a new friendly <HIVE FLEET> TERMAGANTS unit on the battlefield not within Engagement Range of any enemy units and wholly within 6\\\" of this model. That TERMAGANTS unit contains 10 models, each equipped with fleshborers, and, if you are playing a game that uses a points limit, that unit does not cost any Reinforcement points."
+                },
+                "Shadow in the Warp (Aura)": {
+                    "name": "Shadow in the Warp (Aura)",
+                    "desc": "While an enemy PSYKER unit is within 18\\\" of this unit:\n• Subtract 1 from Psychic tests taken for that enemy unit.\n• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound."
+                },
+                "Synapse (Aura)": {
+                    "name": "Synapse (Aura)",
+                    "desc": "While a friendly <HIVE FLEET> unit is within 6\\\" of this unit, that unit automatically passes Morale tests."
+                },
+                "Death Throes (6\"/D6)": {
+                    "name": "Death Throes (6\\\"/D6)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D6 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "0707070707070707": {
+                        "name": "Tervigon",
+                        "abilities": [
+                            "Brood Progenitor",
+                            "Wall of Flesh",
+                            "Spawn Termagants",
+                            "Shadow in the Warp (Aura)",
+                            "Synapse (Aura)",
+                            "Death Throes (6\"/D6)"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Stinger Salvoes",
+                                "number": 1
+                            },
+                            {
+                                "name": "Massive Scything Talons (Sweep)",
+                                "number": 1
+                            },
+                            {
+                                "name": "Massive Scything Talons (Strike)",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Tervigon": {
+                    "name": "Tervigon",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "8",
+                    "w": "17",
+                    "a": "4",
+                    "ld": "10",
+                    "sv": "2+"
+                }
+            },
+            "weapons": {
+                "Stinger Salvoes": {
+                    "name": "Stinger Salvoes",
+                    "range": "24\"",
+                    "type": "Assault 8",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Massive Scything Talons (Sweep)": {
+                    "name": "Massive Scything Talons (Sweep)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this profile, make 2 hit rolls instead of 1."
+                },
+                "Massive Scything Talons (Strike)": {
+                    "name": "Massive Scything Talons (Strike)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-4",
+                    "d": "2D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "01010101",
+            "unassignedWeapons": [],
+            "pl": 11,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Tervigon",
+                    "cast": "1",
+                    "deny": "1",
+                    "known": "Smite + 1 Hive Mind",
+                    "other": "-"
+                }
+            ],
+            "woundTrack": {
+                "Tervigon": {
+                    "9+": [
+                        "8\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "5-8": [
+                        "7\"",
+                        "4+",
+                        "4+"
+                    ],
+                    "1-4": [
+                        "6\"",
+                        "5+",
+                        "5+"
+                    ]
+                }
+            },
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        },
+        "02020202": {
+            "name": "Maleceptor",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Monster",
+                "Psyker",
+                "Synapse",
+                "Horned Chitin"
+            ],
+            "abilities": {
+                "Psychic Overload": {
+                    "name": "Psychic Overload",
+                    "desc": "Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12\\\" suffers the number of mortal wounds shown in the table below."
+                },
+                "Encephalic Diffusion": {
+                    "name": "Encephalic Diffusion",
+                    "desc": "This unit can attempt to perform the following psychic action:\n\nEncephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:\n\nDiffusion Field (Aura): While a friendly <HIVE FLEET> unit is within 6\\\" of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack."
+                },
+                "Shadow in the Warp (Aura)": {
+                    "name": "Shadow in the Warp (Aura)",
+                    "desc": "While an enemy PSYKER unit is within 18\\\" of this unit:\n• Subtract 1 from Psychic tests taken for that enemy unit.\n• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound."
+                },
+                "Psychic Barrier": {
+                    "name": "Psychic Barrier",
+                    "desc": "This model has a 4+ invulnerable save."
+                },
+                "Synapse (Aura)": {
+                    "name": "Synapse (Aura)",
+                    "desc": "While a friendly <HIVE FLEET> unit is within 6\\\" of this unit, that unit automatically passes Morale tests."
+                },
+                "Death Throes (6\"/D3)": {
+                    "name": "Death Throes (6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "0808080808080808": {
+                        "name": "Maleceptor",
+                        "abilities": [
+                            "Psychic Overload",
+                            "Encephalic Diffusion",
+                            "Shadow in the Warp (Aura)",
+                            "Psychic Barrier",
+                            "Synapse (Aura)",
+                            "Death Throes (6\"/D3)"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Massive Scything Talons (Sweep)",
+                                "number": 1
+                            },
+                            {
+                                "name": "Massive Scything Talons (Strike)",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Maleceptor": {
+                    "name": "Maleceptor",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "8",
+                    "w": "15",
+                    "a": "3",
+                    "ld": "10",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Massive Scything Talons (Sweep)": {
+                    "name": "Massive Scything Talons (Sweep)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this profile, make 2 hit rolls instead of 1."
+                },
+                "Massive Scything Talons (Strike)": {
+                    "name": "Massive Scything Talons (Strike)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-4",
+                    "d": "2D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "02020202",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Maleceptor",
+                    "cast": "2",
+                    "deny": "2",
+                    "known": "Smite + 2 Hive Mind",
+                    "other": "-"
+                }
+            ],
+            "woundTrack": {
+                "Maleceptor": {
+                    "8+": [
+                        "8\"",
+                        "7\"",
+                        "3+",
+                        "4+",
+                        "3+",
+                        "4+"
+                    ],
+                    "5-7": [
+                        "5\"",
+                        "5+",
+                        "5+"
+                    ],
+                    "1-4": []
+                }
+            },
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        },
+        "03030303": {
+            "name": "Dimachaeron",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Monster"
+            ],
+            "abilities": {
+                "Digestion Spine": {
+                    "name": "Digestion Spine",
+                    "desc": "If any enemy models are destroyed as a result of this model's Thorax Spine-maw ability, at the end of the turn this model gains the following ability until the end of the battle: 'Regenerative Physiology: Each time this model would lose a wound, roll one D6; on a 5+, that wound is not lost.'"
+                },
+                "Leaper-killer": {
+                    "name": "Leaper-killer",
+                    "desc": "This model has a 5+ invulnerable save. In addition, each time this model makes a Normal Move, Advances, Falls Back or it makes a charge move, until that move is finished, it can move vertically and horizontally through models and terrain features (it cannot finish a move on top of another model, or its base)."
+                },
+                "Thorax Spine-maw": {
+                    "name": "Thorax Spine-maw",
+                    "desc": "After this model has made close combat attacks, before it consolidates, select one enemy model within Engagement Range (excluding AIRCRAFT). That model's player rolls one D6 and adds their model's Strength characteristic. If the result is equal to or less than this model's Strength characteristic, that model's unit suffers D6 mortal wounds."
+                },
+                "Death Throes (3\"/3)": {
+                    "name": "Death Throes (3\\\"/3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 3\\\" suffers 3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "0909090909090909": {
+                        "name": "Dimachaeron",
+                        "abilities": [
+                            "Digestion Spine",
+                            "Leaper-killer",
+                            "Thorax Spine-maw",
+                            "Death Throes (3\"/3)"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Massive Scything Sickle-talons",
+                                "number": 1
+                            },
+                            {
+                                "name": "Scything Tail",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Dimachaeron": {
+                    "name": "Dimachaeron",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "7",
+                    "w": "18",
+                    "a": "6",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Massive Scything Sickle-talons": {
+                    "name": "Massive Scything Sickle-talons",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-3",
+                    "d": "D3+3",
+                    "abilities": "Each time an attack is made with this weapon, you can re-roll the hit roll."
+                },
+                "Scything Tail": {
+                    "name": "Scything Tail",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Each time the bearer fights, it makes 1 additional attack with this weapon and no more than 1 attack can be made with this weapon."
+                }
+            },
+            "rules": [],
+            "uuid": "03030303",
+            "unassignedWeapons": [],
+            "pl": 14,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Dimachaeron": {
+                    "10+": [
+                        "12\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "5-9": [
+                        "9\"",
+                        "4+",
+                        "4+"
+                    ],
+                    "1-4": [
+                        "6\"",
+                        "5+",
+                        "5+"
+                    ]
+                }
+            }
+        },
+        "04040404": {
+            "name": "Exocrine",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Monster"
+            ],
+            "abilities": {
+                "Symbiotic Targeting": {
+                    "name": "Symbiotic Targeting",
+                    "desc": "In your Movement phase, if this model Remains Stationary or moves a total distance of less than half its Move characteristic, until the end of the turn, each time this model makes a ranged attack, the target does not receive the benefits of cover against that attack."
+                },
+                "Death Throes (6\"/D3)": {
+                    "name": "Death Throes (6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "0a0a0a0a0a0a0a0a": {
+                        "name": "Exocrine",
+                        "abilities": [
+                            "Symbiotic Targeting",
+                            "Death Throes (6\"/D3)"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bio-plasmic Cannon",
+                                "number": 1
+                            },
+                            {
+                                "name": "Powerful Limbs",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Exocrine": {
+                    "name": "Exocrine",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "7",
+                    "t": "8",
+                    "w": "15",
+                    "a": "3",
+                    "ld": "7",
+                    "sv": "2+"
+                }
+            },
+            "weapons": {
+                "Bio-plasmic Cannon": {
+                    "name": "Bio-plasmic Cannon",
+                    "range": "36\"",
+                    "type": "Heavy D3+6",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "3",
+                    "abilities": "Blast"
+                },
+                "Powerful Limbs": {
+                    "name": "Powerful Limbs",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-1",
+                    "d": "2",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "04040404",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Exocrine": {
+                    "8+": [
+                        "8\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "5-7": [
+                        "7\"",
+                        "4+",
+                        "4+"
+                    ],
+                    "1-4": [
+                        "5\"",
+                        "5+",
+                        "5+"
+                    ]
+                }
+            }
+        },
+        "05050505": {
+            "name": "Harpy",
+            "factionKeywords": [
+                "Hive Tendril",
+                "Tyranids",
+                "<Hive Fleet>"
+            ],
+            "keywords": [
+                "Fly",
+                "Monster",
+                "Aircraft"
+            ],
+            "abilities": {
+                "Spore Mine Cysts": {
+                    "name": "Spore Mine Cysts",
+                    "desc": "Once per turn, after this model has moved in your Movement phase, you can select one unit it moved across or one point on the battlefield it moved across.\n• If you select a unit, roll six D6s for each VEHICLE or MONSTER model in that unit and roll one D6 for each other model in that unit (to a maximum of ten D6s): for each 4+, that unit suffers 1 mortal wound.\n• If you select a point on the battlefield, set up a new friendly SPORE MINES unit of 3 models on the battlefield not within 6\\\" of any enemy units and within 1\\\" of the selected point. If you are playing a game that uses a points limit, this unit does not cost any Reinforcement points."
+                },
+                "Death Throes (6\"/D3)": {
+                    "name": "Death Throes (6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6\\\" suffers D3 mortal wounds."
+                },
+                "Airborne Predator": {
+                    "name": "Airborne Predator",
+                    "desc": "Each time you declare a charge with this model, you can only select AIRCRAFT units as the target(s) of that charge. This model can only be chosen as a target of a charge if the unit making the charge can FLY. You can only fight with this model if it is within engagement Range of any enemy units that can FLY, and this model can only make melee attacks against units that can FLY. Enemy units can only make melee attacks against this model if they can FLY."
+                },
+                "Manoeuvrable": {
+                    "name": "Manoeuvrable",
+                    "desc": "Each time this model makes a Normal Move, Advances or Falls Back, first pivot it on the spot up to 90° (this does not contribute to how far the model moves), then move the model straight forwards. It can pivot up to 90° one more time, at any point, during the move."
+                },
+                "Hard to Hit": {
+                    "name": "Hard to Hit",
+                    "desc": "Each time a ranged attack is made against this model, subtract 1 from that attack's hit roll."
+                },
+                "Hover": {
+                    "name": "Hover",
+                    "desc": "In your Command phase, this model can hover. If it does so, then until the start of your next Command phase, its Move characteristic becomes 15\\\" and it loses the Airborne Predator, Hard to Hit and Manoeuvrable abilities."
+                }
+            },
+            "models": {
+                "models": {
+                    "0b0b0b0b0b0b0b0b": {
+                        "name": "Harpy",
+                        "abilities": [
+                            "Spore Mine Cysts",
+                            "Death Throes (6\"/D3)",
+                            "Airborne Predator",
+                            "Manoeuvrable",
+                            "Hard to Hit",
+                            "Hover"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Scything Wings",
+                                "number": 1
+                            },
+                            {
+                                "name": "Stinger Salvoes",
+                                "number": 1
+                            },
+                            {
+                                "name": "Stranglethorn Cannon",
+                                "number": 2
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Harpy": {
+                    "name": "Harpy",
+                    "m": "*",
+                    "ws": "*",
+                    "bs": "*",
+                    "s": "6",
+                    "t": "7",
+                    "w": "13",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Scything Wings": {
+                    "name": "Scything Wings",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "-"
+                },
+                "Stinger Salvoes": {
+                    "name": "Stinger Salvoes",
+                    "range": "24\"",
+                    "type": "Assault 8",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Stranglethorn Cannon": {
+                    "name": "Stranglethorn Cannon",
+                    "range": "36\"",
+                    "type": "Heavy D3+3",
+                    "s": "8",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Blast"
+                }
+            },
+            "rules": [],
+            "uuid": "05050505",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Harpy": {
+                    "7+": [
+                        "15-40\"",
+                        "3+",
+                        "3+"
+                    ],
+                    "4-6": [
+                        "15-30\"",
+                        "4+",
+                        "4+"
+                    ],
+                    "1-3": [
+                        "15-20\"",
+                        "5+",
+                        "5+"
+                    ]
+                }
+            }
+        }
+    },
+    "order": [
+        "00000000",
+        "01010101",
+        "02020202",
+        "03030303",
+        "04040404",
+        "05050505"
+    ]
+}

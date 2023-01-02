@@ -3,8 +3,8 @@ const ModelCollection = require("./ModelCollection"),
 
     factionKeywordRegex = /Faction: (?<keyword>.+)/,
     abilityTrimRegex = /(?:\d+(?:\.|:)|\d+\-\d+(?:\.|:))?\s*(?<ability>.+)/,
-    woundTrackWoundsRemainingRegex = /(?<wounds>\d+\-\d+\+?|\d+\+)(?=\s*wounds(?: remaining)?)/i,
-    woundTrackProfileNameRegex = /(?<name>^[^[\()]+?)\s*(?:(?:\[\d\]|\(\w\)| \w )\s*(?:\(\d+\-\d+\+?|\(\d+\+)|\s*\(\d+\-\d+\+?|\(\d+\+)/,
+    woundTrackWoundsRemainingRegex = /(?<wounds>\d+\-?\d*\+?|\d+\+)(?=\s*wounds?(?: remaining)?)/i,
+    woundTrackProfileNameRegex = /(?<name>^[^[\()]+?)\s*(?:(?:\[\d\]|\(\w\)| \w )\s*(?:\(\d+\-\d+\+?|\(\d+\+|\(1 wound)|\s*\(\d+\-\d+\+?|\(\d+\+|\(1 wound)/,
     statDamageCheckRegex = /^stat damage /i,
     bracketValueRegex = /(?<min>\d+)\-(?<max>\d+)/,
     weaponToIgnoreRegex = /of the profiles below|select one of the following profiles|select one of the profiles/i,
@@ -449,6 +449,7 @@ module.exports = class Unit {
                 otherProfiles = {},
                 baseProfile,
                 characteristics,
+                bracketNames,
                 defaultProfile,
                 profileName;
 
@@ -458,9 +459,7 @@ module.exports = class Unit {
                     Object.keys(this.modelProfiles).findIndex(name => !name.match(woundTrackWoundsRemainingRegex)) < 0) {
                 bracketProfiles[this.name] = Object.values(this.modelProfiles);
                 profileName = this.name;
-            }
-
-            else {
+            } else {
                 for (const [name, profile] of Object.entries(this.modelProfiles)) {
                     if (name.match(woundTrackWoundsRemainingRegex)) {
                         profileName = name.match(woundTrackProfileNameRegex).groups.name.trim();
@@ -497,6 +496,10 @@ module.exports = class Unit {
                     if (bWounds.indexOf("+") > 0) return 1;
                     if (aWounds.indexOf("+") > 0) return -1;
 
+                    // Special case where bottom bracket is 1 wound
+                    if (aWounds == "1") return 1;
+                    if (bWounds == "1") return -1;
+
                     let bMin = bWounds.match(bracketValueRegex).groups.min,
                         aMax = aWounds.match(bracketValueRegex).groups.max;
 
@@ -508,6 +511,8 @@ module.exports = class Unit {
 
             for (const [name, profiles] of Object.entries(bracketProfiles)) {
                 this.woundTrack[profileName] = {};
+
+                bracketNames = [];
                 characteristics = { m:[],ws:[],bs:[],s:[],t:[],w:[],a:[],ld:[],sv:[] };
                 defaultProfile = { name: profileName };
                 baseProfile = profiles[0];
@@ -527,17 +532,23 @@ module.exports = class Unit {
                     }
 
                     for (const [key,characteristic] of Object.entries(bracket)){
-                        if (key === "name")
-                            this.woundTrack[profileName][characteristic.match(woundTrackWoundsRemainingRegex).groups.wounds] = [];
+                        if (key === "name") {
+                            let bracketName = characteristic.match(woundTrackWoundsRemainingRegex).groups.wounds;
 
-                        else if (characteristics[key])
+                            // A fix for the Hemlock - a bracket of "1" doesn't get output
+                            // in the right order, and probably wouldn't be understood by
+                            // the LUA code.
+                            if (bracketName == "1")
+                                bracketName = "1-1";
+
+                            bracketNames.push(bracketName);
+                            this.woundTrack[profileName][bracketName] = [];
+                        } else if (characteristics[key])
                             characteristics[key].push(characteristic);
                     }
                 }
 
-                let bracketNames = Object.keys(this.woundTrack[profileName]),
-                current = 0;
-
+                let current = 0;
                 for (const [key,char] of Object.entries(characteristics)) {
                     if (!arrayUtils.allEqual(char) && key !== "w") {
                         defaultProfile[key] = "*";
@@ -559,6 +570,14 @@ module.exports = class Unit {
     /**
      * Makes sure that the wound track is in the right order
      * (if it isn't then changing brackets doesn't work properly)
+     *
+     * ThePants999 note: I'm pretty sure this function achieves absolutely
+     * nothing. Calling Object.keys().sort() just gives you a *copy* of the
+     * set of keys and sorts your copy. It doesn't affect the Object in the
+     * slightest - the next time you call Object.keys(), you'll get an
+     * unsorted collection again. And the order you get them in has nothing
+     * to do with the insertion order, so this business with newTrack isn't
+     * helping either.
      */
     sortWoundTracks () {
         if (!this.woundTrack) return;
@@ -569,6 +588,10 @@ module.exports = class Unit {
             let brackets = Object.keys(track).sort((a,b) => {
                 if (b.indexOf("+") > 0) return 1;
                 if (a.indexOf("+") > 0) return -1;
+
+                // Special case where bottom bracket is 1 wound
+                if (a == "1") return 1;
+                if (b == "1") return -1;
 
                 let bMin = b.match(bracketValueRegex).groups.min,
                     aMax = a.match(bracketValueRegex).groups.max;

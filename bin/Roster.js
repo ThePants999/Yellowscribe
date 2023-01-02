@@ -59,6 +59,9 @@ function replacer(key, value) {
     else if (value instanceof Set)
         return Array.from(value);
 
+    else if (typeof(value) === 'string' || value instanceof String)
+        return value.replace(/(?:\r\n|\r|\n)/g, "\n");
+
     else
         return value;
 }

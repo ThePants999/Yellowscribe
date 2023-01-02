@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<roster id="f494-880a-96ce-659f" name="wound track monsters" battleScribeVersion="2.03" gameSystemId="28ec-711c-d87f-3aeb" gameSystemName="Warhammer 40,000 9th Edition" gameSystemRevision="225" xmlns="http://www.battlescribe.net/schema/rosterSchema">
+  <costs>
+    <cost name=" PL" typeId="e356-c769-5920-6e14" value="63.0"/>
+    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-2.0"/>
+    <cost name="pts" typeId="points" value="1300.0"/>
+  </costs>
+  <forces>
+    <force id="6219-7dc5-a214-8a18" name="Patrol Detachment -2CP" entryId="a0c7-2a71-bae0-215d" catalogueId="7150-5917-ae80-68c5" catalogueRevision="109" catalogueName="Tyranids">
+      <selections>
+        <selection id="ed28-1ac9-9f28-5222" name="Hive Fleet" entryId="9e04-2019-313e-0259::1e74-63b9-9478-0dc8" number="1" type="upgrade">
+          <profiles>
+            <profile id="9e04-2019-313e-0259::a4b4-d428-8aa1-3942" name="Hive Fleet Adaptations" publicationId="7150-5917-pubN65537" page="51" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If every unit from your army (excluding HIVE TENDRIL LIVING ARTILLERY and UNALIGNED units) is from the same hive fleet, all HIVE TENDRIL units with this ability, and all models within them, gain a Hive Fleet Adaptation. The Hive Fleet Adaptation gained is dependant upon which hive fleet they are from.
+
+If your hive fleet does not have an associated Hive Fleet Adaptation, you must instead create a new Hive Fleet Adaptation for them, as described on pages 60-61. This allows you to customise the rules for your hive fleet to best represent their fighting style. In either case, write down all of your Detachments&apos; Hive Fleet Adaptations on your army roster.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="9e04-2019-313e-0259::ee5d-4a85-fc0e-160d" name="Hyper-adaptations" publicationId="7150-5917-pubN65537" page="51" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each Hive Fleet Adaptation also has an Adaptive element to it, which can be swapped out for another rule at the start of the battle, after determining who has the first turn. There are multiple alternative rules that this Adaptive element can be swapped out for, and each hive fleet&apos;s Hyper-adaptations rule will specify which ones are available to you.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="f841-4855-f299-98cf" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="962e-2d5e-75f0-ee00" name="Game Type" entryId="4bcc-b0f4-b425-f38e::bf09-85b2-c097-1071" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="07e5-3f71-7069-4b30" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="41cf-209a-c4c9-9ff8" name="Detachment Command Cost" entryId="ec87-f19e-eee2-1ba8::9d97-2793-9882-d48a" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-2.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="d302-b704-a793-0d74" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="8c7d-f964-8f76-ede0" name="Winged Hive Tyrant" entryId="14dd-83d3-99c9-b392::d0f1-4f2b-4aa2-e6c6" number="1" type="model">
+          <profiles>
+            <profile id="14dd-83d3-99c9-b392::ac3d-1b6c-3ea0-7d27" name="Winged Hive Tyrant [1] (7+ wounds)" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">16&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">2+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">2+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">12</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">5</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::a54f-4b35-d10f-a3af" name="Winged Hive Tyrant" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">2</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">1</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Hive Mind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::36c1-39cc-8e9f-dd5a" name="Winged Hive Tyrant [2] (4-6 wounds)" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">12&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">5</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::17a7-322b-904c-c258" name="Winged Hive Tyrant [3] (1-3 wounds)" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">5</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::b790-88e1-cd8c-b511::f587-afe6-7bbe-4eac" name="Shadow in the Warp (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While an enemy PSYKER unit is within 18&quot; of this unit:
+• Subtract 1 from Psychic tests taken for that enemy unit.
+• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::8524-4a05-4c71-a717::1f08-bd8f-43a3-ce1b" name="Synapse (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this unit, that unit automatically passes Morale tests.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::3ffa-921f-465d-b2e5::691e-2c1e-9556-14ef" name="Will of the Hive Mind" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">In your Command phase, select one friendly &lt;HIVE FLEET&gt; CORE unit within Synaptic Link range (pg 87) of this model. Until the start of your next Command phase, each time a model in that unit makes an attack, re-roll a hit roll of 1.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::0486-885a-0634-d59d::4df2-766b-6931-c259" name="Psychic Barrier" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This model has a 4+ invulnerable save.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::be59-b104-2a1a-9b01::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="14dd-83d3-99c9-b392::46bd-c4aa-0fb4-4569::119a-d63d-eb46-2dc9" name="Death from Above" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">During deployment, you can set up this model high in the skies instead of setting it up on the battlefield. If you do so, then during the Reinforcements step of one of your Movement phases, you can set up this model anywhere on the battlefield that is more than 9&quot; away from any enemy models, and, until the end of the turn, you can re-roll charge rolls made for this model.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="bee1-d3e8-9ca1-9573" name="Tyrant Talons" entryId="14dd-83d3-99c9-b392::708f-01e5-a52f-9823" number="1" type="upgrade">
+              <profiles>
+                <profile id="14dd-83d3-99c9-b392::e4b4-7f2e-fbf3-8d10" name="Tyrant Talons" publicationId="7150-5917-pubN65537" page="89" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it makes 2 additional attacks with this weapon.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="4067-4343-0f68-6009" name="Prehensile Pincer Tail" entryId="14dd-83d3-99c9-b392::ce83-dc0a-012f-a73f::73d5-dcb1-c0a2-b103" number="1" type="upgrade">
+              <profiles>
+                <profile id="14dd-83d3-99c9-b392::ce83-dc0a-012f-a73f::269f-466b-8bb5-a085::a2c2-10d8-c9a9-048b" name="Prehensile Pincer Tail" publicationId="7150-5917-pubN65537" page="OthArm" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+                  <characteristics>
+                    <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time the bearer is selected to fight, when resolving its attacks you can re-roll one hit roll or one wound roll.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="3a94-4546-984a-99dc" name="Lash Whip and Monstrous Bonesword" entryId="14dd-83d3-99c9-b392::df0a-c4db-891d-3c5d::eda8-1541-116e-f6aa" entryGroupId="14dd-83d3-99c9-b392::c07c-1029-e100-3e35" number="1" type="upgrade">
+              <profiles>
+                <profile id="14dd-83d3-99c9-b392::df0a-c4db-891d-3c5d::25b2-44cc-a0ce-7ef4::3c08-32c2-5ee8-e424" name="Monstrous Bonesword" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="14dd-83d3-99c9-b392::df0a-c4db-891d-3c5d::3563-e0ae-f854-2319::bce8-e4ba-2bb1-ae19" name="Lash Whip" publicationId="7150-5917-pubN65537" page="OthArm" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+                  <characteristics>
+                    <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">The bearer gains the LASH WHIP keyword. Each time the bearer makes a melee attack, re-roll a hit roll of 1.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+              <categories>
+                <category id="7972-32ef-c57c-0ce8" name="Lash Whip" entryId="040b-ae3f-7441-826f" primary="false"/>
+              </categories>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="210.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="11.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="3364-a1ed-7ce2-0f69" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="d03c-39a9-628d-b437" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="ffef-4cf9-49c4-5310" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="387c-489a-bbd1-76bd" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="c4e0-60ec-19d6-0c5b" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="e501-ed64-572c-27b0" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="0d71-9338-664c-16b1" name="Hive Tyrant" entryId="9c32-eba0-ea9e-1e0d" primary="false"/>
+            <category id="2e46-7a01-1fbd-17c7" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="4847-f94f-6323-8f06" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
+            <category id="8b0f-c78c-9376-0305" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
+            <category id="3cb0-5f39-09de-72b2" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="9447-e9ea-af5f-68a1" name="Tervigon" entryId="2f34-dcaf-2024-c917::0507-f341-5267-7cc5" number="1" type="model">
+          <profiles>
+            <profile id="2f34-dcaf-2024-c917::75ac-7f55-0333-a12a" name="Tervigon [1] (9+ wounds)" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">17</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::0a6e-999a-aa6a-1ed4" name="Tervigon" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">1</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">1</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 1 Hive Mind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::1cbd-99d4-4bdd-4959" name="Brood Progenitor" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">In your Command phase, select one friendly &lt;HIVE FLEET&gt; TERMAGANTS unit within Synaptic Link range (pg 87) of this model that has not already been selected for this ability this turn. Until the start of your next Command phase, each time a model in that unit makes a ranged attack, add 1 to that attack&apos;s hit roll.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::88ae-7a4e-1afa-b7a3" name="Wall of Flesh" publicationId="db16-1a92-fdd3-95a9" page="1" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; TERMAGANTS unit is within 1&quot; of this model, if that unit contains 15 or more models and is closer to any enemy models than this model, this model can use the Look Out Sir rule even if this unit contains fewer than 3 models.
+
+TERVIGONS within range of a friendly &lt;HIVE FLEET&gt; TERMAGANT unit&apos;s Wall of Flesh ability gain the benefits of Look Out, Sir even though they are CHARACTERS with a Wounds characteristic greater than 9. Note that the Wall of Flesh ability still requires a unit of 15 or more Termagants to apply, even though other Bodyguard abilities apply with fewer than 3 models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::74e1-d3d3-d25a-9bb0" name="Spawn Termagants" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">In your Command phase, you can do one of the following:
+• Select one friendly &lt;HIVE FLEET&gt; TERMAGANTS unit within 6&quot; of this model. Up to 2D6 destroyed models from that unit are returned to it; set those models back up on the battlefield with their full wounds remaining. When setting these models up on the battlefield, they must be set up wholly within 6&quot; of this model and cannot be set up within Engagement Range of any enemy units, unless those units are already within Engagement Range of that TERMAGANTS unit.
+• Once per battle, this model can spawn a new unit of Termagants. If it does so, set up a new friendly &lt;HIVE FLEET&gt; TERMAGANTS unit on the battlefield not within Engagement Range of any enemy units and wholly within 6&quot; of this model. That TERMAGANTS unit contains 10 models, each equipped with fleshborers, and, if you are playing a game that uses a points limit, that unit does not cost any Reinforcement points.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::06ee-bdbe-186f-1c92" name="Tervigon [2] (5-8 wounds)" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">7&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::0c1d-91de-d3b6-97b1" name="Tervigon [3] (1-4 wounds)" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::c6a9-62a7-2d47-4883::f587-afe6-7bbe-4eac" name="Shadow in the Warp (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While an enemy PSYKER unit is within 18&quot; of this unit:
+• Subtract 1 from Psychic tests taken for that enemy unit.
+• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::e37e-743e-e0c6-2bc5::1f08-bd8f-43a3-ce1b" name="Synapse (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this unit, that unit automatically passes Morale tests.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="2f34-dcaf-2024-c917::9dfd-f987-8205-0425::651c-dd23-d42f-e6bf" name="Death Throes (6&quot;/D6)" publicationId="7150-5917-pubN65537" page="94" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D6 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="2495-c00f-1e31-1ec3" name="Stinger Salvoes" entryId="2f34-dcaf-2024-c917::652c-f662-9e72-b5d6::6657-6c6f-5778-34e7" number="1" type="upgrade">
+              <profiles>
+                <profile id="2f34-dcaf-2024-c917::652c-f662-9e72-b5d6::d8dd-f5ca-96d9-91bb::b9e5-182a-39ac-12f8" name="Stinger Salvoes" publicationId="7150-5917-pubN65537" page="RanArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">24&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Assault 8</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">5</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="48d4-13c4-4e70-3ce9" name="Massive Scything Talons" entryId="2f34-dcaf-2024-c917::e374-8130-e9de-60db::f906-1281-9e25-d59e" entryGroupId="2f34-dcaf-2024-c917::c4f2-2de0-70fc-db4f" number="1" type="upgrade">
+              <profiles>
+                <profile id="2f34-dcaf-2024-c917::e374-8130-e9de-60db::1886-3394-5c0a-9f84::bc0b-38c4-9cce-e264" name="Massive Scything Talons (Sweep)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time an attack is made with this profile, make 2 hit rolls instead of 1.</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="2f34-dcaf-2024-c917::e374-8130-e9de-60db::31db-b4a5-7787-e5ee::d5ee-735d-0c0d-782b" name="Massive Scything Talons (Strike)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="215.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="11.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="f6c3-6205-341c-f626" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="7d58-6f73-64b8-d5d5" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="f4ec-893a-d209-d9a6" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="5496-7856-5e53-0c62" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="2483-152d-dc84-5c84" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="5d94-2189-0347-b11c" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="40f1-f69f-e093-4d40" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="5cd6-723c-b433-ce1f" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="ffbe-d313-253c-c2aa" name="Maleceptor" entryId="7965-0c0a-9605-535c::9801-59fc-296b-6b85" number="1" type="model">
+          <profiles>
+            <profile id="7965-0c0a-9605-535c::6e66-da32-a0e0-c98b" name="Maleceptor [1] (8+ wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">15</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::9936-a63a-f160-7106" name="Maleceptor" page="" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">2</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">2</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Hive Mind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::17ce-9710-1b84-6205" name="Psychic Overload" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time this model successfully manifests a psychic power or completes a psychic action, if the result of the Psychic test was 7 or more, after resolving that psychic power, the closest enemy unit within 12&quot; suffers the number of mortal wounds shown in the table below.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::89ff-8d48-a161-583d" name="Maleceptor [2] (5-7 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">7&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::1249-ce3f-2e82-2c72" name="Maleceptor [3] (1-4 wounds)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">5&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::8955-23e7-6546-16ae" name="(1) 8+ Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">3</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::897d-b8a6-0eef-fce2" name="(2) 5-7 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">2</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::18af-6467-e498-3dda" name="(3) 1-4 Wounds" hidden="false" typeId="c8b4-017c-6547-87f7" typeName="Psychic Overload">
+              <characteristics>
+                <characteristic name="MWs" typeId="cf7f-e3c7-3874-98d9">1</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::a3e8-4a4a-48d9-8ad7" name="Encephalic Diffusion" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This unit can attempt to perform the following psychic action:
+
+Encephalic Diffusion (Psychic Action - Warp Charge 6): In your Psychic phase, this PSYKER can attempt to perform this psychic action. If completed, until the start of your next Psychic phase, this PSYKER gains the following ability:
+
+Diffusion Field (Aura): While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this PSYKER, each time a ranged attack is made against that unit, subtract 1 from the Strength characteristic of that attack.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::6df4-7069-19d7-09ad::f587-afe6-7bbe-4eac" name="Shadow in the Warp (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While an enemy PSYKER unit is within 18&quot; of this unit:
+• Subtract 1 from Psychic tests taken for that enemy unit.
+• Each time that enemy unit suffers Perils of the Warp, it suffer 1 additional mortal wound.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::bf35-d585-9a2a-87ad::4df2-766b-6931-c259" name="Psychic Barrier" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This model has a 4+ invulnerable save.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::612d-af1b-2a07-3fd1::1f08-bd8f-43a3-ce1b" name="Synapse (Aura)" publicationId="7150-5917-pubN65537" page="86" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">While a friendly &lt;HIVE FLEET&gt; unit is within 6&quot; of this unit, that unit automatically passes Morale tests.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="7965-0c0a-9605-535c::48a8-7439-7e82-2609::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="103" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="4523-4abd-41a9-b5ab" name="Massive Scything Talons" entryId="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::f906-1281-9e25-d59e" number="1" type="upgrade">
+              <profiles>
+                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::1886-3394-5c0a-9f84::bc0b-38c4-9cce-e264" name="Massive Scything Talons (Sweep)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time an attack is made with this profile, make 2 hit rolls instead of 1.</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="7965-0c0a-9605-535c::9a5d-f416-17b9-ea66::31db-b4a5-7787-e5ee::d5ee-735d-0c0d-782b" name="Massive Scything Talons (Strike)" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="220.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="9.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="81f6-bea3-c490-0bbb" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="f1fa-1f36-4015-8aba" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="86dc-5253-1bfa-a2f9" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="6ba7-35f4-4017-aabd" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="5c9a-b213-2432-45e8" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="5e03-e053-5722-db7e" name="Synapse" entryId="7b29-b270-99fe-4de7" primary="false"/>
+            <category id="b9de-8601-9827-5ead" name="Horned Chitin" entryId="e827-225b-065b-983d" primary="false"/>
+            <category id="9b37-2a99-28d1-432f" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="b42a-c584-8e9f-d7ee" name="Dimachaeron" entryId="c5f6-b2a2-b2da-1093::31b7-cfad-2be9-9997" number="1" type="model">
+          <profiles>
+            <profile id="c5f6-b2a2-b2da-1093::1062-f310-66c2-e415" name="Dimachaeron  [1] (10+ wounds)" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">12&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">18</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::05b0-c627-0031-afe6" name="Digestion Spine" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If any enemy models are destroyed as a result of this model&apos;s Thorax Spine-maw ability, at the end of the turn this model gains the following ability until the end of the battle: &apos;Regenerative Physiology: Each time this model would lose a wound, roll one D6; on a 5+, that wound is not lost.&apos;</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::bed5-0e43-e34a-71a9" name="Leaper-killer" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This model has a 5+ invulnerable save. In addition, each time this model makes a Normal Move, Advances, Falls Back or it makes a charge move, until that move is finished, it can move vertically and horizontally through models and terrain features (it cannot finish a move on top of another model, or its base).</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::d369-2b85-ae0e-d2ee" name="Dimachaeron  [2] (5-9 wounds)" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">9&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::9499-42e4-9100-287f" name="Dimachaeron  [3] (1-4 wounds)" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::5e77-f145-4541-1888" name="Thorax Spine-maw" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">After this model has made close combat attacks, before it consolidates, select one enemy model within Engagement Range (excluding AIRCRAFT). That model&apos;s player rolls one D6 and adds their model&apos;s Strength characteristic. If the result is equal to or less than this model&apos;s Strength characteristic, that model&apos;s unit suffers D6 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="c5f6-b2a2-b2da-1093::d291-83b0-f24a-2979::872a-ed44-bba5-0dd9" name="Death Throes (3&quot;/3)" publicationId="7573-8d1b-acdf-2de8" page="" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 3&quot; suffers 3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="bd71-166b-8867-b411" name="Massive Scything Sickle-talons" entryId="c5f6-b2a2-b2da-1093::e9e4-6711-5f64-dd31::a8e7-240e-26c7-f27a" number="1" type="upgrade">
+              <profiles>
+                <profile id="c5f6-b2a2-b2da-1093::e9e4-6711-5f64-dd31::62b2-769f-a02e-d696::3bb6-33f6-8eec-ae18" name="Massive Scything Sickle-talons" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+1</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3+3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time an attack is made with this weapon, you can re-roll the hit roll.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="53a0-0761-803e-5d4e" name="Scything Tail" entryId="c5f6-b2a2-b2da-1093::6a66-ebab-e420-b728::7db0-b30f-6c80-6bb9" number="1" type="upgrade">
+              <profiles>
+                <profile id="c5f6-b2a2-b2da-1093::6a66-ebab-e420-b728::7142-4d54-8d86-263e::cca4-c562-cf16-86fb" name="Scything Tail" publicationId="7573-8d1b-acdf-2de8" page="219" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it makes 1 additional attack with this weapon and no more than 1 attack can be made with this weapon.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="280.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="14.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="3f1f-f36d-8e28-1c14" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="d4c7-6bcd-f4a3-0755" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="641d-1983-0059-6d33" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="7bce-2eaa-c37a-8772" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="bf87-758a-757a-a753" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="ec4e-94d2-36cb-effc" name="Exocrine" entryId="0c79-1e6d-3d27-3af2::a886-3ba1-c505-1200" number="1" type="model">
+          <profiles>
+            <profile id="0c79-1e6d-3d27-3af2::9f26-7669-789f-de1e" name="Exocrine [1] (8+ wounds)" publicationId="7150-5917-pubN65537" page="112" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">15</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="0c79-1e6d-3d27-3af2::747a-05a9-a399-6e59" name="Symbiotic Targeting" publicationId="7150-5917-pubN65537" page="112" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">In your Movement phase, if this model Remains Stationary or moves a total distance of less than half its Move characteristic, until the end of the turn, each time this model makes a ranged attack, the target does not receive the benefits of cover against that attack.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="0c79-1e6d-3d27-3af2::5696-c98e-e70d-ef2c" name="Exocrine [2] (5-7 wounds)" publicationId="7150-5917-pubN65537" page="112" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">7&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="0c79-1e6d-3d27-3af2::c162-ecf7-8dfa-c2ea" name="Exocrine [3] (1-4 wounds)" publicationId="7150-5917-pubN65537" page="112" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">5&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">7</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">8</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">2+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="0c79-1e6d-3d27-3af2::4fb1-457f-6db5-ff61::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="112" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="9844-9e50-16dc-6105" name="Bio-plasmic Cannon" entryId="0c79-1e6d-3d27-3af2::f82e-bd5c-1116-e04b::c045-e3db-568a-7ed0" number="1" type="upgrade">
+              <profiles>
+                <profile id="0c79-1e6d-3d27-3af2::f82e-bd5c-1116-e04b::97cd-0cc8-c859-c17f::6eab-666b-124c-0322" name="Bio-plasmic Cannon" publicationId="7150-5917-pubN65537" page="RanArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy D3+6</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">8</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-4</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Blast</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="52a8-c4ee-25a3-0282" name="Powerful Limbs" entryId="0c79-1e6d-3d27-3af2::9b86-ddd6-d1bb-c104::178d-3d9c-81ba-e703" number="1" type="upgrade">
+              <profiles>
+                <profile id="0c79-1e6d-3d27-3af2::9b86-ddd6-d1bb-c104::ac6c-0859-be59-653d::ecdb-5c4d-23b3-3968" name="Powerful Limbs" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="200.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="9.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="6d60-3fb1-fed3-d934" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="80a2-5953-7d11-a6a7" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="97a7-d30a-1a42-abbd" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="4629-90bd-5710-1675" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="0b79-8b56-b113-17d0" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="0b0b-8c13-656f-7810" name="Harpy" entryId="6cd2-f9e5-a9dc-ee83::ee16-7977-eb9b-88e7" number="1" type="model">
+          <profiles>
+            <profile id="6cd2-f9e5-a9dc-ee83::ea83-bc08-3150-d0b9" name="Harpy [1] (7+ wounds)" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">15-40&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">13</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::2b49-9278-98af-1c07" name="Spore Mine Cysts" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Once per turn, after this model has moved in your Movement phase, you can select one unit it moved across or one point on the battlefield it moved across.
+• If you select a unit, roll six D6s for each VEHICLE or MONSTER model in that unit and roll one D6 for each other model in that unit (to a maximum of ten D6s): for each 4+, that unit suffers 1 mortal wound.
+• If you select a point on the battlefield, set up a new friendly SPORE MINES unit of 3 models on the battlefield not within 6&quot; of any enemy units and within 1&quot; of the selected point. If you are playing a game that uses a points limit, this unit does not cost any Reinforcement points.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::6c7a-198e-e5c7-56f0" name="Harpy [2] (4-6 wounds)" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">15-30&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::b3d4-4677-eea7-ab04" name="Harpy [3] (1-3 wounds)" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">15-20&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">5+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">4</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::b4c5-e762-2886-16f2::6515-364e-86c7-5f9f" name="Death Throes (6&quot;/D3)" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6+, the closest enemy unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::f8cd-5253-994a-c3a7::f11f-e1cc-3ac8-61ba" name="Airborne Predator" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time you declare a charge with this model, you can only select AIRCRAFT units as the target(s) of that charge. This model can only be chosen as a target of a charge if the unit making the charge can FLY. You can only fight with this model if it is within engagement Range of any enemy units that can FLY, and this model can only make melee attacks against units that can FLY. Enemy units can only make melee attacks against this model if they can FLY.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::8ff7-3849-1c27-8167::30be-0c69-b72a-21be" name="Manoeuvrable" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time this model makes a Normal Move, Advances or Falls Back, first pivot it on the spot up to 90° (this does not contribute to how far the model moves), then move the model straight forwards. It can pivot up to 90° one more time, at any point, during the move.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::b147-1047-2d24-c4a1::0abf-bdcd-d1bd-0e53" name="Hard to Hit" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time a ranged attack is made against this model, subtract 1 from that attack&apos;s hit roll.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="6cd2-f9e5-a9dc-ee83::0542-69b7-cb4d-2d17::716d-339c-6d28-e5a0" name="Hover" publicationId="7150-5917-pubN65537" page="120" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">In your Command phase, this model can hover. If it does so, then until the start of your next Command phase, its Move characteristic becomes 15&quot; and it loses the Airborne Predator, Hard to Hit and Manoeuvrable abilities.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="5a16-99b4-8db4-a3f4" name="Scything Wings" entryId="6cd2-f9e5-a9dc-ee83::66b9-a83e-e008-d9f2::b869-1860-8dc6-211b" number="1" type="upgrade">
+              <profiles>
+                <profile id="6cd2-f9e5-a9dc-ee83::66b9-a83e-e008-d9f2::d5ea-d9bd-54a7-ad88::21e5-b5c6-6195-1413" name="Scything Wings" publicationId="7150-5917-pubN65537" page="MelArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="a530-035d-0db7-3f90" name="Stinger Salvoes" entryId="6cd2-f9e5-a9dc-ee83::1cef-abd0-4d11-dae6::6657-6c6f-5778-34e7" number="1" type="upgrade">
+              <profiles>
+                <profile id="6cd2-f9e5-a9dc-ee83::1cef-abd0-4d11-dae6::d8dd-f5ca-96d9-91bb::b9e5-182a-39ac-12f8" name="Stinger Salvoes" publicationId="7150-5917-pubN65537" page="RanArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">24&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Assault 8</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">5</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="3b26-0c52-bad6-774d" name="2x Stranglethorn Cannon" entryId="6cd2-f9e5-a9dc-ee83::f4c9-e0b3-e863-61e8::0d1b-6f84-2224-a225" entryGroupId="6cd2-f9e5-a9dc-ee83::def3-321f-bed6-3f3e" number="1" type="upgrade">
+              <profiles>
+                <profile id="6cd2-f9e5-a9dc-ee83::f4c9-e0b3-e863-61e8::08b3-86fa-691d-c46a::1c15-bcdd-cb30-6a84" name="Stranglethorn Cannon" publicationId="7150-5917-pubN65537" page="RanArm" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy D3+3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">8</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Blast</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="175.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="9.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="f8c2-4d71-2c95-b1b1" name="Faction: Hive Tendril" entryId="3c7e-2472-ce0d-fe17" primary="false"/>
+            <category id="dd7a-8895-1b26-0afa" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="f2bc-723c-b45e-b92c" name="Faction: &lt;Hive Fleet&gt;" entryId="dc2c-fdd5-528b-e9ad" primary="false"/>
+            <category id="d114-8cb1-0563-ec0e" name="Fly" entryId="3117-16d8-fcef-4f56" primary="false"/>
+            <category id="89fd-619d-fb03-90d8" name="Monster" entryId="3b77-decb-d468-6bcc" primary="false"/>
+            <category id="06c1-b16d-0b67-cf79" name="Aircraft" entryId="d569-3d56-cd24-6a31" primary="false"/>
+            <category id="0448-8577-4c20-71c5" name="Flyer" entryId="e888-1504-aa61-95ff" primary="true"/>
+          </categories>
+        </selection>
+      </selections>
+      <publications>
+        <publication id="85df-1155-c986-4d71" name="Psychic Awakening IX: Pariah"/>
+        <publication id="c9fe-4431-b76d-267a" name="Psychic Awakening VIII: War of the Spider"/>
+        <publication id="ecea-8b62-fefb-9f8e" name="Psychic Awakening VII: Engine War"/>
+        <publication id="28ec-711c-pubN118139" name="Index: Xenos 2"/>
+        <publication id="5c2d-db9f-58ca-e7b2" name="Psychic Awakening IV: Ritual of the Damned"/>
+        <publication id="0865-ee21-d1f1-ed38" name="War Zone Charadon, Act I: The Book of Rust"/>
+        <publication id="28ec-711c-pubN72690" name="Warhammer 40,000 Core Book"/>
+        <publication id="28ec-711c-pubN78977" name="Index: Imperium 1"/>
+        <publication id="28ec-711c-pubN98266" name="Imperium Nihilus: Vigilus Defiant"/>
+        <publication id="52c4-39c0-ae97-d4dc" name="Psychic Awakening VI: Saga of the Beast"/>
+        <publication id="b854-bcb5-5746-e0d3" name="War Zone Charadon, Act II: The Book of Fire"/>
+        <publication id="7150-5917-pubN65537" name="Codex: Tyranids"/>
+        <publication id="28ec-711c-pubN77581" name="Index: Imperium 2"/>
+        <publication id="db16-1a92-fdd3-95a9" name="The Balance Dataslate"/>
+        <publication id="09f4-6657-ccd5-6e61" name="War Zone Nephilim: Grand Tournament"/>
+        <publication id="5093-9448-d8cc-5327" name="Psychic Awakening II: Faith and Fury"/>
+        <publication id="255d-c624-9fcb-ca23" name="War Zone Octarius, Book 2: Critical Mass"/>
+        <publication id="28ec-711c-pubN76527" name="Index: Xenos 1"/>
+        <publication id="5b08-09e5-a80a-fd67" name="Psychic Awakening I: Phoenix Rising"/>
+        <publication id="977a-446b-737a-b571" name="Chapter Approved 2021"/>
+        <publication id="ce40-ec9e-21e2-2e42" name="Warhammer Quest: Blackstone Fortress"/>
+        <publication id="28ec-711c-pubN99666" name="Index: Chaos"/>
+        <publication id="f000-7b0c-01bf-7630" name="Psychic Awakening III: Blood of Baal"/>
+        <publication id="57c5-6839-bb2f-72da" name="White Dwarf 471"/>
+        <publication id="7573-8d1b-acdf-2de8" name="Imperial Armour: Compendium"/>
+        <publication id="b652-8bab-1453-da20" name="Warhammer Legends"/>
+        <publication id="4a3e-a6d9-b5f8-3e3d" name="Shadow Throne"/>
+        <publication id="e056-7215-247f-0a20" name="War Zone Octarius, Book 1: Rising Tide"/>
+        <publication id="4593-a2f0-546a-d6f2" name="Psychic Awakening V: The Greater Good"/>
+        <publication id="2ec0-6d53-e36b-9895" name="Chapter Approved 2018"/>
+        <publication id="28ec-711c-pubN73170" name="Chapter Approved 2017"/>
+      </publications>
+      <categories>
+        <category id="7ccc-de05-4d2b-3e74" name="Uncategorised" entryId="(No Category)" primary="false"/>
+        <category id="91ea-a537-02cc-2247" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
+        <category id="bcf0-ebbb-14b9-7a77" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
+        <category id="ad47-9304-f50f-8c19" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
+        <category id="f866-5ea6-fd83-6022" name="Agents of the Imperium" entryId="0f35-2c34-ba6a-8105" primary="false"/>
+        <category id="62cb-2baa-1dbe-e6ef" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
+        <category id="b89d-75f8-7853-adfe" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
+        <category id="107c-45c6-0fe1-00df" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
+        <category id="651d-6ab2-edaa-47fb" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
+        <category id="19df-f54b-acfc-beb9" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
+        <category id="da78-7804-e45d-c7f4" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
+        <category id="a972-b0ae-23ed-16d7" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
+        <category id="23ca-a969-e8f3-f46e" name="Relic Elites" entryId="8d86-9490-0f7d-a5b5" primary="false"/>
+        <category id="7cd3-1e14-0668-42ae" name="Relic Heavy Support" entryId="6c4c-a416-b8cb-c380" primary="false"/>
+        <category id="6bc7-5fa2-3aca-a5a0" name="Relic HQ" entryId="655f-e142-dfa9-11a4" primary="false"/>
+      </categories>
+    </force>
+  </forces>
+</roster>

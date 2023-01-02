@@ -280,6 +280,7 @@ module.exports = class Unit {
                             this.addModelProfileData(profile);
                         break;
                     case "abilities":
+                    case "prayers":
                         this.addAbility(profile);
                         break;
                     case "weapon":

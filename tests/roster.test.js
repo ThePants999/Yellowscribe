@@ -65,3 +65,10 @@ test("empty roster", () => {
     expect(roster.units).toStrictEqual(new Map())
     expect(roster.order).toHaveLength(0)
 })
+
+test("uncompressed roster", () => {
+    const fileContent = fs.readFileSync(path.join(__dirname, "../samples", "sample-army.ros"));
+    const roster = roszParse(fileContent);
+    expect(roster.units).toBeDefined()
+    expect(roster.order).toBeDefined()
+})

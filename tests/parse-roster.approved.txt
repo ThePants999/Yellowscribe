@@ -1,0 +1,1897 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Death Guard Daemon Prince",
+            "factionKeywords": [
+                "Heretic Astartes",
+                "Death Guard",
+                "Nurgle",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Character",
+                "Daemon",
+                "Monster",
+                "Daemon Prince",
+                "Psyker",
+                "Bubonic Astartes",
+                "Inexorable Warlord"
+            ],
+            "abilities": {
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Lord of the Death Guard (Aura)": {
+                    "name": "Lord of the Death Guard (Aura)",
+                    "desc": "While a friendly <PLAGUE COMPANY> CORE unit is within 6\\\" of this model, each time a model in that unit makes an attack, re-roll a hit roll of 1."
+                },
+                "Rotten Constitution": {
+                    "name": "Rotten Constitution",
+                    "desc": "- Add 1 to the Toughness characteristic of this WARLORD.\n- Each time an attack with an Armour Penetration characteristic of -1 or -2 is allocated to this WARLORD, that attack has an Armour Penetration chracteristic of 0 instead."
+                }
+            },
+            "models": {
+                "models": {
+                    "1010101010101010": {
+                        "name": "Death Guard Daemon Prince",
+                        "abilities": [
+                            "Rotten Constitution",
+                            "Daemonic",
+                            "Disgustingly Resilient",
+                            "Lord of the Death Guard (Aura)",
+                            "Contagions of Nurgle",
+                            "Inexorable Advance"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Malefic talons",
+                                "number": 1
+                            },
+                            {
+                                "name": "Hellforged sword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Death Guard Daemon Prince": {
+                    "name": "Death Guard Daemon Prince",
+                    "m": "8\"",
+                    "ws": "2+",
+                    "bs": "2+",
+                    "s": "7",
+                    "t": "6",
+                    "w": "8",
+                    "a": "6",
+                    "ld": "10",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Malefic talons": {
+                    "name": "Malefic talons",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-1",
+                    "d": "2",
+                    "abilities": "Each time this model fights, it makes 1 additional attack with this weapon."
+                },
+                "Hellforged sword": {
+                    "name": "Hellforged sword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-3",
+                    "d": "3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle",
+                "Inexorable Advance"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 8,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Death Guard Daemon Prince",
+                    "cast": "1",
+                    "deny": "1",
+                    "known": "Smite and 1 power from the Contagion discipline",
+                    "other": "-"
+                }
+            ],
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "Smite has a warp charge value of 5. If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds (pg 181). If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                },
+                {
+                    "name": "Putrescent Vitality",
+                    "warpCharge": "7",
+                    "range": "18\"",
+                    "details": "Blessing: If manifested, select one friendly DEATH GUARD INFANTRY unit within 18\" of this PSYKER. Until the start of your next Psychic phase, add 1 to the Strength and Toughness characteristics of models in that unit."
+                }
+            ]
+        },
+        "01010101": {
+            "name": "Malignant Plaguecaster",
+            "factionKeywords": [
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Character",
+                "Infantry",
+                "Psyker",
+                "Bubonic Astartes",
+                "Malignant Plaguecaster",
+                "Inexorable Warlord"
+            ],
+            "abilities": {
+                "Pestilential Fallout": {
+                    "name": "Pestilential Fallout",
+                    "desc": "Each time this model successfully manifests a psychic power, if the result of the Psychic test was 7 or more, the closest enemy unit within 12\\\" suffers one mortal wound."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Plague Skull of Glothila": {
+                    "name": "Plague Skull of Glothila",
+                    "desc": "Once per battle, at the end of your Movement phase, the bearer can use this Relic. If it does, select one enemy unit within 6\\\" of the bearer and roll seven D6s; for each 4-5, that unit suffers 1 mortal wound; for each 6, that unit suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "1111111111111111": {
+                        "name": "Malignant Plaguecaster",
+                        "abilities": [
+                            "Plague Skull of Glothila",
+                            "Pestilential Fallout",
+                            "Disgustingly Resilient",
+                            "Contagions of Nurgle",
+                            "Inexorable Advance"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Corrupted staff",
+                                "number": 1
+                            },
+                            {
+                                "name": "Blight grenade",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Malignant Plaguecaster": {
+                    "name": "Malignant Plaguecaster",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "4",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Corrupted staff": {
+                    "name": "Corrupted staff",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "Plague Weapon."
+                },
+                "Blight grenade": {
+                    "name": "Blight grenade",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle",
+                "Inexorable Advance"
+            ],
+            "uuid": "01010101",
+            "unassignedWeapons": [],
+            "pl": 5,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Malignant Plaguecaster",
+                    "cast": "2",
+                    "deny": "1",
+                    "known": "Smite and 2 powers from the Contagion discipline",
+                    "other": "-"
+                }
+            ],
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "Smite has a warp charge value of 5. If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds (pg 181). If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                },
+                {
+                    "name": "Plague Wind",
+                    "warpCharge": "6",
+                    "range": "18\"",
+                    "details": "Witchfire: If manifested, select one enemy unit within 18\" of and visible to this PSYKER. Roll one D6 for each model in that unit. For each 6, that unit suffers 1 mortal wound. If the result of the Psychic test was 9+, that unit suffers 1 mortal wound for each 5+ instead."
+                },
+                {
+                    "name": "Curse of the Leper",
+                    "warpCharge": "6",
+                    "range": "18\"",
+                    "details": "Witchfire: If manifested, select the closest enemy unit that is within 18\" of and visible to this PSYKER. Roll seven D6s: for each dice result that exceeds that enemy unit's Toughness characteristic, it suffers 1 mortal wound."
+                }
+            ]
+        },
+        "02020202": {
+            "name": "Death Guard Cultists",
+            "factionKeywords": [
+                "Death Guard",
+                "Nurgle",
+                "Chaos"
+            ],
+            "keywords": [
+                "Infantry",
+                "Cultists",
+                "Plague Followers"
+            ],
+            "abilities": {},
+            "models": {
+                "models": {
+                    "1212121212121212": {
+                        "name": "Death Guard Cultist Champion",
+                        "abilities": [],
+                        "weapons": [
+                            {
+                                "name": "Autogun",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "1313131313131313": {
+                        "name": "Death Guard Cultist w/ Autogun",
+                        "abilities": [],
+                        "weapons": [
+                            {
+                                "name": "Autogun",
+                                "number": 1
+                            }
+                        ],
+                        "number": 9
+                    }
+                },
+                "totalNumberOfModels": 10
+            },
+            "modelProfiles": {
+                "Death Guard Cultist": {
+                    "name": "Death Guard Cultist",
+                    "m": "6\"",
+                    "ws": "4+",
+                    "bs": "4+",
+                    "s": "3",
+                    "t": "3",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "5",
+                    "sv": "6+"
+                },
+                "Death Guard Cultist Champion": {
+                    "name": "Death Guard Cultist Champion",
+                    "m": "6\"",
+                    "ws": "4+",
+                    "bs": "4+",
+                    "s": "3",
+                    "t": "3",
+                    "w": "1",
+                    "a": "2",
+                    "ld": "6",
+                    "sv": "6+"
+                }
+            },
+            "weapons": {
+                "Autogun": {
+                    "name": "Autogun",
+                    "range": "24\"",
+                    "type": "Rapid Fire 1",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [],
+            "uuid": "02020202",
+            "unassignedWeapons": [],
+            "pl": 2,
+            "isSingleModel": false
+        },
+        "03030303": {
+            "name": "Poxwalkers",
+            "factionKeywords": [
+                "Nurgle",
+                "Death Guard",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Infantry",
+                "Poxwalkers"
+            ],
+            "abilities": {
+                "Curse of the Walking Pox": {
+                    "name": "Curse of the Walking Pox",
+                    "desc": "Each time a melee attack is made by a model in this unit, if an enemy model is destroyed (excluding VEHICLE or MONSTER models), one of this unit's destroyed models is added back to it with 1 wound remaining. Models added back to this unit in this way can be set up within Engagement Range of enemy units that are already within Engagement Range of this unit."
+                },
+                "Fodder": {
+                    "name": "Fodder",
+                    "desc": "Each time a Morale test is taken for this unit, it is automatically passed."
+                },
+                "Mindless Horde": {
+                    "name": "Mindless Horde",
+                    "desc": "This unit cannot perform actions (excluding the Spread the Sickness action)."
+                },
+                "Unending Horde": {
+                    "name": "Unending Horde",
+                    "desc": "Each time a model in this unit would lose a wound, roll one D6; on a 6, that wound is not lost."
+                }
+            },
+            "models": {
+                "models": {
+                    "1414141414141414": {
+                        "name": "Poxwalker",
+                        "abilities": [
+                            "Curse of the Walking Pox",
+                            "Fodder",
+                            "Mindless Horde",
+                            "Unending Horde",
+                            "Objective Secured",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Improvised weapon",
+                                "number": 1
+                            }
+                        ],
+                        "number": 16
+                    }
+                },
+                "totalNumberOfModels": 16
+            },
+            "modelProfiles": {
+                "Poxwalker": {
+                    "name": "Poxwalker",
+                    "m": "4\"",
+                    "ws": "4+",
+                    "bs": "-",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "2",
+                    "ld": "4",
+                    "sv": "7+"
+                }
+            },
+            "weapons": {
+                "Improvised weapon": {
+                    "name": "Improvised weapon",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Objective Secured",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "03030303",
+            "unassignedWeapons": [],
+            "pl": 5,
+            "isSingleModel": false
+        },
+        "04040404": {
+            "name": "Poxwalkers",
+            "factionKeywords": [
+                "Nurgle",
+                "Death Guard",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Infantry",
+                "Poxwalkers"
+            ],
+            "abilities": {
+                "Curse of the Walking Pox": {
+                    "name": "Curse of the Walking Pox",
+                    "desc": "Each time a melee attack is made by a model in this unit, if an enemy model is destroyed (excluding VEHICLE or MONSTER models), one of this unit's destroyed models is added back to it with 1 wound remaining. Models added back to this unit in this way can be set up within Engagement Range of enemy units that are already within Engagement Range of this unit."
+                },
+                "Fodder": {
+                    "name": "Fodder",
+                    "desc": "Each time a Morale test is taken for this unit, it is automatically passed."
+                },
+                "Mindless Horde": {
+                    "name": "Mindless Horde",
+                    "desc": "This unit cannot perform actions (excluding the Spread the Sickness action)."
+                },
+                "Unending Horde": {
+                    "name": "Unending Horde",
+                    "desc": "Each time a model in this unit would lose a wound, roll one D6; on a 6, that wound is not lost."
+                }
+            },
+            "models": {
+                "models": {
+                    "1515151515151515": {
+                        "name": "Poxwalker",
+                        "abilities": [
+                            "Curse of the Walking Pox",
+                            "Fodder",
+                            "Mindless Horde",
+                            "Unending Horde",
+                            "Objective Secured",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Improvised weapon",
+                                "number": 1
+                            }
+                        ],
+                        "number": 15
+                    }
+                },
+                "totalNumberOfModels": 15
+            },
+            "modelProfiles": {
+                "Poxwalker": {
+                    "name": "Poxwalker",
+                    "m": "4\"",
+                    "ws": "4+",
+                    "bs": "-",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "2",
+                    "ld": "4",
+                    "sv": "7+"
+                }
+            },
+            "weapons": {
+                "Improvised weapon": {
+                    "name": "Improvised weapon",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Objective Secured",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "04040404",
+            "unassignedWeapons": [],
+            "pl": 5,
+            "isSingleModel": false
+        },
+        "05050505": {
+            "name": "Chaos Contemptor Dreadnought",
+            "factionKeywords": [
+                "Chaos",
+                "Heretic Astartes",
+                "Death Guard",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Vehicle",
+                "Dreadnought",
+                "Core",
+                "Relic",
+                "Contemptor Dreadnought",
+                "Bubonic Astartes"
+            ],
+            "abilities": {
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 3\\\" suffers 1 mortal wound."
+                },
+                "Relentless Hatred": {
+                    "name": "Relentless Hatred",
+                    "desc": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack (to a minmum of 1)"
+                },
+                "Atomantic Shielding": {
+                    "name": "Atomantic Shielding",
+                    "desc": "This model has a 5+ invulnerable save."
+                }
+            },
+            "models": {
+                "models": {
+                    "1616161616161616": {
+                        "name": "Chaos Contemptor Dreadnought",
+                        "abilities": [
+                            "Explodes",
+                            "Relentless Hatred",
+                            "Atomantic Shielding",
+                            "Hateful Assault",
+                            "Martial Legacy",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Twin volkite culverin",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Chaos Contemptor Dreadnought": {
+                    "name": "Chaos Contemptor Dreadnought",
+                    "m": "8\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "7",
+                    "t": "7",
+                    "w": "9",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Twin volkite culverin": {
+                    "name": "Twin volkite culverin",
+                    "range": "45\"",
+                    "type": "Heavy 8",
+                    "s": "6",
+                    "ap": "0",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this weapon, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage."
+                }
+            },
+            "rules": [
+                "Hateful Assault",
+                "Martial Legacy",
+                "Inexorable Advance",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "05050505",
+            "unassignedWeapons": [],
+            "pl": 8,
+            "isSingleModel": true
+        },
+        "06060606": {
+            "name": "Chaos Contemptor Dreadnought",
+            "factionKeywords": [
+                "Chaos",
+                "Heretic Astartes",
+                "Death Guard",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Vehicle",
+                "Dreadnought",
+                "Core",
+                "Relic",
+                "Contemptor Dreadnought",
+                "Bubonic Astartes"
+            ],
+            "abilities": {
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 3\\\" suffers 1 mortal wound."
+                },
+                "Relentless Hatred": {
+                    "name": "Relentless Hatred",
+                    "desc": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack (to a minmum of 1)"
+                },
+                "Atomantic Shielding": {
+                    "name": "Atomantic Shielding",
+                    "desc": "This model has a 5+ invulnerable save."
+                }
+            },
+            "models": {
+                "models": {
+                    "1717171717171717": {
+                        "name": "Chaos Contemptor Dreadnought",
+                        "abilities": [
+                            "Explodes",
+                            "Relentless Hatred",
+                            "Atomantic Shielding",
+                            "Hateful Assault",
+                            "Martial Legacy",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Twin volkite culverin",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Chaos Contemptor Dreadnought": {
+                    "name": "Chaos Contemptor Dreadnought",
+                    "m": "8\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "7",
+                    "t": "7",
+                    "w": "9",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Twin volkite culverin": {
+                    "name": "Twin volkite culverin",
+                    "range": "45\"",
+                    "type": "Heavy 8",
+                    "s": "6",
+                    "ap": "0",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this weapon, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage."
+                }
+            },
+            "rules": [
+                "Hateful Assault",
+                "Martial Legacy",
+                "Inexorable Advance",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "06060606",
+            "unassignedWeapons": [],
+            "pl": 8,
+            "isSingleModel": true
+        },
+        "07070707": {
+            "name": "Deathshroud Terminators",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Infantry",
+                "Terminator",
+                "Deathshroud Terminators",
+                "Bubonic Astartes",
+                "Core"
+            ],
+            "abilities": {
+                "Bodyguard (Aura)": {
+                    "name": "Bodyguard (Aura)",
+                    "desc": "While a friendly <PLAGUE COMPANY> CHARACTER unit that has a Wounds characteristic of 9 or less is within 3\\\" of this unit, enemy models cannot target that CHARACTER unit with ranged attacks."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Diseased Terminator Armour": {
+                    "name": "Diseased Terminator Armour",
+                    "desc": "Models in this unit have a 4+ invulnerable save."
+                },
+                "Teleport Strike": {
+                    "name": "Teleport Strike",
+                    "desc": "During deployment, if every model in this unit has this ability, then you can set up this unit in a teleportarium chamber instead of setting it up on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\\\" away from any enemy models."
+                },
+                "Remorseless": {
+                    "name": "Remorseless",
+                    "desc": "Each time a Combat Attrition test is taken for this unit, ignore any or all modifiers."
+                }
+            },
+            "models": {
+                "models": {
+                    "1818181818181818": {
+                        "name": "Deathshroud Champion",
+                        "abilities": [
+                            "Bodyguard (Aura)",
+                            "Disgustingly Resilient",
+                            "Diseased Terminator Armour",
+                            "Teleport Strike",
+                            "Remorseless",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plaguespurt gauntlet",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Cleave",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Scythe",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "1919191919191919": {
+                        "name": "Deathshroud Terminator",
+                        "abilities": [
+                            "Bodyguard (Aura)",
+                            "Disgustingly Resilient",
+                            "Diseased Terminator Armour",
+                            "Teleport Strike",
+                            "Remorseless",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plaguespurt gauntlet",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Cleave",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Scythe",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Deathshroud Champion": {
+                    "name": "Deathshroud Champion",
+                    "m": "5\"",
+                    "ws": "2+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "5",
+                    "ld": "9",
+                    "sv": "2+"
+                },
+                "Deathshroud Terminator": {
+                    "name": "Deathshroud Terminator",
+                    "m": "5\"",
+                    "ws": "2+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "2+"
+                }
+            },
+            "weapons": {
+                "Plaguespurt gauntlet": {
+                    "name": "Plaguespurt gauntlet",
+                    "range": "12\"",
+                    "type": "Pistol D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon, that attack automatically hits the target."
+                },
+                "Manreaper - Cleave": {
+                    "name": "Manreaper - Cleave",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon profile, subtract 1 from that attack's hit roll."
+                },
+                "Manreaper - Scythe": {
+                    "name": "Manreaper - Scythe",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon profile, make 2 hit rolls instead of 1."
+                }
+            },
+            "rules": [
+                "Inexorable Advance",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "07070707",
+            "unassignedWeapons": [],
+            "pl": 7,
+            "isSingleModel": false
+        },
+        "08080808": {
+            "name": "Deathshroud Terminators",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Infantry",
+                "Terminator",
+                "Deathshroud Terminators",
+                "Bubonic Astartes",
+                "Core"
+            ],
+            "abilities": {
+                "Bodyguard (Aura)": {
+                    "name": "Bodyguard (Aura)",
+                    "desc": "While a friendly <PLAGUE COMPANY> CHARACTER unit that has a Wounds characteristic of 9 or less is within 3\\\" of this unit, enemy models cannot target that CHARACTER unit with ranged attacks."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Diseased Terminator Armour": {
+                    "name": "Diseased Terminator Armour",
+                    "desc": "Models in this unit have a 4+ invulnerable save."
+                },
+                "Teleport Strike": {
+                    "name": "Teleport Strike",
+                    "desc": "During deployment, if every model in this unit has this ability, then you can set up this unit in a teleportarium chamber instead of setting it up on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\\\" away from any enemy models."
+                },
+                "Remorseless": {
+                    "name": "Remorseless",
+                    "desc": "Each time a Combat Attrition test is taken for this unit, ignore any or all modifiers."
+                }
+            },
+            "models": {
+                "models": {
+                    "1a1a1a1a1a1a1a1a": {
+                        "name": "Deathshroud Champion",
+                        "abilities": [
+                            "Bodyguard (Aura)",
+                            "Disgustingly Resilient",
+                            "Diseased Terminator Armour",
+                            "Teleport Strike",
+                            "Remorseless",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plaguespurt gauntlet",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Cleave",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Scythe",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "1b1b1b1b1b1b1b1b": {
+                        "name": "Deathshroud Terminator",
+                        "abilities": [
+                            "Bodyguard (Aura)",
+                            "Disgustingly Resilient",
+                            "Diseased Terminator Armour",
+                            "Teleport Strike",
+                            "Remorseless",
+                            "Inexorable Advance",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plaguespurt gauntlet",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Cleave",
+                                "number": 1
+                            },
+                            {
+                                "name": "Manreaper - Scythe",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Deathshroud Champion": {
+                    "name": "Deathshroud Champion",
+                    "m": "5\"",
+                    "ws": "2+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "5",
+                    "ld": "9",
+                    "sv": "2+"
+                },
+                "Deathshroud Terminator": {
+                    "name": "Deathshroud Terminator",
+                    "m": "5\"",
+                    "ws": "2+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "2+"
+                }
+            },
+            "weapons": {
+                "Plaguespurt gauntlet": {
+                    "name": "Plaguespurt gauntlet",
+                    "range": "12\"",
+                    "type": "Pistol D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon, that attack automatically hits the target."
+                },
+                "Manreaper - Cleave": {
+                    "name": "Manreaper - Cleave",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+3",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon profile, subtract 1 from that attack's hit roll."
+                },
+                "Manreaper - Scythe": {
+                    "name": "Manreaper - Scythe",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon profile, make 2 hit rolls instead of 1."
+                }
+            },
+            "rules": [
+                "Inexorable Advance",
+                "Contagions of Nurgle"
+            ],
+            "uuid": "08080808",
+            "unassignedWeapons": [],
+            "pl": 7,
+            "isSingleModel": false
+        },
+        "09090909": {
+            "name": "Foul Blightspawn",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Character",
+                "Infantry",
+                "Bubonic Astartes",
+                "Foetid Virion",
+                "Foul Blightspawn"
+            ],
+            "abilities": {
+                "Putrefying Stink": {
+                    "name": "Putrefying Stink",
+                    "desc": "At the start of the Fight phase, you can select one enemy unit within 3\\\" of this model. That unit is not eligible to fight this phase until after all eligible units from your army have done so."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Arch-Contaminator (Aura)": {
+                    "name": "Arch-Contaminator (Aura)",
+                    "desc": "While a friendly <PLAGUE COMPANY> CORE unit is within 6\\\" of this WARLORD:\n- Each time a model in that unit makes a melee attack with a plague weapon, you can re-roll the wound roll.\n- Each time a model in that unit makes a ranged attack with a Plague Weapon that targets a unit within 12\\\", you can re-roll the wound roll."
+                },
+                "Revolting Stench (Aura)": {
+                    "name": "Revolting Stench (Aura)",
+                    "desc": "While an enemy unit is within 6\\\" of the bearer, that unit cannot make use of any rules that allow it to fight first and never counts as having made a charge move this turn, irrespective of any abilities that unit may have."
+                }
+            },
+            "models": {
+                "models": {
+                    "1c1c1c1c1c1c1c1c": {
+                        "name": "Foul Blightspawn",
+                        "abilities": [
+                            "Arch-Contaminator (Aura)",
+                            "Revolting Stench (Aura)",
+                            "Putrefying Stink",
+                            "Disgustingly Resilient",
+                            "Contagions of Nurgle",
+                            "Inexorable Advance"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Unholy death's head grenade",
+                                "number": 1
+                            },
+                            {
+                                "name": "Plague sprayer",
+                                "number": 1
+                            },
+                            {
+                                "name": "Blight grenade",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Foul Blightspawn": {
+                    "name": "Foul Blightspawn",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "4",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Unholy death's head grenade": {
+                    "name": "Unholy death's head grenade",
+                    "range": "6\"",
+                    "type": "Grenade 2D6",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "Blast. Plague Weapon. The bearer can only shoot with this weapon once per battle."
+                },
+                "Plague sprayer": {
+                    "name": "Plague sprayer",
+                    "range": "12\"",
+                    "type": "Assault D6",
+                    "s": "7",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon, that attack automatically hits the target."
+                },
+                "Blight grenade": {
+                    "name": "Blight grenade",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle",
+                "Inexorable Advance"
+            ],
+            "uuid": "09090909",
+            "unassignedWeapons": [],
+            "pl": 4,
+            "isSingleModel": true
+        },
+        "0a0a0a0a": {
+            "name": "Tallyman",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Character",
+                "Infantry",
+                "Bubonic Astartes",
+                "Foetid Virion",
+                "Tallyman"
+            ],
+            "abilities": {
+                "The Seven-fold Chant": {
+                    "name": "The Seven-fold Chant",
+                    "desc": "At the start of the Command phase, if this model is on the battlefield, roll 2D6, on a 7+ you gain 1 Command point."
+                },
+                "Malicious Calculation": {
+                    "name": "Malicious Calculation",
+                    "desc": "In your Command phase, this model can tally for one friendly <PLAGUE COMPANY> CORE unit within 6\\\" of it. Until the start of your next Command phase, each time a model in that unit makes an attack, add 1 to that attack's hit roll. Each unit can only be tallied for once per turn."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Tollkeeper (Aura)": {
+                    "name": "Tollkeeper (Aura)",
+                    "desc": "While a friendly <PLAGUE COMPANY> CORE unit is within 6\\\" of the bearer, each time a model in that unit makes a ranged attack, an unmodified hit roll of 6 scores 1 additional hit."
+                },
+                "Ferric Blight (Contagion)": {
+                    "name": "Ferric Blight (Contagion)",
+                    "desc": "While an enemy unit is within Contagion Range of this unit, each time an attack is made by a friendly INEXORABLE model, improve the Armour Penetration characteristic of that attack by 1."
+                }
+            },
+            "models": {
+                "models": {
+                    "1d1d1d1d1d1d1d1d": {
+                        "name": "Tallyman",
+                        "abilities": [
+                            "Tollkeeper (Aura)",
+                            "Ferric Blight (Contagion)",
+                            "The Seven-fold Chant",
+                            "Malicious Calculation",
+                            "Disgustingly Resilient",
+                            "Contagions of Nurgle",
+                            "Inexorable Advance"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plasma pistol, Standard",
+                                "number": 1
+                            },
+                            {
+                                "name": "Plasma pistol, Supercharge",
+                                "number": 1
+                            },
+                            {
+                                "name": "Blight grenade",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Tallyman": {
+                    "name": "Tallyman",
+                    "m": "5\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "4",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plasma pistol, Standard": {
+                    "name": "Plasma pistol, Standard",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "7",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Plasma pistol, Supercharge": {
+                    "name": "Plasma pistol, Supercharge",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "8",
+                    "ap": "-3",
+                    "d": "2",
+                    "abilities": "If any unmodified hit rolls of 1 are made for attacks with this weapon profile, the bearer is destroyed after shooting with this weapon."
+                },
+                "Blight grenade": {
+                    "name": "Blight grenade",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Plague Weapon. Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle",
+                "Inexorable Advance"
+            ],
+            "uuid": "0a0a0a0a",
+            "unassignedWeapons": [],
+            "pl": 4,
+            "isSingleModel": true
+        },
+        "0b0b0b0b": {
+            "name": "Foetid Bloat-drone",
+            "factionKeywords": [
+                "Nurgle",
+                "Heretic Astartes",
+                "Death Guard",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Vehicle",
+                "Daemon Engine",
+                "Daemon",
+                "Fly",
+                "Foetid Bloat-drone"
+            ],
+            "abilities": {
+                "Putrid Explosion": {
+                    "name": "Putrid Explosion",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 4+ it explodes, and each unit (excluding NURGLE units) within 6\\\" suffers 1 mortal wound."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                }
+            },
+            "models": {
+                "models": {
+                    "1e1e1e1e1e1e1e1e": {
+                        "name": "Foetid Bloat-drone",
+                        "abilities": [
+                            "Putrid Explosion",
+                            "Disgustingly Resilient",
+                            "Daemonic",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plague probe",
+                                "number": 1
+                            },
+                            {
+                                "name": "Fleshmower",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Foetid Bloat-drone": {
+                    "name": "Foetid Bloat-drone",
+                    "m": "10\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "6",
+                    "t": "7",
+                    "w": "9",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plague probe": {
+                    "name": "Plague probe",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-2",
+                    "d": "1",
+                    "abilities": "Plague Weapon"
+                },
+                "Fleshmower": {
+                    "name": "Fleshmower",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon, make 3 hit rolls instead of 1."
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "0b0b0b0b",
+            "unassignedWeapons": [],
+            "pl": 7,
+            "isSingleModel": true
+        },
+        "0c0c0c0c": {
+            "name": "Foetid Bloat-drone",
+            "factionKeywords": [
+                "Nurgle",
+                "Heretic Astartes",
+                "Death Guard",
+                "Chaos",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Vehicle",
+                "Daemon Engine",
+                "Daemon",
+                "Fly",
+                "Foetid Bloat-drone"
+            ],
+            "abilities": {
+                "Putrid Explosion": {
+                    "name": "Putrid Explosion",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 4+ it explodes, and each unit (excluding NURGLE units) within 6\\\" suffers 1 mortal wound."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                }
+            },
+            "models": {
+                "models": {
+                    "1f1f1f1f1f1f1f1f": {
+                        "name": "Foetid Bloat-drone",
+                        "abilities": [
+                            "Putrid Explosion",
+                            "Disgustingly Resilient",
+                            "Daemonic",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plague probe",
+                                "number": 1
+                            },
+                            {
+                                "name": "Fleshmower",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Foetid Bloat-drone": {
+                    "name": "Foetid Bloat-drone",
+                    "m": "10\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "6",
+                    "t": "7",
+                    "w": "9",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plague probe": {
+                    "name": "Plague probe",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-2",
+                    "d": "1",
+                    "abilities": "Plague Weapon"
+                },
+                "Fleshmower": {
+                    "name": "Fleshmower",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Plague Weapon. Each time an attack is made with this weapon, make 3 hit rolls instead of 1."
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "0c0c0c0c",
+            "unassignedWeapons": [],
+            "pl": 7,
+            "isSingleModel": true
+        },
+        "0d0d0d0d": {
+            "name": "Plagueburst Crawler",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Daemon",
+                "Vehicle",
+                "Daemon Engine",
+                "Plagueburst Crawler"
+            ],
+            "abilities": {
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "2020202020202020": {
+                        "name": "Plagueburst Crawler",
+                        "abilities": [
+                            "Daemonic",
+                            "Disgustingly Resilient",
+                            "Explodes",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plagueburst Mortar",
+                                "number": 1
+                            },
+                            {
+                                "name": "Entropy cannon",
+                                "number": 2
+                            },
+                            {
+                                "name": "Heavy slugger",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Plagueburst Crawler": {
+                    "name": "Plagueburst Crawler",
+                    "m": "*",
+                    "ws": "6+",
+                    "bs": "*",
+                    "s": "*",
+                    "t": "8",
+                    "w": "12",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plagueburst Mortar": {
+                    "name": "Plagueburst Mortar",
+                    "range": "48\"",
+                    "type": "Heavy D6",
+                    "s": "8",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Blast. Plague Weapon. This weapon can target units that are not visible to the bearer."
+                },
+                "Entropy cannon": {
+                    "name": "Entropy cannon",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "D3+3",
+                    "abilities": "Plague Weapon"
+                },
+                "Heavy slugger": {
+                    "name": "Heavy slugger",
+                    "range": "36\"",
+                    "type": "Heavy 4",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "0d0d0d0d",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Plagueburst Crawler": {
+                    "6+": [
+                        "9\"",
+                        "3+",
+                        "7"
+                    ],
+                    "3-5": [
+                        "6\"",
+                        "4+",
+                        "6"
+                    ],
+                    "1-2": [
+                        "4\"",
+                        "5+",
+                        "5"
+                    ]
+                }
+            }
+        },
+        "0e0e0e0e": {
+            "name": "Plagueburst Crawler",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Daemon",
+                "Vehicle",
+                "Daemon Engine",
+                "Plagueburst Crawler"
+            ],
+            "abilities": {
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "2121212121212121": {
+                        "name": "Plagueburst Crawler",
+                        "abilities": [
+                            "Daemonic",
+                            "Disgustingly Resilient",
+                            "Explodes",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plagueburst Mortar",
+                                "number": 1
+                            },
+                            {
+                                "name": "Heavy slugger",
+                                "number": 1
+                            },
+                            {
+                                "name": "Entropy cannon",
+                                "number": 2
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Plagueburst Crawler": {
+                    "name": "Plagueburst Crawler",
+                    "m": "*",
+                    "ws": "6+",
+                    "bs": "*",
+                    "s": "*",
+                    "t": "8",
+                    "w": "12",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plagueburst Mortar": {
+                    "name": "Plagueburst Mortar",
+                    "range": "48\"",
+                    "type": "Heavy D6",
+                    "s": "8",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Blast. Plague Weapon. This weapon can target units that are not visible to the bearer."
+                },
+                "Heavy slugger": {
+                    "name": "Heavy slugger",
+                    "range": "36\"",
+                    "type": "Heavy 4",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Entropy cannon": {
+                    "name": "Entropy cannon",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "D3+3",
+                    "abilities": "Plague Weapon"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "0e0e0e0e",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Plagueburst Crawler": {
+                    "6+": [
+                        "9\"",
+                        "3+",
+                        "7"
+                    ],
+                    "3-5": [
+                        "6\"",
+                        "4+",
+                        "6"
+                    ],
+                    "1-2": [
+                        "4\"",
+                        "5+",
+                        "5"
+                    ]
+                }
+            }
+        },
+        "0f0f0f0f": {
+            "name": "Plagueburst Crawler",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Daemon",
+                "Vehicle",
+                "Daemon Engine",
+                "Plagueburst Crawler"
+            ],
+            "abilities": {
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "2222222222222222": {
+                        "name": "Plagueburst Crawler",
+                        "abilities": [
+                            "Daemonic",
+                            "Disgustingly Resilient",
+                            "Explodes",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plagueburst Mortar",
+                                "number": 1
+                            },
+                            {
+                                "name": "Heavy slugger",
+                                "number": 1
+                            },
+                            {
+                                "name": "Entropy cannon",
+                                "number": 2
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Plagueburst Crawler": {
+                    "name": "Plagueburst Crawler",
+                    "m": "*",
+                    "ws": "6+",
+                    "bs": "*",
+                    "s": "*",
+                    "t": "8",
+                    "w": "12",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plagueburst Mortar": {
+                    "name": "Plagueburst Mortar",
+                    "range": "48\"",
+                    "type": "Heavy D6",
+                    "s": "8",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Blast. Plague Weapon. This weapon can target units that are not visible to the bearer."
+                },
+                "Heavy slugger": {
+                    "name": "Heavy slugger",
+                    "range": "36\"",
+                    "type": "Heavy 4",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Entropy cannon": {
+                    "name": "Entropy cannon",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "D3+3",
+                    "abilities": "Plague Weapon"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "0f0f0f0f",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Plagueburst Crawler": {
+                    "6+": [
+                        "9\"",
+                        "3+",
+                        "7"
+                    ],
+                    "3-5": [
+                        "6\"",
+                        "4+",
+                        "6"
+                    ],
+                    "1-2": [
+                        "4\"",
+                        "5+",
+                        "5"
+                    ]
+                }
+            }
+        }
+    },
+    "order": [
+        "00000000",
+        "01010101",
+        "02020202",
+        "03030303",
+        "04040404",
+        "05050505",
+        "06060606",
+        "07070707",
+        "08080808",
+        "09090909",
+        "0a0a0a0a",
+        "0b0b0b0b",
+        "0c0c0c0c",
+        "0d0d0d0d",
+        "0e0e0e0e",
+        "0f0f0f0f"
+    ]
+}

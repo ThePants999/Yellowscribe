@@ -1,0 +1,216 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Vanguard Veteran Squad",
+            "factionKeywords": [
+                "Adeptus Astartes",
+                "Imperium"
+            ],
+            "keywords": [
+                "Infantry",
+                "Vanguard Veteran Squad",
+                "Core",
+                "Melta Bombs"
+            ],
+            "abilities": {
+                "Storm shield": {
+                    "name": "Storm shield",
+                    "desc": "The bearer has a 4+ invulnerable save. In addition, add 1 to armour saving throws made for the bearer."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Vanguard Veteran Sergeant",
+                        "abilities": [
+                            "Storm shield",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Thunder hammer",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0202020202020202": {
+                        "name": "Vanguard Veteran",
+                        "abilities": [
+                            "Storm shield",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Lightning claw",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0303030303030303": {
+                        "name": "Vanguard Veteran",
+                        "abilities": [
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Astartes Chainsword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0404040404040404": {
+                        "name": "Vanguard Veteran",
+                        "abilities": [
+                            "Storm shield",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Thunder hammer",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 5
+            },
+            "modelProfiles": {
+                "Vanguard Veteran Sergeant": {
+                    "name": "Vanguard Veteran Sergeant",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "3",
+                    "ld": "9",
+                    "sv": "3+"
+                },
+                "Vanguard Veteran": {
+                    "name": "Vanguard Veteran",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "2",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Thunder hammer": {
+                    "name": "Thunder hammer",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "x2",
+                    "ap": "-2",
+                    "d": "3",
+                    "abilities": "Each time an attack roll is made with this weapon, subtract 1 from the attack's hit roll"
+                },
+                "Lightning claw": {
+                    "name": "Lightning claw",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-2",
+                    "d": "1",
+                    "abilities": "Each time the bearer fights, it makes 1 additional attack with this weapon. Each time an attack is made with this weapon, you can re-roll the wound roll."
+                },
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Astartes Chainsword": {
+                    "name": "Astartes Chainsword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "When the bearer fights, it makes 1 additional attack with this weapon. "
+                }
+            },
+            "rules": [
+                "Angels of Death",
+                "Combat Squads"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 6,
+            "isSingleModel": false
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

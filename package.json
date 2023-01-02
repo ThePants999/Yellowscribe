@@ -12,12 +12,16 @@
     "xml2js": "^0.4.23"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest"
   },
   "engines": {
     "node": ">=14"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4"
-  }
+    "@types/node": "^15.12.4",
+    "approvals": "^4.0.0-beta.1",
+    "jest": "^27.4.7",
+    "selenium-webdriver": "^4.1.1",
+    "supertest": "^6.2.2"}
 }

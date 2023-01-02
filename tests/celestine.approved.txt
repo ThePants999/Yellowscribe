@@ -1,0 +1,260 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Celestine and Geminae Superia",
+            "factionKeywords": [
+                "Imperium",
+                "Adeptus Ministorum"
+            ],
+            "keywords": [
+                "Infantry",
+                "Character",
+                "Fly",
+                "Living Saint",
+                "Sanctified",
+                "Jump Pack",
+                "Celestine",
+                "Geminae Superia",
+                "Adepta Sororitas"
+            ],
+            "abilities": {
+                "Lifewards": {
+                    "name": "Lifewards",
+                    "desc": "While this unit contains any GEMINAE SUPERIA models, each time an attack successfully wounds this unit, that attack must be allocated to one of those models. The destruction of GEMINAE SUPERIA models is ignored for the purposes of Morale tests. If CELESTINE is ever destroyed, any remaining GEMINAE SUPERIA models in this unit are also destroyed."
+                },
+                "Divine Guardians": {
+                    "name": "Divine Guardians",
+                    "desc": "GEMINAE SUPERIA models have a 4+ invulnerable save."
+                },
+                "The Armour of Saint Katherine": {
+                    "name": "The Armour of Saint Katherine",
+                    "desc": "CELESTINE has a 4+ invulnerable save. Each time an attack is allocated to CELESTINE, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Miraculous Intervention": {
+                    "name": "Miraculous Intervention",
+                    "desc": "The first time CELESTINE is destroyed, roll one D6 at the end of the phase instead of using any rules that are triggered when a model is destroyed. On a 1, this unit counts as having been destroyed for the purposes of Sacrifice; on a 2+, set CELESTINE back up on the battlefield as close as possible to where she was destroyed and not within Engagement Range of any enemy units, with all her wound remaining."
+                },
+                "Saintly Blessings (Aura)": {
+                    "name": "Saintly Blessings (Aura)",
+                    "desc": "While a friendly IMPERIUM INFANTRY unit is within 6\\\" of CELESTINE, models in that unit have a 6+ invulnerable save."
+                },
+                "Sky Strike": {
+                    "name": "Sky Strike",
+                    "desc": "During deployment, you can set up this unit in the skies instead of setting it up on the battlefield, if you do so, then in the Reinforcements step of one of your Movement phases, you can set up this unit anywhere on the battlefield that is more than 9\\\" away from any enemy models."
+                },
+                "Angelic Saviour": {
+                    "name": "Angelic Saviour",
+                    "desc": "This unit is eligible to perform a Heroic Intervention if it is within 6\\\" horizontally and 5\\\" vertically of any enemy unit, instead of 3\\\" horizontally and 5\\\" vertically. Each time this unit makes a Heroic Intervention move, its models can move up to 6\\\" instead of 3\\\". All other rules for Heroic Interventions still apply."
+                },
+                "Healing Tears": {
+                    "name": "Healing Tears",
+                    "desc": "While a model in this units has any lost wounds, or while this unit is below its Starting Strength, CELESTINE can attempt the following action:\n’Healing Tears (Action): This unit can start this action at the end of your Command phase. The action is complete at the end of your Shooting phase provided CELESTINE is still on the battlefield. Once completed:\n• If a model in this unit has lost any wounds, all of that model's lost wounds are restored.\n• If this unit is below its Starting Strength, 1 GEMINAE SUPERIA model is returned to the unit with their full wounds remaining.’"
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Celestine and Geminae Superia",
+                        "abilities": [
+                            "Lifewards",
+                            "Divine Guardians",
+                            "The Armour of Saint Katherine",
+                            "Miraculous Intervention",
+                            "Saintly Blessings (Aura)",
+                            "Sky Strike",
+                            "Angelic Saviour",
+                            "Healing Tears",
+                            "Acts of Faith",
+                            "Shield of Faith",
+                            "Sacred Rites"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "The Ardent Blade (melee)",
+                                "number": 1
+                            },
+                            {
+                                "name": "The Ardent Blade (shooting)",
+                                "number": 1
+                            },
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Power sword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0202020202020202": {
+                        "name": "Celestine",
+                        "abilities": [
+                            "Lifewards",
+                            "Divine Guardians",
+                            "The Armour of Saint Katherine",
+                            "Miraculous Intervention",
+                            "Saintly Blessings (Aura)",
+                            "Sky Strike",
+                            "Angelic Saviour",
+                            "Healing Tears",
+                            "Acts of Faith",
+                            "Shield of Faith",
+                            "Sacred Rites"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "The Ardent Blade (melee)",
+                                "number": 1
+                            },
+                            {
+                                "name": "The Ardent Blade (shooting)",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0303030303030303": {
+                        "name": "Geminae Superia",
+                        "abilities": [
+                            "Lifewards",
+                            "Divine Guardians",
+                            "The Armour of Saint Katherine",
+                            "Miraculous Intervention",
+                            "Saintly Blessings (Aura)",
+                            "Sky Strike",
+                            "Angelic Saviour",
+                            "Healing Tears",
+                            "Acts of Faith",
+                            "Shield of Faith",
+                            "Sacred Rites"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Power sword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 4
+            },
+            "modelProfiles": {
+                "Celestine": {
+                    "name": "Celestine",
+                    "m": "12\"",
+                    "ws": "2+",
+                    "bs": "2+",
+                    "s": "3",
+                    "t": "3",
+                    "w": "6",
+                    "a": "6",
+                    "ld": "9",
+                    "sv": "2+"
+                },
+                "Geminae Superia": {
+                    "name": "Geminae Superia",
+                    "m": "12\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "3",
+                    "t": "3",
+                    "w": "2",
+                    "a": "3",
+                    "ld": "8",
+                    "sv": "2+"
+                }
+            },
+            "weapons": {
+                "The Ardent Blade (melee)": {
+                    "name": "The Ardent Blade (melee)",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+4",
+                    "ap": "-4",
+                    "d": "2",
+                    "abilities": "Each time an attack is made with this weapon, on an unmodified hit roll of 6, the target suffers 2 mortal wounds and the attack sequence ends."
+                },
+                "The Ardent Blade (shooting)": {
+                    "name": "The Ardent Blade (shooting)",
+                    "range": "12\"",
+                    "type": "Assault D6",
+                    "s": "6",
+                    "ap": "-2",
+                    "d": "1",
+                    "abilities": "Each time an attack is made with this weapon, that attack automatically hits the target."
+                },
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Power sword": {
+                    "name": "Power sword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+1",
+                    "ap": "-3",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Acts of Faith",
+                "Shield of Faith",
+                "Sacred Rites"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 10,
+            "isSingleModel": true
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

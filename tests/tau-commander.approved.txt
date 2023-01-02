@@ -1,0 +1,147 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Commander in XV8 Crisis Battlesuit",
+            "factionKeywords": [
+                "<Sept>",
+                "T'au Empire"
+            ],
+            "keywords": [
+                "Drone",
+                "Fly",
+                "Tactical Drones",
+                "Battlesuit",
+                "Character",
+                "Jet Pack",
+                "Commander",
+                "XV8 Crisis"
+            ],
+            "abilities": {
+                "Master of War": {
+                    "name": "Master of War",
+                    "desc": "Once per battle, at the start of your turn, a single <SEPT> COMMANDER unit from your army can declare either Kauyon or Mont’ka:\nKauyon: In a turn in which a <SEPT> COMMANDER unit from your army declared Kauyon, at the start of your Movement phase you can select any friendly <SEPT> units within 6\\\" of that unit. Until the end of that turn, the selected units cannot move for any reason, but when resolving an attack made by a model in any of those units you can re-roll the hit roll.\n\nMont’ka: In a turn in which a <SEPT> COMMANDER unit from your army declared Mont’ka, at the start of your Movement phase you can select any friendly <SEPT> units within 6\\\" of that unit. Until the end of that turn, the selected units can shoot as if they did not move this turn.\n\nUnless stated otherwise, you can only use the Master of War ability once per battle, irrespective of how many models in your army have this ability."
+                },
+                "Threat Identification Protocols": {
+                    "name": "Threat Identification Protocols",
+                    "desc": "In the Shooting phase, Gun Drones can only target the nearest visible enemy unit. If two units are equally close, you may choose which is targeted."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Commander in XV8 Crisis Battlesuit",
+                        "abilities": [
+                            "Threat Identification Protocols",
+                            "Master of War",
+                            "For the Greater Good",
+                            "Manta Strike",
+                            "Saviour Protocols",
+                            "Drone Support"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Burst cannon",
+                                "number": 1
+                            },
+                            {
+                                "name": "Missile pod",
+                                "number": 1
+                            },
+                            {
+                                "name": "Pulse carbine",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0202020202020202": {
+                        "name": "MV1 Gun Drone",
+                        "abilities": [
+                            "Master of War",
+                            "For the Greater Good",
+                            "Manta Strike",
+                            "Saviour Protocols",
+                            "Drone Support"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Pulse carbine",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Commander in XV8 Crisis Battlesuit": {
+                    "name": "Commander in XV8 Crisis Battlesuit",
+                    "m": "8\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "5",
+                    "t": "5",
+                    "w": "5",
+                    "a": "4",
+                    "ld": "9",
+                    "sv": "3+"
+                },
+                "MV1 Gun Drone": {
+                    "name": "MV1 Gun Drone",
+                    "m": "8\"",
+                    "ws": "5+",
+                    "bs": "5+",
+                    "s": "3",
+                    "t": "4",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "6",
+                    "sv": "4+"
+                }
+            },
+            "weapons": {
+                "Burst cannon": {
+                    "name": "Burst cannon",
+                    "range": "18\"",
+                    "type": "Assault 4",
+                    "s": "5",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Missile pod": {
+                    "name": "Missile pod",
+                    "range": "36\"",
+                    "type": "Assault 2",
+                    "s": "7",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Pulse carbine": {
+                    "name": "Pulse carbine",
+                    "range": "18\"",
+                    "type": "Assault 2",
+                    "s": "5",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "For the Greater Good",
+                "Manta Strike",
+                "Saviour Protocols",
+                "Drone Support"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 8,
+            "isSingleModel": true
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

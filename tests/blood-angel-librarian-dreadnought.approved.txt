@@ -1,0 +1,137 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Librarian Dreadnought",
+            "factionKeywords": [
+                "Blood Angels",
+                "Imperium",
+                "Adeptus Astartes"
+            ],
+            "keywords": [
+                "Character",
+                "Librarian",
+                "Psyker",
+                "Dreadnought",
+                "Librarian Dreadnought",
+                "Vehicle",
+                "Smokescreen"
+            ],
+            "abilities": {
+                "Explodes (6|3\"|1)": {
+                    "name": "Explodes (6|3\\\"|1)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 3\\\" suffers 1 mortal wounds."
+                },
+                "Psychic Hood": {
+                    "name": "Psychic Hood",
+                    "desc": "Each time a Deny the Witch test is taken for this model, if the unit attempting to manifest the psychic power is within 12\\\" of this model, add 1 to that Deny the Witch test"
+                },
+                "Duty Eternal": {
+                    "name": "Duty Eternal",
+                    "desc": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack(to a minimum of 1)"
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Librarian Dreadnought",
+                        "abilities": [
+                            "Explodes (6|3\"|1)",
+                            "Psychic Hood",
+                            "Duty Eternal",
+                            "Savage Echoes",
+                            "Angels of Death",
+                            "The Red Thirst"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Furioso force halberd",
+                                "number": 1
+                            },
+                            {
+                                "name": "Furioso fist",
+                                "number": 1
+                            },
+                            {
+                                "name": "Storm bolter",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Librarian Dreadnought": {
+                    "name": "Librarian Dreadnought",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "6",
+                    "t": "7",
+                    "w": "8",
+                    "a": "4",
+                    "ld": "9",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Furioso force halberd": {
+                    "name": "Furioso force halberd",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+2",
+                    "ap": "-3",
+                    "d": "D3+3",
+                    "abilities": "Each time the bearer fights, it makes 1 additional attack with this weapon and no more than 1 attack can be made with this weapon."
+                },
+                "Furioso fist": {
+                    "name": "Furioso fist",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "x2",
+                    "ap": "-3",
+                    "d": "3",
+                    "abilities": "-"
+                },
+                "Storm bolter": {
+                    "name": "Storm bolter",
+                    "range": "24\"",
+                    "type": "Rapid Fire 2",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Savage Echoes",
+                "Angels of Death",
+                "The Red Thirst"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 8,
+            "isSingleModel": true,
+            "psykerProfiles": [
+                {
+                    "name": "Librarian Dreadnought",
+                    "cast": "2",
+                    "deny": "1",
+                    "known": "Smite and two psychic powers from the Sanguinary discipline"
+                }
+            ],
+            "powersKnown": [
+                {
+                    "name": "Smite",
+                    "warpCharge": "5",
+                    "range": "18\"",
+                    "details": "Smite has a warp charge value of 5. If manifested, the closest visible enemy unit within 18\" of the psyker suffers D3 mortal wounds (pg 181). If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead."
+                }
+            ]
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

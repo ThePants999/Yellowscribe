@@ -1,0 +1,135 @@
+{
+    "units": {
+        "58585858": {
+            "name": "Plagueburst Crawler",
+            "factionKeywords": [
+                "Chaos",
+                "Death Guard",
+                "Heretic Astartes",
+                "Nurgle",
+                "Inexorable"
+            ],
+            "keywords": [
+                "Daemon",
+                "Vehicle",
+                "Daemon Engine",
+                "Plagueburst Crawler"
+            ],
+            "abilities": {
+                "Daemonic": {
+                    "name": "Daemonic",
+                    "desc": "Models in this unit have a 5+ invulnerable save."
+                },
+                "Disgustingly Resilient": {
+                    "name": "Disgustingly Resilient",
+                    "desc": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Explodes": {
+                    "name": "Explodes",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wounds."
+                }
+            },
+            "models": {
+                "models": {
+                    "5858585858585858": {
+                        "name": "Plagueburst Crawler",
+                        "abilities": [
+                            "Daemonic",
+                            "Disgustingly Resilient",
+                            "Explodes",
+                            "Contagions of Nurgle"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Plagueburst Mortar",
+                                "number": 1
+                            },
+                            {
+                                "name": "Heavy slugger",
+                                "number": 1
+                            },
+                            {
+                                "name": "Entropy cannon",
+                                "number": 2
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Plagueburst Crawler": {
+                    "name": "Plagueburst Crawler",
+                    "m": "*",
+                    "ws": "6+",
+                    "bs": "*",
+                    "s": "*",
+                    "t": "8",
+                    "w": "12",
+                    "a": "4",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Plagueburst Mortar": {
+                    "name": "Plagueburst Mortar",
+                    "range": "48\"",
+                    "type": "Heavy D6",
+                    "s": "8",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Blast. Plague Weapon. This weapon can target units that are not visible to the bearer."
+                },
+                "Heavy slugger": {
+                    "name": "Heavy slugger",
+                    "range": "36\"",
+                    "type": "Heavy 4",
+                    "s": "5",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Entropy cannon": {
+                    "name": "Entropy cannon",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "D3+3",
+                    "abilities": "Plague Weapon"
+                }
+            },
+            "rules": [
+                "Contagions of Nurgle"
+            ],
+            "uuid": "58585858",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Plagueburst Crawler": {
+                    "6+": [
+                        "9\"",
+                        "3+",
+                        "7"
+                    ],
+                    "3-5": [
+                        "6\"",
+                        "4+",
+                        "6"
+                    ],
+                    "1-2": [
+                        "4\"",
+                        "5+",
+                        "5"
+                    ]
+                }
+            }
+        }
+    },
+    "order": [
+        "58585858"
+    ]
+}

@@ -1,0 +1,228 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Bike Squad",
+            "factionKeywords": [
+                "Adeptus Astartes",
+                "Imperium"
+            ],
+            "keywords": [
+                "Biker",
+                "Bike Squad",
+                "Core"
+            ],
+            "abilities": {
+                "Turbo-boost": {
+                    "name": "Turbo-boost",
+                    "desc": "When this model Advances, add 6\\\" to its Move characteristic for that Movement phase instead of rolling a dice."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Biker Sergeant",
+                        "abilities": [
+                            "Turbo-boost",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Twin boltgun",
+                                "number": 1
+                            },
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0202020202020202": {
+                        "name": "Space Marine Biker w/Bolt Pistol",
+                        "abilities": [
+                            "Turbo-boost",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Twin boltgun",
+                                "number": 1
+                            },
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    },
+                    "0303030303030303": {
+                        "name": "Space Marine Biker w/Special Weapon",
+                        "abilities": [
+                            "Turbo-boost",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Twin boltgun",
+                                "number": 1
+                            },
+                            {
+                                "name": "Meltagun",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0404040404040404": {
+                        "name": "Space Marine Biker w/Chainsword",
+                        "abilities": [
+                            "Turbo-boost",
+                            "Angels of Death",
+                            "Combat Squads"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Twin boltgun",
+                                "number": 1
+                            },
+                            {
+                                "name": "Astartes Chainsword",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 5
+            },
+            "modelProfiles": {
+                "Space Marine Biker": {
+                    "name": "Space Marine Biker",
+                    "m": "14\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "1",
+                    "ld": "7",
+                    "sv": "3+"
+                },
+                "Biker Sergeant": {
+                    "name": "Biker Sergeant",
+                    "m": "14\"",
+                    "ws": "3+",
+                    "bs": "3+",
+                    "s": "4",
+                    "t": "5",
+                    "w": "3",
+                    "a": "2",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Twin boltgun": {
+                    "name": "Twin boltgun",
+                    "range": "24\"",
+                    "type": "Rapid Fire 2",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Meltagun": {
+                    "name": "Meltagun",
+                    "range": "12\"",
+                    "type": "Assault 1",
+                    "s": "8",
+                    "ap": "-4",
+                    "d": "D6",
+                    "abilities": "Each time an attack made with this weapon targets a unit within half range, that attack has a Damage characteristic of D6+2."
+                },
+                "Astartes Chainsword": {
+                    "name": "Astartes Chainsword",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "User",
+                    "ap": "-1",
+                    "d": "1",
+                    "abilities": "When the bearer fights, it makes 1 additional attack with this weapon. "
+                }
+            },
+            "rules": [
+                "Angels of Death",
+                "Combat Squads"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 9,
+            "isSingleModel": false
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

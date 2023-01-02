@@ -1,0 +1,72 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Servitors",
+            "factionKeywords": [
+                "Adeptus Astartes",
+                "Imperium"
+            ],
+            "keywords": [
+                "Infantry",
+                "Servitors"
+            ],
+            "abilities": {
+                "Mindlock": {
+                    "name": "Mindlock",
+                    "desc": "While this unit is within 6\\\" of any friendly <CHAPTER> TECHMARINE units, models in this unit have a Weapon Skill and Ballistic Skill characteristic of 4+ and Leadership of 9. In addtion, if your army is Battle-forged, then for each <CHAPTER> TECHMARINE unit included in a detachment, one <CHAPTER> SERVITORS unit can be included in that detachment without taking up a Battlefield Role slot."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Servitor",
+                        "abilities": [
+                            "Mindlock"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Servo-arm",
+                                "number": 1
+                            }
+                        ],
+                        "number": 4
+                    }
+                },
+                "totalNumberOfModels": 4
+            },
+            "modelProfiles": {
+                "Servitor": {
+                    "name": "Servitor",
+                    "m": "5\"",
+                    "ws": "5+",
+                    "bs": "5+",
+                    "s": "3",
+                    "t": "3",
+                    "w": "1",
+                    "a": "1",
+                    "ld": "6",
+                    "sv": "4+"
+                }
+            },
+            "weapons": {
+                "Servo-arm": {
+                    "name": "Servo-arm",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "x2",
+                    "ap": "-2",
+                    "d": "3",
+                    "abilities": "Each time the bearer fights, no more than one attack can be made with each servo-arm."
+                }
+            },
+            "rules": [],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 2,
+            "isSingleModel": false
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

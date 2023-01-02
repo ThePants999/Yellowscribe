@@ -2,18 +2,10 @@ const Model = require("./Model"),
     crypto = require('crypto');
 
 module.exports = class ModelCollection {
-    models = {}; /*
-            {
-                "model name": [
-                    { name: ""... },
-                    { name: ""...(different stuff) }
-                ]
-            }
-    */
-    //characteristicProfiles;
+    models = {};
     totalNumberOfModels = 0;
-    
-    [Symbol.iterator]() { 
+
+    [Symbol.iterator]() {
         let index = 0,
             models = Object.values(this.models).flat();
 
@@ -28,26 +20,8 @@ module.exports = class ModelCollection {
         }
     }
 
-
-    constructor(firstModel) {
-        //this.models = {};
-        //this.characteristicProfiles = [];
-        //this.totalNumberOfModels = 0;
-
-        if (firstModel) {
-            this.models[firstModel.name] = [firstModel];
-            this.totalNumberOfModels += firstModel.number;
-        }
-    }
-
-
-
     addModelFromData (name, selectionData, number) {
         let newModel = new Model(name, number ? parseInt(number, 10) : number);
-        //console.log(`Name: ${name}; Number: ${number}`);
-
-        //log(selectionData);
-        //console.log("selections: " + selectionData);
 
         if (selectionData && selectionData[0] !== "" && selectionData[0].selection)
             newModel.handleSelectionDataRecursive(selectionData);
@@ -65,32 +39,32 @@ module.exports = class ModelCollection {
             if (!this.models[model]) return undefined;
             return this.models[model].find(curModel => curModel.number > 0); // ignore models with number 0
         }
-            
+
         if (this.models[model.name])
             for (const m of this.models[model.name])
                 if (model.isEqualTo(m))
                     return m;
-        
+
         return undefined;
     }
 
-    add(...models) {
-        let foundModel;
-
-        for (const model of models) {
-            if (model === null) continue;
-
-            if ((foundModel = this.has(model)) === undefined) {
-                if (this.has(model.name))
-                    this.models[model.name].push(model);
-    
-                else
-                    this.models[model.name] = [model];
-            }
-            else foundModel.add(model);
-
-            this.totalNumberOfModels += model.number
+    add(model) {
+        if (model === null) {
+            return;
         }
+
+        const foundModel = this.has(model);
+
+        if (foundModel === undefined) {
+            if (this.has(model.name))
+                this.models[model.name].push(model);
+            else
+                this.models[model.name] = [model];
+        } else {
+            foundModel.add(model);
+        }
+
+        this.totalNumberOfModels += model.number
     }
 
     /**
@@ -117,7 +91,7 @@ module.exports = class ModelCollection {
 
 
     toJSON() {
-        return { 
+        return {
             models: Object.fromEntries(
                         Object.values(this.models)
                                                 /* .map(modelArray => modelArray.sort((a,b) => {

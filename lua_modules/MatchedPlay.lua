@@ -19,7 +19,7 @@ function changeModelWoundCount(mod, target)
         currentColor = "[ff0000]"
     else
         local bracketData,bracketName,bracketProfileName
-        
+
         if unitData.woundTrack ~= nil then
             if len(unitData.woundTrack) == 1 then
                 for key,bracket in pairs(unitData.woundTrack) do
@@ -39,16 +39,16 @@ function changeModelWoundCount(mod, target)
 
         if bracketData == nil then
             colors = WOUND_COLOR_CUTOFFS[total]
-            currentColor =  current > colors.g and "[00ff16]" 
+            currentColor =  current > colors.g and "[00ff16]"
                             or (colors.o ~= nil and current > colors.o) and "[ffca00]" or "[ff0000]"
         else
             currentBracket = 1
 
             for key,_ in pairs(bracketData) do
                 local cutoff,_ = key:gsub("(%d+)%-%d+%+?", "%1")
-                if current >= tonumber(cutoff) then 
+                if current >= tonumber(cutoff) then
                     bracketProfileName = bracketName.." ("..key..")"
-                    break 
+                    break
                 end
 
                 currentBracket = currentBracket + 1
@@ -60,7 +60,7 @@ function changeModelWoundCount(mod, target)
     end
 
     updatedName = string.gsub(newName, "^%[%w+]", currentColor, 1)
-    
+
     target.setName(updatedName)
 end
 
@@ -72,14 +72,14 @@ function updateBracketCharacteristics(bracket, bracketData, bracketName, bracket
     for _,profile in pairs(unitData.models) do
         if profile.name == bracketProfileName then bracketProfile = profile end
     end
-    
-    for heading,value in pairs(bracketProfile) do 
-        if heading ~= "name" and heading ~= "rowParity" then 
-            updatedBracketCharacteristics = updatedBracketCharacteristics..(isInList(heading, unitData.changingCharacteristics[bracketName]) 
-                                and interpolate(BRACKET_VALUE, { 
+
+    for heading,value in pairs(bracketProfile) do
+        if heading ~= "name" and heading ~= "rowParity" then
+            updatedBracketCharacteristics = updatedBracketCharacteristics..(isInList(heading, unitData.changingCharacteristics[bracketName])
+                                and interpolate(BRACKET_VALUE, {
                                     color = BRACKET_VALUE_COLORS[len(bracketData)][bracket],
-                                    val = value 
-                                }) 
+                                    val = value
+                                })
                                 or value).."   "
 
             updatedHeadings = updatedHeadings..formatHeading(heading, value)
@@ -95,8 +95,8 @@ end
 -- the spacing is based on the values given so that they line up properly
 function formatHeading(heading, value)
     local spacing = value:gsub("\\",""):len()-heading:len()
-    
-    if heading == "ws" or heading == "m" or heading =="a" then 
+
+    if heading == "ws" or heading == "m" or heading =="a" then
         spacing = spacing + 2
     else
         spacing = spacing + 3
@@ -135,11 +135,11 @@ end
 function toggleRectangularMeasuring(playerColor, target)
     local isRectangular = target.hasTag("rectangularMeasuring")
 
-    if not isRectangular then 
+    if not isRectangular then
         target.addTag("rectangularMeasuring")
         broadcastToAll("Model set to rectangular measuring")
-    else 
-        target.removeTag("rectangularMeasuring") 
+    else
+        target.removeTag("rectangularMeasuring")
         broadcastToAll("Model set to round measuring")
     end
 
@@ -162,7 +162,7 @@ function onLoad(savedState)
     local hasLoaded = self.getVar("hasLoaded")
     if hasLoaded == nil or not hasLoaded then
         local decodedState = savedState == nil and nil or JSON.decode(savedState)
-        
+
         if decodedState ~= nil and loadDecodedState ~= nil then
             loadDecodedState(decodedState)
         elseif loadDefaultValues ~= nil then
@@ -170,7 +170,7 @@ function onLoad(savedState)
         end
 
         setContextMenuItemsForUnit()
-        
+
         --Wait.frames(function () buildUI() end, 2)
 
         for _,model in ipairs(getObjectsWithTag("uuid:"..unitData.uuid)) do
@@ -193,10 +193,10 @@ function onScriptingButtonDown(index, playerColor)
 
     local player = Player[playerColor]
     local hoveredObject = player.getHoverObject()
-    
+
     -- if the hovered object has a matching unitID, then it is part of this model's unit and thus is a valid target
     local isHoveringValidTarget = hoveredObject ~= nil and hoveredObject.hasTag("uuid:"..unitData.uuid)
-    
+
     if isHoveringValidTarget then scriptingFunctions[index](playerColor, hoveredObject, player) end
 end
 
@@ -204,7 +204,7 @@ end
 function onObjectDrop(playerColor, droppedObject)
     if not self.hasTag("leaderModel") then return end -- prevents firing on objects we don't want firing
     if isCurrentlyCheckingCoherency and
-        droppedObject ~= nil and 
+        droppedObject ~= nil and
         unitData ~= nil and
         droppedObject.hasTag("uuid:"..unitData.uuid) then
             droppedObject.setLock(true)
@@ -223,7 +223,7 @@ function onObjectRotate(object, spin, flip, playerColor, oldSpin, oldFlip)
         flip ~= oldFlip and  -- update on model flip
         object.hasTag("uuid:"..unitData.uuid) then
         -- wait for a bit, otherwise the model will still be considered face down when its flipped face up and vice versa
-        Wait.time(|| highlightCoherency(), 0.3) 
+        Wait.time(|| highlightCoherency(), 0.3)
     end
 end
 
@@ -241,7 +241,7 @@ function onPlayerAction(player, action, targets)
     elseif action == Player.Action.Delete then
         local unitTag = "uuid:"..unitData.uuid
         for _,object in ipairs(targets) do
-            if object == self then 
+            if object == self then
                 local modelsInUnit = getObjectsWithTag(unitTag)
                 local modelsInUnitNotBeingDeleted = filter(modelsInUnit, |model| not includes(targets, model))
                 if #modelsInUnitNotBeingDeleted > 1 then
@@ -254,7 +254,7 @@ function onPlayerAction(player, action, targets)
                         newLeader.UI.setXml(self.UI.getXml())
                         newLeader.addTag("leaderModel")
                     end, 2)
-                    
+
                     if loadCrusadeCard ~= nil then
                         Wait.frames(|| newLeader.call("loadCrusadeCard", crusadeCardData), 2)
                     end
@@ -282,7 +282,7 @@ end
 
 function onObjectSpawn(object)
     if not self.hasTag("leaderModel") then return end -- prevents firing on objects we don't want firing
-    
+
     if object ~= self and object.hasTag("leaderModel") and object.hasTag("uuid:"..unitData.uuid) then
         object.removeTag("leaderModel")
         object.setLuaScript("")
@@ -310,8 +310,8 @@ end
 
 function showCard(cardName, playerColor, doBeforeShowing, doAfterShowing)
     local timeToWait = 0
-    
-    if not hasBuiltUI then 
+
+    if not hasBuiltUI then
         buildUI()
         hasBuiltUI = true
         timeToWait = 2
@@ -337,33 +337,31 @@ function showCard(cardName, playerColor, doBeforeShowing, doAfterShowing)
                 end
             end
         end
-    
+
         if not shownYet then
             local cardToShow = filter(selfUI[1].children, |child| child.attributes.id == cardName)[1]
             cardToShow.attributes.id = formattedCardName
             cardToShow.attributes.visibility = playerColor
             cardToShow.attributes.active = true
-        
+
             recursivelyCleanElement(cardToShow)
             table.insert(globalUI, cardToShow)
-    
-            UI.setXmlTable(globalUI)
         end
+
+        Global.UI.setXmlTable(globalUI)
     end, timeToWait)
 end
 
 
 function hideCard(player, card)
-    local playerColor = player.color    
+    local playerColor = player.color
 
     if (player.color:find("^%w+$")) == nil then playerColor = "Grey" end
 
     local formattedCardName = "ymc-"..card.."-"..unitData.uuid.."-"..playerColor
 
-    UI.setAttribute(formattedCardName, "visibility", "None")
-    
-    UI.setAttribute(formattedCardName, "active", false)
-    --UI.hide(formattedCardName)
+    Global.UI.setAttribute(formattedCardName, "visibility", "None")
+    Global.UI.setAttribute(formattedCardName, "active", false)
 
     Wait.time(function()
         local currentUI = UI.getXmlTable()
@@ -383,12 +381,11 @@ function hideCard(player, card)
             recursivelyCleanElement(element)
         end
 
-        if foundVisibleCard then return end
+        if not foundVisibleCard then return end
 
         currentUI = filter(currentUI, |element| element.attributes.id == nil or (element.attributes.id:find("^ymc-")) == nil)
 
-        UI.setXmlTable(currentUI)
-        --UI.setAttribute("container", "visibility", "hidden")
+        Global.UI.setXmlTable(currentUI)
     end, 0.11)
 end
 
@@ -419,9 +416,9 @@ function buildUI()
     self.UI.setValue("keywords", unitData.keywords)
 
     if unitData.keywords:len() < 85 then
-        self.UI.setAttribute("keywordContainer", "preferredHeight", 40)  
-        self.UI.setAttribute("keywordList", "preferredHeight", 20)   
-        
+        self.UI.setAttribute("keywordContainer", "preferredHeight", 40)
+        self.UI.setAttribute("keywordList", "preferredHeight", 20)
+
         dataCardHeight = dataCardHeight - 30 -- subtract extra height for keyword box
     end
 
@@ -432,9 +429,9 @@ function buildUI()
     if unitData.psykerProfiles ~= nil then
         buildXMLForSection("powersKnown")
         buildXMLForSection("psykerProfiles")
-        
-        self.UI.setAttribute("powersKnownContainer", "active", true)   
-        self.UI.setAttribute("psykerProfilesContainer", "active", true)  
+
+        self.UI.setAttribute("powersKnownContainer", "active", true)
+        self.UI.setAttribute("psykerProfilesContainer", "active", true)
 
         dataCardHeight = dataCardHeight + 140 -- add space for two headers (40px each) and two spaces (30px each)
     end
@@ -443,7 +440,7 @@ function buildUI()
 
     self.UI.setAttribute("dataCardCloseButton", "onClick", guid.."/hideCard(dataCard)")
     self.UI.setValue("highlightButtonsContainer", interpolate(uiTemplates.buttons, { guid=guid, width=(unitData.uiWidth/10)-4 }))
-    
+
     self.UI.setAttribute("dataCardContentContainer", "height", dataCardHeight)
 
     if buildCrusadeUI ~= nil then buildCrusadeUI(guid) end
@@ -453,7 +450,7 @@ function setContextMenuItemsForUnit()
     local hasLoaded = self.getVar("hasLoaded")
     if hasLoaded == nil or not hasLoaded then
         local unit = getObjectsWithTag("uuid:"..unitData.uuid)
-    
+
         if not unitData.isSingleModel and #unit > 1 then
             for _,model in ipairs(unit) do
                 model.addContextMenuItem("Toggle Coherency ✓", toggleCoherencyChecking)
@@ -535,7 +532,7 @@ function highlightCoherency()
     local coherencyCheckNum = (#filteredUnits > 5) and 2 or 1
     local coherencyGroups = getCoherencyGroups(filteredUnits, coherencyCheckNum)
     local numberOfBlobs = len(coherencyGroups)
-    
+
     if numberOfBlobs == 0 then return
     elseif numberOfBlobs > 1 then
         for _,blob in ipairs(coherencyGroups) do
@@ -558,7 +555,7 @@ function getCoherencyGroups(modelsToSearch, numberToLookFor)
     local edges = getCoherencyGraph(modelsToSearch)
     local blobs = {}
     local modelsToIgnore = {}
-    
+
     for idx,model in ipairs(modelsToSearch) do
         if edges[idx] == nil or #edges[idx] < numberToLookFor then -- the model is out of coherency
             model.highlightOff()
@@ -578,7 +575,7 @@ function getCoherencyGroups(modelsToSearch, numberToLookFor)
                     break
                 end
             end
-            
+
             if not found then
                 local newBlob = {}
 
@@ -605,7 +602,7 @@ function getCoherencyGraph(modelsToSearch)
             -- handle circular bases
             if firstSize.x == firstSize.z and secondSize.x == secondSize.z then
                 if distanceBetween2D(firstPosition, firstSize.x, secondPosition, secondSize.x) <= 2 and
-                    verticalDisplacement <= 5 then 
+                    verticalDisplacement <= 5 then
                     -- store all edges of a graph where models are nodes and edges represent coherency
                     storeEdges(edges, idx, otherIdx)
                 end
@@ -614,10 +611,10 @@ function getCoherencyGraph(modelsToSearch)
                     -- if the bases were circles with radiuses = minor axes and they are in coherency,
                     -- the ovals must be in coherency
                     if distanceBetween2D(firstPosition, math.min(firstSize.x, firstSize.z), secondPosition, math.min(secondSize.x, secondSize.z)) <= 2 and
-                        verticalDisplacement <= 5 then  
+                        verticalDisplacement <= 5 then
                         -- store edges in graph
                         storeEdges(edges, idx, otherIdx)
-                        
+
                     -- if the bases were circles with radiuses = major axes and they are out of coherency,
                     -- there is no way for the ovals to be in coherency
                     elseif not (distanceBetween2D(firstPosition, math.max(firstSize.x, firstSize.z), secondPosition, math.max(secondSize.x, secondSize.z)) > 2 or
@@ -646,9 +643,9 @@ function getCoherencyGraph(modelsToSearch)
                     -- if the oval base was a circle with radius = minor axis and they are in coherency,
                     -- the models must be in coherency
                     if distanceBetween2D(circlePosition, circle.x, ovalPosition, math.min(oval.x, oval.z)) <= 2 and
-                        verticalDisplacement <= 5 then  
+                        verticalDisplacement <= 5 then
                         storeEdges(edges, idx, otherIdx)
-                        
+
                     -- if the oval base was a circle with radius = major axis and they are out of coherency,
                     -- there is no way for the models to be in coherency
                     elseif not (distanceBetween2D(circlePosition, circle.x, ovalPosition, math.max(oval.x, oval.z)) > 2 or
@@ -702,7 +699,7 @@ function interpolate(templateString, replacementValues)
 end
 
 
-function isInList(key, list) 
+function isInList(key, list)
     for _,k in pairs(list) do
         if k == key then return true end
     end
@@ -721,19 +718,19 @@ end
 
 function distanceBetween2D(firstModelPosition, firstModelRadius, secondModelPosition, secondModelRadius)
     -- generally should only be checking coherency with circular bases?
-    return getRawDistance(firstModelPosition.x, firstModelPosition.z, 
+    return getRawDistance(firstModelPosition.x, firstModelPosition.z,
                 secondModelPosition.x, secondModelPosition.z) - firstModelRadius - secondModelRadius
 end
 
 function distanceBetweenVertical(firstModelPosition, secondModelPosition)
     -- vertical measuring assumes the model has a base because generally vehicles (or models without bases)
-    -- dont need to check coherency, and the ones that do probably wont be out of vertical coherency 
+    -- dont need to check coherency, and the ones that do probably wont be out of vertical coherency
     -- because they cant end up on upper floors of buildings or walls
     return math.abs(firstModelPosition.y - secondModelPosition.y) - 0.2 -- this is assuming the model has a base
 end
 
 function getRawDistance(firstA, firstB, secondA, secondB)
-    return math.sqrt( 
+    return math.sqrt(
         math.pow(firstA - secondA, 2) +
         math.pow(firstB - secondB, 2)
     )
@@ -755,11 +752,11 @@ end
 
 function filter(t, filterFunc)
     local out = {}
-  
+
     for k, v in pairs(t) do
       if filterFunc(v, k, t) then table.insert(out,v) end
     end
-  
+
     return out
 end
 
@@ -813,7 +810,7 @@ end
 function assignBase(inc, target)
     local savedBase = target.getTable("chosenBase")
 
-    if savedBase == nil then 
+    if savedBase == nil then
         changeMeasurementCircle(0, target, determineBaseInInches(target))
     else
         local newIdx = savedBase.baseIdx + inc
@@ -834,12 +831,12 @@ function assignBase(inc, target)
         changeMeasurementCircle(0, target, newBase.base)
     end
 end
-  
+
 
 function determineBaseInInches(model)
     local savedBase = model.getTable("chosenBase")
 
-    if savedBase ~= nil then 
+    if savedBase ~= nil then
         return savedBase.base
     else
         local chosenBase =  VALID_BASE_SIZES_IN_MM[1]
@@ -861,12 +858,12 @@ function determineBaseInInches(model)
                 end
             end
         end
-        
+
         if chosenBase == nil then
             chosenBase = { x=modelSizeX/2, z=modelSizeZ/2}
         else
-            chosenBase = { 
-                x = (chosenBase.x * MM_TO_INCH)/2, 
+            chosenBase = {
+                x = (chosenBase.x * MM_TO_INCH)/2,
                 z = (chosenBase.z * MM_TO_INCH)/2
             }
         end
@@ -882,8 +879,8 @@ function changeMeasurementCircle(change, target, presetBase)
     local measuringRings = target.getTable("ym-measuring-circles")
     local currentColor = target.getVar("currentHighlightColor")
     local currentColorRadius
-    
-    if measuringRings == nil then 
+
+    if measuringRings == nil then
         measuringRings = {}
         currentColorRadius = 0
     else
@@ -898,11 +895,11 @@ function changeMeasurementCircle(change, target, presetBase)
 
         if currentColorRadius == nil then currentColorRadius = 0 end
     end
-    
+
     local newRadius = math.max(currentColorRadius + change, 0)
 
     if newRadius == 0 then
-        
+
     else
 
         local isRectangular = target.hasTag("rectangularMeasuring")
@@ -920,32 +917,32 @@ function changeMeasurementCircle(change, target, presetBase)
             rotation  = {270,0,0}--isRectangular and {0,0,0} or {270,0,0}
         }
         local measuringPoints,basePoints
-    
+
         if isRectangular then
             local modelBounds = target.getBoundsNormalized()
-    
+
             if newRadius > 0 then
                 measuringPoints = getRectangleVectorPoints(newRadius, modelBounds.size.x/2, modelBounds.size.z/2, target)
                 basePoints = getRectangleVectorPoints(0, modelBounds.size.x/2, modelBounds.size.z/2, target)
             end
         else
             local baseRadiuses = (presetBase == nil) and determineBaseInInches(target) or presetBase
-    
+
             if newRadius > 0 then
                 measuringPoints = getCircleVectorPoints(newRadius, baseRadiuses.x, baseRadiuses.z, target)
                 basePoints = getCircleVectorPoints(0, baseRadiuses.x, baseRadiuses.z, target)
             end
         end
-        
+
         measuring.points = measuringPoints
         base.points = basePoints
-    
+
         table.insert(measuringRings, measuring)
         table.insert(measuringRings, base)
 
         broadcastToAll("Measuring "..tostring(newRadius).."\"")
     end
-    
+
     target.setVectorLines(measuringRings)
 
     target.setTable("ym-measuring-circles", measuringRings)
@@ -974,7 +971,7 @@ end
 function getRectangleVectorPoints(radius, sizeX, sizeZ, obj)
     local result = {}
     local scaleFactor = 1/obj.getScale().x
-    
+
     sizeX = sizeX*scaleFactor
     sizeZ = sizeZ*scaleFactor
     radius = radius*scaleFactor
@@ -1020,6 +1017,6 @@ function getRectangleVectorPoints(radius, sizeX, sizeZ, obj)
         y = (sin(toRads(degrees*0))*radius)+sizeZ,
         z = MEASURING_RING_Y_OFFSET
     })
-    
+
     return result
 end

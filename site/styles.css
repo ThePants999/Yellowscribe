@@ -17,7 +17,7 @@ body {
     display: grid;
     grid-template-columns: 180px auto;
     grid-template-rows: auto 60px;
-    grid-template-areas: 
+    grid-template-areas:
         "nav main"
         "nav footer";
     overflow: hidden;
@@ -459,7 +459,7 @@ ol ul {
 }
 
 .flex {
-    display: felx;
+    display: flex;
 }
 
 .centered.flex {
@@ -493,25 +493,6 @@ ol ul {
     margin-left: 5px;
 }
 
-#paypalButton {
-    background: url("paypalIcon.png");
-    background-size: cover;
-}
-
-#patreonButton {
-    background: url("patreonIcon.png");
-    background-size: cover;
-}
-
-
-
-.screenshot {
-    width: 500px;
-    height: auto;
-    margin-left: 10px;
-    float: right;
-}
-
 
 
 #errorContainer {
@@ -522,7 +503,7 @@ ol ul {
     opacity: 1;
     color: #a20404;
     font-weight: bold;
-    
+
     transition: padding 0.3s, opacity 0.3s, max-height 0.3s;
 }
 
@@ -540,13 +521,13 @@ ol ul {
 
 
 
-.codeLabel {    
+.codeLabel {
     font-size: 48px;
     font-weight: bold;
     width: 500px;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .codeLabel input {

@@ -36,6 +36,7 @@
             <div>
                 <label class="codeLabel">Your code: <input type="text" id="codeContainer" readonly="true" /></label>
             </div>
+            <p><b>Make sure you use this code in the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2910985942">new mod</a>, not the old one!</b></p>
             <p>Your code will be valid for about 10 minutes</p>
             <p>Remember: if you run into any problems, please come to the support server found in the Help page</p>
         </section>
@@ -69,11 +70,6 @@
                 </label>
             </li>
         </ul>
-        <div class="supportContainer">
-            <a href="https://www.paypal.com/donate?business=E7PQYPYJNYEAE&no_recurring=1&item_name=Coffee+Moneys&currency_code=USD" id="paypalButton"></a>
-            <a href="https://www.patreon.com/bePatron?u=34112622" id="patreonButton"></a>
-            <span>Wanna buy me a coffee?</span>
-        </ul>
     </nav>
     <main id="displayContainer">
         <div id="rosterInputPage" class="visible page">
@@ -82,6 +78,7 @@
                 <span>Yellow Man's Battlescribe to TTS</span>
                 <img src="/img/tts_icon.png" />
             </header>
+            <header><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2910985942">This site must be used together with the new mod!</a></header>
             <section id="errorContainer"></section>
             <input type="file" name="rosterUpload" id="rosterUpload" />
             <label for="rosterUpload" class="rosterUpload centered block" id="rosterUploadContainer">
@@ -105,21 +102,22 @@
         <div id="newPage" class="hidden page">
             <section>
                 <h4>
-                    To get the latest patch notes and the (very) occasional sneak previews I sometimes give, 
+                    To get the latest patch notes and the (very) occasional sneak previews we sometimes give,
                     make sure to check out the <a href="https://discord.gg/3hQ2VkBa3v">Discord</a>!
                 </h4>
             </section>
             <br /><br />
             <section>
                 <h2>What's new?</h2>
+                <p>This is a migration of Yellowscribe, which was created by Yellow Man but we lost the ability to maintain it when he left the project.</p>
                 <p>
-                    This is a rewrite of the original Battlescribe to TTS mod (with which I am not affiliated at all), 
+                    Yellowscribe is a rewrite of the original Battlescribe to TTS mod (with which we are not affiliated at all);
                     all credit for inspiration and the code for drawing measuring circles around models goes to thehivemind5.
-                    I have made some changes in this version to make life a bit easier for myself (and hopefully others as well):
+                    Yellow Man made some changes in this version to make life a bit easier:
                     <ul>
                         <li>The Datasheet attached to the unit has been cleaned up and hopefully looks a bit better now</li>
-                        <li>I have added a Crusade Card attached to each unit where you can keep track of crusade statistics (press scripting key 9 while hovering a model)</li>
-                        <li>I have added an easy way to keep track of agenda tallies (explained in "How To")</li>
+                        <li>A Crusade Card can be attached to each unit where you can keep track of crusade statistics (press scripting key 9 while hovering a model)</li>
+                        <li>He added an easy way to keep track of agenda tallies (explained in "How To")</li>
                         <li>Changing wounds up and down is now more colorful!</li>
                         <li>For models with changing characteristics based on wounds (brackets), the description of the model will now display whatever its current statistics are (instead of just *s)</li>
                         <li>Army creation should be a little more organized and allows for the editing of unit names as well as assigning weapons that were not assigned properly (should fix some issues in the original where models wouldnt have weapons)</li>
@@ -130,12 +128,12 @@
         </div>
         <div id="howToPage" class="hidden page">
             <h3>
-                If you have any questions, please don't hesitate to come to 
+                If you have any questions, please don't hesitate to come to
                 the <a href="https://discord.gg/3hQ2VkBa3v">support server</a>.
             </h3>
             <p>
-                This website is made to be used with the in-game mod found <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2536025249" target="_blank">HERE</a>. If you are familiar with the original Battlescribe2TTs,
-                getting your army roster into TTS will be mostly similar. 
+                This website is made to be used with the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2910985942">in-game mod</a>. If you are familiar with the original Battlescribe2TTS,
+                getting your army roster into TTS will be mostly similar.
                 If you are not familiar with that process, please follow the steps below (explained in further detail later on).
             </p>
             <ol>
@@ -145,7 +143,7 @@
                     should be a .rosz file.
                 </li>
                 <li>
-                    Upload your saved roster file to this website using "Upload" in the menu bar to the left. 
+                    Upload your saved roster file to this website using "Upload" in the menu bar to the left.
                     The uploaded roster will be stored for about 10 minutes after you finish editing it.
                 </li>
                 <li>
@@ -153,13 +151,12 @@
                     There are also some settings you can change in the menu bar. Then click Submit all the way at the bottom of the roster list.
                 </li>
                 <li>
-                    Copy the code that your are given on this site after uploading your roster, 
-                    and paste it into the box in the in-game mod (found 
-                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2536025249" target="_blank">HERE</a> 
-                    if you haven't subscribed yet)
+                    Copy the code that your are given on this site after uploading your roster,
+                    and paste it into the box in the
+                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2910985942">in-game mod</a>.
                 </li>
                 <li>
-                    Choose models that you want to use for each model type in each unit. 
+                    Choose models that you want to use for each model type in each unit.
                     <br />
                     <i>
                         NOTE: you can assign a model to multiple different model cards at a time
@@ -190,8 +187,8 @@
                             </p>
                             <p>
                                 To assign a weapon to a model group, there will be some buttons in the "Unassigned Weapons"
-                                section on that model group. There can be up to three buttons that show up (depending on the number of 
-                                models in the group): 
+                                section on that model group. There can be up to three buttons that show up (depending on the number of
+                                models in the group):
                             </p>
                             <ul>
                                 <li>a button with the name of the weapon. This assigns the weapon to a single model in the group</li>
@@ -208,17 +205,17 @@
             <section>
                 <h3>Associating Models</h3>
                 <p>
-                    To Associate a model with a model card, simply click on the model card (or model cards) 
-                    with which you want to associate the model (or models). 
+                    To Associate a model with a model card, simply click on the model card (or model cards)
+                    with which you want to associate the model (or models).
                 </p>
                 <p>
-                    You can assign a model (or models) to multiple model cards by selecting multiple model 
-                    cards before picking up any models; the subsequent model or models you pick up will be 
+                    You can assign a model (or models) to multiple model cards by selecting multiple model
+                    cards before picking up any models; the subsequent model or models you pick up will be
                     assigned to all the selected model cards at once.
                 </p>
                 <p>
                     You can assign multiple models to a model card (or cards) by picking up multiple models at once.
-                    When you assign multiple models to a model card, it will randomly select which model to use for each 
+                    When you assign multiple models to a model card, it will randomly select which model to use for each
                     model in that model group from the assigned models.
                 </p>
             </section>
@@ -235,7 +232,7 @@
                 </p>
                 <h3>Scripting Button 1</h3>
                 <p>
-                    This will show a datasheet for the unit just like it did in the original mod. 
+                    This will show a datasheet for the unit just like it did in the original mod.
                     However, the data within it has been reorganized and should (hopefully) look a bit nicer.
                 </p>
                 <p>
@@ -249,70 +246,70 @@
                 </p>
                 <h3>Scripting Button 2 or 3</h3>
                 <p>
-                    This will either remove (2) or add (3) a wound to the model you are hovering over. 
+                    This will either remove (2) or add (3) a wound to the model you are hovering over.
                     This should work exactly the same as the original mod with the following differences:
                 </p>
                 <ul>
                     <li>
-                        The model's wounds should be helpfully colored according to how damaged it is 
+                        The model's wounds should be helpfully colored according to how damaged it is
                         (green when fully healthy, red when almost dead, yellow somewhere in between)
                     </li>
                     <li>
-                        If the model has characteristics that change based on how many wounds it has, 
+                        If the model has characteristics that change based on how many wounds it has,
                         these characteristics will change in its description based on its current wounds
                     </li>
                 </ul>
                 <h3>Scripting Button 4 or 5</h3>
                 <p>
-                    Expands (4) or shrinks (5) a measuring circle around the model over which you are hovering. 
+                    Expands (4) or shrinks (5) a measuring circle around the model over which you are hovering.
                     A bonus feature has been added in this new version: a model can have multiple measuring rings around it at once.
-                    When a model is highlighted, it will produce a measuring ring in that color while also retaining any rings 
+                    When a model is highlighted, it will produce a measuring ring in that color while also retaining any rings
                     it had in other highlight colors (or in pink if it measured without a highlight).
                 </p>
                 <h3>Scripting Button 6 and 7</h3>
                 <p>These do exactly what they did in the original version: switch which measuring ring is used for the model.</p>
                 <h3>Scripting Button 8</h3>
-                <p>This toggles whether or not the measuring ring should be rectangular for the model.</p>
+                <p>This toggles whether the measuring ring should be circular or rectangular for the model.</p>
                 <h3>Scripting Button 9</h3>
                 <p>
-                    If Crusade Scripting is included (see the settings menu when editing your roster), 
-                    this shows the unit's crusade card. The card is shared by all the models in the unit 
+                    If Crusade Scripting is included (see the settings menu when editing your roster),
+                    this shows the unit's crusade card. The card is shared by all the models in the unit
                     and should hopefully be useable as a way to track your units within TTS.
                 </p>
                 <h3>Scripting Button 10</h3>
                 <p>
-                    If Crusade Scripting is included (see the settings menu when editing your roster), 
-                    this shows the unit's agenda tally card. To use it, you must have an Agenda Manager 
-                    spawned into the game and set up. The Agenda Manager is availible in the in-game mod 
+                    If Crusade Scripting is included (see the settings menu when editing your roster),
+                    this shows the unit's agenda tally card. To use it, you must have an Agenda Manager
+                    spawned into the game and set up. The Agenda Manager is availible in the in-game mod
                     on the top right corner of the table, simply save it and spawn it into whatever game you want to use it in.
                     Details on how to use the Agenda Manager can be found below.
                 </p>
                 <h3>Right-click Menu</h3>
                 <p>
-                    Currently there is only one function in a unit's right-click menu, but I may add more in the future, 
-                    keep a look out! 
+                    Currently there is only one function in a unit's right-click menu, but I may add more in the future,
+                    keep a look out!
                 </p>
                 <h4>Toggle Coherency check</h4>
                 <p>
                     This turns on coherency checking for the unit until it is turned off again the same way.
                     While checking coherency, any models in the unit that are out of coherency with other models will be
                     highlighted red. If all the models in the unit are in coherency (other than models that are out of coherency),
-                    they will be highlighted green. If there are multiple (i.e. more than one) groups of models that are in 
+                    they will be highlighted green. If there are multiple (i.e. more than one) groups of models that are in
                     coherency with each other, but not with other groups, all such groups will be highlighted yellow.
                     <br /><br />
-                    Any face-down models in the unit will be completely ignored for the purposes of coherency checking. 
+                    Any face-down models in the unit will be completely ignored for the purposes of coherency checking.
                     Coherency checking will automatically determine whether the unit has 6 or more models (and thus requires two models
-                    in coherency for each model), and should also handle vertical coherency checking fairly well (though I can't guarantee 
+                    in coherency for each model), and should also handle vertical coherency checking fairly well (though I can't guarantee
                     that vertical checking is completely accurate).
                     <br /><br />
-                    Coherency checking for models with oval bases is currently mostly imprecise (though itll do an ok job).
+                    Coherency checking for models with oval bases is currently mostly imprecise (though it'll do an OK job).
                     There is no particularly reasonable way of making it more precise.
                 </p>
             </section>
             <section>
                 <h2>Agenda Manager</h2>
                 <p>
-                    The Agenda Manager is meant to help you keep track of agenda tallies (via spripting button 10 on your units), 
+                    The Agenda Manager is meant to help you keep track of agenda tallies (via spripting button 10 on your units),
                     as well as provide a helpful display to help you remember which agendas you selected.
                 </p>
                 <p>
@@ -330,7 +327,7 @@
                         <p>
                             While the Agenda Manager is in this "associating models" mode, any object you pick up will be associated with
                             the Agenda Manager. When a model is associated with the Agenda Manager, it will be highlighted in green
-                            until you finish associating models. 
+                            until you finish associating models.
                         </p>
                         <p>
                             Note: you do NOT need to pick up the models you want to associate with it all at once,
@@ -356,41 +353,28 @@
         <div id="helpPage" class="hidden page">
             <h1>Ran into a problem?</h1>
             <p>
-                Please make sure you have your rosz file handy as I will need it to try and replicate whatever
-                issue is giving your trouble. If I don't have your rosz file, it will be much much harder for
-                me to fix the problem.
+                Please make sure you have your .ros or .rosz file handy as we will need it to try and replicate whatever
+                issue is giving your trouble. If we don't have your .ros/.rosz file, it will be much much harder for
+                us to fix the problem.
             </p>
             <p>
-                Once you have your rosz file ready, or if you have any questions, please don't hesitate to come 
+                Once you have your .ros/.rosz file ready, or if you have any questions, please don't hesitate to come
                 to the <a href="https://discord.gg/FmTJ2tNVyr">support server</a>. If you are reporting an issue,
-                make sure you do so in #report-here and include the rosz file. (If you don't include your rosz file in the
-                bug report, I will invariably ask you for it anyway).
+                make sure you do so in #report-here and include the .ros/.rosz file. (If you don't include your .ros/.rosz file in the
+                bug report, we will invariably ask you for it anyway.)
             </p>
             <br /><br /><br />
             <h2>Code</h2>
             <p>
-                If you are interested in taking a look at the code for this project, you can find the sources for 
-                everything other than the code found in the in-game mod in <a href="">my GitHub</a>.<br />
-                <i>
-                    <b>PLEASE NOTE:</b> I cannot guarantee that the sources in the GitHub are entirely up to date as
-                    I very often forget to update it.
-                </i>
+                If you are interested in taking a look at the code for this project, you can find the sources for
+                it in <a href="https://github.com/ThePants999/Yellowscribe">our GitHub</a>. Pull requests are welcome,
+                though please discuss your plans with us before you jump into coding!
             </p>
-            <p>For the lua code found in the in-game mod, the sources can be found in the scripting editor in the mod.</p>
             <p>
-                Again, if you have any questions, please feel free to jump into the 
+                Again, if you have any questions, please feel free to jump into the
                 <a href="https://discord.gg/3hQ2VkBa3v">support server</a> and go to #code-discussion.
             </p>
             <br /><br /><br />
-            <h2>Helping Me</h2>
-            <p>
-                If, for whatever reason, you feel like helping me out financially, first of all thank you so much &lt;3. 
-                But also here's either my <a href="https://www.patreon.com/bePatron?u=34112622">Patreon</a> or my 
-                <a href="https://www.paypal.com/donate?business=E7PQYPYJNYEAE&no_recurring=1&item_name=Coffee+Moneys&currency_code=USD">Paypal</a>. 
-                And thank you again!
-            </a>
-            </p>
-            <!-- #report-here: https://discord.gg/FmTJ2tNVyr-->
         </div>
     </main>
     <div class="hidingPanel"></div>

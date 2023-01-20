@@ -63,16 +63,16 @@ test("wound track monsters", () => {
     performRosterTest("sample-wound-track-monsters.ros");
 });
 
+test("rockgrinder", () => {
+    performRosterTest("sample-rockgrinder.ros");
+});
+
 test("hemlock", () => {
     performRosterTest("sample-hemlock.ros");
 });
 
 test("multi-model character units", () => {
     performRosterTest("sample-character-units.ros");
-});
-
-test("assault squad", () => {
-    performRosterTest("sample-assault-squad.ros");
 });
 
 test("empty roster", () => {

@@ -18,7 +18,7 @@ module.exports.parse = (data) => {
         for (let unitData of armyUnitData) {
             let unit = new Unit(unitData.$.name, unitData.$.customName, unitData.$.type === "model");
 
-            unit.handleSelectionDataRecursive(unitData, null, true);
+            unit.handleSelectionDataRecursive(unitData, null, 0);
 
             units.set(unit.uuid, unit.update());
         }

@@ -96,7 +96,7 @@ module.exports = class Unit {
             this.rules.push(trimmedName);
     }
 
-    addWeapon (weaponData) {
+    addWeapon (weaponData, depth) {
         let data = { name: weaponData.$.name },
             mightIgnore = false;
 
@@ -119,7 +119,19 @@ module.exports = class Unit {
         if (!data.abilities)
             data.abilities = "-";
 
-        this.weapons[weaponData.$.name] = data;
+        if ((depth == 1) && (weaponData.$.name in this.weapons)) {
+            // We're in an unusual case whereby this weapon exists at the
+            // scope of the whole unit, but has already been added to the
+            // unit, which probably means that a particular model in the
+            // unit directly has another instance of this weapon. Finding
+            // it at both scopes almost certainly means that there are
+            // further models in the unit that are also supposed to have this
+            // weapon, but we don't know which ones, so we'll need to mark
+            // it as unassigned.
+            this.unassignedWeapons.push({name: weaponData.$.name, number: 1 });
+        } else {
+            this.weapons[weaponData.$.name] = data;
+        }
     }
 
     addKeyword (keywordData) {
@@ -178,7 +190,7 @@ module.exports = class Unit {
     }
 
 
-    handleSelectionDataRecursive (selectionData, parentSelectionData, isTopLevel = false) {
+    handleSelectionDataRecursive (selectionData, parentSelectionData, depth) {
         switch (selectionData.$.type.toLowerCase()) {
             case "model":
                 // special case for Hellions because theyre formatted like the escpae below, but actually have a unit definition as well
@@ -268,7 +280,7 @@ module.exports = class Unit {
                         if (//selectionData.$.name.includes(profile.$.name) && // hopefully this isn't necessary
                             selectionData.$.type.toLowerCase() !== "unit" &&
                             selectionData.$.type.toLowerCase() !== "model" &&
-                            (!isTopLevel || // special case for top level of selection data being marked as upgrade
+                            ((depth > 0) || // special case for top level of selection data being marked as upgrade
                                 (selectionData.selections && selectionData.selections[0] !== "" &&
                                     selectionData.selections[0].selection.findIndex(selection => selection.$.type === "model") < 0))) // another special case for characters being marked as upgrade
                                 this.addModelSimpleData(profile.$.name, selectionData.selections, selectionData.$.number);
@@ -285,7 +297,7 @@ module.exports = class Unit {
                         this.addAbility(profile);
                         break;
                     case "weapon":
-                        this.addWeapon(profile);
+                        this.addWeapon(profile, depth);
                         break;
                     case "wound track":
                         this.addBracket(profile, selectionData.$.name);
@@ -364,7 +376,7 @@ module.exports = class Unit {
 
         if (selectionData.selections && selectionData.selections[0] !== "")
             for (const selection of selectionData.selections[0].selection)
-                this.handleSelectionDataRecursive(selection, selectionData); // recursively search selections
+                this.handleSelectionDataRecursive(selection, selectionData, depth + 1); // recursively search selections
 
 
         if (selectionData.categories && selectionData.categories[0] !== "")
@@ -458,9 +470,9 @@ module.exports = class Unit {
      */
     checkWeapons () {
         let assignedWeapons = this.models.getAllWeaponNames(),
-            unassignedWeapons = Object.keys(this.weapons)
+            unassignedWeapons = this.unassignedWeapons.concat(Object.keys(this.weapons)
                                     .filter(weaponName => !assignedWeapons.includes(weaponName))
-                                    .map(weaponName => { return { name: weaponName, number: 1 }});
+                                    .map(weaponName => { return { name: weaponName, number: 1 }}));
 
         if (assignedWeapons.length === 0) {
             for (const model of this.models)
@@ -472,7 +484,7 @@ module.exports = class Unit {
 
             // if the number of weapons on models isn't the same as the number of weapon definitions, something wrong
             if (assignedWeapons.length !== this.weapons.length) {
-                // find any weapons that exist on model sbut have no profiles
+                // find any weapons that exist on models but have no profiles
                 for (const weaponName of assignedWeapons)
                     if (!this.weapons[weaponName])
                         weaponsToRemove.push(weaponName);

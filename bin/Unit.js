@@ -3,7 +3,8 @@ const ModelCollection = require("./ModelCollection"),
 
     factionKeywordRegex = /Faction: (?<keyword>.+)/,
     abilityTrimRegex = /(?:\d+(?:\.|:)|\d+\-\d+(?:\.|:))?\s*(?<ability>.+)/,
-    woundTrackWoundsRemainingRegex = /(?<wounds>\d+\-?\d*\+?|\d+\+)(?=\s*wounds?(?: remaining)?)/i,
+    woundTrackWoundsRemainingMatchRegex = /(\(\d+-\d+\)|\(\d+\+\)|\d+\-?\d*\+?\s*wounds?(?: remaining)?)/i,
+    woundTrackWoundsRemainingExtractRegex = /(?<wounds>\d+\-?\d*\+?|\d+\+)(?=(\s*wounds?|\)))/i,
     woundTrackProfileNameRegex = /(?<name>^[^[\()]+?)\s*(?:(?:\[\d\]|\(\w\)| \w )\s*(?:\(\d+\-\d+\+?|\(\d+\+|\(1 wound)|\s*\(\d+\-\d+\+?|\(\d+\+|\(1 wound)/,
     statDamageCheckRegex = /^stat damage /i,
     bracketValueRegex = /(?<min>\d+)\-(?<max>\d+)/,
@@ -342,7 +343,7 @@ module.exports = class Unit {
                             this.addBracket(profile, selectionData.$.name)
 
                         // very rarely, a data creator will put an unexpected typeName for a model profile
-                        else if (profile.$.name.match(woundTrackWoundsRemainingRegex))
+                        else if (profile.$.name.match(woundTrackProfileNameRegex))
                             this.addModelProfileData(profile)
 
                         // data creator got fancy with different types of data
@@ -495,7 +496,7 @@ module.exports = class Unit {
     checkForStrangeWoundTrackFormatting() {
         // if there is a profile with the words "wounds remaining",
         // it's safe to assume it's supposed to be a bracket
-        if (Object.keys(this.modelProfiles).findIndex(name => !!name.match(woundTrackWoundsRemainingRegex)) >= 0) {
+        if (Object.keys(this.modelProfiles).findIndex(name => !!name.match(woundTrackWoundsRemainingMatchRegex)) >= 0) {
             let bracketProfiles = {},
                 otherProfiles = {},
                 baseProfile,
@@ -507,12 +508,12 @@ module.exports = class Unit {
             // hopefully fix some special cases where data creators named bracket profiles wrong
             // if there's only one kind of model in the unit, assume all the bracket profiles are for that model
             if (Object.keys(this.models.models).length == 1 &&
-                    Object.keys(this.modelProfiles).findIndex(name => !name.match(woundTrackWoundsRemainingRegex)) < 0) {
+                Object.keys(this.modelProfiles).findIndex(name => !name.match(woundTrackWoundsRemainingMatchRegex)) < 0) {
                 bracketProfiles[this.name] = Object.values(this.modelProfiles);
                 profileName = this.name;
             } else {
                 for (const [name, profile] of Object.entries(this.modelProfiles)) {
-                    if (name.match(woundTrackWoundsRemainingRegex)) {
+                    if (name.match(woundTrackWoundsRemainingMatchRegex)) {
                         profileName = name.match(woundTrackProfileNameRegex).groups.name.trim();
                         if (!bracketProfiles[profileName])
                             bracketProfiles[profileName] = [profile];
@@ -541,8 +542,8 @@ module.exports = class Unit {
             // sort the profiles so that we can be sure to pick the one that has the wounds for later
             for (const profiles of Object.values(bracketProfiles)) {
                 profiles.sort((a,b) => {
-                    let aWounds = a.name.match(woundTrackWoundsRemainingRegex).groups.wounds,
-                        bWounds = b.name.match(woundTrackWoundsRemainingRegex).groups.wounds;
+                    let aWounds = a.name.match(woundTrackWoundsRemainingExtractRegex).groups.wounds,
+                        bWounds = b.name.match(woundTrackWoundsRemainingExtractRegex).groups.wounds;
 
                     if (bWounds.indexOf("+") > 0) return 1;
                     if (aWounds.indexOf("+") > 0) return -1;
@@ -584,7 +585,7 @@ module.exports = class Unit {
 
                     for (const [key,characteristic] of Object.entries(bracket)){
                         if (key === "name") {
-                            let bracketName = characteristic.match(woundTrackWoundsRemainingRegex).groups.wounds;
+                            let bracketName = characteristic.match(woundTrackWoundsRemainingExtractRegex).groups.wounds;
 
                             // A fix for the Hemlock - a bracket of "1" doesn't get output
                             // in the right order, and probably wouldn't be understood by

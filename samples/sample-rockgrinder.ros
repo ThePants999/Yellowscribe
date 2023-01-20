@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<roster id="bbae-1e60-f50d-8c95" name="Rockgrinders" battleScribeVersion="2.03" gameSystemId="28ec-711c-d87f-3aeb" gameSystemName="Warhammer 40,000 9th Edition" gameSystemRevision="237" xmlns="http://www.battlescribe.net/schema/rosterSchema">
+  <costs>
+    <cost name=" PL" typeId="e356-c769-5920-6e14" value="6.0"/>
+    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="10.0"/>
+    <cost name="pts" typeId="points" value="110.0"/>
+  </costs>
+  <forces>
+    <force id="d33d-90d9-93e4-2fb0" name="Auxiliary Support Detachment -2CP" entryId="8a87-f0e3-f2f2-ad1a" catalogueId="83b2-e602-931a-fea1" catalogueRevision="81" catalogueName="Tyranids - Genestealer Cults">
+      <rules>
+        <rule id="72fc-64c3-a228-2ca0" name="Understrength Units" publicationId="28ec-711c-pubN72690" hidden="false">
+          <description>If you are playing a matched play game, you are allowed to have an understrength unit in an Auxiliary Support Detachment. Due to constraints within Battlescribe, we are not able to reflect this in the error checking.  To properly calculate your PL and Points, add the unit you want to take as an understrength unit and then open the context menu on each model in the unit you do not want to use via right click or tap and hold. Then delete the model from that context menu.  This will permanently display an error in your list, but it will calculate your points correctly.</description>
+        </rule>
+        <rule id="69ce-aa80-5a30-5d8b" name="Brood Brothers" publicationId="83b2-e602-pubN65537" page="108" hidden="false"/>
+      </rules>
+      <selections>
+        <selection id="b104-fcca-a270-84df" name="Cult Creed" entryId="19d2-f9a1-c4b7-4541::1f06-b5e7-f263-d979" number="1" type="upgrade">
+          <profiles>
+            <profile id="19d2-f9a1-c4b7-4541::c277-73ae-caa8-2d98" name="Cult Creed" publicationId="83b2-e602-pubN65537" page="54" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">All GENESTEALER CULTS units with this ability, and all models in them, gain a Cult Creed provided every unit in their Detachment that belongs to a cult belongs to the same cult. The Cult Creed gain depends on which cult they belong to, as shown on the following pages.
+
+If your cult does not have an associated Cult Creed, it is known as a Myriad Cult and you must instead create your own Cult Creed for them, as described on pages 62-63; this allows you to customise the rules for your Myriad Cult. In either case, write down all your Detachments&apos; Cult Creeds on your army roster.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="5713-2e77-17ef-c638" name="None (Mixed Detachment)" entryId="19d2-f9a1-c4b7-4541::3d56-645e-1713-66a6" entryGroupId="19d2-f9a1-c4b7-4541::d2cd-52d9-69a7-7cce" number="1" type="upgrade">
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="d75f-dcdc-3343-ecb9" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="e2b7-93bf-145e-808e" name="Game Type" entryId="4bcc-b0f4-b425-f38e::bf09-85b2-c097-1071" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="69a9-7ad9-b382-0dd2" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="d9f0-47f9-e316-6f48" name="Detachment Command Cost" entryId="ec87-f19e-eee2-1ba8::9d97-2793-9882-d48a" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-2.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="04e3-666f-f8ec-385d" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="a143-4ffc-4198-cdc0" name="Battle Size" entryId="44e3-c224-ba82-1b55::f29d-8a5d-18b6-a071" number="1" type="upgrade">
+          <selections>
+            <selection id="a600-4164-e05a-f184" name="3. Strike Force (101-200 Total PL / 1001-2000 Points) " entryId="44e3-c224-ba82-1b55::09f9-b586-8d63-7635" entryGroupId="44e3-c224-ba82-1b55::2883-57e8-87a6-38e2" number="1" type="upgrade">
+              <costs>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="12.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="7c77-2804-9433-7199" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="d517-299d-6593-560e" name="Goliath Rockgrinder" entryId="cfd8-4a83-760f-0d2a::edbd-4366-0054-e184" number="1" type="model">
+          <rules>
+            <rule id="cfd8-4a83-760f-0d2a::6b5f-73c7-b013-dfba::e624-3023-b8b4-18fa" name="Conceal" publicationId="83b2-e602-pubN65537" page="88" hidden="false">
+              <description>During deployment, you can setup this unit in ambush instead of setting it up on the battlefield. If this unit is an INFANTRY or BIKER unit, you can set up this unit underground instead of setting it up on the battlefield or in ambush.</description>
+            </rule>
+            <rule id="cfd8-4a83-760f-0d2a::4a41-96b3-ff72-bed5::94e4-63f6-e642-f173" name="Crossfire" publicationId="83b2-e602-pubN65537" page="89" hidden="false">
+              <description>Every unit from your army has the GENESTEALER CULTS keyword (excluding UNALIGNED units and the percentage of BROOD BROTHERS units specified on page 54), and every unit from your army that belongs to a cult belongs to the same cult, this unit can use this ability and the following rules apply.
+
+Note that there are rules that enhance or otherwise interact with these Crossfire rules. No matter the source, you can only use such rules if every unit from your army has the GENESTEALER CULTS keyword (excluding UNALIGNED units and the percentage ratio of BROOD BROTHERS units specified on page 54), and every unit from your army that belongs to a cult belongs to the same cult.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="cfd8-4a83-760f-0d2a::c60e-a59b-dd3d-5c8c" name="Goliath Rockgrinder 1 (6+)" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">12&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">10</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::2319-84d4-cb67-0b89" name="Goliath Rockgrinder 2 (3-5)" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">9&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">D6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::677d-9ba3-f463-0776" name="Goliath Rockgrinder 3 (1-2)" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">N/A</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">D3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::e9c4-7554-bb18-7957" name="Goliath Rockgrinder" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="b3a8-0452-7436-44d1" typeName="Transport">
+              <characteristics>
+                <characteristic name="Capacity" typeId="15aa-1916-a38b-d223">6 &lt;CULT&gt; INFANTRY models. Each PATRIARCH model takes up the space of 5 models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::7724-9e10-51cb-7b4f::3611-cf4f-35bb-4f1d" name="Rugged Construction" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack (to a minimum of 1).</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::ca27-13ba-163b-6c86::7f8e-7d4a-13a0-e8ab" name="Explodes (6+/6&quot;/D3)" publicationId="83b2-e602-pubN65537" page="105" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6&quot; suffers D3 mortal wound.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="6a30-fa05-4ab0-6330" name="Heavy Stubber" entryId="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::6ebe-58fe-449f-121d" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::daaa-538e-2964-9b7f::0031-0314-5b36-a220" name="Heavy stubber" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="e416-6d17-68cd-e55d" name="Drilldozer Blade" entryId="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::4f81-93c1-9ee6-e76e" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::f4ff-6d31-288a-4b4a::0ed3-40c7-242c-a144" name="Drilldozer Blade" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+2</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, if it made a charge move this turn, it makes 2 additional attacks with this weapon.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="d389-05d8-b756-25a0" name="Heavy Mining Laser" entryId="cfd8-4a83-760f-0d2a::d047-9aff-3114-0fb1::a8ce-45ce-ea8f-f22b" entryGroupId="cfd8-4a83-760f-0d2a::8247-5d3d-d0c0-f24c" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::d047-9aff-3114-0fb1::59df-2389-1351-1bd7::7ab3-0fca-0a4d-b0d4" name="Heavy Mining Laser" publicationId="83b2-e602-pubN65537" page="107" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy D3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">9</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D6</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Blast</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="110.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="6.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="ee8e-ad11-790a-4183" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="fffe-68e8-ec07-aabb" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="9b82-9aa4-be51-bd65" name="Vehicle" entryId="c8fd-783f-3230-493e" primary="false"/>
+            <category id="3416-c695-8277-dbcf" name="Transport" entryId="6cc4-1b62-8e8a-05cd" primary="false"/>
+            <category id="6513-0139-8832-639b" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+            <category id="a253-f355-242c-4924" name="Crossfire" entryId="9436-1bec-52a6-c4a8" primary="false"/>
+            <category id="bcad-15c2-b4ea-9b1c" name="Goliath Rockgrinder" entryId="a4c3-f0d9-6325-a0d2" primary="false"/>
+            <category id="1ccc-20d4-499c-cc84" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
+          </categories>
+        </selection>
+      </selections>
+      <publications>
+        <publication id="85df-1155-c986-4d71" name="Psychic Awakening IX: Pariah"/>
+        <publication id="c9fe-4431-b76d-267a" name="Psychic Awakening VIII: War of the Spider"/>
+        <publication id="ecea-8b62-fefb-9f8e" name="Psychic Awakening VII: Engine War"/>
+        <publication id="28ec-711c-pubN118139" name="Index: Xenos 2"/>
+        <publication id="5c2d-db9f-58ca-e7b2" name="Psychic Awakening IV: Ritual of the Damned"/>
+        <publication id="83b2-e602-pubN65537" name="Codex: Genestealer Cults"/>
+        <publication id="0865-ee21-d1f1-ed38" name="War Zone Charadon, Act I: The Book of Rust"/>
+        <publication id="28ec-711c-pubN72690" name="Warhammer 40,000 Core Book"/>
+        <publication id="28ec-711c-pubN78977" name="Index: Imperium 1"/>
+        <publication id="28ec-711c-pubN98266" name="Imperium Nihilus: Vigilus Defiant"/>
+        <publication id="52c4-39c0-ae97-d4dc" name="Psychic Awakening VI: Saga of the Beast"/>
+        <publication id="b854-bcb5-5746-e0d3" name="War Zone Charadon, Act II: The Book of Fire"/>
+        <publication id="28ec-711c-pubN77581" name="Index: Imperium 2"/>
+        <publication id="db16-1a92-fdd3-95a9" name="The Balance Dataslate"/>
+        <publication id="09f4-6657-ccd5-6e61" name="War Zone Nephilim: Grand Tournament"/>
+        <publication id="5093-9448-d8cc-5327" name="Psychic Awakening II: Faith and Fury"/>
+        <publication id="255d-c624-9fcb-ca23" name="War Zone Octarius, Book 2: Critical Mass"/>
+        <publication id="28ec-711c-pubN76527" name="Index: Xenos 1"/>
+        <publication id="5b08-09e5-a80a-fd67" name="Psychic Awakening I: Phoenix Rising"/>
+        <publication id="977a-446b-737a-b571" name="Chapter Approved 2021"/>
+        <publication id="ce40-ec9e-21e2-2e42" name="Warhammer Quest: Blackstone Fortress"/>
+        <publication id="28ec-711c-pubN99666" name="Index: Chaos"/>
+        <publication id="f000-7b0c-01bf-7630" name="Psychic Awakening III: Blood of Baal"/>
+        <publication id="7573-8d1b-acdf-2de8" name="Imperial Armour: Compendium"/>
+        <publication id="b652-8bab-1453-da20" name="Warhammer Legends"/>
+        <publication id="4a3e-a6d9-b5f8-3e3d" name="Shadow Throne"/>
+        <publication id="e056-7215-247f-0a20" name="War Zone Octarius, Book 1: Rising Tide"/>
+        <publication id="4593-a2f0-546a-d6f2" name="Psychic Awakening V: The Greater Good"/>
+        <publication id="2ec0-6d53-e36b-9895" name="Chapter Approved 2018"/>
+        <publication id="28ec-711c-pubN73170" name="Chapter Approved 2017"/>
+      </publications>
+      <categories>
+        <category id="347c-ab71-a6fd-4b9c" name="Uncategorised" entryId="(No Category)" primary="false"/>
+        <category id="2bd5-8744-24b4-5344" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
+        <category id="13dc-6911-7279-e1ea" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
+        <category id="fb47-127c-b45a-c83d" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
+        <category id="549c-b666-d8a8-af09" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
+        <category id="a65c-0c79-fb29-79f7" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
+        <category id="0a9b-2c4b-81cc-cbd4" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
+        <category id="4609-c141-be87-bda4" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
+        <category id="b8fd-099e-b68b-42ba" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
+        <category id="27e9-6b65-c89a-15aa" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
+        <category id="4960-251d-6197-ca40" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
+        <category id="37ce-2fa0-0b0b-4a69" name="Relic" entryId="e10e-b44e-7eda-41d8" primary="false"/>
+      </categories>
+    </force>
+  </forces>
+</roster>

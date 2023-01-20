@@ -1,0 +1,130 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Goliath Rockgrinder",
+            "factionKeywords": [
+                "Genestealer Cults",
+                "Tyranids",
+                "<Cult>"
+            ],
+            "keywords": [
+                "Vehicle",
+                "Transport",
+                "Crossfire",
+                "Goliath Rockgrinder"
+            ],
+            "abilities": {
+                "Rugged Construction": {
+                    "name": "Rugged Construction",
+                    "desc": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack (to a minimum of 1)."
+                },
+                "Explodes (6+/6\"/D3)": {
+                    "name": "Explodes (6+/6\\\"/D3)",
+                    "desc": "When this model is destroyed, roll one D6 before removing it from play. On a 6 it explodes, and each unit within 6\\\" suffers D3 mortal wound."
+                }
+            },
+            "models": {
+                "models": {
+                    "0101010101010101": {
+                        "name": "Goliath Rockgrinder",
+                        "abilities": [
+                            "Rugged Construction",
+                            "Explodes (6+/6\"/D3)",
+                            "Conceal",
+                            "Crossfire"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Heavy stubber",
+                                "number": 1
+                            },
+                            {
+                                "name": "Drilldozer Blade",
+                                "number": 1
+                            },
+                            {
+                                "name": "Heavy Mining Laser",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    }
+                },
+                "totalNumberOfModels": 1
+            },
+            "modelProfiles": {
+                "Goliath Rockgrinder": {
+                    "name": "Goliath Rockgrinder",
+                    "m": "*",
+                    "ws": "3+",
+                    "bs": "*",
+                    "s": "6",
+                    "t": "7",
+                    "w": "10",
+                    "a": "*",
+                    "ld": "8",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Heavy stubber": {
+                    "name": "Heavy stubber",
+                    "range": "36\"",
+                    "type": "Heavy 3",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Drilldozer Blade": {
+                    "name": "Drilldozer Blade",
+                    "range": "Melee",
+                    "type": "Melee",
+                    "s": "+2",
+                    "ap": "-2",
+                    "d": "2",
+                    "abilities": "Each time the bearer fights, if it made a charge move this turn, it makes 2 additional attacks with this weapon."
+                },
+                "Heavy Mining Laser": {
+                    "name": "Heavy Mining Laser",
+                    "range": "36\"",
+                    "type": "Heavy D3",
+                    "s": "9",
+                    "ap": "-3",
+                    "d": "D6",
+                    "abilities": "Blast"
+                }
+            },
+            "rules": [
+                "Conceal",
+                "Crossfire"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [],
+            "pl": 6,
+            "isSingleModel": true,
+            "woundTrack": {
+                "Goliath Rockgrinder": {
+                    "6+": [
+                        "12\"",
+                        "4+",
+                        "6"
+                    ],
+                    "3-5": [
+                        "9\"",
+                        "5+",
+                        "D6"
+                    ],
+                    "1-2": [
+                        "6\"",
+                        "6+",
+                        "D3"
+                    ]
+                }
+            }
+        }
+    },
+    "order": [
+        "00000000"
+    ]
+}

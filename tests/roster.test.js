@@ -59,6 +59,10 @@ test("servitors", () => {
     performRosterTest("sample-servitors.rosz");
 });
 
+test("eliminators", () => {
+    performRosterTest("sample-eliminators.ros");
+});
+
 test("wound track monsters", () => {
     performRosterTest("sample-wound-track-monsters.ros");
 });

@@ -1,0 +1,333 @@
+{
+    "units": {
+        "00000000": {
+            "name": "Eliminator Squad",
+            "factionKeywords": [
+                "Imperium",
+                "Adeptus Astartes"
+            ],
+            "keywords": [
+                "Infantry",
+                "Phobos",
+                "Primaris",
+                "Eliminator Squad",
+                "Core"
+            ],
+            "abilities": {
+                "Covering Fire": {
+                    "name": "Covering Fire",
+                    "desc": "In your Shooting phase, after this unit has shot, if it is not within Engagement Range of any enemy units and contains an Eliminator Sergeant equipped with an instigator bolt carbine, it can make a Normal Move as if it were your Movement phase."
+                },
+                "Camo cloak": {
+                    "name": "Camo cloak",
+                    "desc": "Each time a ranged attack is allocated to a model in this unit while it is receiving the benefits of cover, add an additional 1 to any armour saving throw made against that attack"
+                }
+            },
+            "models": {
+                "models": {
+                    "0202020202020202": {
+                        "name": "Eliminator Sergeant",
+                        "abilities": [
+                            "Camo cloak",
+                            "Covering Fire",
+                            "Angels of Death",
+                            "Concealed Positions"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Las Fusil",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0303030303030303": {
+                        "name": "Eliminators",
+                        "abilities": [
+                            "Camo cloak",
+                            "Covering Fire",
+                            "Angels of Death",
+                            "Concealed Positions"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Eliminator Sergeant": {
+                    "name": "Eliminator Sergeant",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "3",
+                    "ld": "8",
+                    "sv": "3+"
+                },
+                "Eliminators": {
+                    "name": "Eliminators",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "2",
+                    "ld": "7",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Las Fusil": {
+                    "name": "Las Fusil",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-3",
+                    "d": "3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Angels of Death",
+                "Concealed Positions"
+            ],
+            "uuid": "00000000",
+            "unassignedWeapons": [
+                {
+                    "name": "Las Fusil",
+                    "number": 1
+                }
+            ],
+            "pl": 4,
+            "isSingleModel": false
+        },
+        "01010101": {
+            "name": "Eliminator Squad",
+            "factionKeywords": [
+                "Imperium",
+                "Adeptus Astartes"
+            ],
+            "keywords": [
+                "Infantry",
+                "Phobos",
+                "Primaris",
+                "Eliminator Squad",
+                "Core"
+            ],
+            "abilities": {
+                "Covering Fire": {
+                    "name": "Covering Fire",
+                    "desc": "In your Shooting phase, after this unit has shot, if it is not within Engagement Range of any enemy units and contains an Eliminator Sergeant equipped with an instigator bolt carbine, it can make a Normal Move as if it were your Movement phase."
+                },
+                "Camo cloak": {
+                    "name": "Camo cloak",
+                    "desc": "Each time a ranged attack is allocated to a model in this unit while it is receiving the benefits of cover, add an additional 1 to any armour saving throw made against that attack"
+                }
+            },
+            "models": {
+                "models": {
+                    "0404040404040404": {
+                        "name": "Eliminator Sergeant",
+                        "abilities": [
+                            "Camo cloak",
+                            "Covering Fire",
+                            "Angels of Death",
+                            "Concealed Positions"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Instigator Bolt Carbine",
+                                "number": 1
+                            }
+                        ],
+                        "number": 1
+                    },
+                    "0505050505050505": {
+                        "name": "Eliminators",
+                        "abilities": [
+                            "Camo cloak",
+                            "Covering Fire",
+                            "Angels of Death",
+                            "Concealed Positions"
+                        ],
+                        "weapons": [
+                            {
+                                "name": "Bolt pistol",
+                                "number": 1
+                            },
+                            {
+                                "name": "Frag grenades",
+                                "number": 1
+                            },
+                            {
+                                "name": "Krak grenades",
+                                "number": 1
+                            }
+                        ],
+                        "number": 2
+                    }
+                },
+                "totalNumberOfModels": 3
+            },
+            "modelProfiles": {
+                "Eliminator Sergeant": {
+                    "name": "Eliminator Sergeant",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "3",
+                    "ld": "8",
+                    "sv": "3+"
+                },
+                "Eliminators": {
+                    "name": "Eliminators",
+                    "m": "6\"",
+                    "ws": "3+",
+                    "bs": "2+",
+                    "s": "4",
+                    "t": "4",
+                    "w": "2",
+                    "a": "2",
+                    "ld": "7",
+                    "sv": "3+"
+                }
+            },
+            "weapons": {
+                "Bolt pistol": {
+                    "name": "Bolt pistol",
+                    "range": "12\"",
+                    "type": "Pistol 1",
+                    "s": "4",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "-"
+                },
+                "Frag grenades": {
+                    "name": "Frag grenades",
+                    "range": "6\"",
+                    "type": "Grenade D6",
+                    "s": "3",
+                    "ap": "0",
+                    "d": "1",
+                    "abilities": "Blast."
+                },
+                "Krak grenades": {
+                    "name": "Krak grenades",
+                    "range": "6\"",
+                    "type": "Grenade 1",
+                    "s": "6",
+                    "ap": "-1",
+                    "d": "D3",
+                    "abilities": "-"
+                },
+                "Instigator Bolt Carbine": {
+                    "name": "Instigator Bolt Carbine",
+                    "range": "24\"",
+                    "type": "Assault 1",
+                    "s": "4",
+                    "ap": "-1",
+                    "d": "2",
+                    "abilities": "Each time you select a target for this weapon, you can ignore the Look Out, Sir rule"
+                },
+                "Las Fusil": {
+                    "name": "Las Fusil",
+                    "range": "36\"",
+                    "type": "Heavy 1",
+                    "s": "8",
+                    "ap": "-3",
+                    "d": "3",
+                    "abilities": "-"
+                }
+            },
+            "rules": [
+                "Angels of Death",
+                "Concealed Positions"
+            ],
+            "uuid": "01010101",
+            "unassignedWeapons": [
+                {
+                    "name": "Las Fusil",
+                    "number": 1
+                }
+            ],
+            "pl": 4,
+            "isSingleModel": false
+        }
+    },
+    "order": [
+        "00000000",
+        "01010101"
+    ]
+}

@@ -798,6 +798,9 @@ function recursivelyCleanElement(element)
 end
 
 
+function getUnitData() -- allow external TTS mods to access yellowscribe information
+    return unitData
+end
 
 
 

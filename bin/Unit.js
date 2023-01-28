@@ -416,7 +416,11 @@ module.exports = class Unit {
         for (const profile of Object.keys(this.modelProfiles)) {
             let profileLower = profile.toLowerCase();
             // We're not interested in wound track profiles, and we need a somewhat fuzzy
-            // match to avoid false positives.
+            // match to avoid false positives. That also includes matching the singular version
+            // if the profile we've found is plural.
+            if (profileLower.charAt(profileLower.length - 1) == 's') {
+                profileLower = profileLower.slice(0, -1)
+            }
             if (!profile.match(woundTrackProfileNameRegex)) {
                 let found = false;
                 for (const model of Object.keys(this.models.models)) {

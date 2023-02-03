@@ -65,6 +65,7 @@ module.exports = class Model {
                             this.addWeaponData(profile, selection, numberOfModelsInUnit);
                             break;
                         case "abilities":
+                        case "favour of the dark gods":
                             this.addAbilityData(profile);
                             break;
                     }

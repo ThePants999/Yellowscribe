@@ -14,6 +14,7 @@ const ModelCollection = require("./ModelCollection"),
     smiteTestRegex = /^smite\b/i,
 
     keywordsToIgnore = ["HQ", "Troops", "Elites", "Fast Attack", "Heavy Support", "Flyer", "Dedicated Transport", "Lord of War", "No Force Org Slot", "Warlord"];
+const { profile } = require("console");
 const arrayUtils = require("./arrayUtils");
 const Model = require("./Model");
 
@@ -67,11 +68,17 @@ module.exports = class Unit {
         const trimmedName = profileData.$.name.match(abilityTrimRegex).groups.ability,
             dangerousReplace = { "[": "(", "]": ")", '"': '\\"' };
 
-        if (!this.abilities[trimmedName])
+        if (!this.abilities[trimmedName]) {
+            let description = "";
+            if (profileData.characteristics[0].characteristic[0]._) {
+                // This if statement is a workaround for abilities with no description!
+                description = profileData.characteristics[0].characteristic[0]._.replace(/[\[\]"]/g, m => dangerousReplace[m]);
+            }
             this.abilities[trimmedName] = {
                 name: trimmedName.replace(/[\[\]"]/g, m => dangerousReplace[m]),
-                desc: profileData.characteristics[0].characteristic[0]._.replace(/[\[\]"]/g, m => dangerousReplace[m])
+                desc: description
             };
+        }
     }
 
     /**

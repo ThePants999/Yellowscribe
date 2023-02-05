@@ -14,7 +14,6 @@ const ModelCollection = require("./ModelCollection"),
     smiteTestRegex = /^smite\b/i,
 
     keywordsToIgnore = ["HQ", "Troops", "Elites", "Fast Attack", "Heavy Support", "Flyer", "Dedicated Transport", "Lord of War", "No Force Org Slot", "Warlord"];
-const { profile } = require("console");
 const arrayUtils = require("./arrayUtils");
 const Model = require("./Model");
 

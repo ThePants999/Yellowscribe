@@ -1,0 +1,329 @@
+function none() end
+
+local battleSizes = {"Combat Patrol", "Incursion", "Strike Force", "Onslaught"}
+local buttonHeight,displayWidth,smallButtonWidth,buttonFontSize,inputFontSize,inputHeight,inputWidth = 400,2000,375,175,225,280,3000
+local yOffset,zOffset,sideOffset = 0.2,-0.5,2.6
+local UNIT_ID_TAG_PATTERN = "uuid:(.+)"
+
+
+local associateModelsButton = {
+    label="Associate Models", click_function="associateModels", function_owner=self,
+    position={0,yOffset,0}, height=buttonHeight, width=displayWidth, font_size=buttonFontSize,
+    color={0,150/255,0}, font_color={1,1,1}
+}
+
+
+local battleSizeDisplay = {
+    label=battleSizes[3], click_function="none", function_owner=self,
+    position={0,yOffset,zOffset}, height=buttonHeight, width=displayWidth, font_size=buttonFontSize
+}
+local battleSizeRight = {
+    label="->", click_function="battleSizeIncrement", function_owner=self,
+    position={sideOffset,yOffset,zOffset}, height=buttonHeight, width=smallButtonWidth, font_size=buttonFontSize,
+    font_color={1,1,1}, color={0,0,0}
+}
+local battleSizeLeft = {
+    label="<-", click_function="battleSizeDecrement", function_owner=self,
+    position={-sideOffset,yOffset,zOffset}, height=buttonHeight, width=smallButtonWidth, font_size=buttonFontSize,
+    font_color={1,1,1}, color={0,0,0}
+}
+
+--local agenda1 = {
+--    label=leftGear[1], click_function="none", function_owner=self,
+--    position={0,yOffset,zOffset}, height=buttonHeight, width=displayWidth, font_size=buttonFontSize
+--}
+
+
+
+local acceptBattleSizeButton = {
+    label="Accept", click_function="acceptBattleSize", function_owner=self,
+    position={0,yOffset,-zOffset}, height=buttonHeight, width=1410, font_size=buttonFontSize,
+    font_color={1,1,1}, color={0,150/255,0}
+}
+
+local acceptAgendasButton = {
+    label="Accept", click_function="acceptAgendas", function_owner=self, 
+    height=buttonHeight, width=1410, font_size=buttonFontSize,
+    font_color={1,1,1}, color={0,150/255,0}
+}
+
+local currentBattleSize
+local associatingModels = false
+local units
+local agendas
+
+
+
+--[[ EVENT HANDLERS ]]--
+
+
+function onLoad(savedState)
+    local decodedState = JSON.decode(savedState)
+
+    if not self.hasTag("am:"..self.guid) then self.addTag("am:"..self.guid) end
+
+    if decodedState ~= nil and decodedState.units ~= nil then
+        currentBattleSize = decodedState.battleSize
+        agendas = decodedState.agendaNames
+        units = decodedState.units
+
+        acceptAgendas()
+    else
+        reset()
+    end
+
+    self.addContextMenuItem("Reset", reset, false)
+end
+
+
+function onSave()
+    local state = {
+        units = units,
+        battleSize = currentBattleSize,
+        agendaNames = agendas
+    }
+
+    return JSON.encode(state)
+end
+
+
+function onObjectPickUp(playerColor, object)
+    if associatingModels and 
+        playerColor == associatingPlayer and 
+        not object.hasTag("am:"..self.guid) then 
+
+        if units == nil then units = {} end
+        
+        local uuid
+
+        for _,tag in pairs(object.getTags()) do
+            _,_,uuid = tag:find(UNIT_ID_TAG_PATTERN)
+
+            if uuid ~= nil then break end
+        end
+    
+        if uuid ~= nil then
+            if units[uuid] == nil then units[uuid] = {} end
+    
+            object.highlightOn({0,1,0})
+            object.addTag("am:"..self.guid)
+        else
+            object.highlightOn({1,0,0}, 2)
+        end
+    end
+end
+
+
+
+
+
+
+--[[ HANDLE ASSOCIATING MODELS ]]--
+
+
+function associateModels(owner, playerColor)
+    if not associatingModels then
+
+        associatingModels = true
+        associatingPlayer = playerColor
+
+        self.editButton({
+            index = 0,
+            label = "Finish",
+            color = {1,0,0}
+        })
+    else
+        if units ~= nil and len(units) > 0 then
+            associatingModels = false
+            associatingPlayer = nil
+    
+            for _,object in pairs(getObjectsWithTag("am:"..self.guid)) do
+                object.highlightOff()
+            end
+            
+            showBattleSizeSelection()
+        else
+            associatingModels = false
+            associatingPlayer = nil
+    
+            self.editButton({
+                index = 0,
+                label = "Associate Models",
+                color = {0,150/255,0}
+            })
+        end
+    end
+end
+
+
+
+
+
+
+
+
+--[[ HANDLE AGENDAS ]]--
+
+
+function acceptAgendas()
+    if agendas == nil then
+        local agendaNames = {}
+    
+        for _,input in pairs(self.getInputs()) do
+            table.insert(agendaNames, input.value)
+        end
+    
+        for unitID,agendas in pairs(units) do
+            agendas["Kills"] = 0
+    
+            for _,agendaName in ipairs(agendaNames) do
+                agendas[agendaName] = 0
+            end
+        end
+
+        agendas = agendaNames
+    end
+
+    self.clearButtons()
+    self.clearInputs()
+
+    for num=1,#agendas do
+        self.createButton({
+                label=agendas[num], click_function="none", function_owner=self,
+                position={0,yOffset,(zOffset*1.5)*(2-num)}, height=inputHeight, width=inputWidth, font_size=inputFontSize
+            })
+    end
+end
+
+function getTalliesForUnit(unitID)
+    if units ~= nil then return clone(units[unitID]) end
+end
+
+function updateTallyForUnit(params)
+    units[params.unitID][params.tally] = units[params.unitID][params.tally] + params.mod
+
+    return units[params.unitID][params.tally]
+end
+
+
+
+
+
+--[[ HANDLE BATTLE SIZE ]]--
+
+
+function showBattleSizeSelection()
+    self.clearButtons()
+
+    self.createButton(battleSizeDisplay)
+    self.createButton(battleSizeRight)
+    self.createButton(battleSizeLeft)
+    
+    self.createButton(acceptBattleSizeButton)
+end
+
+function battleSizeIncrement() 
+    local modded = currentBattleSize + 1
+    
+    currentBattleSize = modded > #battleSizes and 1 or modded
+
+    self.editButton({ index=0, label=battleSizes[currentBattleSize] })
+end
+
+function battleSizeDecrement() 
+    local modded = currentBattleSize - 1
+    
+    currentBattleSize = modded < 1 and #battleSizes or modded
+
+    self.editButton({ index=0, label=battleSizes[currentBattleSize] })
+end
+
+function acceptBattleSize() 
+    self.clearButtons()
+
+    for num=1,currentBattleSize do
+        self.createInput({
+                label="Agenda "..num, input_function="none", function_owner=self,
+                position={0,yOffset,(zOffset*1.5)*(2-num)}, height=inputHeight, width=inputWidth, font_size=inputFontSize,
+                alignment=3, tab=2
+            })
+        
+        acceptAgendasButton.position = {0,yOffset,(zOffset*1.5)*(1-num)}
+    end
+
+    self.createButton(acceptAgendasButton)
+end
+
+
+
+
+
+
+--[[ EXTERNAL ACCESS FUNCTIONS ]]--
+
+
+function getAgendas()
+    if self.getButtons() ~= nil then return nil end
+
+    local agendaTable,inputs = {},self.getInputs()
+    
+    for idx=1,#inputs do 
+        table.insert(agendaTable, idx, inputs[idx].value) 
+    end
+
+    return agendaTable
+end
+
+
+
+
+
+
+--[[ UTILITY FUNCTIONS ]]--
+
+
+function clone(original)
+    local orig_type = type(original)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, original, nil do
+            copy[clone(orig_key)] = clone(orig_value)
+        end
+        setmetatable(copy, clone(getmetatable(original)))
+    else -- number, string, boolean, etc
+        copy = original
+    end
+    return copy
+end
+
+function len(t)
+    local count = 0
+
+    for _,_ in pairs(t) do
+        count = count + 1
+    end
+
+    return count
+end
+
+
+
+function reset()
+    self.clearButtons()
+    self.clearInputs()
+    self.createButton(associateModelsButton)
+
+    if units ~= nil then
+        for unitID,_ in pairs(units) do
+            for _,model in ipairs(getObjectsWithTag("uuid:"..unitID)) do
+                model.removeTag("am:"..self.getGUID())
+            end
+        end
+    end
+
+    currentBattleSize = 3
+    units = nil
+    agendas = nil
+    associatingModels = false
+end

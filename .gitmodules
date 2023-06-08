@@ -1,0 +1,3 @@
+[submodule "tts-mod/TTSLuaExtractor"]
+	path = tts-mod/TTSLuaExtractor
+	url = https://github.com/KarateSnoopy/TTSLuaExtractor

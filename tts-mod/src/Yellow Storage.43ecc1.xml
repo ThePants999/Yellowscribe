@@ -1,5 +1,5 @@
-<!-- 
-    PLEASE NOTE: 
+<!--
+    PLEASE NOTE:
         there is no use of Defaults and classes here to enable easier backwards compatibility and
         compatibility with other global UI. I hate the verbiosity just as much as the next person
 -->
@@ -14,7 +14,7 @@
             <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft">
                 <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="650" columnWidths="200 0" cellPadding="0">
                     <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <!-- putting an empty text cell to create padding is clearly not preferrable, 
+                        <!-- putting an empty text cell to create padding is clearly not preferrable,
                             but for whatever reason it didnt want to override the global padding for the cells -->
                         <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">UNIT NAME:</Text></Cell>
                         <Cell><InputField fontSize="20" onEndEdit="" id="ccUnitName" placeholder="Personalized Name" /></Cell>
@@ -202,8 +202,8 @@
                         </TableLayout>
                         <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" />
                     </VerticalLayout>
-                    
-                    <VerticalLayout>
+
+                    <VerticalLayout id="9eModelsTable" active="false">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
@@ -220,7 +220,28 @@
                         </TableLayout>
                         <TableLayout id="models" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" />
                     </VerticalLayout>
-                   
+
+                    <VerticalLayout id="10eModelsTable" active="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="0 0 0 0 0 0">
+                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">M</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">T</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Sv</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">W</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">LD</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">OC</Text></Cell>
+                            </Row>
+                            <Row color="White" dontUseTableRowBackground="true" preferredHeight="60">
+                                <Cell><Text id="10eModelM" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                                <Cell><Text id="10eModelT" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                                <Cell><Text id="10eModelSV" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                                <Cell><Text id="10eModelW" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                                <Cell><Text id="10eModelLD" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                                <Cell><Text id="10eModelOC" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
+                            </Row>
+                        </TableLayout>
+                    </VerticalLayout>
+
                     <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
@@ -235,7 +256,7 @@
                         </TableLayout>
                         <TableLayout id="weapons" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" />
                     </VerticalLayout>
-                    
+
                     <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
@@ -245,7 +266,7 @@
                         </TableLayout>
                         <TableLayout id="abilities" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0" />
                     </VerticalLayout>
-                
+
                 </VerticalLayout>
             </VerticalScrollView>
         </VerticalLayout>

@@ -422,8 +422,24 @@ function buildUI()
         dataCardHeight = dataCardHeight - 30 -- subtract extra height for keyword box
     end
 
+    if unitData.edition == "10e" then
+        self.UI.setAttribute("9eModelsTable", "active", false)
+        self.UI.setAttribute("10eModelsTable", "active", true)
+        local model = unitData["models"][1] -- All models in the same unit have the same characteristics in 10e.
+        self.UI.setValue("10eModelM", model.m)
+        self.UI.setValue("10eModelT", model.t)
+        self.UI.setValue("10eModelSV", model.sv)
+        self.UI.setValue("10eModelW", model.w)
+        self.UI.setValue("10eModelLD", model.ld)
+        self.UI.setValue("10eModelOC", model.oc)
+        dataCardHeight = dataCardHeight + 60 -- single row in models table
+    else
+        self.UI.setAttribute("9eModelsTable", "active", true)
+        self.UI.setAttribute("10eModelsTable", "active", false)
+        buildXMLForSection("models")
+    end
+
     buildXMLForSection("abilities")
-    buildXMLForSection("models")
     buildXMLForSection("weapons")
 
     if unitData.psykerProfiles ~= nil then

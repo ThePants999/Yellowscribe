@@ -62,8 +62,8 @@ local BRACKET_VALUE_COLORS = {
     { "[98ffa7]", "[c8ff98]", "[ffe298]", "[feb17e]", "[e9a2a2]" }
 }
 local BRACKET_VALUE = "${color}${val}[-]"
-local dataCardHeight = 300 
--- starting to calculate height of the dataCard: keywords and each section is 
+local dataCardHeight = 300
+-- starting to calculate height of the dataCard: keywords and each section is
 -- 40px by default (will add row heights later), spacing adds 30 between each,
 -- and I want 10 extra pixels at the bottom for a total of 60+30+40+30+40+30+40+10 = 260 (+10 for unknown reason) (70 for keywords)
 local uiTemplates = {
@@ -83,7 +83,7 @@ local uiTemplates = {
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${ld}</Text></Cell>
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${sv}</Text></Cell>
                 </Row>]],
-    weapons = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
+    weapons9e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
                     <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${range}</Text></Cell>
                     <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${type}</Text></Cell>
@@ -92,7 +92,17 @@ local uiTemplates = {
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${d}</Text></Cell>
                     <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${abilities}</Text></Cell>
                 </Row>]],
-    powersKnown = [[<Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="100">
+    weapons10e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
+                    <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${range}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${a}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${bsws}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${s}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${ap}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${d}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${abilities}</Text></Cell>
+                </Row>]],
+powersKnown = [[<Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="100">
                         <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                         <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${warpCharge}</Text></Cell>
                         <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${range}</Text></Cell>

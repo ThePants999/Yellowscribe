@@ -242,7 +242,7 @@
                         </TableLayout>
                     </VerticalLayout>
 
-                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft">
+                    <VerticalLayout id="weaponsTable9e" childForceExpandHeight="false" childAlignment="TopLeft" active="false">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
@@ -254,7 +254,23 @@
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Abilities</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="weapons" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" />
+                        <TableLayout id="weapons9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" />
+                    </VerticalLayout>
+
+                    <VerticalLayout id="weaponsTable10e" childForceExpandHeight="false" childAlignment="TopLeft" active="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0">
+                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Range</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">A</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">BS/WS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">S</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">AP</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">D</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Abilities</Text></Cell>
+                            </Row>
+                        </TableLayout>
+                        <TableLayout id="weapons10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0" />
                     </VerticalLayout>
 
                     <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft">

@@ -391,19 +391,18 @@ end
 
 -- builds the XML string for the given section based on data defined in unitData (see top of file)
 -- note: this is just for dataCard, although theoretically it can be used for any section
-function buildXMLForSection(section)
+function buildXMLForSection(uiSection, dataSection)
     local uiString = ""     -- old: uiTemplates[section.."Header"]
-    local _,_,rowHeight = uiTemplates[section].find(uiTemplates[section], 'Row.-preferredHeight="(%d+)"') -- get the height of the row to be added
+    local _,_,rowHeight = uiTemplates[uiSection].find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"') -- get the height of the row to be added
     local rowParity = "White"
-    for _,entry in pairs(unitData[section]) do
+    for _,entry in pairs(unitData[dataSection]) do
         entry["rowParity"] = rowParity
-        uiString = uiString..interpolate(uiTemplates[section], entry)
+        uiString = uiString..interpolate(uiTemplates[uiSection], entry)
         dataCardHeight = dataCardHeight + tonumber(rowHeight)
         rowParity = rowParity == "White" and "#f9f9f9" or "White"
     end
-    self.UI.setValue(section, uiString)
+    self.UI.setValue(uiSection, uiString)
 end
-
 
 function buildUI()
     self.UI.setAttribute("ym-container", "unit-id", unitData.uuid)
@@ -433,18 +432,25 @@ function buildUI()
         self.UI.setValue("10eModelLD", model.ld)
         self.UI.setValue("10eModelOC", model.oc)
         dataCardHeight = dataCardHeight + 60 -- single row in models table
+
+        self.UI.setAttribute("weaponsTable9e", "active", false)
+        self.UI.setAttribute("weaponsTable10e", "active", true)
+        buildXMLForSection("weapons10e", "weapons")
     else
         self.UI.setAttribute("9eModelsTable", "active", true)
         self.UI.setAttribute("10eModelsTable", "active", false)
-        buildXMLForSection("models")
+        buildXMLForSection("models", "models")
+
+        self.UI.setAttribute("weaponsTable9e", "active", true)
+        self.UI.setAttribute("weaponsTable10e", "active", false)
+        buildXMLForSection("weapons9e", "weapons")
     end
 
-    buildXMLForSection("abilities")
-    buildXMLForSection("weapons")
+    buildXMLForSection("abilities", "abilities")
 
     if unitData.psykerProfiles ~= nil then
-        buildXMLForSection("powersKnown")
-        buildXMLForSection("psykerProfiles")
+        buildXMLForSection("powersKnown", "powersKnown")
+        buildXMLForSection("psykerProfiles", "psykerProfiles")
 
         self.UI.setAttribute("powersKnownContainer", "active", true)
         self.UI.setAttribute("psykerProfilesContainer", "active", true)

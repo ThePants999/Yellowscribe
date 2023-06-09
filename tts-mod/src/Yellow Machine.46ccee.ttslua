@@ -44,7 +44,7 @@ end)(nil)
 __bundle_register("Yellow Machine.46ccee.lua", function(require, _LOADED, __bundle_register, __bundle_modules)
 require("vscode/console")
 
-local DEBUG = false
+local DEBUG = true
 
 local loadedData, loadedDataOrder, originalLoadedOrder, edition, uiHeight, uiWidth, useDecorativeNames, armyDisplay, armyText
 local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.azurewebsites.net/get_army_by_id?id="
@@ -99,11 +99,16 @@ local CHANGING_CHARACTERISTICS_TEMPLATE = [[,
         ${changingChars}
     },
 ]]
-local WEAPON_TEMPLATE = [[[c6c930]${name}[-]
+local WEAPON_TEMPLATE_9E = [[[c6c930]${name}[-]
 ${rangeAndType} S:${s} AP:${ap} D:${d} ${ability} ]]
+local RANGED_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
+${range} A:${a} BS:${bs} S:${s} AP:${ap} D:${d} ${ability} ]]
+local MELEE_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
+A:${a} WS:${ws} S:${s} AP:${ap} D:${d} ${ability} ]]
 local DEFAULT_BRACKET_VALUE_TEMPLATE = "[98ffa7]${val}[-]"
 local ABILITITY_STRING_TEMPLATE = '{ name = [[${name}]], desc = [[${desc}]] }'
-local WEAPON_ENTRY_TEMPLATE = '{ name="${name}", range=[[${range}]], type="${type}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
+local WEAPON_ENTRY_TEMPLATE_9E = '{ name="${name}", range=[[${range}]], type="${type}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
+local WEAPON_ENTRY_TEMPLATE_10E = '{ name="${name}", range=[[${range}]], a="${a}", bsws="${bsws}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
 local CHANGING_CHARACTERISTICS_ENTRY_TEMPLATE = '["${name}"] = { "${characteristics}" }'
 local WOUND_TRACK_ENTRY_TEMPLATE = [[       ["${name}"] = {
             ${tracks}
@@ -900,7 +905,7 @@ function formatLeaderScript(unit)
             return tableToFlatString(profile)
         end), ",\n\t\t"),
 
-        weapons = table.concat(map(unit.weapons, |weapon| interpolate(WEAPON_ENTRY_TEMPLATE, weapon)), ",\n\t\t"),
+        weapons = table.concat(map(unit.weapons, |weapon| interpolate(edition == "10e" and WEAPON_ENTRY_TEMPLATE_10E or WEAPON_ENTRY_TEMPLATE_9E, weapon)), ",\n\t\t"),
 
         endBracket = "]]",
         uuid = unit.uuid,
@@ -1148,10 +1153,26 @@ end
 function formatWeaponDesc(model, unit, needSpacingBefore)
     if #model.weapons == 0 then return "" end
 
-    local weapons = (needSpacingBefore and "\n\n" or "").."[e85545]Weapons[-]"
+    local rangedWeapons = filter(model.weapons, |weapon| unit.weapons[weapon.name].range:lower() ~= "melee")
+    local meleeWeapons = filter(model.weapons, |weapon| unit.weapons[weapon.name].range:lower() == "melee")
 
-    for _,weapon in pairs(model.weapons) do
-        weapons = weapons.."\n"..formatWeapon(unit.weapons[weapon.name], weapon.number)
+    local weapons = needSpacingBefore and "\n\n" or ""
+
+    if #rangedWeapons > 0 then
+        weapons = weapons .. "[e85545]Ranged weapons[-]"
+
+        for _,weapon in pairs(rangedWeapons) do
+            weapons = weapons.."\n"..formatWeapon(unit.weapons[weapon.name], weapon.number)
+        end
+    end
+
+    if #meleeWeapons > 0 then
+        if #rangedWeapons > 0 then weapons = weapons .. "\n\n" end
+        weapons = weapons .. "[e85545]Melee weapons[-]"
+
+        for _,weapon in pairs(meleeWeapons) do
+            weapons = weapons.."\n"..formatWeapon(unit.weapons[weapon.name], weapon.number)
+        end
     end
 
     return weapons
@@ -1159,14 +1180,40 @@ end
 
 -- formats the string for a weapon entry in a model's description
 function formatWeapon(weaponProfile, number)
-    return  interpolate(WEAPON_TEMPLATE, {
-        name = number == 1 and weaponProfile.name or (number.."x "..weaponProfile.name),
-        rangeAndType = (weaponProfile.range == "Melee") and "Melee" or weaponProfile.range.." "..weaponProfile.type,
-        s = weaponProfile.s,
-        ap = weaponProfile.ap,
-        d = weaponProfile.d,
-        ability = weaponProfile.abilities == "-" and "" or "Sp:*"
-    })
+    weaponName = number == 1 and weaponProfile.name or (number.."x "..weaponProfile.name)
+    if edition == "10e" then
+        if weaponProfile.range:lower() == "melee" then
+            return  interpolate(MELEE_WEAPON_TEMPLATE_10E, {
+                name = weaponName,
+                a = weaponProfile.a,
+                ws = weaponProfile.bsws,
+                s = weaponProfile.s,
+                ap = weaponProfile.ap,
+                d = weaponProfile.d,
+                ability = weaponProfile.abilities == "-" and "" or "Sp:*"
+            })
+        else
+            return  interpolate(RANGED_WEAPON_TEMPLATE_10E, {
+                name = weaponName,
+                range = weaponProfile.range,
+                a = weaponProfile.a,
+                bs = weaponProfile.bsws,
+                s = weaponProfile.s,
+                ap = weaponProfile.ap,
+                d = weaponProfile.d,
+                ability = weaponProfile.abilities == "-" and "" or "Sp:*"
+            })
+        end
+    else
+        return  interpolate(WEAPON_TEMPLATE_9E, {
+            name = weaponName,
+            rangeAndType = (weaponProfile.range == "Melee") and "Melee" or weaponProfile.range.." "..weaponProfile.type,
+            s = weaponProfile.s,
+            ap = weaponProfile.ap,
+            d = weaponProfile.d,
+            ability = weaponProfile.abilities == "-" and "" or "Sp:*"
+        })
+    end
 end
 
 -- formats the string for the abilities section in a model's description

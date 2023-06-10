@@ -171,11 +171,11 @@
             <VerticalScrollView flexibleHeight="1" childForceExpandHeight="false" scrollSensitivity="40"><!-- not setting a preferred height, hopefully it expands properly -->
                 <VerticalLayout height="1000" padding="10" horizontalOverflow="Wrap" spacing="30" id="dataCardContentContainer">
                     <VerticalLayout id="keywordContainer" preferredHeight="70">
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="2" preferredHeight="20">
-                            <Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleLeft" preferredWidth="93">Faction: </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="factionKeywords" alignment="MiddleLeft" horizontalOverflow="Wrap" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="2" preferredHeight="35">
+                            <Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleLeft" preferredWidth="93">Faction: </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="factionKeywords" alignment="MiddleLeft" horizontalOverflow="Wrap" preferredWidth="400" />
                         </HorizontalLayout>
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" id="keywordList" spacing="3" preferredHeight="50">
-                            <Text fontStyle="Bold" fontSize="18" color="#000000">Keywords:  </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="keywords" horizontalOverflow="Wrap" flexibleHeight="1" alignment="MiddleLeft" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" id="keywordList" spacing="3" preferredHeight="35">
+                            <Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleLeft" preferredWidth="93">Keywords:  </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="keywords" horizontalOverflow="Wrap" flexibleHeight="1" alignment="MiddleLeft" preferredWidth="400" />
                         </HorizontalLayout>
                     </VerticalLayout>
 

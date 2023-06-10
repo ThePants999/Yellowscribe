@@ -71,7 +71,7 @@ local uiTemplates = {
                     <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${desc}</Text></Cell>
                 </Row>]],
-    models = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
+    models9e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
                     <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${m}</Text></Cell>
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${ws}</Text></Cell>
@@ -82,6 +82,15 @@ local uiTemplates = {
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${a}</Text></Cell>
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${ld}</Text></Cell>
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${sv}</Text></Cell>
+                </Row>]],
+    models10e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
+                    <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${m}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${t}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${sv}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${w}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${ld}</Text></Cell>
+                    <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${oc}</Text></Cell>
                 </Row>]],
     weapons9e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="60">
                     <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
@@ -102,7 +111,7 @@ local uiTemplates = {
                     <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${d}</Text></Cell>
                     <Cell><Text fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" alignment="MiddleCenter">${abilities}</Text></Cell>
                 </Row>]],
-powersKnown = [[<Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="100">
+    powersKnown = [[<Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="100">
                         <Cell><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                         <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${warpCharge}</Text></Cell>
                         <Cell><Text fontStyle="Normal" fontSize="18" alignment="MiddleCenter">${range}</Text></Cell>

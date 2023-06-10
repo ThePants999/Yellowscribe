@@ -203,7 +203,7 @@
                         <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="9eModelsTable" active="false">
+                    <VerticalLayout id="modelsTable9e" active="false">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
@@ -218,12 +218,13 @@
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Sv</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="models" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" />
+                        <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="10eModelsTable" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="0 0 0 0 0 0">
+                    <VerticalLayout id="modelsTable10e" active="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0">
                             <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">M</Text></Cell>
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">T</Text></Cell>
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Sv</Text></Cell>
@@ -231,15 +232,8 @@
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">LD</Text></Cell>
                                 <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">OC</Text></Cell>
                             </Row>
-                            <Row color="White" dontUseTableRowBackground="true" preferredHeight="60">
-                                <Cell><Text id="10eModelM" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                                <Cell><Text id="10eModelT" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                                <Cell><Text id="10eModelSV" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                                <Cell><Text id="10eModelW" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                                <Cell><Text id="10eModelLD" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                                <Cell><Text id="10eModelOC" fontStyle="Normal" fontSize="18" alignment="MiddleCenter"></Text></Cell>
-                            </Row>
                         </TableLayout>
+                        <TableLayout id="models10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0" />
                     </VerticalLayout>
 
                     <VerticalLayout id="weaponsTable9e" childForceExpandHeight="false" childAlignment="TopLeft" active="false">

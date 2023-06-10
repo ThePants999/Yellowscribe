@@ -422,24 +422,17 @@ function buildUI()
     end
 
     if unitData.edition == "10e" then
-        self.UI.setAttribute("9eModelsTable", "active", false)
-        self.UI.setAttribute("10eModelsTable", "active", true)
-        local model = unitData["models"][1] -- All models in the same unit have the same characteristics in 10e.
-        self.UI.setValue("10eModelM", model.m)
-        self.UI.setValue("10eModelT", model.t)
-        self.UI.setValue("10eModelSV", model.sv)
-        self.UI.setValue("10eModelW", model.w)
-        self.UI.setValue("10eModelLD", model.ld)
-        self.UI.setValue("10eModelOC", model.oc)
-        dataCardHeight = dataCardHeight + 60 -- single row in models table
+        self.UI.setAttribute("modelsTable9e", "active", false)
+        self.UI.setAttribute("modelsTable10e", "active", true)
+        buildXMLForSection("models10e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", false)
         self.UI.setAttribute("weaponsTable10e", "active", true)
         buildXMLForSection("weapons10e", "weapons")
     else
-        self.UI.setAttribute("9eModelsTable", "active", true)
-        self.UI.setAttribute("10eModelsTable", "active", false)
-        buildXMLForSection("models", "models")
+        self.UI.setAttribute("modelsTable9e", "active", true)
+        self.UI.setAttribute("modelsTable10e", "active", false)
+        buildXMLForSection("models9e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", true)
         self.UI.setAttribute("weaponsTable10e", "active", false)

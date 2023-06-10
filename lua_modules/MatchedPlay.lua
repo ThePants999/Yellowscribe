@@ -414,13 +414,6 @@ function buildUI()
     self.UI.setValue("factionKeywords", unitData.factionKeywords)
     self.UI.setValue("keywords", unitData.keywords)
 
-    if unitData.keywords:len() < 85 then
-        self.UI.setAttribute("keywordContainer", "preferredHeight", 40)
-        self.UI.setAttribute("keywordList", "preferredHeight", 20)
-
-        dataCardHeight = dataCardHeight - 30 -- subtract extra height for keyword box
-    end
-
     if unitData.edition == "10e" then
         self.UI.setAttribute("modelsTable9e", "active", false)
         self.UI.setAttribute("modelsTable10e", "active", true)

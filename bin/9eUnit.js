@@ -1,4 +1,4 @@
-const ModelCollection = require("./ModelCollection"),
+const ModelCollection = require("./9eModelCollection"),
     crypto = require('crypto'),
 
     factionKeywordRegex = /Faction: (?<keyword>.+)/,
@@ -15,7 +15,7 @@ const ModelCollection = require("./ModelCollection"),
 
     keywordsToIgnore = ["HQ", "Troops", "Elites", "Fast Attack", "Heavy Support", "Flyer", "Dedicated Transport", "Lord of War", "No Force Org Slot", "Warlord"];
 const arrayUtils = require("./arrayUtils");
-const Model = require("./Model");
+const Model = require("./9eModel");
 
 module.exports = class Unit {
     name;

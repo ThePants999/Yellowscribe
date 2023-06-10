@@ -1,4 +1,4 @@
-const Model = require("./Model"),
+const Model = require("./9eModel"),
     crypto = require('crypto');
 
 module.exports = class ModelCollection {

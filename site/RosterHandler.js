@@ -50,7 +50,7 @@ on(submitButton, "click", () => {
             let armyCode = JSON.parse(req.responseText).code,
                 display = byID("loadedCodeDisplayTemplate").content.cloneNode(true),
                 codeContainer = display.getElementById("codeContainer");
-            
+
             codeContainer.value = armyCode;
             codeContainer.select();
             on(codeContainer, "focus", e => e.target.select());
@@ -87,7 +87,7 @@ for (const link of document.querySelectorAll("[data-page]"))
 
 
 
-    
+
 
 
 
@@ -164,7 +164,7 @@ function formatArmy(rosterFile) {
 
     on(oReq, "error", transferFailed);
 
-    oReq.open("POST", "getFormattedArmy");
+    oReq.open("POST", "getFormattedArmy?filename=" + rosterFile.name);
     oReq.send(rosterFile);
 }
 
@@ -211,7 +211,7 @@ function loadArmy(data) {
     armyDisplay.append(...sortedForUnassigned.map(id => formatUnitDisplay(data.units[id])));
 
     const rosterDisplay = byID("rosterDisplayPage");
-    
+
     clearNode(rosterDisplay);
 
     rosterDisplay.insertBefore(armyDisplay, rosterDisplay.lastElementChild);
@@ -228,7 +228,7 @@ function formatUnitDisplay(unit) {
     unitName.value = unit.decorativeName || unit.name;
     on(unitName, "input", (e) => unit.decorativeName = e.target.value);
 
-    for (const model of Object.values(unit.models.models).flat()) 
+    for (const model of Object.values(unit.models.models).flat())
         modelContainer.appendChild(formatModelDisplay(model, unit));
 
     return unitDisplay;
@@ -247,10 +247,10 @@ function formatModelDisplay(model, unit) {
         modelDisplay.querySelector(".weaponDisplay").style.display = "none";
     else {
         let weaponList = modelDisplay.querySelector(".weaponDisplay ul");
-            
+
         for (const weapon of model.weapons) {
             let entry = document.createElement("li");
-            
+
             entry.innerHTML = (weapon.number > 1 ? weapon.number + "x " : "") + weapon.name;
 
             weaponList.append(entry);
@@ -260,12 +260,12 @@ function formatModelDisplay(model, unit) {
             for (const weapon of model.assignedWeapons) {
                 let entry = document.createElement("li"),
                     buttonContainer = document.createElement("div");
-                    
+
                 buttonContainer.append(...formatWeaponAssignmentButtons(false, weapon, model, unit, entry));
-                entry.className = "weaponUnassignmentContainer"    
+                entry.className = "weaponUnassignmentContainer"
                 entry.innerHTML = (weapon.number > 1 ? weapon.number + "x " : "") + weapon.name;
                 entry.append(buttonContainer);
-    
+
                 weaponList.append(entry);
             }
         }
@@ -285,14 +285,14 @@ function formatModelDisplay(model, unit) {
         }
     }
 
-    let filteredUnassignedWeapons = !model.assignedWeapons ? 
+    let filteredUnassignedWeapons = !model.assignedWeapons ?
                                         unit.unassignedWeapons :
-                                        unit.unassignedWeapons.filter(weapon => 
-                                            model.assignedWeapons.findIndex(assigned => 
+                                        unit.unassignedWeapons.filter(weapon =>
+                                            model.assignedWeapons.findIndex(assigned =>
                                                 weapon.name === assigned.name
                                             ) < 0
                                         );
-                                        
+
     if (!unit.unassignedWeapons || !unit.unassignedWeapons.length || !filteredUnassignedWeapons.length)
         modelDisplay.querySelector(".unassignedDisplay").style.display = "none";
     else {
@@ -301,7 +301,7 @@ function formatModelDisplay(model, unit) {
         for (const weapon of filteredUnassignedWeapons) {
             let entry = document.createElement("li");
 
-            entry.className = "weaponAssignmentContainer"   
+            entry.className = "weaponAssignmentContainer"
             entry.append(...formatWeaponAssignmentButtons(true, weapon, model, unit, entry));
 
             unassignedList.append(entry);
@@ -312,14 +312,14 @@ function formatModelDisplay(model, unit) {
 }
 
 function formatWeaponAssignmentButtons(assigning, weapon, model, unit) {
-    let buttons = [document.createElement("button"), document.createElement("button"), document.createElement("button")]; 
+    let buttons = [document.createElement("button"), document.createElement("button"), document.createElement("button")];
 
     buttons[0].innerHTML = assigning ? weapon.name : " X ";
     buttons[1].innerHTML = "All";
     buttons[2].innerHTML = "Unit";
-    
+
     on(buttons[0], "click", () => handleSingleWeaponAssignment(assigning, weapon, model, unit));
-    on(buttons[1], "click", () => { 
+    on(buttons[1], "click", () => {
         assignWeapon(assigning, weapon, model, unit);
         combineMatchingLoadouts(model, unit);
     });
@@ -335,7 +335,7 @@ function formatWeaponAssignmentButtons(assigning, weapon, model, unit) {
 
     if (!assigning)
         buttons.splice(2, 1);
-        
+
     return buttons;
 }
 
@@ -345,7 +345,7 @@ function formatWeaponAssignmentButtons(assigning, weapon, model, unit) {
 
 
 function handleSingleWeaponAssignment(assigning, weapon, model, unit) {
-    let newWeaponList = assigning ? 
+    let newWeaponList = assigning ?
                             (model.assignedWeapons ? model.assignedWeapons.concat([ weapon ]) : [weapon]) :
                             model.assignedWeapons.filter(filterWeapon => filterWeapon !== weapon),
         modelWithSameLoadout = Object.values(unit.models.models).filter(toCheck => haveSameLoadout(toCheck, model, newWeaponList))[0];
@@ -359,7 +359,7 @@ function handleSingleWeaponAssignment(assigning, weapon, model, unit) {
 
         modelWithSameLoadoutNum.setAttribute("data-num", modelWithSameLoadout.number);
         modelNum.setAttribute("data-num", model.number);
-        
+
         if (model.number === 0) {
             model.node.remove();
             for (const [key, toRemove] of Object.entries(unit.models.models)){
@@ -378,14 +378,14 @@ function handleSingleWeaponAssignment(assigning, weapon, model, unit) {
         if (modelWithSameLoadout.number === 2)
             for (const node of modelWithSameLoadout.node.querySelectorAll(".weaponAssignmentContainer :nth-child(2), .weaponUnassignmentContainer :nth-child(2)"))
                 node.style.display = "inline-block";
-            
+
     }
-    
+
     else {
         if (model.number > 1) {
             let newModelUUID = uuid(),
                 newModel = JSON.parse(JSON.stringify(model)); // clone it so we dont mess with data structures
-                
+
                 model.node.querySelector(".modelNum").innerHTML = --model.number;
 
             unit.models.models[newModelUUID] = newModel;
@@ -395,7 +395,7 @@ function handleSingleWeaponAssignment(assigning, weapon, model, unit) {
             model.node.parentNode.insertBefore(formatModelDisplay(newModel, unit), model.node.nextSibling);
         }
 
-        else 
+        else
             assignWeapon(assigning, weapon, model, unit);
     }
 }
@@ -406,13 +406,13 @@ function assignWeapon(assigning, weapon, model, unit, update = true) {
         else if (model.assignedWeapons.findIndex(find => objectsAreEqual(find, weapon)) < 0)
             model.assignedWeapons.push(weapon);
     }
-    
+
     else
         model.assignedWeapons.splice(model.assignedWeapons.indexOf(weapon), 1)
-        
+
     if (update) {
         let oldNode = model.node;
-        
+
         model.node.parentNode.insertBefore(formatModelDisplay(model, unit), oldNode);
         oldNode.remove();
     }
@@ -474,11 +474,11 @@ function areSameArray(first, second) {
     if (first === second) return true;
     if (!first || !second) return false;
     if (first.length !== second.length) return false;
-      
+
     // .concat() to not mutate arguments
     const arr1 = first.concat().sort();
     const arr2 = second.concat().sort();
-    
+
     for (let i = 0; i < arr1.length; i++)
         if (!objectsAreEqual(arr1[i], arr2[i]))
             return false;
@@ -498,7 +498,7 @@ function objectsAreEqual(obj1, obj2) {
 }
 
 function haveSameLoadout(firstModel, secondModel, alternateWeaponList) {
-    return firstModel !== secondModel && 
+    return firstModel !== secondModel &&
         firstModel.name === secondModel.name &&
         areSameArray(firstModel.weapons, secondModel.weapons) &&
         areSameArray(firstModel.assignedWeapons, alternateWeaponList ? alternateWeaponList : secondModel.assignedWeapons) &&

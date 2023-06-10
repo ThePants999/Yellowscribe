@@ -6,7 +6,7 @@ const http = require('http'),
     MODULE_PATH = "lua_modules",
     HOMEPAGE = "bs2tts.html";
 const {roszParse} = require("./bin/roszParser");
-const Roster = require("./bin/Roster");
+const Roster = require("./bin/9eRoster");
 const ttsScript = require("./bin/ttsScript");
 
 
@@ -101,7 +101,15 @@ const file = new statik.Server('./site'),
                     }
                 } else if (postURL.pathname === "/getFormattedArmy") {
                     try {
-                        let armyDataObj = roszParse(buf);
+                        let filename = postURL.searchParams.get("filename");
+                        let armyDataObj;
+                        if (path.extname(filename) == '.json') {
+                            // Rosterizer registry
+                            armyDataObj = rosterizerParse(buf);
+                        } else {
+                            // Battlescribe roster
+                            armyDataObj = roszParse(buf);
+                        }
                          sendHTTPResponse(res, Roster.serialize(armyDataObj, 2), 200);
                     } catch (err) {
                         if (err.toString().includes("Invalid or unsupported zip format.")) {

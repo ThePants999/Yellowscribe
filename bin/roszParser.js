@@ -1,6 +1,6 @@
 const AdmZip = require("adm-zip");
 const {parseXML} = require("./xml");
-const Roster = require("./Roster");
+const Roster = require("./9eRoster");
 
 function extractRosterXML(rawData) {
     let zip;

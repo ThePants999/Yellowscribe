@@ -75,7 +75,7 @@ const file = new statik.Server('./site'),
                         armyDataObj.uiWidth = postURL.searchParams.get('uiWidth');
                         armyDataObj.baseScript = buildScript(postURL.searchParams.get("modules").split(","));
                         fs.writeFile(`${PATH_PREFIX}${uuid}.json`,
-                            Roster.serialize(armyDataObj)
+                            Roster.serialize(armyDataObj, 2)
                                 .replace(" & ", " and "),
                             (err) => {
                                 let content, status;
@@ -102,7 +102,7 @@ const file = new statik.Server('./site'),
                 } else if (postURL.pathname === "/getFormattedArmy") {
                     try {
                         let armyDataObj = roszParse(buf);
-                         sendHTTPResponse(res, Roster.serialize(armyDataObj), 200);
+                         sendHTTPResponse(res, Roster.serialize(armyDataObj, 2), 200);
                     } catch (err) {
                         if (err.toString().includes("Invalid or unsupported zip format.")) {
                             sendHTTPResponse(res, `{ "err": "${ERRORS.invalidFormat}" }`, 415);
@@ -227,7 +227,7 @@ function storeFormattedXML(id, xml, height, armyData, uiHeight, uiWidth, decorat
         uiWidth,
         decorativeNames,
         baseScript
-    }));
+    }, null, 2));
 }
 
 /**

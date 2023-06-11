@@ -5,6 +5,7 @@ const http = require('http'),
     statik = require("node-static"),
     MODULE_PATH = "lua_modules",
     HOMEPAGE = "bs2tts.html";
+const {rosterizerParse} = require("./bin/rosterizerParser");
 const {roszParse} = require("./bin/roszParser");
 const Roster = require("./bin/9eRoster");
 const ttsScript = require("./bin/ttsScript");
@@ -103,7 +104,7 @@ const file = new statik.Server('./site'),
                     try {
                         let filename = postURL.searchParams.get("filename");
                         let armyDataObj;
-                        if (path.extname(filename) == '.json') {
+                        if (path.extname(filename) == '.regiztry') {
                             // Rosterizer registry
                             armyDataObj = rosterizerParse(buf);
                         } else {

@@ -127,7 +127,8 @@ const file = new statik.Server('./site'),
 
                         sendHTTPResponse(res, `{ "code": "${uuid}" }`, 200);
 
-                        formatAndStoreXML(uuid,
+                        formatAndStoreRoster(uuid,
+                            armyData.edition,
                             armyData.order,
                             armyData.units,
                             postURL.searchParams.get('uiHeight'),
@@ -222,13 +223,14 @@ function buildScript(modules) {
     return scriptBuilder.build(modules);
 }
 
-function formatAndStoreXML(id, order, armyData, uiHeight, uiWidth, decorativeNames, baseScript) {
-    storeFormattedXML(id, undefined, undefined, armyData, uiHeight, uiWidth, decorativeNames, baseScript, order);
+function formatAndStoreRoster(id, edition, order, armyData, uiHeight, uiWidth, decorativeNames, baseScript) {
+    storeFormattedRoster(id, edition, undefined, undefined, armyData, uiHeight, uiWidth, decorativeNames, baseScript, order);
 }
 
-function storeFormattedXML(id, xml, height, armyData, uiHeight, uiWidth, decorativeNames, baseScript, order) {
+function storeFormattedRoster(id, edition, xml, height, armyData, uiHeight, uiWidth, decorativeNames, baseScript, order) {
     fs.writeFileSync(`${PATH_PREFIX}${id}.json`, JSON.stringify({
         xml,
+        edition,
         order,
         height,
         armyData: JSON.parse(sanitize(JSON.stringify(armyData))), // yes, I know this looks awful

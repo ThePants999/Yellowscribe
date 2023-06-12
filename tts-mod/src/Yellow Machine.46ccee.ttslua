@@ -1190,7 +1190,7 @@ function formatWeapon(weaponProfile, number)
                 s = weaponProfile.s,
                 ap = weaponProfile.ap,
                 d = weaponProfile.d,
-                ability = weaponProfile.shortabilities == "-" and "" or "Ab:" .. weaponProfile.shortabilities
+                ability = weaponProfile.shortAbilities == "-" and "" or "Ab:" .. weaponProfile.shortAbilities
             })
         else
             return  interpolate(RANGED_WEAPON_TEMPLATE_10E, {
@@ -1201,7 +1201,7 @@ function formatWeapon(weaponProfile, number)
                 s = weaponProfile.s,
                 ap = weaponProfile.ap,
                 d = weaponProfile.d,
-                ability = weaponProfile.shortabilities == "-" and "" or "Ab:" .. weaponProfile.shortabilities
+                ability = weaponProfile.shortAbilities == "-" and "" or "Ab:" .. weaponProfile.shortAbilities
             })
         end
     else

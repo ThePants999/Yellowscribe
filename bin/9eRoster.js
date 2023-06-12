@@ -6,6 +6,7 @@ const Unit = require("./9eUnit");
  * @returns An object containing the parsed units and their original order (for use later)
  */
 module.exports.parse = (data) => {
+    let edition = "9e";
     let units = new Map();
 
     for (const force of data[0].force) {
@@ -29,7 +30,7 @@ module.exports.parse = (data) => {
     for (const uuid of units.keys())
         order.push(uuid);
 
-    return { units, order }
+    return { edition, units, order }
 }
 
 function hasUnitSomewhereRecursive(selection) {

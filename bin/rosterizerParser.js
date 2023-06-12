@@ -3,6 +3,9 @@ const Model = require("./10eDataModel");
 const { raw } = require("body-parser");
 const { parse } = require("path");
 
+// Explanation of Rosterizer data format:
+// https://docs.google.com/document/d/1P9dSOkToVupxVkUiY6OKVkchw9zNqSWa--a2W2qix1k/edit?usp=sharing
+
 function extractRegistryJSON(rawData) {
     let zip;
     try {
@@ -39,7 +42,7 @@ function parseRegistry(json) {
     return roster;
 }
 
-function parseModel(modelAsset) {
+function parseModel(modelAsset, unit) {
     let name = modelAsset.designation;
     let m = modelAsset.stats.M.processed.format.current;
     let t = modelAsset.stats.T.processed.format.current;
@@ -49,18 +52,24 @@ function parseModel(modelAsset) {
     let oc = modelAsset.stats.OC.processed.format.current;
     let number = modelAsset.quantity;
 
-    let model = new Model.Model(name, m, t, sv, w, ld, oc, number);
+    let model = new Model.Model(name, number);
+    let profile = new Model.ModelCharacteristics(name, m, t, sv, w, ld, oc);
+    unit.addProfile(profile);
 
     for (let asset of modelAsset.assets.traits) {
         switch (asset.classification) {
             case "Ability":
             case "Enhancement":
-                model.addAbility(parseAbility(asset));
+                let ability = parseAbility(asset);
+                model.addAbility(ability);
+                unit.addAbility(ability);
                 break;
 
             case "Melee Weapon":
             case "Ranged Weapon":
-                model.addWeapon(parseWeapon(asset));
+                let weapon = parseWeapon(asset);
+                model.addWeapon(weapon);
+                unit.addWeapon(weapon);
                 break;
 
             case "Wargear":
@@ -73,12 +82,16 @@ function parseModel(modelAsset) {
                 for (let subAsset of asset.assets.traits) {
                     if (subAsset.classification == "Melee Weapon" ||
                         subAsset.classification == "Ranged Weapon") {
-                        model.addWeapon(parseWeapon(subAsset, asset.designation + " - "));
+                        let weapon = parseWeapon(subAsset, asset.designation + " - ");
+                        model.addWeapon(weapon);
+                        unit.addWeapon(weapon);
                         weaponFound = true;
                     }
                 }
                 if (!weaponFound) {
-                    model.addAbility(parseAbility(asset));
+                    let ability = parseAbility(asset);
+                    model.addAbility(ability);
+                    unit.addAbility(ability);
                 }
                 break;
         }
@@ -99,13 +112,15 @@ function parseWeapon(weaponAsset, namePrefix = "") {
     let ap = weaponAsset.stats.AP.processed.format.current;
     let d = weaponAsset.stats.D.processed.format.current;
 
-    let weapon = new Model.Weapon(name, isMelee, range, a, bsws, s, ap, d);
+    let weapon = new Model.Weapon(name, range, a, bsws, s, ap, d);
 
     for (let asset of weaponAsset.assets.traits) {
         if (asset.classification == "Ability") {
             weapon.addAbility(parseAbility(asset));
         }
     }
+
+    weapon.completeParse();
 
     return weapon;
 }
@@ -123,7 +138,7 @@ function parseUnit(unitAsset) {
     for (let asset of unitAsset.assets.traits) {
         switch (asset.classification) {
             case "Model":
-                let model = parseModel(asset);
+                let model = parseModel(asset, unit);
                 unit.addModel(model);
                 break;
 
@@ -158,7 +173,7 @@ function parseUnit(unitAsset) {
 
     for (let asset of unitAsset.assets.included) {
         if (asset.classification == "Model") {
-            let model = parseModel(asset);
+            let model = parseModel(asset, unit);
             unit.addModel(model);
         }
     }
@@ -171,14 +186,17 @@ function parseUnit(unitAsset) {
         unit.addOtherKeyword(keyword);
     }
 
-    if (unit.models.length == 0) {
+    if (unit.models["models"].size == 0) {
         // If a unit has no child models, that means it consists of
         // a single model whose name matches the unit, and contains
         // the same child assets that a model asset would contain.
         // We can simply re-parse this asset as a model.
-        let model = parseModel(unitAsset);
+        unit.isSingleModel = true;
+        let model = parseModel(unitAsset, unit);
         unit.addModel(model);
     }
+
+    unit.completeParse();
 
     return unit;
 }

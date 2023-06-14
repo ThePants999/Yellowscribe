@@ -44,7 +44,10 @@ const TEN_MINUTES = 600000,
     SANITIZATION_REGEX = new RegExp(Object.keys(SANITIZATION_MAPPING).join("|"), "g");
 
 const file = new statik.Server('./site'),
-    currentFiles = new Set(fs.readdirSync(PATH_PREFIX).map(fileName => fileName.match(FILE_NAME_REGEX).groups.name)),
+    currentFiles = new Set(
+        fs.readdirSync(PATH_PREFIX)
+        .filter(filename => FILE_NAME_REGEX.test(filename))
+        .map(fileName => fileName.match(FILE_NAME_REGEX).groups.name)),
     server = http.createServer(function (req, res) {
         if (req.method === 'POST') {
             let data = [], dataLength = 0;
@@ -200,7 +203,7 @@ function cleanFiles() {
         }
 
         for (const filePath of files) {
-            if ((Date.now() - TEN_MINUTES) > fs.statSync(PATH_PREFIX + filePath).mtime) {
+            if (!filePath.includes("README") && (Date.now() - TEN_MINUTES) > fs.statSync(PATH_PREFIX + filePath).mtime) {
 
                 fs.unlink(path.join(PATH_PREFIX, filePath), () => {});
             }

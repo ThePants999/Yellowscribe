@@ -106,7 +106,7 @@ ${range} A:${a} BS:${bs} S:${s} AP:${ap} D:${d} ${ability} ]]
 local MELEE_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
 A:${a} WS:${ws} S:${s} AP:${ap} D:${d} ${ability} ]]
 local DEFAULT_BRACKET_VALUE_TEMPLATE = "[98ffa7]${val}[-]"
-local ABILITITY_STRING_TEMPLATE = '{ name = [[${name}]], desc = [[${desc}]] }'
+local ABILITITY_STRING_TEMPLATE = '{ name = [[${name}]], desc = [=[${desc}]=] }'
 local WEAPON_ENTRY_TEMPLATE_9E = '{ name="${name}", range=[[${range}]], type="${type}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
 local WEAPON_ENTRY_TEMPLATE_10E = '{ name="${name}", range=[[${range}]], a="${a}", bsws="${bsws}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]], shortabilities=[[${shortabilities}]] }'
 local CHANGING_CHARACTERISTICS_ENTRY_TEMPLATE = '["${name}"] = { "${characteristics}" }'

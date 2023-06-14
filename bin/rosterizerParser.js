@@ -81,7 +81,6 @@ function parseModel(modelAsset, unit) {
                 asset.classification == "Wargear") {
             let ability = parseAbility(asset);
             model.addAbility(ability);
-            unit.addAbility(ability);
         }
     }
 

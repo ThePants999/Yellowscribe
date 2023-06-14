@@ -309,7 +309,7 @@ class Unit {
         }
 
         for (let model of this.models["models"].values()) {
-            for (let ability in model.internalAbilities.values()) {
+            for (let ability of model.internalAbilities) {
                 this.addAbility(ability);
             }
             model.unitParseComplete();

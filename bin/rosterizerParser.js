@@ -30,12 +30,14 @@ function parseRegistry(json) {
     // at the top level, or underneath a Detachment asset, or
     // underneath an Army asset.
     let unitContainer = json.assets.included;
-    while (unitContainer[0].templateClass != "Unit") {
+    while (unitContainer[0].classification != "Unit" &&
+            (!unitContainer[0].templateClass || unitContainer[0].templateClass != "Unit")) {
         unitContainer = unitContainer[0].assets.included;
     }
 
     for (let unitAsset of unitContainer) {
-        if (unitAsset.templateClass == "Unit") {
+        if (unitContainer[0].classification == "Unit" ||
+            (unitAsset.templateClass && unitAsset.templateClass == "Unit")) {
             let unit = parseUnit(unitAsset);
             roster.addUnit(unit);
         }
@@ -115,7 +117,7 @@ function parseAbility(abilityAsset) {
     return new Model.Ability(
         abilityAsset.designation,
         abilityAsset.text,
-        abilityAsset.keywords.Keywords);
+        abilityAsset.keywords.Keywords.concat(abilityAsset.keywords.Tags));
 }
 
 function parseUnit(unitAsset) {

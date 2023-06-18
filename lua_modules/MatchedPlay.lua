@@ -37,7 +37,19 @@ function changeModelWoundCount(mod, target)
             end
         end
 
-        if bracketData == nil then
+        local damagedCutoff = nil
+        if unitData.edition == "10e" then
+            for _,ability in ipairs(unitData.abilities) do
+                if ability.name == "Core" then
+                    damagedCutoff = string.match(ability.desc, "Damaged: %d+-(%d+)")
+                    break
+                end
+            end
+        end
+
+        if damagedCutoff ~= nil then
+            currentColor = current > tonumber(damagedCutoff) and "[00ff16]" or "[ff0000]"
+        elseif bracketData == nil then
             colors = WOUND_COLOR_CUTOFFS[total]
             currentColor =  current > colors.g and "[00ff16]"
                             or (colors.o ~= nil and current > colors.o) and "[ffca00]" or "[ff0000]"

@@ -140,15 +140,16 @@ class Weapon {
                         isNaN(ability.name.substring(finalSpaceIndex))) {
                         // This is a standalone ability with no
                         // numeric portion.
+                        this.abilities += ability.name;
                         let lowerAbility = ability.name.toLowerCase();
                         if (weaponAbilityShortNames.has(lowerAbility)) {
                             // This ability has a short form - use it.
-                            this.abilities += ability.name;
                             this.shortAbilities += weaponAbilityShortNames.get(lowerAbility);
                         } else {
                             // This ability doesn't have a short form:
                             // bump it to special abilities.
                             specialAbilities.push(ability);
+                            this.shortAbilities += "*"
                         }
                     } else {
                         // This ability has a numeric final component.
@@ -162,19 +163,8 @@ class Weapon {
                 }
             }
 
-            if (specialAbilities.length > 0) {
-                // We have at least one special ability to append.
-                if (this.abilities.length > 0) {
-                    this.shortAbilities += ",";
-                }
-                this.shortAbilities += "*";
-
-                for (let ability of specialAbilities) {
-                    if (this.abilities.length > 0) {
-                        this.abilities += ", ";
-                    }
-                    this.abilities += ability.name + ": " + ability.text;
-                }
+            for (let ability of specialAbilities) {
+                this.abilities += "\n" + ability.name + ": " + ability.desc;
             }
         }
 

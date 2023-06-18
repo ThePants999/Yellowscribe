@@ -29,16 +29,16 @@ function parseRegistry(json) {
     // We need to find the set of Unit assets. They could be
     // at the top level, or underneath a Detachment asset, or
     // underneath an Army asset.
-    let unitContainer = json.assets.included;
-    while (unitContainer[0].classification != "Unit" &&
-            (!unitContainer[0].templateClass || unitContainer[0].templateClass != "Unit")) {
-        unitContainer = unitContainer[0].assets.included;
+    let container = json.assets.included;
+    while (container[0].classification != "Unit" &&
+            (!container[0].templateClass || container[0].templateClass != "Unit")) {
+        container = container[0].assets.included;
     }
 
-    for (let unitAsset of unitContainer) {
-        if (unitContainer[0].classification == "Unit" ||
-            (unitAsset.templateClass && unitAsset.templateClass == "Unit")) {
-            let unit = parseUnit(unitAsset);
+    for (let asset of container) {
+        if (asset.classification == "Unit" ||
+            (asset.templateClass && asset.templateClass == "Unit")) {
+            let unit = parseUnit(asset);
             roster.addUnit(unit);
         }
     }
@@ -113,48 +113,57 @@ function parseWeapon(weaponAsset, namePrefix = "") {
 }
 
 function parseAbility(abilityAsset) {
+    let text = abilityAsset.text;
+    if (abilityAsset.keywords.Keywords.includes("Primarch")) {
+        for (let childAsset of abilityAsset.assets.traits) {
+            if (childAsset.classification == "Ability") {
+                text += "\n" + childAsset.designation + ": " + childAsset.text;
+            }
+        }
+    }
     return new Model.Ability(
         abilityAsset.designation,
         abilityAsset.text,
         abilityAsset.keywords.Keywords.concat(abilityAsset.keywords.Tags));
 }
 
+function parseUnitChildAsset(unit, childAsset) {
+    switch (childAsset.classification) {
+        case "Model":
+            let model = parseModel(childAsset, unit);
+            unit.addModel(model);
+            break;
+
+        case "Ability":
+        case "Enhancement":
+            unit.addAbility(parseAbility(childAsset));
+            break;
+
+        case "Wargear":
+            // Two possibilities here - this might be a unit-scope
+            // wargear ability, or it might be a weapon with multiple
+            // profiles on a single-model unit. We'll deal with the
+            // latter case later, so just handle the former case here.
+            if (!childAsset.keywords.Tags.includes("Multi-weapon")) {
+                unit.addAbility(parseAbility(childAsset));
+            }
+            break;
+
+        // Single-model units may also have "Melee Weapon" or
+        // "Ranged Weapon" child assets; again, they'll be handled
+        // later by re-parsing this unit as a model.
+    }
+}
+
 function parseUnit(unitAsset) {
     let unit = new Model.Unit(unitAsset.designation);
 
     for (let asset of unitAsset.assets.traits) {
-        switch (asset.classification) {
-            case "Model":
-                let model = parseModel(asset, unit);
-                unit.addModel(model);
-                break;
-
-            case "Ability":
-            case "Enhancement":
-                unit.addAbility(parseAbility(asset));
-                break;
-
-            case "Wargear":
-                // Two possibilities here - this might be a unit-scope
-                // wargear ability, or it might be a weapon with multiple
-                // profiles on a single-model unit. We'll deal with the
-                // latter case later, so just handle the former case here.
-                if (!asset.keywords.Tags.includes("Multi-weapon")) {
-                    unit.addAbility(parseAbility(asset));
-                }
-                break;
-
-            // Single-model units may also have "Melee Weapon" or
-            // "Ranged Weapon" child assets; again, they'll be handled
-            // later by re-parsing this unit as a model.
-         }
+         parseUnitChildAsset(unit, asset);
     }
 
     for (let asset of unitAsset.assets.included) {
-        if (asset.classification == "Model") {
-            let model = parseModel(asset, unit);
-            unit.addModel(model);
-        }
+        parseUnitChildAsset(unit, asset);
     }
 
     for (let keyword of unitAsset.keywords.Faction) {

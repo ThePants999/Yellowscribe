@@ -25,6 +25,8 @@ weaponAbilityShortNames.set("devastating wounds", "DW");
 weaponAbilityShortNames.set("sustained hits", "SH");
 weaponAbilityShortNames.set("extra attacks", "EA");
 
+const MELEE_RANGE = "Melee";
+
 class Roster {
     edition = "10e";
     order = [];
@@ -108,6 +110,10 @@ class Weapon {
 
     addAnother() {
         this.number += 1;
+    }
+
+    isMelee() {
+        return this.range == MELEE_RANGE;
     }
 
     completeParse() {
@@ -349,4 +355,4 @@ class Unit {
     }
 }
 
-module.exports = {Roster, ModelCharacteristics, Ability, Weapon, Model, Unit}
+module.exports = {MELEE_RANGE, Roster, ModelCharacteristics, Ability, Weapon, Model, Unit}

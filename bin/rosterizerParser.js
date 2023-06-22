@@ -30,14 +30,12 @@ function parseRegistry(json) {
     // at the top level, or underneath a Detachment asset, or
     // underneath an Army asset.
     let container = json.assets.included;
-    while (container[0].classification != "Unit" &&
-            (!container[0].templateClass || container[0].templateClass != "Unit")) {
+    while (container[0].classIdentity != "Unit") {
         container = container[0].assets.included;
     }
 
     for (let asset of container) {
-        if (asset.classification == "Unit" ||
-            (asset.templateClass && asset.templateClass == "Unit")) {
+        if (asset.classIdentity == "Unit") {
             let unit = parseUnit(asset);
             roster.addUnit(unit);
         }
@@ -61,21 +59,8 @@ function parseModel(modelAsset, unit) {
     unit.addProfile(profile);
 
     for (let asset of modelAsset.assets.traits) {
-        if (asset.templateClass == "Weapon") {
-            let weapon = parseWeapon(asset);
-            model.addWeapon(weapon);
-            unit.addWeapon(weapon);
-        } else if (asset.classification == "Wargear" && asset.keywords.Tags.includes("Multi-weapon")) {
-            // Multi-profile weapon. Profiles are child assets.
-            // We'll treat each as its own weapon, but need to prepend the name of this asset.
-            let wargearName = asset.stats.wargearName.processed.format.current;
-            for (let subAsset of asset.assets.traits) {
-                if (subAsset.templateClass == "Weapon") {
-                    let weapon = parseWeapon(subAsset, wargearName + " - ");
-                    model.addWeapon(weapon);
-                    unit.addWeapon(weapon);
-                }
-            }
+        if (asset.classIdentity == "Weapon") {
+            parseAndAddWeapon(asset, model, unit);
         } else if (asset.classification == "Ability" ||
                 asset.classification == "Enhancement" ||
                 asset.classification == "Wargear") {
@@ -87,29 +72,62 @@ function parseModel(modelAsset, unit) {
     return model;
 }
 
-function parseWeapon(weaponAsset, namePrefix = "") {
-    let name = namePrefix + weaponAsset.stats.weaponName.processed.format.current;
-    let isMelee = (weaponAsset.classification == "Melee Weapon");
-    let range = isMelee ? "Melee" : weaponAsset.stats.Range.processed.format.current;
-    let a = weaponAsset.stats.A.processed.format.current;
-    let bsws = isMelee ?
-        weaponAsset.stats.WS.processed.format.current :
-        weaponAsset.stats.BS.processed.format.current;
-    let s = weaponAsset.stats.S.processed.format.current;
-    let ap = weaponAsset.stats.AP.processed.format.current;
-    let d = weaponAsset.stats.D.processed.format.current;
-
-    let weapon = new Model.Weapon(name, range, a, bsws, s, ap, d);
-
-    for (let asset of weaponAsset.assets.traits) {
-        if (asset.classification == "Ability") {
-            weapon.addAbility(parseAbility(asset));
+function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix = "") {
+    if (weaponAsset.keywords.Tags.includes("Multi-weapon")) {
+        // This is a weapon consisting of multiple profiles.
+        // We treat each profile - profiles here are further weapons
+        // nested underneath this one - as a separate weapon.
+        let mixedClasses = false;
+        let classFound = null;
+        for (let subAsset of weaponAsset.assets.traits) {
+            if (classFound == null) {
+                classFound = subAsset.classification;
+            } else if (classFound != subAsset.classification) {
+                mixedClasses = true;
+                break;
+            }
         }
+
+        for (let subAsset of weaponAsset.assets.traits) {
+            if (!mixedClasses) {
+                // This is multiple profiles of a strictly ranged or
+                // strictly melee weapon. Sensible names for the profiles
+                // are the overall weapon name plus the profile name.
+                let weaponName = weaponAsset.stats.weaponName.processed.format.current + " - ";
+                parseAndAddWeapon(subAsset, model, unit, weaponName);
+            } else {
+                // This weapon has both ranged and melee profiles. Sensible
+                // names for the profiles are the profile name plus a type
+                // indication.
+                suffix = (subAsset.classification == "Melee Weapon") ? " (melee)" : " (ranged)";
+                parseAndAddWeapon(subAsset, model, unit, "", suffix);
+            }
+        }
+    } else {
+        let name = namePrefix + weaponAsset.stats.weaponName.processed.format.current + nameSuffix;
+        let isMelee = (weaponAsset.classification == "Melee Weapon");
+        let range = isMelee ? Model.MELEE_RANGE : weaponAsset.stats.Range.processed.format.current;
+        let a = weaponAsset.stats.A.processed.format.current;
+        let bsws = isMelee ?
+            weaponAsset.stats.WS.processed.format.current :
+            weaponAsset.stats.BS.processed.format.current;
+        let s = weaponAsset.stats.S.processed.format.current;
+        let ap = weaponAsset.stats.AP.processed.format.current;
+        let d = weaponAsset.stats.D.processed.format.current;
+
+        let weapon = new Model.Weapon(name, range, a, bsws, s, ap, d);
+
+        for (let asset of weaponAsset.assets.traits) {
+            if (asset.classification == "Ability") {
+                weapon.addAbility(parseAbility(asset));
+            }
+        }
+
+        weapon.completeParse();
+
+        model.addWeapon(weapon);
+        unit.addWeapon(weapon);
     }
-
-    weapon.completeParse();
-
-    return weapon;
 }
 
 function parseAbility(abilityAsset) {
@@ -136,22 +154,12 @@ function parseUnitChildAsset(unit, childAsset) {
 
         case "Ability":
         case "Enhancement":
-            unit.addAbility(parseAbility(childAsset));
-            break;
-
         case "Wargear":
-            // Two possibilities here - this might be a unit-scope
-            // wargear ability, or it might be a weapon with multiple
-            // profiles on a single-model unit. We'll deal with the
-            // latter case later, so just handle the former case here.
-            if (!childAsset.keywords.Tags.includes("Multi-weapon")) {
                 unit.addAbility(parseAbility(childAsset));
-            }
             break;
 
-        // Single-model units may also have "Melee Weapon" or
-        // "Ranged Weapon" child assets; again, they'll be handled
-        // later by re-parsing this unit as a model.
+        // Single-model units may also have Weapon child assets.
+        // They'll be handled later by re-parsing this unit as a model.
     }
 }
 

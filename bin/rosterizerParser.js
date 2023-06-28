@@ -26,18 +26,9 @@ function extractRegistryJSON(rawData) {
 function parseRegistry(json) {
     let roster = new Model.Roster();
 
-    // We need to find the set of Unit assets. They could be
-    // at the top level, or underneath a Detachment asset, or
-    // underneath an Army asset.
-    let container = json.assets.included;
-    while (container[0].classIdentity != "Unit") {
-        container = container[0].assets.included;
-    }
-
-    for (let asset of container) {
+    for (let asset of json.assets.included) {
         if (asset.classIdentity == "Unit") {
-            let unit = parseUnit(asset);
-            roster.addUnit(unit);
+            roster.addUnit(parseUnit(asset));
         }
     }
 
@@ -64,8 +55,7 @@ function parseModel(modelAsset, unit) {
         } else if (asset.classification == "Ability" ||
                 asset.classification == "Enhancement" ||
                 asset.classification == "Wargear") {
-            let ability = parseAbility(asset);
-            model.addAbility(ability);
+            model.addAbility(parseAbility(asset));
         }
     }
 
@@ -148,8 +138,7 @@ function parseAbility(abilityAsset) {
 function parseUnitChildAsset(unit, childAsset) {
     switch (childAsset.classification) {
         case "Model":
-            let model = parseModel(childAsset, unit);
-            unit.addModel(model);
+            unit.addModel(parseModel(childAsset, unit));
             break;
 
         case "Ability":
@@ -187,9 +176,7 @@ function parseUnit(unitAsset) {
         // a single model whose name matches the unit, and contains
         // the same child assets that a model asset would contain.
         // We can simply re-parse this asset as a model.
-        unit.isSingleModel = true;
-        let model = parseModel(unitAsset, unit);
-        unit.addModel(model);
+        unit.addModel(parseModel(unitAsset, unit));
     }
 
     unit.completeParse();

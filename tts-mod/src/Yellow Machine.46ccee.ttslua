@@ -168,7 +168,36 @@ local ERROR_RED = { 1, 0.25, 0.25 }
 
 
 
+-- Hopefully-temporary code to deal with the outbreak of a TTS virus
 
+local sillySpaces = string.rep("  ", 90)
+local naiveRemovalPattern = string.format("(%s.+)$", sillySpaces)
+function detectSillySpaces(obj)
+    local script = obj.getLuaScript()
+    if string.find(script, sillySpaces) then
+        return true, script
+    end
+end
+
+function clean(obj, debugNote)
+    Wait.stopAll()
+    local hasSillySpaces, script = detectSillySpaces(obj)
+    if hasSillySpaces then
+        local cleanedScript = string.gsub(script, naiveRemovalPattern, "")
+        obj.setLuaScript(cleanedScript)
+        print("One or more of the models you just spawned in contained malicious code. Yellowscribe has deleted it and the model is now safe to use, but you should contact the source of the model to get them to fix it.")
+    end
+end
+
+function onObjectSpawn(obj)
+    clean(obj, "onObjectSpawn")
+end
+
+function onObjectLeaveContainer(container, obj)
+    clean(obj, "onObjectLeaveContainer")
+end
+
+-- End virus handling code
 
 
 

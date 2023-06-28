@@ -268,25 +268,7 @@ class Unit {
     }
 
     addProfile(profile) {
-        let found = false;
-        for (let existingCharacteristics of this.modelProfiles.values()) {
-            if (existingCharacteristics.characteristicsMatch(profile)) {
-                // This set of characteristics would duplicate one
-                // that we already have - we only want unique sets.
-                if (profile.name != existingCharacteristics.name) {
-                    // Two models with different names exhibiting the
-                    // same characteristics means that this is the
-                    // "common" set of characteristics for the unit,
-                    // and is best represented with the unit name.
-                    existingCharacteristics.name = this.name;
-                }
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            this.modelProfiles.set(profile.name, profile);
-        }
+        this.modelProfiles.set(profile.name, profile);
     }
 
     addWeapon(weapon) {

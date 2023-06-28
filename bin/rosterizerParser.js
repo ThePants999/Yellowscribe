@@ -46,18 +46,35 @@ function parseModel(modelAsset, unit) {
     let number = modelAsset.quantity;
 
     let model = new Model.Model(name, number);
-    let profile = new Model.ModelCharacteristics(name, m, t, sv, w, ld, oc);
-    unit.addProfile(profile);
-
     for (let asset of modelAsset.assets.traits) {
         if (asset.classIdentity == "Weapon") {
             parseAndAddWeapon(asset, model, unit);
         } else if (asset.classification == "Ability" ||
-                asset.classification == "Enhancement" ||
-                asset.classification == "Wargear") {
+                asset.classification == "Enhancement") {
             model.addAbility(parseAbility(asset));
+        } else if (asset.classification == "Wargear") {
+            model.addAbility(parseAbility(asset));
+
+            if (!modelAsset.classIdentity != "Unit") {
+                // For multi-model units, models carrying wargear should
+                // be distinguished by name.  This is partly because it's
+                // helpful to have a clear distinction for who's carrying
+                // something like a medipack, and partly because some
+                // wargear alters model characteristics and means we need
+                // a separate statline for them on the datasheet.
+                //
+                // (We check classIdentity because we don't want to do
+                // this for single-model units, which are distinguished
+                // by having the Unit represent the model.)
+                model.name += " w/ " + asset.designation
+            }
         }
     }
+
+    // We do this last in case the model got renamed during child asset
+    // processing.
+    let profile = new Model.ModelCharacteristics(model.name, m, t, sv, w, ld, oc);
+    unit.addProfile(profile);
 
     return model;
 }

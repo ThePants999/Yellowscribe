@@ -169,6 +169,10 @@ local ERROR_RED = { 1, 0.25, 0.25 }
 
 
 -- Hopefully-temporary code to deal with the outbreak of a TTS virus
+-- This code is copied from https://steamcommunity.com/sharedfiles/filedetails/?id=2967684892
+-- published by Larrie Corvell, thanks Larrie. It has been modified.
+-- It's licensed under Creative Commons Attribution-ShareAlike 4.0 International License
+-- (https://creativecommons.org/licenses/by-sa/4.0/).
 
 local sillySpaces = string.rep("  ", 90)
 local naiveRemovalPattern = string.format("(%s.+)$", sillySpaces)

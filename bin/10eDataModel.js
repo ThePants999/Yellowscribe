@@ -31,10 +31,15 @@ class Roster {
     edition = "10e";
     order = [];
     units = new Map();
+    errors = [];
 
     addUnit(unit) {
         this.order.push(unit.uuid);
         this.units.set(unit.uuid, unit);
+    }
+
+    addError(error) {
+        this.errors.push(error);
     }
 }
 

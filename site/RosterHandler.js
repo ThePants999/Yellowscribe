@@ -214,9 +214,37 @@ function loadArmy(data) {
 
     clearNode(rosterDisplay);
 
+    if (data.errors.length > 0) {
+        let errorBox = formatErrorDisplay(data.errors);
+        rosterDisplay.insertBefore(errorBox, rosterDisplay.lastElementChild);
+    }
+
     rosterDisplay.insertBefore(armyDisplay, rosterDisplay.lastElementChild);
     document.querySelector('[data-page="rosterDisplay"]').classList.add("visible", "selected");
     document.querySelector('[data-page="rosterInput"]').classList.remove("selected");
+}
+
+function formatErrorDisplay(errors) {
+    let errorBox = byID("unitDisplayTemplate").content.cloneNode(true),
+        errorContainer = errorBox.querySelector(".modelContainer"),
+        errorTitle = errorBox.querySelector(".unitName input");
+
+    errorBox.querySelector("section").dataset.uuid = "";
+    errorTitle.value = "Errors";
+    let errorDiv = document.createElement("div");
+    let errorHeader = document.createElement("h1");
+    errorHeader.innerHTML = "The uploaded roster contains errors. Please check these are expected before continuing.";
+    errorDiv.appendChild(errorHeader);
+    let errorList = document.createElement("ul");
+    for (let error of errors) {
+        let errorItem = document.createElement("li");
+        errorItem.innerHTML = error;
+        errorList.appendChild(errorItem);
+    }
+    errorDiv.appendChild(errorList);
+    errorContainer.appendChild(errorDiv);
+
+    return errorBox;
 }
 
 function formatUnitDisplay(unit) {

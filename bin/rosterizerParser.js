@@ -32,6 +32,14 @@ function parseRegistry(json) {
         }
     }
 
+    for (let error of json.errors) {
+        let errorText = error.message;
+        if (error.name.length > 0) {
+            errorText = error.name + ": " + errorText;
+        }
+        roster.addError(errorText);
+    }
+
     return roster;
 }
 

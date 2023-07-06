@@ -214,7 +214,7 @@ function loadArmy(data) {
 
     clearNode(rosterDisplay);
 
-    if (data.errors.length > 0) {
+    if (data.errors && data.errors.length > 0) {
         let errorBox = formatErrorDisplay(data.errors);
         rosterDisplay.insertBefore(errorBox, rosterDisplay.lastElementChild);
     }

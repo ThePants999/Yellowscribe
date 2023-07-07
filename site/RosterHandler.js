@@ -230,10 +230,10 @@ function formatErrorDisplay(errors) {
         errorTitle = errorBox.querySelector(".unitName input");
 
     errorBox.querySelector("section").dataset.uuid = "";
-    errorTitle.value = "Errors";
+    errorTitle.value = "Errors/warnings";
     let errorDiv = document.createElement("div");
     let errorHeader = document.createElement("h1");
-    errorHeader.innerHTML = "The uploaded roster contains errors. Please check these are expected before continuing.";
+    errorHeader.innerHTML = "The uploaded roster contains errors and/or warnings. Please check these are expected before continuing.";
     errorDiv.appendChild(errorHeader);
     let errorList = document.createElement("ul");
     for (let error of errors) {

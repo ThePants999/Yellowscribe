@@ -27,7 +27,7 @@ function parseRegistry(json) {
     let roster = new Model.Roster();
 
     for (let asset of json.assets.included) {
-        if (asset.classIdentity == "Unit") {
+        if (asset.lineage.includes("Unit")) {
             roster.addUnit(parseUnit(asset));
         }
     }
@@ -63,7 +63,7 @@ function parseModel(modelAsset, unit) {
         } else if (asset.classification == "Wargear") {
             model.addAbility(parseAbility(asset));
 
-            if (!modelAsset.classIdentity != "Unit") {
+            if (modelAsset.lineage.includes("Unit")) {
                 // For multi-model units, models carrying wargear should
                 // be distinguished by name.  This is partly because it's
                 // helpful to have a clear distinction for who's carrying
@@ -71,7 +71,7 @@ function parseModel(modelAsset, unit) {
                 // wargear alters model characteristics and means we need
                 // a separate statline for them on the datasheet.
                 //
-                // (We check classIdentity because we don't want to do
+                // (We check lineage because we don't want to do
                 // this for single-model units, which are distinguished
                 // by having the Unit represent the model.)
                 model.name += " w/ " + asset.designation

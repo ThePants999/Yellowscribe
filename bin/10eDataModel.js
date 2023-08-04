@@ -97,7 +97,7 @@ class Weapon {
     abilities = "";
     shortAbilities = "";
 
-    internalAbilities = [];
+    _internalAbilities = [];
 
     constructor(name, range, a, bsws, s, ap, d) {
         this.name = name;
@@ -110,11 +110,15 @@ class Weapon {
     }
 
     addAbility(ability) {
-        this.internalAbilities.push(ability);
+        this._internalAbilities.push(ability);
     }
 
     addAnother() {
         this.number += 1;
+    }
+
+    setNumber(number) {
+        this.number = number;
     }
 
     isMelee() {
@@ -126,7 +130,7 @@ class Weapon {
         // now need to convert abilitiesInternal into the strings
         // that the TTS mod needs.
 
-        if (this.internalAbilities.length == 0) {
+        if (this._internalAbilities.length == 0) {
             // Well, that was easy.
             this.abilities = "-";
             this.shortAbilities = "-";
@@ -137,7 +141,7 @@ class Weapon {
             this.shortAbilities = "";
             let specialAbilities = [];
 
-            for (let ability of this.internalAbilities) {
+            for (let ability of this._internalAbilities) {
                 if (ability.keywords.includes("Special")) {
                     specialAbilities.push(ability);
                 } else {
@@ -179,7 +183,7 @@ class Weapon {
             }
         }
 
-        delete this.internalAbilities;
+        delete this._internalAbilities;
     }
 }
 
@@ -188,17 +192,19 @@ class Model {
     abilities = new Set();
     weapons = [];
     number;
-    internalAbilities = [];
+    _internalAbilities = [];
+    _parentUnit;
 
-    constructor(name, number) {
+    constructor(name, number, parentUnit) {
         this.name = name;
         this.number = parseInt(number, 10);
+        this._parentUnit = parentUnit;
     }
 
     addAbility(ability) {
         if (!this.abilities.has(ability.name)) {
             this.abilities.add(ability.name);
-            this.internalAbilities.push(ability);
+            this._internalAbilities.push(ability);
         }
     }
 
@@ -207,7 +213,7 @@ class Model {
         for (let existingWeapon of this.weapons) {
             if (existingWeapon.name == weapon.name) {
                 // Duplicate of one we already have
-                existingWeapon.number += 1;
+                existingWeapon.number += weapon.number;
                 found = true;
                 break;
             }
@@ -215,13 +221,16 @@ class Model {
 
         if (!found) {
             // New one
-            this.weapons.push({"name": weapon.name, "number": 1});
+            this.weapons.push({"name": weapon.name, "number": weapon.number});
         }
+
+        this._parentUnit.addWeapon(weapon);
     }
 
     // This model's unit has been fully parsed.
     unitParseComplete() {
-        delete this.internalAbilities;
+        delete this._internalAbilities;
+        delete this._parentUnit;
     }
 }
 
@@ -292,7 +301,7 @@ class Unit {
         }
 
         for (let model of this.models["models"].values()) {
-            for (let ability of model.internalAbilities) {
+            for (let ability of model._internalAbilities) {
                 this.addAbility(ability);
             }
             model.unitParseComplete();

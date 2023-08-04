@@ -53,7 +53,7 @@ function parseModel(modelAsset, unit) {
     let oc = modelAsset.stats.OC.processed.format.current;
     let number = modelAsset.quantity;
 
-    let model = new Model.Model(name, number);
+    let model = new Model.Model(name, number, unit);
     for (let asset of modelAsset.assets.traits) {
         if (asset.classIdentity == "Weapon") {
             parseAndAddWeapon(asset, model, unit);
@@ -141,7 +141,6 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix
         weapon.completeParse();
 
         model.addWeapon(weapon);
-        unit.addWeapon(weapon);
     }
 }
 
@@ -169,7 +168,7 @@ function parseUnitChildAsset(unit, childAsset) {
         case "Ability":
         case "Enhancement":
         case "Wargear":
-                unit.addAbility(parseAbility(childAsset));
+            unit.addAbility(parseAbility(childAsset));
             break;
 
         // Single-model units may also have Weapon child assets.

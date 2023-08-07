@@ -54,6 +54,8 @@ function parseModel(modelAsset, unit) {
     let number = modelAsset.quantity;
 
     let model = new Model.Model(name, number, unit);
+    let modelWargear = [];
+    let modelShields = [];
     for (let asset of modelAsset.assets.traits) {
         if (asset.classIdentity == "Weapon") {
             parseAndAddWeapon(asset, model, unit);
@@ -62,20 +64,36 @@ function parseModel(modelAsset, unit) {
             model.addAbility(parseAbility(asset));
         } else if (asset.classification == "Wargear") {
             model.addAbility(parseAbility(asset));
-
-            if (modelAsset.lineage.includes("Unit")) {
-                // For multi-model units, models carrying wargear should
-                // be distinguished by name.  This is partly because it's
-                // helpful to have a clear distinction for who's carrying
-                // something like a medipack, and partly because some
-                // wargear alters model characteristics and means we need
-                // a separate statline for them on the datasheet.
-                //
-                // (We check lineage because we don't want to do
-                // this for single-model units, which are distinguished
-                // by having the Unit represent the model.)
-                model.name += " w/ " + asset.designation
+            modelWargear.push(asset.designation);
+            if (asset.designation.toLowerCase().includes("shield")) {
+                modelShields.push(asset.designation);
             }
+        }
+    }
+
+    if (modelWargear.length > 0 && !modelAsset.lineage.includes("Unit")) {
+        // For multi-model units, models carrying wargear should
+        // be distinguished by name.  This is partly because it's
+        // helpful to have a clear distinction for who's carrying
+        // something like a medipack, and partly because some
+        // wargear alters model characteristics and means we need
+        // a separate statline for them on the datasheet.
+        //
+        // We check lineage because we don't want to do
+        // this for single-model units, which are distinguished
+        // by having the Unit represent the model. We only want to
+        // add a single piece of wargear, because otherwise T'au
+        // get stupid with battlesuit systems and drones - but we do
+        // need to include all with "shield" in the name, because
+        // as above we need models with unique wound counts to have
+        // unique names, but bloody T'au can have both "Shield Drone"
+        // and "Shield Generator" on the same model.
+        if (modelShields.length > 0) {
+            for (let shield of modelShields) {
+                model.name += " w/ " + shield;
+            }
+        } else {
+            model.name += " w/ " + modelWargear[0];
         }
     }
 

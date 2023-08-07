@@ -258,6 +258,11 @@ class Unit {
     // to models.
     unassignedWeapons = [];
 
+    // These are weapons which all models in the unit have, stored
+    // during unit parsing and then pushed onto all models once
+    // we know we have them all.
+    _allModelWeapons = [];
+
     constructor(name) {
         this.name = name;
         this.models["models"] = new Map();
@@ -285,6 +290,11 @@ class Unit {
         this.modelProfiles.set(profile.name, profile);
     }
 
+    addAllModelsWeapon(weapon) {
+        this.weapons.set(weapon.name, weapon);
+        this._allModelWeapons.push(weapon);
+    }
+
     addWeapon(weapon) {
         this.weapons.set(weapon.name, weapon);
     }
@@ -293,7 +303,8 @@ class Unit {
         // Called when we've finished parsing this unit. We now
         // need to duplicate unit-scope abilities onto models, and
         // then collate all model-scope abilities onto the unit.
-        // We also need to aggregate Core and Faction abilities.
+        // We also need to aggregate Core and Faction abilities, and
+        // copy all-model weapons to all models.
         for (let ability of this.abilities.values()) {
             for (let model of this.models["models"].values()) {
                 model.addAbility(ability);
@@ -304,8 +315,12 @@ class Unit {
             for (let ability of model._internalAbilities) {
                 this.addAbility(ability);
             }
+            for (let weapon of this._allModelWeapons) {
+                model.addWeapon(weapon);
+            }
             model.unitParseComplete();
         }
+        delete this._allModelWeapons;
 
         // Extract abilities tagged Core or Faction.
         let coreAbilities = [];

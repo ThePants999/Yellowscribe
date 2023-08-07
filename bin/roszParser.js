@@ -27,9 +27,11 @@ function parse10eRoster(forces) {
     let roster = new DataModel.Roster();
 
     for (const force of forces[0].force) {
-        for (const selection of force.selections[0].selection) {
-            if (selection.$.type == "unit" || selection.$.type == "model") {
-                roster.addUnit(parseUnit(selection));
+        if (force.selections && force.selections[0]) {
+            for (const selection of force.selections[0].selection) {
+                if (selection.$.type == "unit" || selection.$.type == "model") {
+                    roster.addUnit(parseUnit(selection));
+                }
             }
         }
     }
@@ -40,15 +42,17 @@ function parse10eRoster(forces) {
 function parseUnit(selection) {
     let unit = new DataModel.Unit(selection.$.name);
 
-    for (const profile of selection.profiles[0].profile) {
-        switch (profile.$.typeName) {
-            case "Unit":
-                unit.addProfile(parseModelCharacteristics(profile));
-                break;
+    if (selection.profiles && selection.profiles[0]) {
+        for (const profile of selection.profiles[0].profile) {
+            switch (profile.$.typeName) {
+                case "Unit":
+                    unit.addProfile(parseModelCharacteristics(profile));
+                    break;
 
-            case "Abilities":
-                unit.addAbility(parseAbility(profile));
-                break;
+                case "Abilities":
+                    unit.addAbility(parseAbility(profile));
+                    break;
+            }
         }
     }
 
@@ -56,12 +60,17 @@ function parseUnit(selection) {
         // This is a single-model unit. Re-parse the selection
         // as a model.
         unit.addModel(parseModel(selection, unit));
-    } else {
-        // This is a multi-model unit and should have child
-        // selections for models.
+    } else if (selection.selections && selection.selections[0]) {
+        // This is a multi-model unit. Look for child models and upgrades.
         for (const childSelection of selection.selections[0].selection) {
-            if (childSelection.$.type == "model" || childSelection.$.type == "upgrade") {
-                unit.addModel(parseModel(childSelection, unit));
+            switch (childSelection.$.type) {
+                case "model":
+                    unit.addModel(parseModel(childSelection, unit));
+                    break;
+
+                case "upgrade":
+                    parseAndAddUnitSelection(childSelection, unit);
+                    break;
             }
         }
     }
@@ -109,9 +118,9 @@ function parseModelCharacteristics(profile) {
 function parseModel(selection, unit) {
     let model = new DataModel.Model(selection.$.name, selection.$.number, unit);
 
-    parseAndAddModelSelections(selection, model);
+    parseAndAddModelSelection(selection, model);
 
-    if (selection.profiles) {
+    if (selection.profiles && selection.profiles[0]) {
         for (const profile of selection.profiles[0].profile) {
             if (profile.$.typeName == "Unit") {
                 // Model-specific characteristic profile.
@@ -123,29 +132,20 @@ function parseModel(selection, unit) {
     return model;
 }
 
-function parseAndAddModelSelections(selection, model) {
-    for (const childSelection of selection.selections[0].selection) {
-        switch (childSelection.$.type) {
-            case "upgrade":
-                if (childSelection.selections) {
-                    // Sometimes selections contain selections -_-
-                    // Recurse.
-                    parseAndAddModelSelections(childSelection, model);
-                } else {
-                    parseAndAddModelUpgrade(childSelection, model);
-                }
-                break;
+function parseAndAddModelSelection(selection, model) {
+    if (selection.selections && selection.selections[0]) {
+        // This selection has children.
+        for (const childSelection of selection.selections[0].selection) {
+            parseAndAddModelSelection(childSelection, model);
         }
     }
-}
 
-function parseAndAddModelUpgrade(selection, model) {
     // In Battlescribe data, a selection of X models
     // with Y weapons each will contain X*Y weapons.
     // But our data model wants to know how many each
     // model has.
     let number = parseInt(selection.$.number) / model.number;
-    if (selection.profiles) {
+    if (selection.profiles && selection.profiles[0]) {
         for (const profile of selection.profiles[0].profile) {
             switch (profile.$.typeName) {
                 case "Melee Weapons":
@@ -155,6 +155,30 @@ function parseAndAddModelUpgrade(selection, model) {
 
                 case "Abilities":
                     model.addAbility(parseAbility(profile));
+                    break;
+            }
+        }
+    }
+}
+
+function parseAndAddUnitSelection(selection, unit) {
+    if (selection.selections && selection.selections[0]) {
+        // This selection has children.
+        for (const childSelection of selection.selections[0].selection) {
+            parseAndAddUnitSelection(childSelection, unit);
+        }
+    }
+
+    if (selection.profiles && selection.profiles[0]) {
+        for (const profile of selection.profiles[0].profile) {
+            switch (profile.$.typeName) {
+                case "Melee Weapons":
+                case "Ranged Weapons":
+                    unit.addAllModelsWeapon(parseWeapon(profile, 1));
+                    break;
+
+                case "Abilities":
+                    unit.addAbility(parseAbility(profile));
                     break;
             }
         }

@@ -3,7 +3,7 @@ const xml2js = require("xml2js");
 module.exports.parseXML = (xmlData) => {
     var error = null;
     var data = null;
-    xml2js.parseString(xmlData, (innerError, innerData) => {
+    xml2js.parseString(xmlData, {trim: true, emptyTag: null}, (innerError, innerData) => {
         error = innerError;
         data = innerData;
     });

@@ -16,21 +16,21 @@ const TEN_MINUTES = 600000,
     FILE_NAME_REGEX = /(?<name>.+?)(?=.json)/,
 
     ERRORS = {
-        invalidFormat: `<h2 class='error'>I can only accept .rosz files.</h2>
+        invalidFormat: `<h2 class='error'>I can only accept .regiztry, .rosz and .ros files.</h2>
         <p>
             Please make sure you are attempting to upload your roster and not another file by accident!
         </p>`
             .replace(/[\n\r]/g, "\\n"),
         unknown: `<h2 class='error'>Something went wrong.</h2>
         <p>
-            Please reach out to Yellow Man in the <a href='https://discord.gg/kKT6JKsdek'>BS2TTS discord server</a>.
-            Please send your .rosz file along with your bug report, and thank you so much for your patience!
+            Please reach out to ThePants999 in the <a href='https://discord.gg/kKT6JKsdek'>Yellowscribe discord server</a>.
+            Please send your .regiztry/.rosz file along with your bug report, and thank you so much for your patience!
         </p>`
             .replace(/[\n\r]/g, "\\n"),
         fileWrite: `<h2 class='error'>Something went wrong while creating your roster.</h2>
         <p>
-            Please reach out to Yellow Man in the <a href='https://discord.gg/kKT6JKsdek'>BS2TTS discord server</a>.
-            Please send your .rosz file along with your bug report, and thank you so much for your patience!
+            Please reach out to ThePants999 in the <a href='https://discord.gg/kKT6JKsdek'>Yellowscribe discord server</a>.
+            Please send your .regiztry/.rosz file along with your bug report, and thank you so much for your patience!
         </p>`
             .replace(/[\n\r]/g, "\\n"),
         rosterNotFound: "Your roster code appears to have expired, please upload it again and get a new code."

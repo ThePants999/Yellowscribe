@@ -169,7 +169,11 @@ function parseAndAddUnitSelection(selection, unit) {
         }
     }
 
-    if (selection.profiles && selection.profiles[0]) {
+    if (selection.$.type == "model") {
+        // Some units with particularly odd compositions have the overall
+        // composition as an "upgrade" selection, with the models underneath.
+        unit.addModel(parseModel(selection, unit));
+    } else if (selection.profiles && selection.profiles[0]) {
         for (const profile of selection.profiles[0].profile) {
             switch (profile.$.typeName) {
                 case "Melee Weapons":

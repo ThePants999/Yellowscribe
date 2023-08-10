@@ -106,7 +106,7 @@ function parseModel(modelAsset, unit) {
 }
 
 function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix = "") {
-    if (weaponAsset.keywords.Tags.includes("Multi-weapon")) {
+    if (weaponAsset.keywords.Tags && weaponAsset.keywords.Tags.includes("Multi-weapon")) {
         // This is a weapon consisting of multiple profiles.
         // We treat each profile - profiles here are further weapons
         // nested underneath this one - as a separate weapon.
@@ -164,17 +164,26 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix
 
 function parseAbility(abilityAsset) {
     let text = abilityAsset.text;
-    if (abilityAsset.keywords.Keywords.includes("Primarch")) {
+    if (abilityAsset.keywords.Keywords && abilityAsset.keywords.Keywords.includes("Primarch")) {
         for (let childAsset of abilityAsset.assets.traits) {
             if (childAsset.classification == "Ability") {
                 text += "\n" + childAsset.designation + ": " + childAsset.text;
             }
         }
     }
+
+    let keywords = [];
+    if (abilityAsset.keywords.Keywords) {
+        keywords = abilityAsset.keywords.Keywords;
+    }
+    if (abilityAsset.keywords.Tags) {
+        keywords = keywords.concat(abilityAsset.keywords.Tags);
+    }
+
     return new Model.Ability(
         abilityAsset.designation,
         abilityAsset.text,
-        abilityAsset.keywords.Keywords.concat(abilityAsset.keywords.Tags));
+        keywords);
 }
 
 function parseUnitChildAsset(unit, childAsset) {

@@ -212,10 +212,27 @@ class Model {
         let found = false;
         for (let existingWeapon of this.weapons) {
             if (existingWeapon.name == weapon.name) {
-                // Duplicate of one we already have
-                existingWeapon.number += weapon.number;
-                found = true;
-                break;
+                if (this._parentUnit.weapons.get(weapon.name).isMelee() == weapon.isMelee()) {
+                    // Duplicate of one we already have
+                    existingWeapon.number += weapon.number;
+                    found = true;
+                    break;
+                } else {
+                    // Dual-profile weapon. The Rosterizer parser is able to catch
+                    // this in advance, but the Rosz parser isn't; we kindly help
+                    // out by handling it here.
+                    let meleeName = weapon.name + " (melee)";
+                    let rangedName = weapon.name + " (ranged)";
+                    if (weapon.isMelee()) {
+                        this._parentUnit.renameWeapon(weapon.name, rangedName);
+                        existingWeapon.name = rangedName;
+                        weapon.name = meleeName;
+                    } else {
+                        this._parentUnit.renameWeapon(weapon.name, meleeName);
+                        existingWeapon.name = meleeName;
+                        weapon.name = rangedName;
+                    }
+                }
             }
         }
 
@@ -297,6 +314,15 @@ class Unit {
 
     addWeapon(weapon) {
         this.weapons.set(weapon.name, weapon);
+    }
+
+    renameWeapon(oldName, newName) {
+        let weapon = this.weapons.get(oldName);
+        if (weapon) {
+            this.weapons.set(newName, this.weapons.get(oldName));
+            this.weapons.delete(oldName);
+            weapon.name = newName;
+        }
     }
 
     completeParse() {

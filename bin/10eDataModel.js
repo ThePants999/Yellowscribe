@@ -1,5 +1,3 @@
-crypto = require('crypto');
-
 // You may scratch your head at some elements of how this is
 // structured. Me too, buddy! It's simply matching the 9e
 // data model, because that allows the client side to be
@@ -260,7 +258,7 @@ class Unit {
     modelProfiles = new Map();
     weapons = new Map();
     isSingleModel = false;
-    uuid = crypto.randomBytes(4).toString("hex");
+    uuid = require('crypto').randomBytes(4).toString("hex");
 
     // This one is an easy bit of backwards compatibility with 9e.
     // In the 9e data model, "rules" were any abilities so common-
@@ -299,7 +297,7 @@ class Unit {
     }
 
     addModel(model) {
-        this.models["models"].set(crypto.randomBytes(8).toString("hex"), model);
+        this.models["models"].set(require('crypto').randomBytes(8).toString("hex"), model);
         this.models["totalNumberOfModels"] += model.number;
     }
 

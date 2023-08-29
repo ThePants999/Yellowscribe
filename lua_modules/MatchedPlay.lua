@@ -41,7 +41,12 @@ function changeModelWoundCount(mod, target)
         if unitData.edition == "10e" then
             for _,ability in ipairs(unitData.abilities) do
                 if ability.name == "Core" then
+                    -- Rosterizer version
                     damagedCutoff = string.match(ability.desc, "Damaged: %d+-(%d+)")
+                    break
+                elseif ability.name:find("^Damaged") ~= nil then
+                    -- Battlescribe version
+                    damagedCutoff = string.match(ability.name, "Damaged: %d+-(%d+)")
                     break
                 end
             end

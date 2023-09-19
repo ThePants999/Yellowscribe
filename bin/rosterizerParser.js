@@ -55,7 +55,7 @@ function parseModel(modelAsset, unit) {
 
     let model = new Model.Model(name, number, unit);
     let modelWargear = [];
-    let modelShields = [];
+    let modelSpecialWargear = [];
     for (let asset of modelAsset.assets.traits) {
         if (asset.classIdentity == "Weapon") {
             parseAndAddWeapon(asset, model, unit);
@@ -65,8 +65,9 @@ function parseModel(modelAsset, unit) {
         } else if (asset.classification == "Wargear") {
             model.addAbility(parseAbility(asset));
             modelWargear.push(asset.designation);
-            if (asset.designation.toLowerCase().includes("shield")) {
-                modelShields.push(asset.designation);
+            if (asset.designation.toLowerCase().includes("shield") ||
+                asset.designation.toLowerCase().includes("vexilla")) {
+                modelSpecialWargear.push(asset.designation);
             }
         }
     }
@@ -84,13 +85,14 @@ function parseModel(modelAsset, unit) {
         // by having the Unit represent the model. We only want to
         // add a single piece of wargear, because otherwise T'au
         // get stupid with battlesuit systems and drones - but we do
-        // need to include all with "shield" in the name, because
-        // as above we need models with unique wound counts to have
-        // unique names, but bloody T'au can have both "Shield Drone"
-        // and "Shield Generator" on the same model.
-        if (modelShields.length > 0) {
-            for (let shield of modelShields) {
-                model.name += " w/ " + shield;
+        // need to include all wargear that changes stats, e.g. shields
+        // or vexillas, because as above we need models with unique
+        // statlines to have unique names, but bloody T'au can have both
+        // "Shield Drone" and "Shield Generator" on the same model, and
+        // similarly Custodes can have models with vex, shield or both.
+        if (modelSpecialWargear.length > 0) {
+            for (let specialWargear of modelSpecialWargear) {
+                model.name += " w/ " + specialWargear;
             }
         } else {
             model.name += " w/ " + modelWargear[0];

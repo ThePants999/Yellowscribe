@@ -26,7 +26,7 @@ function extractRegistryJSON(rawData) {
 function parseRegistry(json) {
     let roster = new Model.Roster();
 
-    discoverUnits(json);
+    discoverUnits(roster, json);
 
     for (let error of json.errors) {
         let errorText = error.message;
@@ -39,12 +39,12 @@ function parseRegistry(json) {
     return roster;
 }
 
-function discoverUnits(asset) {
+function discoverUnits(roster, asset) {
     for (let subAsset of asset.assets.included) {
         if (subAsset.lineage.includes("Unit")) {
             roster.addUnit(parseUnit(subAsset));
         }
-        discoverUnits(subAsset);
+        discoverUnits(roster, subAsset);
     }
 }
 

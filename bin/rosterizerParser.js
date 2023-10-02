@@ -129,19 +129,9 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix
         }
 
         for (let subAsset of weaponAsset.assets.traits) {
-            if (!mixedClasses) {
-                // This is multiple profiles of a strictly ranged or
-                // strictly melee weapon. Sensible names for the profiles
-                // are the overall weapon name plus the profile name.
+                // Sensible names for the profiles are the overall weapon name plus the profile name.
                 let weaponName = weaponAsset.stats.weaponName.processed.format.current + " - ";
                 parseAndAddWeapon(subAsset, model, unit, weaponName);
-            } else {
-                // This weapon has both ranged and melee profiles. Sensible
-                // names for the profiles are the profile name plus a type
-                // indication.
-                suffix = (subAsset.classification == "Melee Weapon") ? " (melee)" : " (ranged)";
-                parseAndAddWeapon(subAsset, model, unit, "", suffix);
-            }
         }
     } else {
         let name = namePrefix + weaponAsset.stats.weaponName.processed.format.current + nameSuffix;

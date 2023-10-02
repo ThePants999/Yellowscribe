@@ -112,7 +112,7 @@ function parseModel(modelAsset, unit) {
     return model;
 }
 
-function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix = "") {
+function parseAndAddWeapon(weaponAsset, model, unit, nameOverride = null) {
     if (weaponAsset.keywords.Tags && weaponAsset.keywords.Tags.includes("Multi-weapon")) {
         // This is a weapon consisting of multiple profiles.
         // We treat each profile - profiles here are further weapons
@@ -129,12 +129,22 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = "", nameSuffix
         }
 
         for (let subAsset of weaponAsset.assets.traits) {
-                // Sensible names for the profiles are the overall weapon name plus the profile name.
-                let weaponName = weaponAsset.stats.weaponName.processed.format.current + " - ";
-                parseAndAddWeapon(subAsset, model, unit, weaponName);
+            // The name of a profile should always start with the overall weapon
+            // name, followed by a suffix to distinguish the profiles.
+            let weaponName = weaponAsset.stats.weaponName.processed.format.current;
+            if (!mixedClasses) {
+                // This is multiple profiles of a strictly ranged or
+                // strictly melee weapon. Add the profile name.
+                weaponName += " - " + subAsset.stats.weaponName.processed.format.current;
+            } else {
+                // This weapon has both ranged and melee profiles. Add a type
+                // indication.
+                weaponName += (subAsset.classification == "Melee Weapon") ? " (melee)" : " (ranged)";
+            }
+            parseAndAddWeapon(subAsset, model, unit, weaponName);
         }
     } else {
-        let name = namePrefix + weaponAsset.stats.weaponName.processed.format.current + nameSuffix;
+        let name = nameOverride ? nameOverride : weaponAsset.stats.weaponName.processed.format.current;
         let isMelee = (weaponAsset.classification == "Melee Weapon");
         let range = isMelee ? Model.MELEE_RANGE : weaponAsset.stats.Range.processed.format.current;
         let a = weaponAsset.stats.A.processed.format.current;

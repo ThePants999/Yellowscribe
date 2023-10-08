@@ -23,14 +23,14 @@ function extractRosterXML(rawData) {
     return zip.readAsText(zipEntries[0]);
 }
 
-function parse10eRoster(forces) {
-    let roster = new DataModel.Roster();
+function parse10eRoster(forces, wargearAllocationMode) {
+    let roster = new DataModel.Roster(wargearAllocationMode);
 
     for (const force of forces[0].force) {
         if (force.selections && force.selections[0]) {
             for (const selection of force.selections[0].selection) {
                 if (selection.$.type == "unit" || selection.$.type == "model") {
-                    roster.addUnit(parseUnit(selection));
+                    roster.addUnit(parseUnit(selection, roster));
                 }
             }
         }
@@ -39,8 +39,8 @@ function parse10eRoster(forces) {
     return roster;
 }
 
-function parseUnit(selection) {
-    let unit = new DataModel.Unit(selection.$.name);
+function parseUnit(selection, roster) {
+    let unit = new DataModel.Unit(selection.$.name, roster);
 
     if (selection.profiles && selection.profiles[0]) {
         for (const profile of selection.profiles[0].profile) {
@@ -189,11 +189,21 @@ function parseAndAddUnitSelection(selection, unit) {
             switch (profile.$.typeName) {
                 case "Melee Weapons":
                 case "Ranged Weapons":
-                    unit.addAllModelsWeapon(parseWeapon(profile, 1));
+                    let weapon = parseWeapon(profile, 1);
+                    if (selection.$.from && selection.$.from == "group") {
+                        unit.addAllModelsWeapon(weapon);
+                    } else {
+                        unit.addUnassignedWeapon(weapon);
+                    }
                     break;
 
                 case "Abilities":
-                    unit.addAbility(parseAbility(profile));
+                    let ability = parseAbility(profile);
+                    if (selection.$.from && selection.$.from == "group") {
+                        unit.addAbility(ability);
+                    } else {
+                        unit.addUnassignedAbility(ability);
+                    }
                     break;
             }
         }
@@ -258,11 +268,11 @@ function parseAbility(profile) {
     return new DataModel.Ability(profile.$.name, profile.characteristics[0].characteristic[0]._, [])
 }
 
-module.exports.roszParse = (rawData) => {
+module.exports.roszParse = (rawData, wargearAllocationMode) => {
     const xmlData = extractRosterXML(rawData);
     const result = parseXML(xmlData);
     if (result.roster.$.gameSystemId == BS_10E_SYSTEM_ID) {
-        return parse10eRoster(result.roster.forces);
+        return parse10eRoster(result.roster.forces, wargearAllocationMode);
     } else {
         return Roster.parse(result.roster.forces);
     }

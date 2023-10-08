@@ -42,7 +42,7 @@ function parseRegistry(json) {
 function discoverUnits(roster, asset) {
     for (let subAsset of asset.assets.included) {
         if (subAsset.lineage.includes("Unit")) {
-            roster.addUnit(parseUnit(subAsset));
+            roster.addUnit(parseUnit(subAsset, roster));
         }
         discoverUnits(roster, subAsset);
     }
@@ -203,8 +203,8 @@ function parseUnitChildAsset(unit, childAsset) {
     }
 }
 
-function parseUnit(unitAsset) {
-    let unit = new Model.Unit(unitAsset.designation);
+function parseUnit(unitAsset, roster) {
+    let unit = new Model.Unit(unitAsset.designation, roster);
 
     for (let asset of unitAsset.assets.traits) {
          parseUnitChildAsset(unit, asset);

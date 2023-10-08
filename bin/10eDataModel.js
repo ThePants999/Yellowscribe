@@ -30,6 +30,11 @@ class Roster {
     order = [];
     units = new Map();
     errors = [];
+    wargearAllocationMode;
+
+    constructor(wargearAllocationMode = "allModels") {
+        this.wargearAllocationMode = wargearAllocationMode;
+    }
 
     addUnit(unit) {
         this.order.push(unit.uuid);
@@ -212,6 +217,23 @@ class Model {
         this._parentUnit = parentUnit;
     }
 
+    maybeSplit() {
+        // We want to modify a single model. If this is a stack of one,
+        // it'll do. Otherwise, split one out from this stack.
+        if (this.number == 1) {
+            return this;
+        } else {
+            let newModel = new Model(this.name, 1, this.parentUnit);
+            newModel._parentUnit = this._parentUnit;
+            newModel._internalAbilities = [...this._internalAbilities];
+            newModel.weapons = [...this.weapons];
+            this.number--;
+            this._parentUnit.models["totalNumberOfModels"] -= 1;
+            this._parentUnit.addModel(newModel);
+            return newModel;
+        }
+    }
+
     addAbility(ability) {
         if (!this.abilities.has(ability.name)) {
             this.abilities.add(ability.name);
@@ -272,6 +294,7 @@ class Unit {
     weapons = new Map();
     isSingleModel = false;
     uuid = require('crypto').randomBytes(4).toString("hex");
+    _roster;
 
     // This one is an easy bit of backwards compatibility with 9e.
     // In the 9e data model, "rules" were any abilities so common-
@@ -282,17 +305,21 @@ class Unit {
     // be empty.
     rules = [];
 
-    // Similarly - we don't have a problem in 10e assigning weapons
-    // to models.
+    // These are weapons and wargear abilities which aren't assigned
+    // to a specific model. This only happens with rosz files;
+    // Rosterizer is more accurate! Depending on the user's choice,
+    // we'll assign these once we've got all the models.
     unassignedWeapons = [];
+    _unassignedAbilities = [];
 
     // These are weapons which all models in the unit have, stored
     // during unit parsing and then pushed onto all models once
     // we know we have them all.
     _allModelWeapons = [];
 
-    constructor(name) {
+    constructor(name, roster) {
         this.name = name;
+        this._roster = roster;
         this.models["models"] = new Map();
         this.models["totalNumberOfModels"] = 0;
     }
@@ -318,9 +345,18 @@ class Unit {
         this.modelProfiles.set(profile.name, profile);
     }
 
+    addUnassignedAbility(ability) {
+        this._unassignedAbilities.push(ability);
+    }
+
     addAllModelsWeapon(weapon) {
         this.weapons.set(weapon.name, weapon);
         this._allModelWeapons.push(weapon);
+    }
+
+    addUnassignedWeapon(weapon) {
+        this.weapons.set(weapon.name, weapon);
+        this.unassignedWeapons.push(weapon);
     }
 
     addWeapon(weapon) {
@@ -338,10 +374,62 @@ class Unit {
 
     completeParse() {
         // Called when we've finished parsing this unit. We now
+        // need to allocate anything that's unallocated. We also
         // need to duplicate unit-scope abilities onto models, and
         // then collate all model-scope abilities onto the unit.
-        // We also need to aggregate Core and Faction abilities, and
+        // We finally need to aggregate Core and Faction abilities, and
         // copy all-model weapons to all models.
+        if (this._roster.wargearAllocationMode == "oneModel" ||
+            this._roster.wargearAllocationMode == "separateModels") {
+            // We need to auto-allocate unallocated wargear. We want to
+            // go in the order of most to least boring models, which
+            // likely means the ones there's most of in the unit.
+            let modelsArr = Array.from(this.models["models"].values());
+            modelsArr.sort((a, b) => b.number - a.number);
+            let modelIndex = 0;
+            let modelToModify = null;
+
+            for (let weapon of this.unassignedWeapons) {
+                if (modelToModify == null || this._roster.wargearAllocationMode == "separateModels") {
+                    // We need to split out another model to modify.
+                    if (modelToModify == modelsArr[modelIndex]) {
+                        // We just modified the last model in the stack,
+                        // move onto the next stack
+                        modelIndex++;
+                    }
+                    modelToModify = modelsArr[modelIndex].maybeSplit();
+                }
+
+                modelToModify.name += " w/ " + weapon.name;
+                modelToModify.addWeapon(weapon);
+            }
+
+            for (let ability of this._unassignedAbilities) {
+                if (modelToModify == null || this._roster.wargearAllocationMode == "separateModels") {
+                    // We need to split out another model to modify.
+                    if (modelToModify == modelsArr[modelIndex]) {
+                        // We just modified the last model in the stack,
+                        // move onto the next stack
+                        modelIndex++;
+                    }
+                    modelToModify = modelsArr[modelIndex].maybeSplit();
+                }
+
+                modelToModify.name += " w/ " + ability.name;
+                modelToModify.addAbility(ability);
+            }
+        } else {
+            // Unallocated wargear is to be treated as assigned to all
+            // models - nice and easy.
+            this._allModelWeapons = this._allModelWeapons.concat(this.unassignedWeapons);
+            for (let ability of this._unassignedAbilities) {
+                this.addAbility(ability);
+            }
+        }
+        this.unassignedWeapons = [];
+        delete this._unassignedAbilities;
+        delete this._roster;
+
         for (let ability of this.abilities.values()) {
             for (let model of this.models["models"].values()) {
                 model.addAbility(ability);

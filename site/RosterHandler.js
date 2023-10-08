@@ -164,7 +164,7 @@ function formatArmy(rosterFile) {
 
     on(oReq, "error", transferFailed);
 
-    oReq.open("POST", "getFormattedArmy?filename=" + rosterFile.name);
+    oReq.open("POST", "getFormattedArmy?filename=" + rosterFile.name + "&allocationMode=" + document.getElementById("wargearAllocationMode").value);
     oReq.send(rosterFile);
 }
 

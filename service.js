@@ -71,48 +71,20 @@ const file = new statik.Server('./site'),
                     pos += data[i].length;
                 }
 
-                if (postURL.pathname === "/format_and_store_army") {
-                    try {
-                        let armyDataObj = roszParse(buf);
-
-                        armyDataObj.uiHeight = postURL.searchParams.get('uiHeight');
-                        armyDataObj.uiWidth = postURL.searchParams.get('uiWidth');
-                        armyDataObj.baseScript = buildScript(postURL.searchParams.get("modules").split(","));
-                        fs.writeFile(`${PATH_PREFIX}${uuid}.json`,
-                            Roster.serialize(armyDataObj, 2)
-                                .replace(" & ", " and "),
-                            (err) => {
-                                let content, status;
-
-                                if (!err) {
-                                    content = `{ "id": "${uuid}" }`;
-                                    status = 200;
-                                } else {
-                                    content = `{ "err": "${ERRORS.fileWrite}" }`;
-                                    status = 500
-                                }
-
-                                sendHTTPResponse(res, content, status);
-                            });
-                    } catch (err) {
-                        if (err.toString().includes("Invalid or unsupported zip format.")) {
-                            sendHTTPResponse(res, `{ "err": "${ERRORS.invalidFormat}" }`, 415);
-                            console.log(err);
-                        } else {
-                            sendHTTPResponse(res, `{ "err": "${ERRORS.unknown}" }`, 500);
-                            console.log(err);
-                        }
-                    }
-                } else if (postURL.pathname === "/getFormattedArmy") {
+                if (postURL.pathname === "/getFormattedArmy") {
                     try {
                         let filename = postURL.searchParams.get("filename");
+                        let wargearAllocationMode = "allModels";
+                        if (postURL.searchParams.get("allocationMode")) {
+                            wargearAllocationMode = postURL.searchParams.get("allocationMode");
+                        }
                         let armyDataObj;
                         if (path.extname(filename) == '.regiztry') {
                             // Rosterizer registry
                             armyDataObj = rosterizerParse(buf);
                         } else {
                             // Battlescribe roster
-                            armyDataObj = roszParse(buf);
+                            armyDataObj = roszParse(buf, wargearAllocationMode);
                         }
                          sendHTTPResponse(res, Roster.serialize(armyDataObj, 2), 200);
                     } catch (err) {

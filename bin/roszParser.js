@@ -56,6 +56,18 @@ function parseUnit(selection) {
         }
     }
 
+    // Core and faction abilities are typically represented as "rules", whereas unit-specific
+    // ones are "profiles" of type "Abilities". Some, such as Leader, are both, with the "rule"
+    // having the generic text, and the "profile" having the unit-specific text, e.g. what
+    // units this unit can lead. The data model copes with duplicates by ignoring those after
+    // the first, so we parse rules after profiles to ensure we get the more specific version.
+    if (selection.rules && selection.rules[0]) {
+        for (const rule of selection.rules[0].rule) {
+            unit.addAbility(new DataModel.Ability(rule.$.name, rule.description[0], []));
+        }
+    }
+
+
     if (selection.$.type == "model") {
         // This is a single-model unit. Re-parse the selection
         // as a model.

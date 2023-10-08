@@ -9,6 +9,7 @@ weaponAbilityShortNames.set("assault", "AS");
 weaponAbilityShortNames.set("rapid fire", "RF");
 weaponAbilityShortNames.set("ignores cover", "IC");
 weaponAbilityShortNames.set("twin-linked", "TL");
+weaponAbilityShortNames.set("twin linked", "TL");
 weaponAbilityShortNames.set("pistol", "PL");
 weaponAbilityShortNames.set("torrent", "TO");
 weaponAbilityShortNames.set("lethal hits", "LH");
@@ -192,10 +193,8 @@ class Weapon {
             for (let ability of specialAbilities) {
                 if (this.abilities.length > 0) {
                     this.abilities += "\n";
-                    this.shortAbilities += ", ";
                 }
                 this.abilities += ability.name + ": " + ability.desc;
-                this.shortAbilities += ability.name;
             }
         }
 

@@ -67,7 +67,6 @@ function parseUnit(selection) {
         }
     }
 
-
     if (selection.$.type == "model") {
         // This is a single-model unit. Re-parse the selection
         // as a model.

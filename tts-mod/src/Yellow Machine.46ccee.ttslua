@@ -102,9 +102,9 @@ local CHANGING_CHARACTERISTICS_TEMPLATE = [[,
 local WEAPON_TEMPLATE_9E = [[[c6c930]${name}[-]
 ${rangeAndType} S:${s} AP:${ap} D:${d} ${ability} ]]
 local RANGED_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
-${range} A:${a} BS:${bs} S:${s} AP:${ap} D:${d} ${ability} ]]
+${range} A:${a} BS:${bs} S:${s} AP:${ap} D:${d} [7bc596]${ability}[-] ]]
 local MELEE_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
-A:${a} WS:${ws} S:${s} AP:${ap} D:${d} ${ability} ]]
+A:${a} WS:${ws} S:${s} AP:${ap} D:${d} [7bc596]${ability}[-] ]]
 local DEFAULT_BRACKET_VALUE_TEMPLATE = "[98ffa7]${val}[-]"
 local ABILITITY_STRING_TEMPLATE = '{ name = [[${name}]], desc = [=[${desc}]=] }'
 local WEAPON_ENTRY_TEMPLATE_9E = '{ name="${name}", range=[[${range}]], type="${type}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
@@ -1223,7 +1223,7 @@ function formatWeapon(weaponProfile, number)
                 s = weaponProfile.s,
                 ap = weaponProfile.ap,
                 d = weaponProfile.d,
-                ability = weaponProfile.shortAbilities == "-" and "" or "Ab:" .. weaponProfile.shortAbilities
+                ability = weaponProfile.shortAbilities == "-" and "" or "[" .. weaponProfile.shortAbilities .. "]"
             })
         else
             return  interpolate(RANGED_WEAPON_TEMPLATE_10E, {
@@ -1234,7 +1234,7 @@ function formatWeapon(weaponProfile, number)
                 s = weaponProfile.s,
                 ap = weaponProfile.ap,
                 d = weaponProfile.d,
-                ability = weaponProfile.shortAbilities == "-" and "" or "Ab:" .. weaponProfile.shortAbilities
+                ability = weaponProfile.shortAbilities == "-" and "" or "[" .. weaponProfile.shortAbilities .. "]"
             })
         end
     else

@@ -156,7 +156,9 @@ class Weapon {
                         this.abilities += ability.name;
                         let lowerAbility = ability.name.toLowerCase();
                         if (weaponAbilityShortNames.has(lowerAbility)) {
-                            // This ability has a short form - use it.
+                            // This ability has a short form - use it. (Note - we're going to
+                            // throw this away later, this is dead code - we may reinstate it
+                            // later.)
                             this.shortAbilities += weaponAbilityShortNames.get(lowerAbility);
                         } else {
                             // This ability doesn't have a short form:
@@ -176,8 +178,19 @@ class Weapon {
                 }
             }
 
+            // The above logic was designed to provide brevity in weapon tooltips,
+            // so "[Devastating Wounds, Sustained Hits 2]" could be shortened to
+            // "DW, SH2". Feedback suggests that that's not as important as clarity,
+            // so we're going to throw away the short form for now.
+            this.shortAbilities = this.abilities;
+
             for (let ability of specialAbilities) {
-                this.abilities += "\n" + ability.name + ": " + ability.desc;
+                if (this.abilities.length > 0) {
+                    this.abilities += "\n";
+                    this.shortAbilities += ", ";
+                }
+                this.abilities += ability.name + ": " + ability.desc;
+                this.shortAbilities += ability.name;
             }
         }
 

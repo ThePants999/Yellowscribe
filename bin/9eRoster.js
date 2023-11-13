@@ -37,12 +37,12 @@ function hasUnitSomewhereRecursive(selection) {
     if (selection.$.type === "model" || selection.$.type === "unit") return true; // we found it!
 
     // check the profiles in the selection data, if a unit exists, assume its a unit
-    if (selection.profiles && selection.profiles[0] !== "")
+    if (selection.profiles && selection.profiles[0] && selection.profiles[0] !== "")
         for (const profile of selection.profiles[0].profile)
             if (profile.$.typeName.toLowerCase() === "unit")
                 return true;
 
-    if (!selection.selections || selection.selections[0] === "") return false; // if there arent any children, return false
+    if (!selection.selections || !selection.selections[0] || selection.selections[0] === "") return false; // if there arent any children, return false
     // (we would have returned true already if this current selection was a unit or model)
 
     // else search the children

@@ -46,7 +46,7 @@ module.exports = class Model {
                 continue;
             }
 
-            if (selection.profiles && selection.profiles[0] !== "")
+            if (selection.profiles && selection.profiles[0] && selection.profiles[0] !== "")
                 for (const profile of selection.profiles[0].profile)
                     switch (profile.$.typeName.toLowerCase()) {
                         case "weapon":
@@ -70,7 +70,7 @@ module.exports = class Model {
                             break;
                     }
 
-            if (selection.selections && selection.selections[0] !== "")
+            if (selection.selections && selection.selections[0] && selection.selections[0] !== "")
                 this.handleSelectionDataRecursive(selection.selections, numberOfModelsInUnit);
         }
     }

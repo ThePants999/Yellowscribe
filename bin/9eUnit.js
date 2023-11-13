@@ -201,6 +201,7 @@ module.exports = class Unit {
             case "model":
                 // special case for Hellions because theyre formatted like the escpae below, but actually have a unit definition as well
                 if (selectionData.profiles &&
+                    selectionData.profiles[0] &&
                     selectionData.profiles[0] !== "" &&
                     selectionData.profiles[0].profile[0].$.name === selectionData.$.name) {
                         this.addModelSimpleData(selectionData.$.name, selectionData.selections, selectionData.$.number);
@@ -278,7 +279,7 @@ module.exports = class Unit {
                 break;
         }
 
-        if (selectionData.profiles && selectionData.profiles[0] !== "") {
+        if (selectionData.profiles && selectionData.profiles[0] && selectionData.profiles[0] !== "") {
             for (const profile of selectionData.profiles[0].profile) {
                 switch (profile.$.typeName.toLowerCase()) {
                     case "unit":
@@ -376,20 +377,20 @@ module.exports = class Unit {
             }
         }
 
-        if (selectionData.rules && selectionData.rules[0] !== "")
+        if (selectionData.rules && selectionData.rules[0] && selectionData.rules[0] !== "")
             for (const rule of selectionData.rules[0].rule)
                 this.addRule(rule);
 
-        if (selectionData.selections && selectionData.selections[0] !== "")
+        if (selectionData.selections && selectionData.selections[0] && selectionData.selections[0] !== "")
             for (const selection of selectionData.selections[0].selection)
                 this.handleSelectionDataRecursive(selection, selectionData, depth + 1); // recursively search selections
 
 
-        if (selectionData.categories && selectionData.categories[0] !== "")
+        if (selectionData.categories && selectionData.categories[0] && selectionData.categories[0] !== "")
             for (const category of selectionData.categories[0].category)
                     this.addKeyword(category);
 
-        if (selectionData.costs && selectionData.costs[0] !== "")
+        if (selectionData.costs && selectionData.costs[0] && selectionData.costs[0] !== "")
             for (const cost of selectionData.costs[0].cost)
                 if (cost.$.name.trim() === "PL") {
                     this.addPL(parseInt(cost.$.value, 10));

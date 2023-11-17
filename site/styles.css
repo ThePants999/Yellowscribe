@@ -144,13 +144,11 @@ header {
     font-family: 'Courier New', Courier, monospace!important;
     font-size: 1.8em;
     margin-bottom:40px;
-    display: flex;
     font-weight: bold;
     text-align: center;
     justify-content: center;
     align-items: center;
     color: #333;
-    max-height: 40px;
     overflow: hidden;
     transition: max-height .5s, margin .5s;
 }

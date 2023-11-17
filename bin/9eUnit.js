@@ -247,7 +247,7 @@ module.exports = class Unit {
                 break;
             case "upgrade":
                 if (!parentSelectionData || parentSelectionData.$.type.toLowerCase() === "model") break;
-                if (selectionData.profiles && selectionData.profiles[0] !== "") {
+                if (selectionData.profiles && selectionData.profiles[0] && selectionData.profiles[0] !== "") {
                     let found = false;
 
                     for (const profile of selectionData.profiles[0].profile){

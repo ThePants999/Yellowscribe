@@ -23,7 +23,7 @@ module.exports = class ModelCollection {
     addModelFromData (name, selectionData, number) {
         let newModel = new Model(name, number ? parseInt(number, 10) : number);
 
-        if (selectionData && selectionData[0] !== "" && selectionData[0].selection)
+        if (selectionData && selectionData[0] && selectionData[0] !== "" && selectionData[0].selection)
             newModel.handleSelectionDataRecursive(selectionData, newModel.number);
 
         this.add(newModel);

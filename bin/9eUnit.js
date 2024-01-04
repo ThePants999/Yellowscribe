@@ -211,6 +211,7 @@ module.exports = class Unit {
                 // sometimes the data creators mark a unit as a "model" for whatever reason,
                 // then later on describe the actual models in the unit (marking those as "unit" ugh)
                 if (selectionData.selections &&
+                    selectionData.selections[0] &&
                     selectionData.selections[0] !== "" &&
                     selectionData.selections[0].selection.findIndex(selection => selection.$.type.toLowerCase() === "unit") >= 0)
                         break;

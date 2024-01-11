@@ -131,12 +131,12 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = null) {
         for (let subAsset of weaponAsset.assets.traits) {
             // The name of a profile should be prefixed with the name of the weapon.
             if (subAsset.classIdentity == "Weapon") {
-                let weaponName = weaponAsset.aspects.Label;
+                let weaponName = weaponAsset.aspects?.Label || weaponAsset.designation;
                 parseAndAddWeapon(subAsset, model, unit, weaponName);
             }
         }
     } else {
-        let name = weaponAsset.aspects.Label;
+        let name = weaponAsset.aspects?.Label || weaponAsset.designation;
         if (namePrefix != null) {
             name = namePrefix + " - " + name;
         }

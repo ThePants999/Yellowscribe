@@ -49,9 +49,9 @@ function discoverUnits(roster, asset) {
 }
 
 function parseModel(modelAsset, unit) {
-    let name =
-        modelAsset.name ? `${modelAsset.name} (${modelAsset.designation})`
-        : modelAsset.designation;
+    let name = modelAsset.name ? 
+        `${modelAsset.name} (${modelAsset.aspects?.label || modelAsset.designation})`
+        : (modelAsset.aspects?.label || modelAsset.designation);
     let m = modelAsset.stats.M.processed.format.current;
     let t = modelAsset.stats.T.processed.format.current;
     let sv = modelAsset.stats.Sv.processed.format.current;
@@ -133,12 +133,16 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = null) {
         for (let subAsset of weaponAsset.assets.traits) {
             // The name of a profile should be prefixed with the name of the weapon.
             if (subAsset.classIdentity == "Weapon") {
-                let weaponName = weaponAsset.aspects?.Label || weaponAsset.designation;
+                let weaponName = weaponAsset.name ?
+                    `${weaponAsset.name} (${weaponAsset.aspects?.Label || weaponAsset.designation})`
+                    : (weaponAsset.aspects?.Label || weaponAsset.designation);
                 parseAndAddWeapon(subAsset, model, unit, weaponName);
             }
         }
     } else {
-        let name = weaponAsset.aspects?.Label || weaponAsset.designation;
+        let name = weaponAsset.name ?
+            `${weaponAsset.name} (${weaponAsset.aspects?.Label || weaponAsset.designation})`
+            : (weaponAsset.aspects?.Label || weaponAsset.designation);
         if (namePrefix != null) {
             name = namePrefix + " - " + name;
         }
@@ -171,7 +175,7 @@ function parseAbility(abilityAsset) {
     if (abilityAsset.keywords.Keywords && abilityAsset.keywords.Keywords.includes("Primarch")) {
         for (let childAsset of abilityAsset.assets.traits) {
             if (childAsset.classification == "Ability") {
-                text += "\n" + childAsset.designation + ": " + childAsset.text;
+                text += "\n" + (childAsset.name ? `${childAsset.name} (${childAsset.aspects?.Label || childAsset.designation})` : (childAsset.aspects?.Label || childAsset.designation)) + ": " + childAsset.text;
             }
         }
     }
@@ -185,7 +189,7 @@ function parseAbility(abilityAsset) {
     }
 
     return new Model.Ability(
-        abilityAsset.designation,
+        (abilityAsset.name ? `${abilityAsset.name} (${abilityAsset.aspects?.Label || abilityAsset.designation})` : (abilityAsset.aspects?.Label || abilityAsset.designation)),
         abilityAsset.text,
         keywords);
 }
@@ -208,7 +212,7 @@ function parseUnitChildAsset(unit, childAsset) {
 }
 
 function parseUnit(unitAsset, roster) {
-    let unit = new Model.Unit(unitAsset.designation, roster);
+    let unit = new Model.Unit((unitAsset.name ? `${unitAsset.name} (${unitAsset.aspects?.Label || unitAsset.designation})` : (unitAsset.aspects?.Label || unitAsset.designation)), roster);
 
     for (let asset of unitAsset.assets.traits) {
          parseUnitChildAsset(unit, asset);

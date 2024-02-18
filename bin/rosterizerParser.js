@@ -49,7 +49,9 @@ function discoverUnits(roster, asset) {
 }
 
 function parseModel(modelAsset, unit) {
-    let name = modelAsset.designation;
+    let name =
+        modelAsset.name ? `${modelAsset.name} (${modelAsset.designation})`
+        : modelAsset.designation;
     let m = modelAsset.stats.M.processed.format.current;
     let t = modelAsset.stats.T.processed.format.current;
     let sv = modelAsset.stats.Sv.processed.format.current;

@@ -52,7 +52,9 @@ local WOUND_COLOR_CUTOFFS = {
     {g=8, o=4}, -- 13
     {g=8, o=5}, -- 14
     {g=9, o=5}, -- 15
-    {g=9, o=5} -- 16
+    {g=9, o=5}, -- 16
+    {g=9, o=5}, -- 17
+    {g=10, o=5} -- 18
 }
 local WOUND_TRACK_COLORS = {
     { "[00ff16]" },

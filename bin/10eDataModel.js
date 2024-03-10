@@ -395,6 +395,16 @@ class Unit {
                         // We just modified the last model in the stack,
                         // move onto the next stack
                         modelIndex++;
+
+                        if (modelIndex >= modelsArr.length) {
+                            // We just wrapped round the set of models. That
+                            // means we've probably got nonsense data - more
+                            // weapons to assign than models in the unit!?
+                            // Can't see any sensible logic for how to handle
+                            // this, so we'll just start from the beginning
+                            // again so we don't crash.
+                            modelIndex = 0;
+                        }
                     }
                     modelToModify = modelsArr[modelIndex].maybeSplit();
                 }
@@ -410,6 +420,16 @@ class Unit {
                         // We just modified the last model in the stack,
                         // move onto the next stack
                         modelIndex++;
+
+                        if (modelIndex >= modelsArr.length) {
+                            // We just wrapped round the set of models. That
+                            // means we've probably got nonsense data - more
+                            // weapons to assign than models in the unit!?
+                            // Can't see any sensible logic for how to handle
+                            // this, so we'll just start from the beginning
+                            // again so we don't crash.
+                            modelIndex = 0;
+                        }
                     }
                     modelToModify = modelsArr[modelIndex].maybeSplit();
                 }

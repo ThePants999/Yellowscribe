@@ -114,6 +114,38 @@ const file = new statik.Server('./site'),
                         sendHTTPResponse(res, `{ "err": "${ERRORS.unknown}" }`, 500);
                         console.log(err);
                     }
+                } else if (postURL.pathname === "/makeArmyAndReturnCode") {
+                    try {
+                        let filename = postURL.searchParams.get("filename");
+                        let wargearAllocationMode = "allModels";
+                        if (postURL.searchParams.get("allocationMode")) {
+                            wargearAllocationMode = postURL.searchParams.get("allocationMode");
+                        }
+                        let armyDataObj;
+                        if (path.extname(filename) == '.regiztry') {
+                            // Rosterizer registry
+                            armyDataObj = convertMapsSetsToObject(rosterizerParse(buf));
+                        }
+                        console.log(uuid)
+                        sendHTTPResponse(res, `{ "code": "${uuid}" }`, 200);
+
+                        formatAndStoreRoster(uuid,
+                            armyDataObj.edition,
+                            armyDataObj.order,
+                            armyDataObj.units,
+                            postURL.searchParams.get('uiHeight'),
+                            postURL.searchParams.get('uiWidth'),
+                            postURL.searchParams.get('decorativeNames'),
+                            buildScript(postURL.searchParams.get("modules").split(",")));
+                    } catch (err) {
+                        if (err.toString().includes("Invalid or unsupported zip format.")) {
+                            sendHTTPResponse(res, `{ "err": "${ERRORS.invalidFormat}" }`, 415);
+                            console.log(err);
+                        } else {
+                            sendHTTPResponse(res, `{ "err": "${ERRORS.unknown}" }`, 500);
+                            console.log(err);
+                        }
+                    }
                 }
             });
         }
@@ -181,6 +213,26 @@ function cleanFiles() {
             }
         }
     });
+}
+
+function convertMapsSetsToObject(input) {
+    if (input instanceof Map) {
+        let obj = {};
+        input.forEach((value, key) => {
+            obj[key] = convertMapsSetsToObject(value);
+        });
+        return obj;
+    } else if (input instanceof Set) {
+        return Array.from(input).map(convertMapsSetsToObject);
+    } else if (typeof input === 'object' && !Array.isArray(input) && input !== null) {
+        let newObj = {};
+        for (let key in input) {
+            newObj[key] = convertMapsSetsToObject(input[key]);
+        }
+        return newObj;
+    } else {
+        return input;
+    }
 }
 
 var scriptBuilder;

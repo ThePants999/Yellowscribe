@@ -115,17 +115,38 @@ const file = new statik.Server('./site'),
                         console.log(err);
                     }
                 } else if (postURL.pathname === "/makeArmyAndReturnCode") {
+                    // This endpoint effectively combines both of the previous two into one,
+                    // supporting a mode whereby you go straight from uploaded file to code
+                    // without first getting an opportunity to inspect the parsed list, rename
+                    // units, configure options etc.
                     try {
+                        // Support the usual inputs just in case, but also default them since this
+                        // endpoint isn't being used by the native site.
+                        let wargearAllocationMode = postURL.searchParams.get("allocationMode") || "allModels";
+                        let uiHeight = postURL.searchParams.get('uiHeight') || "700";
+                        let uiWidth = postURL.searchParams.get('uiWidth') || "1200";
+                        let decorativeNames = postURL.searchParams.get('decorativeNames') || "";
+                        let modules = postURL.searchParams.get("modules") || "MatchedPlay";
+
                         let filename = postURL.searchParams.get("filename");
-                        let wargearAllocationMode = "allModels";
-                        if (postURL.searchParams.get("allocationMode")) {
-                            wargearAllocationMode = postURL.searchParams.get("allocationMode");
-                        }
                         let armyDataObj;
                         if (path.extname(filename) == '.regiztry') {
                             // Rosterizer registry
-                            armyDataObj = convertMapsSetsToObject(rosterizerParse(buf));
+                            armyDataObj = rosterizerParse(buf);
+                        } else {
+                            // Battlescribe roster
+                            armyDataObj = roszParse(buf, wargearAllocationMode);
                         }
+
+                        // "What in tarnation is going on here!?" you must be thinking. Well, the parsed army
+                        // contains a bunch of maps, as that made the parsing process easier, but the way we
+                        // serialize that when responding to a call to /getFormattedArmy ends up flattening
+                        // those maps in the resulting JSON. Therefore we're expecting the flattened verison
+                        // back on the subsequent call to /getArmyCode. Since we're combining both steps of
+                        // that process here, the easiest way to end up with the correct format is to do a hop
+                        // via JSON.
+                        armyDataObj = JSON.parse(Roster.serialize(armyDataObj, 2));
+
                         console.log(uuid)
                         sendHTTPResponse(res, `{ "code": "${uuid}" }`, 200);
 
@@ -133,10 +154,10 @@ const file = new statik.Server('./site'),
                             armyDataObj.edition,
                             armyDataObj.order,
                             armyDataObj.units,
-                            postURL.searchParams.get('uiHeight'),
-                            postURL.searchParams.get('uiWidth'),
-                            postURL.searchParams.get('decorativeNames'),
-                            buildScript(postURL.searchParams.get("modules").split(",")));
+                            uiHeight,
+                            uiWidth,
+                            decorativeNames,
+                            buildScript(modules.split(",")));
                     } catch (err) {
                         if (err.toString().includes("Invalid or unsupported zip format.")) {
                             sendHTTPResponse(res, `{ "err": "${ERRORS.invalidFormat}" }`, 415);
@@ -213,26 +234,6 @@ function cleanFiles() {
             }
         }
     });
-}
-
-function convertMapsSetsToObject(input) {
-    if (input instanceof Map) {
-        let obj = {};
-        input.forEach((value, key) => {
-            obj[key] = convertMapsSetsToObject(value);
-        });
-        return obj;
-    } else if (input instanceof Set) {
-        return Array.from(input).map(convertMapsSetsToObject);
-    } else if (typeof input === 'object' && !Array.isArray(input) && input !== null) {
-        let newObj = {};
-        for (let key in input) {
-            newObj[key] = convertMapsSetsToObject(input[key]);
-        }
-        return newObj;
-    } else {
-        return input;
-    }
 }
 
 var scriptBuilder;

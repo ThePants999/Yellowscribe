@@ -58,7 +58,7 @@ function parseModel(modelAsset, unit) {
     let w = modelAsset.stats.W.processed.format.current;
     let ld = modelAsset.stats.Ld.processed.format.current;
     let oc = modelAsset.stats.OC.processed.format.current;
-    let number = modelAsset.quantity;
+    let number = modelAsset.quantity || 1;
 
     let model = new Model.Model(name, number, unit);
     let modelWargear = [];

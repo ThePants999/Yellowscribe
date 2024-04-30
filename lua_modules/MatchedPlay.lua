@@ -486,6 +486,7 @@ end
 
 function updateEventHandlers(guid)
     self.UI.setAttribute("dataCardCloseButton", "onClick", guid.."/hideCard(dataCard)")
+    Global.UI.setAttribute("dataCardCloseButton", "onClick", guid.."/hideCard(dataCard)")
     self.UI.setValue("highlightButtonsContainer", interpolate(uiTemplates.buttons, { guid=guid, width=(unitData.uiWidth/10)-4 }))
 end
 

@@ -40,12 +40,14 @@ function parseRegistry(json) {
 }
 
 function discoverUnits(roster, asset) {
-    for (let subAsset of asset.assets.included) {
-        if (subAsset.lineage.includes("Unit")) {
-            roster.addUnit(parseUnit(subAsset, roster));
+    ['traits', 'included'].forEach(division => {
+        for (let subAsset of asset.assets[division]) {
+            if (subAsset.lineage.includes("Unit")) {
+                roster.addUnit(parseUnit(subAsset, roster));
+            }
+            discoverUnits(roster, subAsset);
         }
-        discoverUnits(roster, subAsset);
-    }
+    });
 }
 
 function parseModel(modelAsset, unit) {

@@ -167,6 +167,7 @@ function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = null) {
         }
 
         weapon.completeParse();
+        weapon.number = weaponAsset.quantity || 1;
 
         model.addWeapon(weapon);
     }

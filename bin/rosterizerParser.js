@@ -117,7 +117,8 @@ function parseModel(modelAsset, unit) {
 }
 
 function parseAndAddWeapon(weaponAsset, model, unit, namePrefix = null) {
-    if (weaponAsset.keywords.Tags && weaponAsset.keywords.Tags.includes("Multi-weapon")) {
+    let multiWeapon = !!weaponAsset.assets?.traits?.filter(trait => trait.classIdentity === "Weapon").length;
+    if (weaponAsset.keywords.Tags && multiWeapon) {
         // This is a weapon consisting of multiple profiles.
         // We treat each profile - profiles here are further weapons
         // nested underneath this one - as a separate weapon.

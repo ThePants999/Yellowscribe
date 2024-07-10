@@ -47,7 +47,7 @@ require("vscode/console")
 local DEBUG = false
 
 local loadedData, loadedDataOrder, originalLoadedOrder, edition, uiHeight, uiWidth, useDecorativeNames, armyDisplay, armyText
-local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.azurewebsites.net/get_army_by_id?id="
+local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.xyz/get_army_by_id?id="
 
 local uiTemplates = {
     UNIT_CONTAINER = [[ <VerticalLayout class="transparent" childForceExpandHeight="false">
@@ -1087,18 +1087,31 @@ end
 
 -- finds the appropriate characteristic profile for the given model in the given unit
 function getProfileForModel(model, unit)
+    local otherModelsProfile = nil
+
     for _,profile in pairs(unit.modelProfiles) do
         if profile.name == model.name then
             return profile
         end
+
+        if profile.name:lower() == "other models" then
+            otherModelsProfile = profile
+        end
     end
-    -- if there arent any exactly matching profiles, try a more fuzzy search
+    -- if there arent any exactly matching profiles, try a more fuzzy search (both ways - profile name
+    -- contains model name, and model name contains profile name)
     for _,profile in pairs(unit.modelProfiles) do
         local found = profile.name:find(model.name, 1, true) -- search for plain text (ie not pattern)
+        if found ~= nil then return profile end
 
+        found = model.name:find(profile.name, 1, true)
         if found ~= nil then return profile end
     end
-    -- if there arent any matching profiles, assume theres only one profile for every model in the unit
+    -- In 10th edition, at least one unit has "Other Models" as a catch-all
+    if otherModelsProfile then
+        return otherModelsProfile
+    end
+    -- if there arent any matching profiles, assume there's only one profile for every model in the unit
     for _,profile in pairs(unit.modelProfiles) do return profile end
 
     -- returns nil if not found

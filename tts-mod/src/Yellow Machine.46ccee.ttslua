@@ -1089,7 +1089,13 @@ end
 function getProfileForModel(model, unit)
     local otherModelsProfile = nil
 
-    if model.profileID ~= nil then 
+    -- This is for compatibility with Crusade F2P. Crusade F2P generates a slightly tweaked form of
+    -- army list where the profiles table is indexed by a unique ID instead of by name, and models then
+    -- have a profileID property to precisely identify the correct profile, instead of relying on name
+    -- matching. That allows multiple profiles to have the same name, which can be useful where
+    -- identically-named models differ in wargear that alters their characteristics. This code
+    -- is fine to execute against vanilla YellowScribe JSON as it'll simply never find a profileID.
+    if model.profileID ~= nil then
         return unit.modelProfiles[model.profileID];
     end
 

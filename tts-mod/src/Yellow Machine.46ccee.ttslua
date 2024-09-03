@@ -1089,6 +1089,10 @@ end
 function getProfileForModel(model, unit)
     local otherModelsProfile = nil
 
+    if model.profileID ~= nil then 
+        return unit.modelProfiles[model.profileID];
+    end
+
     for _,profile in pairs(unit.modelProfiles) do
         if profile.name == model.name then
             return profile

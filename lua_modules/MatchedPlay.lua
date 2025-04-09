@@ -3,6 +3,8 @@
 
 function none() end
 
+local orbit = {}
+
 
 function changeModelWoundCount(mod, target)
     local name = target.getName()
@@ -163,9 +165,57 @@ function toggleRectangularMeasuring(playerColor, target)
     changeMeasurementCircle(0, target)
 end
 
+local function handleOrbit(action)
 
+    local found = false
+    for abilityIndex, ability in pairs(unitData.abilities) do
+        if ability.name == "Synapse" then 
+            found = true
+        end
+    end
+    
+    if not found then return end
 
-
+    if next(orbit) == nil then
+        orbit = {
+            color     = {1, 0, 1}, --RGB color of the circle
+            radius    = 6,           --radius of the circle around the object
+            show      = true,       --should the circle be shown by default?
+            thickness = 0.25,         --thickness of the circle line
+            points    = {}
+        }
+    end
+    
+    if action < 0 then
+        orbit.radius = orbit.radius - 1
+        if orbit.radius < 1 then
+            orbit.radius = 0
+            self.setVectorLines({})
+            return
+        end
+    elseif action > 0 then
+        orbit.radius = orbit.radius + 1
+    end
+    
+    self.setVectorLines({})
+    
+    local baseRadius = determineBaseInInches(self)
+    
+    orbit.points = getCircleVectorPoints(orbit.radius, baseRadius.x, baseRadius.z, self)    
+    for index, values in pairs(orbit.points) do        
+        orbit.points[index].z = orbit.points[index].z - 1
+    end
+    
+    
+    self.setVectorLines({
+        {
+            points    = orbit.points,
+            color     = orbit.color,
+            thickness = orbit.thickness,
+            rotation  = {90,0,0},
+        }
+    })
+end
 
 
 
@@ -174,6 +224,13 @@ end
 
 
 function onLoad(savedState)
+
+    if self.max_typed_number < 1 then
+        self.max_typed_number = 9
+    end
+    
+    handleOrbit(0)
+
     if not self.hasTag("leaderModel") then return end -- prevents firing on objects we don't want firing
 
     local hasLoaded = self.getVar("hasLoaded")
@@ -315,7 +372,19 @@ function onObjectSpawn(object)
     end
 end
 
+function onNumberTyped(player_color, number)
 
+    local action = 0
+    if number == 1 then 
+        action = -1
+    elseif number == 2 then
+        action = 1
+    else 
+        return
+    end
+        
+    handleOrbit(action)
+end
 
 
 

@@ -190,14 +190,16 @@ local function handleOrbit(action)
         orbit.radius = orbit.radius - 1
         if orbit.radius < 1 then
             orbit.radius = 0
-            self.setVectorLines({})
-            return
         end
     elseif action > 0 then
         orbit.radius = orbit.radius + 1
     end
+
+    print(unitData.unitName .. " synapse radius changed to " .. orbit.radius)    
     
     self.setVectorLines({})
+
+    if orbit.radius == 0 then return end
     
     local baseRadius = determineBaseInInches(self)
     

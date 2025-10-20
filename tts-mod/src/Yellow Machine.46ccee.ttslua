@@ -47,7 +47,7 @@ require("vscode/console")
 local DEBUG = false
 
 local loadedData, loadedDataOrder, originalLoadedOrder, edition, uiHeight, uiWidth, useDecorativeNames, armyDisplay, armyText
-local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.xyz/get_army_by_id?id="
+local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.link/get_army_by_id?id="
 
 local uiTemplates = {
     UNIT_CONTAINER = [[ <VerticalLayout class="transparent" childForceExpandHeight="false">

@@ -411,12 +411,12 @@ end
 function buildXMLForSection(uiSection, dataSection)
     local uiString = ""     -- old: uiTemplates[section.."Header"]
     local _,_,rowHeight = uiTemplates[uiSection].find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"') -- get the height of the row to be added
-    local rowParity = "White"
+    local rowParity = "#333333"
     for _,entry in pairs(unitData[dataSection]) do
         entry["rowParity"] = rowParity
         uiString = uiString..interpolate(uiTemplates[uiSection], entry)
         dataCardHeight = dataCardHeight + tonumber(rowHeight)
-        rowParity = rowParity == "White" and "#f9f9f9" or "White"
+        rowParity = rowParity == "#333333" and "#212121" or "#333333"
     end
     self.UI.setValue(uiSection, uiString)
 end

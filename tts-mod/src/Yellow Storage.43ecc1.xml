@@ -4,291 +4,398 @@
         compatibility with other global UI. I hate the verbiosity just as much as the next person
 -->
 <Panel id="ym-container" visibility="hidden" unit-id="">
-    <VerticalLayout id="crusadeCard" height="726" width="1000" padding="3" childAlignment="TopLeft" allowDragging="true" returnToOriginalPositionWhenReleased="false" color="#ffffff" childForceExpandHeight="false" visibility="hidden" animationDuration="0.1" showAnimation="FadeIn" hideAnimation="FadeOut" >
-        <Panel preferredHeight="30" childForceExpandWidth="false">
-            <Panel rectAlignment="UpperRight" height="30" width="30">
+    <!-- CRUSADE CARD -->
+    <VerticalLayout id="crusadeCard" height="726" width="1000" padding="3" childAlignment="TopLeft" allowDragging="true" returnToOriginalPositionWhenReleased="false" color="#0f0f0f" childForceExpandHeight="false" visibility="hidden" animationDuration="0.1" showAnimation="FadeIn" hideAnimation="FadeOut">
+        <Panel preferredHeight="30" childForceExpandWidth="false" color="#0f0f0f">
+            <Panel rectAlignment="UpperRight" height="30" width="30" color="#00000000">
                 <Button transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" height="30" width="30" color="Red" textColor="#ffffff" id="crusadeCardCloseButton">X</Button>
             </Panel>
         </Panel>
-        <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" spacing="25">
-            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft">
-                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="650" columnWidths="200 0" cellPadding="0">
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <!-- putting an empty text cell to create padding is clearly not preferrable,
-                            but for whatever reason it didnt want to override the global padding for the cells -->
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">UNIT NAME:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccUnitName" placeholder="Personalized Name" /></Cell>
+
+        <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" spacing="25" color="#00000000">
+            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" color="#00000000">
+                <!-- Left details table -->
+                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="650" columnWidths="200 0" cellPadding="0" color="#00000000">
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">UNIT NAME:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccUnitName" placeholder="Personalized Name" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLEFIELD ROLE:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccBattlefieldRole" placeholder="HQ, Troops, etc." /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLEFIELD ROLE:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccBattlefieldRole" placeholder="HQ, Troops, etc." color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">CRUSADE FACTION:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccCrusadeFaction" placeholder="Imperium, Chaos, etc." /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">CRUSADE FACTION:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccCrusadeFaction" placeholder="Imperium, Chaos, etc." color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">SELECTABLE KEYWORDS:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccSelectableKeywords" placeholder="&#60;Chapter&#62;, &#60;Dynasty&#62;, etc." /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">SELECTABLE KEYWORDS:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccSelectableKeywords" placeholder="&#60;Chapter&#62;, &#60;Dynasty&#62;, etc." color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
                 </TableLayout>
-                <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" /> <!-- empty layout for spacing -->
-                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="325" cellPadding="0">
-                    <Row dontUseTableRowBackground="true" preferredHeight="74">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">POWER&#xD;&#xA;LEVEL</Text></Cell>
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">EXPERIENCE&#xD;&#xA;POINTS</Text></Cell>
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">CRUSADE&#xD;&#xA;POINTS</Text></Cell>
+
+                <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" color="#00000000" /> <!-- spacer -->
+
+                <!-- Right mini counters -->
+                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="325" cellPadding="0" color="#00000000">
+                    <Row dontUseTableRowBackground="true" preferredHeight="74" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter">
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">POWER&#xD;&#xA;LEVEL</Text>
+                        </Cell>
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter">
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">EXPERIENCE&#xD;&#xA;POINTS</Text>
+                        </Cell>
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter">
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">CRUSADE&#xD;&#xA;POINTS</Text>
+                        </Cell>
                     </Row>
-                    <Row preferredHeight="74" dontUseTableRowBackground="true" color="White">
+
+                    <Row preferredHeight="74" dontUseTableRowBackground="true" color="#141414">
                         <Cell>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter">
-                                <Button id="plDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="pl" fontStyle="Bold" color="#000000" fontSize="20" textColor="Black">0</Text>
-                                <Button id="plUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter" color="#00000000">
+                                <Button id="plDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="pl" fontStyle="Bold" color="#ffffff" fontSize="20" textColor="#ffffff">0</Text>
+                                <Button id="plUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </Cell>
                         <Cell>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter">
-                                <Button id="xpDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="xp" fontStyle="Bold" color="#000000" fontSize="20">0</Text>
-                                <Button id="xpUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter" color="#00000000">
+                                <Button id="xpDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="xp" fontStyle="Bold" color="#ffffff" fontSize="20">0</Text>
+                                <Button id="xpUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </Cell>
                         <Cell>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter">
-                                <Button id="clDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="cl" fontStyle="Bold" color="#000000" fontSize="20">0</Text>
-                                <Button id="clUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" spacing="4" childAlignment="MiddleCenter" color="#00000000">
+                                <Button id="clDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="cl" fontStyle="Bold" color="#ffffff" fontSize="20">0</Text>
+                                <Button id="clUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </Cell>
                     </Row>
                 </TableLayout>
             </HorizontalLayout>
-            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft">
-                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" flexibleWidth="1" columnWidths="200 0" cellPadding="0">
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">UNIT TYPE:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccUnitType" placeholder="Datasheet" /></Cell>
+
+            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" color="#00000000">
+                <!-- Unit meta -->
+                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" flexibleWidth="1" columnWidths="200 0" cellPadding="0" color="#00000000">
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">UNIT TYPE:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccUnitType" placeholder="Datasheet" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">EQUIPMENT:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccEquipment" placeholder="Wargear" /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">EQUIPMENT:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccEquipment" placeholder="Wargear" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">PSYCHIC POWERS:</Text></Cell>
-                        <!-- have to put a space at the end or it gets read as "No placeholder" -->
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccPsychicPowers" placeholder="None&#160;" /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">PSYCHIC POWERS:</Text>
+                        </Cell>
+                        <!-- space hack retained -->
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccPsychicPowers" placeholder="None&#160;" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">WARLORD TRAIT:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccWarlordTrait" placeholder="None&#160;" /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">WARLORD TRAIT:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccWarlordTrait" placeholder="None&#160;" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">RELIC:</Text></Cell>
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccRelic" placeholder="None&#160;" /></Cell>
+
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                            <Text preferredWidth="10" color="#00000000"></Text>
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">RELIC:</Text>
+                        </Cell>
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccRelic" placeholder="None&#160;" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
                 </TableLayout>
-                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="375" cellPadding="0">
-                    <Row dontUseTableRowBackground="true" preferredHeight="37">
-                        <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">OTHER UPGRADES AND SELECTABLE ABILITIES</Text></Cell>
+
+                <!-- Other upgrades -->
+                <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" preferredWidth="375" cellPadding="0" color="#00000000">
+                    <Row dontUseTableRowBackground="true" preferredHeight="37" color="#00000000">
+                        <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter">
+                            <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">OTHER UPGRADES AND SELECTABLE ABILITIES</Text>
+                        </Cell>
                     </Row>
-                    <Row dontUseTableRowBackground="true" preferredHeight="148">
-                        <Cell><InputField fontSize="20" onEndEdit="" id="ccOtherUpgrades" placeholder="Litanies, Exarch Powers, etc." lineType="MultiLineNewLine" /></Cell>
+                    <Row dontUseTableRowBackground="true" preferredHeight="148" color="#00000000">
+                        <Cell>
+                            <InputField fontSize="20" onEndEdit="" id="ccOtherUpgrades" placeholder="Litanies, Exarch Powers, etc." lineType="MultiLineNewLine" color="#141414" textColor="#ffffff" />
+                        </Cell>
                     </Row>
                 </TableLayout>
             </HorizontalLayout>
-            <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap">
-                <Row dontUseTableRowBackground="true" preferredHeight="35">
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter" columnSpan="3"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">COMBAT TALLIES</Text></Cell>
+
+            <!-- Combat tallies -->
+            <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" color="#00000000">
+                <Row dontUseTableRowBackground="true" preferredHeight="35" color="#00000000">
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter" columnSpan="3">
+                        <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">COMBAT TALLIES</Text>
+                    </Cell>
                 </Row>
-                <Row dontUseTableRowBackground="true" preferredHeight="35">
+
+                <Row dontUseTableRowBackground="true" preferredHeight="35" color="#00000000">
                     <Cell>
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20">
-                            <Text fontStyle="Bold" color="#000000" fontSize="16">TOTAL UNITS KILLED:</Text>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10">
-                                <Button id="totalKillsDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="totalKills" fontStyle="Bold" color="#000000" fontSize="16">0</Text>
-                                <Button id="totalKillsUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20" color="#00000000">
+                            <Text fontStyle="Bold" color="#ffffff" fontSize="16">TOTAL UNITS KILLED:</Text>
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10" color="#00000000">
+                                <Button id="totalKillsDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="totalKills" fontStyle="Bold" color="#ffffff" fontSize="16">0</Text>
+                                <Button id="totalKillsUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </HorizontalLayout>
                     </Cell>
+
                     <Cell>
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20">
-                            <Text fontStyle="Bold" color="#000000" fontSize="16">BATTLES PLAYED:</Text>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10">
-                                <Button id="playedDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="played" fontStyle="Bold" color="#000000" fontSize="16">0</Text>
-                                <Button id="playedUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20" color="#00000000">
+                            <Text fontStyle="Bold" color="#ffffff" fontSize="16">BATTLES PLAYED:</Text>
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10" color="#00000000">
+                                <Button id="playedDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="played" fontStyle="Bold" color="#ffffff" fontSize="16">0</Text>
+                                <Button id="playedUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </HorizontalLayout>
                     </Cell>
+
                     <Cell>
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20">
-                            <Text fontStyle="Bold" color="#000000" fontSize="16">BATTLES SURVIVED:</Text>
-                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10">
-                                <Button id="survivedDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" />
-                                <Text id="survived" fontStyle="Bold" color="#000000" fontSize="16">0</Text>
-                                <Button id="survivedUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="20" color="#00000000">
+                            <Text fontStyle="Bold" color="#ffffff" fontSize="16">BATTLES SURVIVED:</Text>
+                            <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" flexibleWidth="1" spacing="10" color="#00000000">
+                                <Button id="survivedDown" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="-" color="#1d1d1d" textColor="#ffffff" />
+                                <Text id="survived" fontStyle="Bold" color="#ffffff" fontSize="16">0</Text>
+                                <Button id="survivedUp" transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" text="+" color="#1d1d1d" textColor="#ffffff" />
                             </HorizontalLayout>
                         </HorizontalLayout>
                     </Cell>
                 </Row>
             </TableLayout>
-            <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="0 35 0 35 0 35 0 35" cellPadding="0">
-                <Row dontUseTableRowBackground="true" preferredHeight="35">
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter" columnSpan="8"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">RANK</Text></Cell>
+
+            <!-- Rank -->
+            <TableLayout childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="0 35 0 35 0 35 0 35" cellPadding="0" color="#00000000">
+                <Row dontUseTableRowBackground="true" preferredHeight="35" color="#00000000">
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter" columnSpan="8">
+                        <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">RANK</Text>
+                    </Cell>
                 </Row>
-                <Row dontUseTableRowBackground="true" preferredHeight="35">
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">BLOODED</Text></Cell>
-                    <Cell><ToggleButton colors="#ffffff|#aaaaaa|#aaaaaa|#bbbbbb" id="ccBlooded" /></Cell>
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">BATTLE-HARDENED</Text></Cell>
-                    <Cell><ToggleButton colors="#ffffff|#aaaaaa|#aaaaaa|#bbbbbb" id="ccBattleHardened" /></Cell>
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">HEROIC</Text></Cell>
-                    <Cell><ToggleButton colors="#ffffff|#aaaaaa|#aaaaaa|#bbbbbb" id="ccHeroic" /></Cell>
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">LEGENDARY</Text></Cell>
-                    <Cell><ToggleButton colors="#ffffff|#aaaaaa|#aaaaaa|#bbbbbb" id="ccLegendary" /></Cell>
+                <Row dontUseTableRowBackground="true" preferredHeight="35" color="#00000000">
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">BLOODED</Text></Cell>
+                    <Cell><ToggleButton colors="#333333|#555555|#777777|#999999" id="ccBlooded" /></Cell>
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">BATTLE-HARDENED</Text></Cell>
+                    <Cell><ToggleButton colors="#333333|#555555|#777777|#999999" id="ccBattleHardened" /></Cell>
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">HEROIC</Text></Cell>
+                    <Cell><ToggleButton colors="#333333|#555555|#777777|#999999" id="ccHeroic" /></Cell>
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleCenter"><Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleCenter" fontStyle="Bold">LEGENDARY</Text></Cell>
+                    <Cell><ToggleButton colors="#333333|#555555|#777777|#999999" id="ccLegendary" /></Cell>
                 </Row>
-                <Row dontUseTableRowBackground="true" preferredHeight="70">
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLE HONORS:</Text></Cell>
-                    <Cell columnSpan="7"><InputField fontSize="20" onEndEdit="" id="ccBattleHonors" placeholder="None&#160;" lineType="MultiLineNewLine" /></Cell>
+
+                <Row dontUseTableRowBackground="true" preferredHeight="70" color="#00000000">
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                        <Text preferredWidth="10" color="#00000000"></Text>
+                        <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLE HONORS:</Text>
+                    </Cell>
+                    <Cell columnSpan="7">
+                        <InputField fontSize="20" onEndEdit="" id="ccBattleHonors" placeholder="None&#160;" lineType="MultiLineNewLine" color="#141414" textColor="#ffffff" />
+                    </Cell>
                 </Row>
-                <Row dontUseTableRowBackground="true" preferredHeight="70">
-                    <Cell color="Black" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false"><Text preferredWidth="10"></Text><Text fontSize="16" textColor="White" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLE SCARS:</Text></Cell>
-                    <Cell columnSpan="7"><InputField fontSize="20" onEndEdit="" id="ccBattleScars" placeholder="None&#160;" lineType="MultiLineNewLine" /></Cell>
+
+                <Row dontUseTableRowBackground="true" preferredHeight="70" color="#00000000">
+                    <Cell color="#00000000" dontUseTableCellBackground="true" alignment="MiddleLeft" childForceExpandWidth="false">
+                        <Text preferredWidth="10" color="#00000000"></Text>
+                        <Text fontSize="16" textColor="#ffffff" color="#ffffff" alignment="MiddleLeft" fontStyle="Bold" flexibleWidth="1">BATTLE SCARS:</Text>
+                    </Cell>
+                    <Cell columnSpan="7">
+                        <InputField fontSize="20" onEndEdit="" id="ccBattleScars" placeholder="None&#160;" lineType="MultiLineNewLine" color="#141414" textColor="#ffffff" />
+                    </Cell>
                 </Row>
             </TableLayout>
         </VerticalLayout>
     </VerticalLayout>
 
-    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="dataCard" height="390" width="700" color="White" allowDragging="true" returnToOriginalPositionWhenReleased="false">
-        <Panel preferredHeight="40" childForceExpandWidth="false" color="#ffffff">
-            <Text id="data-unitName" fontStyle="Bold" fontSize="26" color="#000000" alignment="MiddleCenter" />
-            <Panel rectAlignment="UpperRight" height="30" width="30">
+    <!-- DATA CARD -->
+    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="dataCard" height="390" width="700" color="#0f0f0f" allowDragging="true" returnToOriginalPositionWhenReleased="false">
+        <Panel preferredHeight="40" childForceExpandWidth="false" color="#0f0f0f">
+            <Text id="data-unitName" fontStyle="Bold" fontSize="26" color="#ffffff" alignment="MiddleCenter" />
+            <Panel rectAlignment="UpperRight" height="30" width="30" color="#00000000">
                 <Button transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" height="30" width="30" color="Red" textColor="#ffffff" id="dataCardCloseButton">X</Button>
             </Panel>
         </Panel>
-        <VerticalLayout color="#ffffff">
-            <VerticalScrollView flexibleHeight="1" childForceExpandHeight="false" scrollSensitivity="40"><!-- not setting a preferred height, hopefully it expands properly -->
-                <VerticalLayout height="1000" padding="10" horizontalOverflow="Wrap" spacing="30" id="dataCardContentContainer">
-                    <VerticalLayout id="keywordContainer" preferredHeight="70">
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="2" preferredHeight="35">
-                            <Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleLeft" preferredWidth="93">Faction: </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="factionKeywords" alignment="MiddleLeft" horizontalOverflow="Wrap" preferredWidth="400" />
+
+        <VerticalLayout color="#0f0f0f">
+            <VerticalScrollView flexibleHeight="1" childForceExpandHeight="false" scrollSensitivity="40">
+                <VerticalLayout height="1000" padding="10" horizontalOverflow="Wrap" spacing="30" id="dataCardContentContainer" color="#0f0f0f">
+                    <!-- Keywords -->
+                    <VerticalLayout id="keywordContainer" preferredHeight="70" color="#00000000">
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" spacing="2" preferredHeight="35" color="#00000000">
+                            <Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleLeft" preferredWidth="93">Faction: </Text>
+                            <Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="factionKeywords" alignment="MiddleLeft" horizontalOverflow="Wrap" preferredWidth="400" color="#ffffff" />
                         </HorizontalLayout>
-                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" id="keywordList" spacing="3" preferredHeight="35">
-                            <Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleLeft" preferredWidth="93">Keywords:  </Text><Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="keywords" horizontalOverflow="Wrap" flexibleHeight="1" alignment="MiddleLeft" preferredWidth="400" />
+                        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" id="keywordList" spacing="3" preferredHeight="35" color="#00000000">
+                            <Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleLeft" preferredWidth="93">Keywords:  </Text>
+                            <Text resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="20" preferredHeight="20" fontStyle="Bold" id="keywords" horizontalOverflow="Wrap" flexibleHeight="1" alignment="MiddleLeft" preferredWidth="400" color="#ffffff" />
                         </HorizontalLayout>
                     </VerticalLayout>
 
-                    <VerticalLayout id="powersKnownContainer" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">WC</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Range</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Description</Text></Cell>
+                    <!-- Powers Known -->
+                    <VerticalLayout id="powersKnownContainer" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">WC</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Range</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Description</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="powersKnown" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" />
+                        <TableLayout id="powersKnown" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="psykerProfilesContainer" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Cast</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Deny</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Can Know</Text></Cell>
+                    <!-- Psyker Profiles -->
+                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="psykerProfilesContainer" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Cast</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Deny</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Can Know</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" />
+                        <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 70 70 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="modelsTable9e" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">M</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">WS</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">BS</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">S</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">T</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">W</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">A</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Ld</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Sv</Text></Cell>
+                    <!-- Models 9e -->
+                    <VerticalLayout id="modelsTable9e" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">WS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">BS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">S</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">T</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">W</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">A</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Ld</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Sv</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" />
+                        <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0 0 0 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="modelsTable10e" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">M</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">T</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Sv</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">W</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">LD</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">OC</Text></Cell>
+                    <!-- Models 10e -->
+                    <VerticalLayout id="modelsTable10e" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">T</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Sv</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">W</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">LD</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">OC</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="models10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0" />
+                        <TableLayout id="models10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0 0 0 0 0 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="weaponsTable9e" childForceExpandHeight="false" childAlignment="TopLeft" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Range</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Type</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">S</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">AP</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">D</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Abilities</Text></Cell>
+                    <!-- Weapons 9e -->
+                    <VerticalLayout id="weaponsTable9e" childForceExpandHeight="false" childAlignment="TopLeft" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Range</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Type</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">S</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">AP</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">D</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Abilities</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="weapons9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" />
+                        <TableLayout id="weapons9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 120 80 80 80 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout id="weaponsTable10e" childForceExpandHeight="false" childAlignment="TopLeft" active="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Range</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">A</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">BS/WS</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">S</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">AP</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">D</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="18" color="#000000" alignment="MiddleCenter">Abilities</Text></Cell>
+                    <!-- Weapons 10e -->
+                    <VerticalLayout id="weaponsTable10e" childForceExpandHeight="false" childAlignment="TopLeft" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Range</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">A</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">BS/WS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">S</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">AP</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">D</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="18" color="#ffffff" alignment="MiddleCenter">Abilities</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="weapons10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0" />
+                        <TableLayout id="weapons10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 70 70 70 70 70 70 0" color="#00000000" />
                     </VerticalLayout>
 
-                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0">
-                            <Row color="#999999" preferredHeight="40" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="26" color="#000000" alignment="MiddleCenter">Abilities</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="26" color="#000000" alignment="MiddleCenter">Description</Text></Cell>
+                    <!-- Abilities list -->
+                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="40" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="26" color="#ffffff" alignment="MiddleCenter">Abilities</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="26" color="#ffffff" alignment="MiddleCenter">Description</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="abilities" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0" />
+                        <TableLayout id="abilities" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 0" color="#00000000" />
                     </VerticalLayout>
 
                 </VerticalLayout>
             </VerticalScrollView>
         </VerticalLayout>
-        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" color="#ffffff00" spacing="3" padding="7 0 0 0" preferredHeight="27" id="highlightButtonsContainer" />
+
+        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" color="#00000000" spacing="3" padding="7 0 0 0" preferredHeight="27" id="highlightButtonsContainer" />
     </VerticalLayout>
 
-
-    <VerticalLayout id="tallyCard" height="180" width="350" allowDragging="true" returnToOriginalPositionWhenReleased="false" color="#ffffff88" visibility="hidden" animationDuration="0.1" showAnimation="FadeIn" hideAnimation="FadeOut" childForceExpandHeight="false" childAlignment="TopLeft">
-        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" preferredHeight="35" color="#ffffff" resizeTextForBestFit="true">
-            <Text id="tally-UnitName" flexibleWidth="1" fontSize="20" fontStyle="Bold" color="#000000" alignment="MiddleCenter" />
+    <!-- TALLY CARD -->
+    <VerticalLayout id="tallyCard" height="180" width="350" allowDragging="true" returnToOriginalPositionWhenReleased="false" color="#121212cc" visibility="hidden" animationDuration="0.1" showAnimation="FadeIn" hideAnimation="FadeOut" childForceExpandHeight="false" childAlignment="TopLeft">
+        <HorizontalLayout childForceExpandWidth="false" childForceExpandHeight="false" childAlignment="MiddleLeft" preferredHeight="35" color="#0f0f0f" resizeTextForBestFit="true">
+            <Text id="tally-UnitName" flexibleWidth="1" fontSize="20" fontStyle="Bold" color="#ffffff" alignment="MiddleCenter" />
             <Button transition="None" preferredHeight="24" preferredWidth="24" padding="3 3 3 3" resizeTextForBestFit="true" textAlignment="MiddleCenter" height="30" width="30" color="Red" textColor="#ffffff" id="tallyCardCloseButton">X</Button>
         </HorizontalLayout>
-        <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" spacing="5" padding="0 0 5 5" id="tallyContainer" />
+        <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" spacing="5" padding="0 0 5 5" id="tallyContainer" color="#00000000" />
     </VerticalLayout>
 </Panel>

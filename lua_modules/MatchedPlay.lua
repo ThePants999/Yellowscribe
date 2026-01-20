@@ -408,13 +408,73 @@ end
 
 -- builds the XML string for the given section based on data defined in unitData (see top of file)
 -- note: this is just for dataCard, although theoretically it can be used for any section
+
+local function estimateRowHeight(desc, maxWidth, fontSize)
+    desc = desc or ""
+
+    local charWidth = fontSize * 0.55
+    local charsPerLine = math.floor(maxWidth / charWidth)
+
+    local lineHeight = fontSize * 1.2
+    local baseHeight = fontSize * 2
+
+    local totalLines = 0
+
+    -- split on \n (Lua 5.2 safe)
+    local segments = {}
+    local start = 1
+
+    while true do
+        local nl = desc:find("\n", start, true)
+        if not nl then
+            table.insert(segments, desc:sub(start))
+            break
+        end
+        table.insert(segments, desc:sub(start, nl - 1))
+        start = nl + 1
+    end
+
+    -- handle empty string case
+    if #segments == 0 then
+        segments[1] = ""
+    end
+
+    for _, segment in ipairs(segments) do
+        if segment == "" then
+            -- blank line (from \n\n or leading/trailing \n)
+            totalLines = totalLines + 1
+        else
+            local segLength = #segment
+            local wrapped = math.ceil(segLength / charsPerLine)
+            if wrapped < 1 then wrapped = 1 end
+            totalLines = totalLines + wrapped
+        end
+    end
+
+    return baseHeight + (totalLines * lineHeight)
+end
+
 function buildXMLForSection(uiSection, dataSection)
     local uiString = ""     -- old: uiTemplates[section.."Header"]
-    local _,_,rowHeight = uiTemplates[uiSection].find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"') -- get the height of the row to be added
     local rowParity = "#333333"
     for _,entry in pairs(unitData[dataSection]) do
+                
+        local rowHeight
+        local template = uiTemplates[uiSection]
+
+        -- Only calculate dynamic height for abilities
+        if dataSection == "abilities" then
+            rowHeight = estimateRowHeight(entry.desc, 800, 16)
+            template = template:gsub('preferredHeight="%d+"', 'preferredHeight="' .. rowHeight .. '"')
+            -- preserve newlines \n\n didn't work, this is ugly but its better than a wall of text.
+            entry.desc = entry.desc:gsub("\n\n", "\n<textcolor color='#00FF0000'>-</textcolor>\n")
+        else
+            -- fallback: read height from template
+            _,_,rowHeight = template.find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"')
+        end
+
         entry["rowParity"] = rowParity
-        uiString = uiString..interpolate(uiTemplates[uiSection], entry)
+        uiString = uiString..interpolate(template, entry)
         dataCardHeight = dataCardHeight + tonumber(rowHeight)
         rowParity = rowParity == "#333333" and "#212121" or "#333333"
     end

@@ -32,8 +32,8 @@
     <VerticalLayout id="welcomeWindow" class="panelContainer" padding="10 10 35 10" spacing="20" color="#e1e9a5" active="false" visibility="hidden">
         <VerticalLayout spacing="5" childAlignment="LowerCenter" height="200" childForceExpandHeight="false" childForceExpandWidth="false">
             <Text fontSize="40" fontStyle="Bold">Welcome to Yellowscribe v2!</Text>
-            <Text fontSize="20">To get started, upload your Battlescribe Roster file to yellowscribe.xyz</Text>
-            <Text fontSize="20" color="#FF0000">Do NOT go to yellowscribe.net - that site is dead now!</Text>
+            <Text fontSize="20">To get started, upload your Battlescribe Roster file to yellowscribe.link</Text>
+            <Text fontSize="20" color="#FF0000">Do NOT go to yellowscribe.net or yellowscribe.xyz - those sites are dead now!</Text>
             <Text fontSize="20">Then enter the code you received below:</Text>
         </VerticalLayout>
 

@@ -408,13 +408,129 @@ end
 
 -- builds the XML string for the given section based on data defined in unitData (see top of file)
 -- note: this is just for dataCard, although theoretically it can be used for any section
+
+local function estimateRowHeight(desc, maxWidth, fontSize)
+    desc = desc or ""
+
+    -- slightly narrower average char width for proportional fonts
+    local charWidth = fontSize * 0.50
+    local charsPerLine = math.floor(maxWidth / charWidth)
+
+    local lineHeight = fontSize * 1.2
+    local baseHeight = fontSize * 2
+
+    local totalLines = 0
+
+    -- normalize line endings
+    desc = desc:gsub("\r\n", "\n"):gsub("\r", "\n")
+
+    -- split into lines
+    local segments = {}
+    for line in desc:gmatch("([^\n]*)\n?") do
+        table.insert(segments, line)
+    end
+
+    -- remove trailing empty lines
+    while #segments > 0 and segments[#segments] == "" do
+        table.remove(segments)
+    end
+
+    for _, segment in ipairs(segments) do
+        if segment == "" then
+            -- blank line: treat as half a line
+            totalLines = totalLines + 0.5
+        else
+            local segLength = #segment
+            local wrapped = math.ceil(segLength / charsPerLine)
+            totalLines = totalLines + wrapped
+        end
+    end
+
+    return baseHeight + (totalLines * lineHeight)
+end
+
+
+local function levenshtein(a, b)
+    if a == b then return 0 end
+    local lenA, lenB = #a, #b
+    if lenA == 0 then return lenB end
+    if lenB == 0 then return lenA end
+
+    local matrix = {}
+    for i = 0, lenA do matrix[i] = {[0] = i} end
+    for j = 0, lenB do matrix[0][j] = j end
+
+    for i = 1, lenA do
+        for j = 1, lenB do
+            local cost = (a:sub(i,i) == b:sub(j,j)) and 0 or 1
+            matrix[i][j] = math.min(
+                matrix[i-1][j] + 1,
+                matrix[i][j-1] + 1,
+                matrix[i-1][j-1] + cost
+            )
+        end
+    end
+
+    return matrix[lenA][lenB]
+end
+
+local function normalizeAbilities(str)
+    if not str or str == "-" then
+        return ""
+    end
+
+    str = str:gsub("[\r\n]+", ",")
+
+    local list = {}
+    for ability in str:gmatch("[^,]+") do
+        ability = ability:match("^%s*(.-)%s*$")
+        if ability ~= "" then
+            local isDuplicate = false
+            for _, existing in ipairs(list) do
+                if levenshtein(ability:lower(), existing:lower()) <= 2 then
+                    isDuplicate = true
+                    break
+                end
+            end
+            if not isDuplicate then
+                table.insert(list, ability)
+            end
+        end
+    end
+
+    return "[" .. table.concat(list, ",") .. "]"
+end
+
 function buildXMLForSection(uiSection, dataSection)
     local uiString = ""     -- old: uiTemplates[section.."Header"]
-    local _,_,rowHeight = uiTemplates[uiSection].find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"') -- get the height of the row to be added
     local rowParity = "#333333"
     for _,entry in pairs(unitData[dataSection]) do
+                
+        local rowHeight
+        local template = uiTemplates[uiSection]
+
+        if dataSection == "weapons" then
+            entry.abilities = normalizeAbilities(entry.abilities)
+
+        end
+
+        -- Only calculate dynamic height for abilities
+        if dataSection == "abilities" then
+            rowHeight = estimateRowHeight(entry.desc, 800, 16)
+            template = template:gsub('preferredHeight="%d+"', 'preferredHeight="' .. rowHeight .. '"')
+            -- preserve newlines \n\n didn't work, this is ugly but its better than a wall of text.
+            entry.desc = entry.desc:gsub("\r?\n%s*\r?\n", "<textcolor color='#00000000'>\n-\n</textcolor>")
+            entry.desc = entry.desc:gsub("%^%^(.-)%^%^", function(inner)
+                return inner:upper()
+                end)
+            entry.desc = entry.desc:gsub("%*%*(.-)%*%*", "<b>%1</b>")
+        else
+            -- fallback: read height from template
+            _,_,rowHeight = template.find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"')
+        end
+
         entry["rowParity"] = rowParity
-        uiString = uiString..interpolate(uiTemplates[uiSection], entry)
+        uiString = uiString..interpolate(template, entry)
         dataCardHeight = dataCardHeight + tonumber(rowHeight)
         rowParity = rowParity == "#333333" and "#212121" or "#333333"
     end

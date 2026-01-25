@@ -449,52 +449,51 @@ local function estimateRowHeight(desc, maxWidth, fontSize)
     return baseHeight + (totalLines * lineHeight)
 end
 
-
-local function levenshtein(a, b)
-    if a == b then return 0 end
-    local lenA, lenB = #a, #b
-    if lenA == 0 then return lenB end
-    if lenB == 0 then return lenA end
-
-    local matrix = {}
-    for i = 0, lenA do matrix[i] = {[0] = i} end
-    for j = 0, lenB do matrix[0][j] = j end
-
-    for i = 1, lenA do
-        for j = 1, lenB do
-            local cost = (a:sub(i,i) == b:sub(j,j)) and 0 or 1
-            matrix[i][j] = math.min(
-                matrix[i-1][j] + 1,
-                matrix[i][j-1] + 1,
-                matrix[i-1][j-1] + cost
-            )
-        end
-    end
-
-    return matrix[lenA][lenB]
-end
-
 local function normalizeAbilities(str)
     if not str or str == "-" then
         return ""
     end
 
+    -- Force to string
+    str = tostring(str)
+
+    -- Replace newlines with commas (safe)
     str = str:gsub("[\r\n]+", ",")
 
+    -- Remove ASCII control characters
+    str = str:gsub("[%z\1-\31]", "")
+
+    -- Remove high bytes (128–255)
+    str = str:gsub("[\128-\255]", "")
+
     local list = {}
-    for ability in str:gmatch("[^,]+") do
-        ability = ability:match("^%s*(.-)%s*$")
-        if ability ~= "" then
-            local isDuplicate = false
-            for _, existing in ipairs(list) do
-                if levenshtein(ability:lower(), existing:lower()) <= 2 then
-                    isDuplicate = true
-                    break
+    local seen = {}
+
+    -- ***************
+    -- PATTERN‑FREE SPLIT
+    -- ***************
+    local start = 1
+    local len = #str
+
+    for i = 1, len + 1 do
+        local c = str:sub(i, i)
+
+        if c == "," or i == len + 1 then
+            local ability = str:sub(start, i - 1)
+
+            -- Trim whitespace (pattern‑free)
+            ability = ability:gsub("^%s+", ""):gsub("%s+$", "")
+
+            if ability ~= "" then
+                local normalized = ability:gsub("%W", ""):upper()
+
+                if normalized ~= "" and not seen[normalized] then
+                    seen[normalized] = true
+                    table.insert(list, ability)
                 end
             end
-            if not isDuplicate then
-                table.insert(list, ability)
-            end
+
+            start = i + 1
         end
     end
 
@@ -511,7 +510,6 @@ function buildXMLForSection(uiSection, dataSection)
 
         if dataSection == "weapons" then
             entry.abilities = normalizeAbilities(entry.abilities)
-
         end
 
         -- Only calculate dynamic height for abilities

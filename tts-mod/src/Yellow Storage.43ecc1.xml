@@ -278,34 +278,9 @@
                         </HorizontalLayout>
                     </VerticalLayout>
 
-                    <!-- Powers Known -->
-                    <VerticalLayout id="powersKnownContainer" active="false" color="#00000000" childForceExpandHeight="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000">
-                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">WC</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Range</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Description</Text></Cell>
-                            </Row>
-                        </TableLayout>
-                        <TableLayout id="powersKnown" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000" />
-                    </VerticalLayout>
-
-                    <!-- Psyker Profiles -->
-                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="psykerProfilesContainer" active="false" color="#00000000">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000">
-                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Cast</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Deny</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Can Know</Text></Cell>
-                            </Row>
-                        </TableLayout>
-                        <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000" />
-                    </VerticalLayout>
 
                     <!-- Models 9e -->
-                    <VerticalLayout id="modelsTable9e" active="false" color="#00000000">
+                    <VerticalLayout id="modelsTable9e" active="false" color="#00000000" childForceExpandHeight="false">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000">
                             <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
@@ -321,6 +296,32 @@
                             </Row>
                         </TableLayout>
                         <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000" />
+                    </VerticalLayout>
+
+                    <!-- Powers Known -->
+                    <VerticalLayout id="powersKnownContainer" active="false" color="#00000000" childForceExpandHeight="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">WC</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Range</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Description</Text></Cell>
+                            </Row>
+                        </TableLayout>
+                        <TableLayout id="powersKnown" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 0" color="#00000000" />
+                    </VerticalLayout>
+
+                    <!-- Psyker Profiles -->
+                    <VerticalLayout childForceExpandHeight="false" childAlignment="TopLeft" id="psykerProfilesContainer" active="false" color="#00000000">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 0" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Cast</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Deny</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Can Know</Text></Cell>
+                            </Row>
+                        </TableLayout>
+                        <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 0" color="#00000000" />
                     </VerticalLayout>
 
                     <!-- Models 10e -->

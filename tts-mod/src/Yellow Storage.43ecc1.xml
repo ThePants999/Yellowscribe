@@ -278,6 +278,26 @@
                         </HorizontalLayout>
                     </VerticalLayout>
 
+
+                    <!-- Models 9e -->
+                    <VerticalLayout id="modelsTable9e" active="false" color="#00000000" childForceExpandHeight="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">WS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">BS</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">S</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">T</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">W</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">A</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Ld</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Sv</Text></Cell>
+                            </Row>
+                        </TableLayout>
+                        <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000" />
+                    </VerticalLayout>
+
                     <!-- Powers Known -->
                     <VerticalLayout id="powersKnownContainer" active="false" color="#00000000" childForceExpandHeight="false">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000">
@@ -302,25 +322,6 @@
                             </Row>
                         </TableLayout>
                         <TableLayout id="psykerProfiles" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="200 60 60 0" color="#00000000" />
-                    </VerticalLayout>
-
-                    <!-- Models 9e -->
-                    <VerticalLayout id="modelsTable9e" active="false" color="#00000000">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000">
-                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">WS</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">BS</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">S</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">T</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">W</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">A</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Ld</Text></Cell>
-                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Sv</Text></Cell>
-                            </Row>
-                        </TableLayout>
-                        <TableLayout id="models9e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60 60" color="#00000000" />
                     </VerticalLayout>
 
                     <!-- Models 10e -->

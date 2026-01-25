@@ -454,24 +454,46 @@ local function normalizeAbilities(str)
         return ""
     end
 
-    -- Replace newlines with commas
+    -- Force to string
+    str = tostring(str)
+
+    -- Replace newlines with commas (safe)
     str = str:gsub("[\r\n]+", ",")
+
+    -- Remove ASCII control characters
+    str = str:gsub("[%z\1-\31]", "")
+
+    -- Remove high bytes (128–255)
+    str = str:gsub("[\128-\255]", "")
 
     local list = {}
     local seen = {}
 
-    for ability in str:gmatch("[^,]+") do
-        -- Trim whitespace
-        ability = ability:match("^%s*(.-)%s*$")
+    -- ***************
+    -- PATTERN‑FREE SPLIT
+    -- ***************
+    local start = 1
+    local len = #str
 
-        if ability ~= "" then
-            -- Strip all special characters and convert to upper
-            local normalized = ability:gsub("%W", ""):upper()
+    for i = 1, len + 1 do
+        local c = str:sub(i, i)
 
-            if normalized ~= "" and not seen[normalized] then
-                seen[normalized] = true
-                table.insert(list, ability)
+        if c == "," or i == len + 1 then
+            local ability = str:sub(start, i - 1)
+
+            -- Trim whitespace (pattern‑free)
+            ability = ability:gsub("^%s+", ""):gsub("%s+$", "")
+
+            if ability ~= "" then
+                local normalized = ability:gsub("%W", ""):upper()
+
+                if normalized ~= "" and not seen[normalized] then
+                    seen[normalized] = true
+                    table.insert(list, ability)
+                end
             end
+
+            start = i + 1
         end
     end
 
@@ -488,7 +510,6 @@ function buildXMLForSection(uiSection, dataSection)
 
         if dataSection == "weapons" then
             entry.abilities = normalizeAbilities(entry.abilities)
-
         end
 
         -- Only calculate dynamic height for abilities

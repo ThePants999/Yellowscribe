@@ -102,7 +102,7 @@ local uiTemplates = {
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${oc}</Text></Cell>
                 </Row>]],
     weapons9e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="32">
-                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
+                    <Cell><Text color="White" fontSize="16" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="16" alignment="MiddleCenter">${range}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="16" alignment="MiddleCenter">${type}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${s}</Text></Cell>

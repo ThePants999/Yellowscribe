@@ -336,27 +336,49 @@ function showCard(cardName, playerColor, doBeforeShowing, doAfterShowing)
 
     -- wait in case ui needs to update
     Wait.frames(function ()
-        local globalUI = Global.UI.getXmlTable()
-        local selfUI = self.UI.getXmlTable()
+        local globalUI = Global.UI.getXmlTable() or {}
+        local selfUI = self.UI.getXmlTable() or {}
         local formattedCardName = "ymc-"..cardName.."-"..unitData.uuid.."-"..playerColor
         local shownYet = false
 
         -- yes, I know we go through the table twice, I don't like it
         for _,element in ipairs(globalUI) do
-            recursivelyCleanElement(element)
+            if element ~= nil then
+                recursivelyCleanElement(element)
 
-            if element.attributes.id == formattedCardName then
-                shownYet = true
+                local attrs = element.attributes
+                if attrs ~= nil and attrs.id == formattedCardName then
+                    shownYet = true
 
-                if element.attributes.visibility ~= playerColor or not element.attributes.active then
-                    element.attributes.visibility = playerColor
-                    element.attributes.active = true
+                    if attrs.visibility ~= playerColor or not attrs.active then
+                        attrs.visibility = playerColor
+                        attrs.active = true
+                    end
                 end
             end
         end
 
         if not shownYet then
-            local cardToShow = filter(selfUI[1].children, |child| child.attributes.id == cardName)[1]
+            local cardToShow = nil
+
+            for _,root in ipairs(selfUI) do
+                if root ~= nil and root.children ~= nil then
+                    for _,child in ipairs(root.children) do
+                        if child ~= nil and child.attributes ~= nil and child.attributes.id == cardName then
+                            cardToShow = child
+                            break
+                        end
+                    end
+                end
+
+                if cardToShow ~= nil then break end
+            end
+
+            if cardToShow == nil or cardToShow.attributes == nil then
+                print("showCard: couldn't find UI card '"..tostring(cardName).."' for unit "..tostring(unitData.uuid))
+                return
+            end
+
             cardToShow.attributes.id = formattedCardName
             cardToShow.attributes.visibility = playerColor
             cardToShow.attributes.active = true
@@ -504,7 +526,7 @@ function buildXMLForSection(uiSection, dataSection)
     local uiString = ""     -- old: uiTemplates[section.."Header"]
     local rowParity = "#333333"
     for _,entry in pairs(unitData[dataSection]) do
-                
+
         local rowHeight
         local template = uiTemplates[uiSection]
 
@@ -833,9 +855,49 @@ end
 
 --[[ UTILITY FUNCTIONS ]]--
 
-
+-- Replacement for previous gsub-based version due to suspected
+-- MoonSharp regression.
 function interpolate(templateString, replacementValues)
-    return (templateString:gsub('($%b{})', function(w) return replacementValues[w:sub(3, -2)] or w end))
+    if templateString == nil then return "" end
+    if replacementValues == nil then return templateString end
+
+    local out = {}
+    local idx = 1
+    local templateLen = #templateString
+
+    while idx <= templateLen do
+        local startIdx = templateString:find("${", idx, true)
+
+        if startIdx == nil then
+            table.insert(out, templateString:sub(idx))
+            break
+        end
+
+        if startIdx > idx then
+            table.insert(out, templateString:sub(idx, startIdx - 1))
+        end
+
+        local endIdx = templateString:find("}", startIdx + 2, true)
+
+        if endIdx == nil then
+            table.insert(out, templateString:sub(startIdx))
+            break
+        end
+
+        local key = templateString:sub(startIdx + 2, endIdx - 1)
+        local replacement = replacementValues[key]
+
+        -- Preserve old behavior: false/nil leave the token untouched.
+        if replacement == nil or replacement == false then
+            table.insert(out, templateString:sub(startIdx, endIdx))
+        else
+            table.insert(out, tostring(replacement))
+        end
+
+        idx = endIdx + 1
+    end
+
+    return table.concat(out)
 end
 
 

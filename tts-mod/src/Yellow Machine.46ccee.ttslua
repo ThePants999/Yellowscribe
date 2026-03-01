@@ -204,6 +204,31 @@ end
 -- End virus handling code
 
 
+-- v14.2 fix: safe replacement for table.sort to avoid MoonSharp closure bug.
+-- Uses only table.insert/table.remove to avoid IndexSet VM opcode.
+local function safeSort(arr, comparator)
+    if arr == nil then return end
+    local n = #arr
+    if n < 2 then return end
+    local items = {}
+    for idx = 1, n do
+        table.insert(items, arr[idx])
+    end
+    for idx = n, 1, -1 do
+        table.remove(arr, idx)
+    end
+    while #items > 0 do
+        local bestIdx = 1
+        for i = 2, #items do
+            if comparator(items[i], items[bestIdx]) then
+                bestIdx = i
+            end
+        end
+        table.insert(arr, items[bestIdx])
+        table.remove(items, bestIdx)
+    end
+end
+
 
 
 function moveToLoadingScreen()
@@ -543,8 +568,10 @@ function createArmy()
     -- this feels so inefficient to go through the array so many times,
     -- but at this point, the array really shouldn't be that long,
     -- so I dont have to worry too much about big-O
-    unitsToCreate = table.sort(map(unitsToCreate, function (unit)
-        unit.models.models = table.sort(unit.models.models, |modelA, modelB| modelA.number < modelB.number)
+    unitsToCreate = map(unitsToCreate, function (unit)
+        if unit.models.models ~= nil then
+            safeSort(unit.models.models, function(modelA, modelB) return modelA.number < modelB.number end)
+        end
 
         --[[ for _,model in ipairs(unit.models.models) do
             model.associatedModel = getObjectFromGUID(model.associatedModel)
@@ -553,7 +580,8 @@ function createArmy()
         unit.footprint = determineFootprint(unit)
 
         return unit
-    end), function (unitA, unitB)
+    end)
+    safeSort(unitsToCreate, function (unitA, unitB)
         if unitA.footprint.width == unitB.footprint.width then
             return unitB.footprint.height < unitA.footprint.height
         end
@@ -1439,32 +1467,21 @@ function getModelDataForXML(unitID, modelID, model, characteristicProfiles)
     local weaponSection,abilitiesSection = "",""
     local totalCardHeight = 40 -- name
 
-    model.weapons = table.sort(model.weapons, function (weaponA,weaponB) --combine(model.weapons, model.assignedWeapons)
-        if edition == "10e" then
-            local rangeA = trim(characteristicProfiles[weaponA.name].range):gsub("%s+%d?D?d?%/?%d+$", ""):lower()
-            local rangeB = trim(characteristicProfiles[weaponB.name].range):gsub("%s+%d?D?d?%/?%d+$", ""):lower()
-            local aIsMelee = rangeA == "melee" and 1 or 0
-            local bIsMelee = rangeB == "melee" and 1 or 0
-
-            if aIsMelee == bIsMelee then return weaponA.name < weaponB.name end
-            return aIsMelee < bIsMelee
-        else
-            local typeA = trim(characteristicProfiles[weaponA.name].type):gsub("%s+%d?D?d?%/?%d+$", ""):lower()
-            local typeB = trim(characteristicProfiles[weaponB.name].type):gsub("%s+%d?D?d?%/?%d+$", ""):lower()
-            local typeAVal = WEAPON_TYPE_VALUES[typeA] == nil and 0 or WEAPON_TYPE_VALUES[typeA]
-            local typeBVal = WEAPON_TYPE_VALUES[typeB] == nil and 0 or WEAPON_TYPE_VALUES[typeB]
-
-            if typeAVal == typeBVal then return weaponA.name < weaponB.name end
-            return typeAVal < typeBVal
-        end
-    end)
+    -- v14.2: weapon sort disabled to work around MoonSharp closure bug
+    -- Weapons will appear in their natural JSON order instead of sorted
 
     if model.weapons ~= nil and #model.weapons > 0 then
+        local weaponNames = {}
+        for _, weapon in ipairs(model.weapons) do
+            if weapon.number == 1 then
+                table.insert(weaponNames, weapon.name)
+            else
+                table.insert(weaponNames, weapon.number.."x "..weapon.name)
+            end
+        end
         weaponSection = interpolate(uiTemplates.MODEL_DATA, {
             dataType = "Weapons:",
-            data = table.concat(map(model.weapons,
-                                    |weapon| weapon.number == 1 and weapon.name or (weapon.number.."x "..weapon.name))
-                                ,"\n"),
+            data = table.concat(weaponNames, "\n"),
             height = 37 * #model.weapons
         })
         totalCardHeight = totalCardHeight + (37 * #model.weapons) + (#model.abilities > 0 and 55 or 60) -- title and spacer
@@ -1504,7 +1521,19 @@ end
 
 
 function interpolate(templateString, replacementValues)
-    return (templateString:gsub('($%b{})', |w| replacementValues[w:sub(3, -2)] or w)) -- extra parenthesis to prevent double return from gsub
+    local result = templateString
+    for key, val in pairs(replacementValues) do
+        local target = "${" .. key .. "}"
+        local valStr = tostring(val)
+        local searchStart = 1
+        while true do
+            local startPos, endPos = result:find(target, searchStart, true)
+            if not startPos then break end
+            result = result:sub(1, startPos - 1) .. valStr .. result:sub(endPos + 1)
+            searchStart = startPos + #valStr
+        end
+    end
+    return result
 end
 
 function combine(tab1, tab2)

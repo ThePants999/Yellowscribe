@@ -438,8 +438,20 @@ class Unit {
                 modelToModify.addAbility(ability);
             }
         } else {
-            // Unallocated wargear is to be treated as assigned to all
-            // models - nice and easy.
+            // Some annoying units have their weapons duplicated both correctly
+            // as model-scope upgrades and incorrectly as unit-scope ones, resulting
+            // in superfluous unallocated weapons. We want to ignore those, so we'll
+            // remove any unallocated weapons which are already assigned to a model.
+            let assignedWeapons = new Set();
+            for (let model of this.models["models"].values()) {
+                for (let weapon of model.weapons) {
+                    assignedWeapons.add(weapon.name);
+                }
+            }
+            this.unassignedWeapons = this.unassignedWeapons.filter(weapon => !assignedWeapons.has(weapon.name));
+
+            // After accounting for that silliness, remaining unallocated wargear is
+            // to be treated as assigned to all models - nice and easy.
             this._allModelWeapons = this._allModelWeapons.concat(this.unassignedWeapons);
             for (let ability of this._unassignedAbilities) {
                 this.addAbility(ability);

@@ -11,7 +11,7 @@ module.exports.parse = (data) => {
 
     for (const force of data[0].force) {
         if (force.selections === undefined || force.selections.length !== 1) {
-            break;
+            continue;
         }
 
         let armyUnitData = force.selections[0].selection.filter(hasUnitSomewhereRecursive);

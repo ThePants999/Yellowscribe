@@ -540,10 +540,15 @@ function buildXMLForSection(uiSection, dataSection)
             template = template:gsub('preferredHeight="%d+"', 'preferredHeight="' .. rowHeight .. '"')
             -- preserve newlines \n\n didn't work, this is ugly but its better than a wall of text.
             entry.desc = entry.desc:gsub("\r?\n%s*\r?\n", "<textcolor color='#00000000'>\n-\n</textcolor>")
-            entry.desc = entry.desc:gsub("%^%^(.-)%^%^", function(inner)
-                return inner:upper()
+            local success, result = pcall(function()
+                entry.desc = entry.desc:gsub("%^%^(.-)%^%^", function(inner)
+                    return inner:upper()
                 end)
-            entry.desc = entry.desc:gsub("%*%*(.-)%*%*", "<b>%1</b>")
+                entry.desc = entry.desc:gsub("%*%*(.-)%*%*", "<b>%1</b>")
+            end)
+            if not success then
+                -- Best-effort: if pattern fails, leave desc as-is
+            end
         else
             -- fallback: read height from template
             _,_,rowHeight = template.find(uiTemplates[uiSection], 'Row.-preferredHeight="(%d+)"')

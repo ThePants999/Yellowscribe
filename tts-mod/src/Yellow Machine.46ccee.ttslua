@@ -50,19 +50,18 @@ local loadedData, loadedDataOrder, originalLoadedOrder, edition, uiHeight, uiWid
 local url = DEBUG and "http://localhost:3000/get_army_by_id?id=" or "https://yellowscribe.link/get_army_by_id?id="
 
 local uiTemplates = {
-    UNIT_CONTAINER = [[ <VerticalLayout class="transparent" childForceExpandHeight="false">
+    UNIT_CONTAINER = [[ <VerticalLayout color="#475a64" childForceExpandHeight="false" outline="#2a3a44" outlineSize="4">
                             <Text class="unitName">${unitName}</Text>
-                            <VerticalLayout class="unitContainer" childForceExpandHeight="false" preferredHeight="${height}" spacing="20">
+                            <VerticalLayout class="unitContainer" childForceExpandHeight="false" preferredHeight="${height}" spacing="9">
                                 ${unitData}
                             </VerticalLayout>
                         </VerticalLayout> ]],
     MODEL_CONTAINER = [[<VerticalLayout preferredWidth="500" childForceExpandHeight="false" class="modelContainer" id="${unitID}|${modelID}" preferredHeight="${height}">
                             <Text class="modelDataName">${numberString}${modelName}</Text>
                             ${weapons}
-                            ${abilities}
                         </VerticalLayout> ]],
     MODEL_DATA = [[ <VerticalLayout childForceExpandHeight="false" childForceExpandWidth="false">
-                        <Text height="15"><!-- spacer --></Text>
+                        <Text height="2"><!-- spacer --></Text>
                         <Text class="modelDataTitle">${dataType}</Text>
                         <Text class="modelData" preferredHeight="${height}">${data}</Text>
                     </VerticalLayout> ]],
@@ -124,7 +123,7 @@ local PSYCHIC_POWER_ENTRY_TEMPLATE = '{ name="${name}", warpCharge="${warpCharge
 local YELLOW_STORAGE_GUID = "43ecc1"
 local ARMY_BOARD_GUID = "2955a6"
 local DELETION_ZONE_GUID = "f33dff"
-local AGENDA_MANAGER_GUID = "45cd3f"
+--local AGENDA_MANAGER_GUID = "45cd3f"
 local IS_IN_HOME_MOD
 local yellowStorage,YELLOW_STORAGE_XML,YELLOW_STORAGE_SCRIPT,army,armyBoard,uiHeight,uiWidth,edition
 local SLOT_POINTS = {slot={},boundingBox={},placed={},models={}}
@@ -150,62 +149,61 @@ local WEAPON_TYPE_VALUES = {
     ["melee"] = 3
 }
 local CREATE_ARMY_BUTTON = {
-    label="CREATE ARMY", click_function="createArmy", function_owner=self,
-    position={0.5,1.5,0}, rotation={180,0,180}, height=550, width=2750, font_size=220, font_style = "Bold",
-    font_color={1,1,1}, color={0,150/255,0}
+    label="CREATE ARMY",
+    click_function="createArmy",
+    function_owner=self,
+    position={12.2,0.60,14.3},
+    rotation={180,0,180},
+    height=640,
+    width=2750,
+    scale={1.2,1.2,1.2},
+    font_size=300,
+    font_style = "Bold",
+    font_color={0,0,0},
+    color={255,255,0}
 }
+local RESET_YELLOWSCRIBE_BUTTON = {
+    label="Reset",
+    click_function="resetYellowscribe",
+    function_owner=self,
+    position={12.2,0.60,11.6},
+    rotation={180,0,180},
+    height=430,
+    width=1500,
+    scale={1.2,1.2,1.2},
+    font_size=300,
+    font_style = "Bold",
+    font_color={0,0,0},
+    color={210,0,0}
+}
+
+function resetYellowscribe()
+    UI.hide("mainPanel")
+    UI.setAttribute("loadedScrollContainer", "active", false)
+    self.reload()
+    print("Yellowscribe reset!")
+end
+
 local ON_BUTTON = {
-    label="LOAD ROSTER", click_function="turnOnYellowMachine", function_owner=self,
-    position={0,0.52,0}, rotation={180,0,180}, height=550, width=2750, font_size=220, font_style = "Bold",
-    font_color={1,1,1}, color={0,150/255,0}
+    label="Launch Yellowscribe",
+    click_function="turnOnYellowMachine",
+    function_owner=self,
+    position={12.2,0.60,14.3},
+    rotation={180,0,180},
+    height=640,
+    width=2950,
+    scale={1.2,1.2,1.2},
+    font_size=300,
+    font_style = "Bold",
+    font_color={0,0,0},
+    color={255,255,0}
 }
+
+
 local modelAssociations,activeButtons = {},{}
 local numAssociatedObjects,firstModelAssociation = 0,true
 local ERROR_RED = { 1, 0.25, 0.25 }
 
-
-
-
-
-
--- Hopefully-temporary code to deal with the outbreak of a TTS virus
--- This code is copied from https://steamcommunity.com/sharedfiles/filedetails/?id=2967684892
--- published by Larrie Corvell, thanks Larrie. It has been modified.
--- It's licensed under Creative Commons Attribution-ShareAlike 4.0 International License
--- (https://creativecommons.org/licenses/by-sa/4.0/).
-
-local sillySpaces = string.rep("  ", 90)
-local naiveRemovalPattern = string.format("(%s.+)$", sillySpaces)
-function detectSillySpaces(obj)
-    local script = obj.getLuaScript()
-    if string.find(script, sillySpaces) then
-        return true, script
-    end
-end
-
-function clean(obj, debugNote)
-    Wait.stopAll()
-    local hasSillySpaces, script = detectSillySpaces(obj)
-    if hasSillySpaces then
-        local cleanedScript = string.gsub(script, naiveRemovalPattern, "")
-        obj.setLuaScript(cleanedScript)
-        print("One or more of the models you just spawned in contained malicious code. Yellowscribe has deleted it and the model is now safe to use, but you should contact the source of the model to get them to fix it.")
-    end
-end
-
-function onObjectSpawn(obj)
-    clean(obj, "onObjectSpawn")
-end
-
-function onObjectLeaveContainer(container, obj)
-    clean(obj, "onObjectLeaveContainer")
-end
-
--- End virus handling code
-
-
--- v14.2 fix: safe replacement for table.sort to avoid MoonSharp closure bug.
--- Uses only table.insert/table.remove to avoid IndexSet VM opcode.
 local function safeSort(arr, comparator)
     if arr == nil then return end
     local n = #arr
@@ -228,6 +226,7 @@ local function safeSort(arr, comparator)
         table.remove(items, bestIdx)
     end
 end
+
 
 
 
@@ -322,7 +321,9 @@ function turnOnYellowMachine()
     showWindow("welcomeWindow")
 end
 
-
+function closeWelcomeWindow(player, text)
+    UI.hide("mainpanel")
+end
 
 
 
@@ -331,27 +332,12 @@ end
 
 --[[ EVENT HANDLERS ]]--
 
-
 function onLoad()
-    IS_IN_HOME_MOD = Global.getVar("isYMBS2TTS") ~= nil
-
     yellowStorage = getObjectFromGUID(YELLOW_STORAGE_GUID)
     YELLOW_STORAGE_XML = yellowStorage.getData().XmlUI
     YELLOW_STORAGE_SCRIPT = yellowStorage.getLuaScript()
 
-    if not IS_IN_HOME_MOD then
-        getObjectFromGUID(AGENDA_MANAGER_GUID).destroy()
-        getObjectFromGUID(DELETION_ZONE_GUID).destroy()
-        yellowStorage.destroy()
-
-        self.setPosition({x=0, y=4, z=0})
         self.createButton(ON_BUTTON)
-        self.setLock(false)
-
-        CREATE_ARMY_BUTTON.position = {0,0.6,0}
-    else
-        showWindow("welcomeWindow")
-    end
 end
 
 function onScriptingButtonDown(index, player_color)
@@ -393,8 +379,8 @@ function onPlayerAction(player, action, targets)
             -- its ok if we overwrite this every time, we only ever need one and they shooould be all the same
             buttonModel.associatedModelBounds = intendedTargets[1].getBoundsNormalized()
 
-            self.UI.setAttributes(activeButton.buttonID, {
-                color = "#33ff33"
+            UI.setAttributes(activeButton.buttonID, {
+                color = "#24d11e"
             })
         end
 
@@ -419,18 +405,21 @@ function selectModelGroup(player,_, unitAndModelID)
     local sameButtonIndex = find(map(activeButtons, |button| button.buttonID), unitAndModelID)
 
     if sameButtonIndex > 0 then
-        for _,modelData in ipairs(army[unitID].models.models[modelID].associatedModels) do
-            getObjectFromGUID(modelData.GUID).highlightOff()
+        local assoc = army[unitID].models.models[modelID].associatedModels
+        if assoc ~= nil then
+            for _,modelData in ipairs(assoc) do
+                getObjectFromGUID(modelData.GUID).highlightOff()
+            end
         end
         army[unitID].models.models[modelID].associatedModels = nil
         table.remove(activeButtons, sameButtonIndex)
-        self.UI.setAttribute(unitAndModelID, "color", "White")
+        UI.setAttribute(unitAndModelID, "color", "White")
     else
         table.insert(activeButtons, { unit = unitID, model = modelID, buttonID = unitAndModelID })
-        self.UI.setAttribute(unitAndModelID, "color", "#ff00ca")
+        UI.setAttribute(unitAndModelID, "color", "#e0e40b")
 
         if #activeButtons == 1 then -- if it's the first button selected
-            broadcastToAll("Pick up a model or models to represent your selection!", {r=1, g=0, b=202/255})
+            broadcastToAll("Pick up a model (or models) to represent your selection!", {r=1, g=0, b=202/255})
         end
     end
 end
@@ -762,7 +751,7 @@ function placeArmy(unitMap, startingX, startingZ, startingY)
         }}
     end
 
-    local boardPosition = { x=startingX-(boundingBox.w*0.5), y=5+startingY, z=startingZ+(boundingBox.h * 0.5) }
+    local boardPosition = { x=startingX-(boundingBox.w*0.5), y=4+startingY, z=startingZ+(boundingBox.h * 0.5) }
     local boardScale = { x=(0.5*boundingBox.w), y=1, z=(0.5*boundingBox.h)}
 
     if armyBoard == nil then
@@ -773,8 +762,8 @@ function placeArmy(unitMap, startingX, startingZ, startingY)
             scale = boardScale
         })
         armyBoard.setCustomObject({
-            image = "http://cloud-3.steamusercontent.com/ugc/1698405413696745750/BC055E0445A3CEC1A0A0754CF4F1646977612B09/",
-            thickness = 0.37
+            image = "https://steamusercontent-a.akamaihd.net/ugc/1698405413696745750/BC055E0445A3CEC1A0A0754CF4F1646977612B09/",
+            thickness = 0.20
         })
         armyBoard.setLock(true)
     else
@@ -1145,8 +1134,8 @@ function getProfileForModel(model, unit)
         found = model.name:find(profile.name, 1, true)
         if found ~= nil then return profile end
     end
-    -- In 10th edition, at least one unit has "Other Models" as a catch-all
-    if otherModelsProfile then
+       -- In 10th edition, at least one unit has "Other Models" as a catch-all
+       if otherModelsProfile then
         return otherModelsProfile
     end
     -- if there arent any matching profiles, assume there's only one profile for every model in the unit
@@ -1376,81 +1365,59 @@ function loadEditedArmy(data)
 
     local formattedArmyData = getLoadedArmyXML(data.order)
 
-    if formattedArmyData.totalHeight < 3000 then
-        self.UI.setAttributes("loadedScrollContainer", {
+    if formattedArmyData.totalHeight < 1070 then
+        UI.setAttributes("loadedScrollContainer", {
             noScrollbars = true,
-            width = 2030
+            width = 400,
+            height = 1070
         })
     else
-        self.UI.setAttributes("loadedScrollContainer", {
+        UI.setAttributes("loadedScrollContainer", {
             noScrollbars = false,
-            width = 2050
+            width = 400,
+            height = 1070
         })
     end
 
-    self.UI.setAttribute("loadedContainer", "height", formattedArmyData.totalHeight)--formattedArmyData.totalHeight
-    self.UI.setValue("loadedContainer", formattedArmyData.xml)
-    self.UI.setAttribute("postLoading", "active", "false")
-    self.UI.hide("postLoading")
-    self.UI.setClass("mainPanel", "hiddenBigWindow")
+    UI.setAttribute("loadedContainer", "height", formattedArmyData.totalHeight)--formattedArmyData.totalHeight
+    UI.setValue("loadedContainer", formattedArmyData.xml)
+    UI.setAttribute("postLoading", "active", "false")
+    UI.hide("postLoading")
+    UI.setClass("mainPanel", "hiddenBigWindow")
 
     self.createButton(CREATE_ARMY_BUTTON)
+    self.createButton(RESET_YELLOWSCRIBE_BUTTON)
 
     Wait.frames(function ()
         UI.hide("mainPanel")
-        self.UI.setAttribute("loadedScrollContainer", "active", "true")
-        self.UI.setXml(self.UI.getXml())
+        UI.setAttribute("loadedScrollContainer", "active", "true")
+        UI.setXml(UI.getXml())
     end, 2)
 end
-
 function getLoadedArmyXML(order)
     local xmlString = ""
-    local modelInUnitCount,modelDataForXML,currentUnitContainerHeight,totalUnitContainerHeight
-    local maxModelHeight,totalHeight = 0,0
+    local modelDataForXML, totalUnitContainerHeight
+    local totalHeight = 0
 
     for _,uuid in ipairs(order) do
         local unit = army[uuid]
-        local modelGroupString,unitDataString = "",""
+        local unitDataString = ""
 
-        modelInUnitCount = 0
-        currentUnitContainerHeight = 0
-        totalUnitContainerHeight = 50 -- name
+        totalUnitContainerHeight = 30 -- name
+        local cardCount = 0
 
         for modelID,model in pairs(unit.models.models) do
-            modelInUnitCount = modelInUnitCount + 1
+            cardCount = cardCount + 1
             modelDataForXML = getModelDataForXML(uuid, modelID, model, unit.weapons)
-            modelGroupString = modelGroupString..interpolate(uiTemplates.MODEL_CONTAINER, modelDataForXML)
-
-            if modelDataForXML.height > maxModelHeight then
-                maxModelHeight = modelDataForXML.height
-                currentUnitContainerHeight = modelDataForXML.height
-            end
-
-            if modelInUnitCount % 4 == 0 then
-                unitDataString = unitDataString..interpolate(uiTemplates.MODEL_GROUPING_CONTAINER, {
-                    modelGroups = modelGroupString,
-                    width = "1000",
-                    height = maxModelHeight
-                })
-
-                modelInUnitCount = 0
-                maxModelHeight = 0
-                modelGroupString = ""
-                totalUnitContainerHeight = totalUnitContainerHeight + currentUnitContainerHeight + 20 -- spacing
-            end
+            unitDataString = unitDataString..interpolate(uiTemplates.MODEL_CONTAINER, modelDataForXML)
+            totalUnitContainerHeight = totalUnitContainerHeight + modelDataForXML.height
         end
 
-        if modelInUnitCount ~= 0 then
-            unitDataString = unitDataString..interpolate(uiTemplates.MODEL_GROUPING_CONTAINER, {
-                modelGroups = modelGroupString,
-                width = tostring(250 * modelInUnitCount),
-                height = maxModelHeight
-            })
-            maxModelHeight = 0
-            totalUnitContainerHeight = totalUnitContainerHeight + currentUnitContainerHeight
+        if cardCount > 1 then
+            totalUnitContainerHeight = totalUnitContainerHeight + 20 * (cardCount - 1) -- spacing
         end
 
-        totalHeight = totalHeight + totalUnitContainerHeight + 100 -- spacing
+        totalHeight = totalHeight + totalUnitContainerHeight + 30 -- total spacing between units
 
         xmlString = xmlString..interpolate(uiTemplates.UNIT_CONTAINER, {
             unitName = unit.decorativeName and unit.decorativeName or unit.name,
@@ -1464,11 +1431,8 @@ end
 
 
 function getModelDataForXML(unitID, modelID, model, characteristicProfiles)
-    local weaponSection,abilitiesSection = "",""
-    local totalCardHeight = 40 -- name
-
-    -- v14.2: weapon sort disabled to work around MoonSharp closure bug
-    -- Weapons will appear in their natural JSON order instead of sorted
+    local weaponSection = ""
+    local totalCardHeight = 28 -- padding(8) + modelDataName(20)
 
     if model.weapons ~= nil and #model.weapons > 0 then
         local weaponNames = {}
@@ -1482,25 +1446,15 @@ function getModelDataForXML(unitID, modelID, model, characteristicProfiles)
         weaponSection = interpolate(uiTemplates.MODEL_DATA, {
             dataType = "Weapons:",
             data = table.concat(weaponNames, "\n"),
-            height = 37 * #model.weapons
+            height = 20 * #model.weapons
         })
-        totalCardHeight = totalCardHeight + (37 * #model.weapons) + (#model.abilities > 0 and 55 or 60) -- title and spacer
-    end
-
-    if #model.abilities > 0 then
-        abilitiesSection = interpolate(uiTemplates.MODEL_DATA, {
-            dataType = "Abilities:",
-            data = table.concat(model.abilities, "\n"),
-            height = 37 * #model.abilities
-        })
-        totalCardHeight = totalCardHeight + (37 * #model.abilities) + 60 -- title and spacer
+        totalCardHeight = totalCardHeight + 36 + (20 * #model.weapons) -- spacer(6) + title(30) + data
     end
 
     return {
         modelName = model.name,
         numberString = model.number > 1 and (tostring(model.number).."x ") or "",
         weapons = weaponSection,
-        abilities = abilitiesSection,
         unitID = unitID,
         modelID = modelID,
         height = totalCardHeight

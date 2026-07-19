@@ -2,19 +2,20 @@
     <Button class="unassignedWeapon" fontSize="18" />
     <Text class="ym-resizing20Bold" fontStyle="Bold" fontSize="20" />
     <HorizontalLayout childForceExpandHeight="false" childForceExpandWidth="false" childAlignment="MiddleCenter" />
-    <Panel class="mainWindow" height="700" width="1200" color="#e1e9a5" childAlignment="MiddleCenter" />
+    <Panel class="mainWindow" height="380" width="870" color= "#495d69" roundEdges="true" childAlignment="MiddleCenter" outline="#36383a" outlineSize="4" />
+    <!--"#e1e9a5" original mainwindow color-->
     <Panel class="hiddenBigWindow" color="#ffffff00" height="4000" childForceExpandHeight="false" />
     <VerticalLayout class="panelContainer" childForceExpandHeight="false" childForceExpandWidth="false" childAlignment="MiddleCenter"
                     showAnimation="FadeIn" hideAnimation="FadeOut" animationDuration="0.2" />
     <VerticalLayout class="transparent" color="#ffffff00" />
-    <VerticalLayout class="modelContainer" shadow="Black" childForceExpandWidth="false" preferredWidth="400" onClick="selectModelGroup" padding="10" color="White" onMouseEnter="showAssociatedModel" onMouseExit="hideAssociatedModel" />
+    <VerticalLayout class="modelContainer" shadow="Black" childForceExpandWidth="false" preferredWidth="400" onClick="46ccee/selectModelGroup" padding="4" color="#dbdee0" onMouseEnter="46ccee/showAssociatedModel" onMouseExit="46ccee/hideAssociatedModel" />
     <Text alignment="UpperLeft" />
     <Text class="smallText" fontSize="18" horizontalOverflow="Overflow" />
-    <Text class="unitName" color="White" fontSize="48" alignment="MiddleCenter" resizeTextForBestFit="true" resizeTextMaxSize="48" />
-    <Text class="modelData" resizeTextForBestFit="true" resizeTextMaxSize="30" preferredWidth="500" horizontalOverflow="Overflow"  />
-    <Text class="modelDataTitle" fontSize="30" preferredWidth="500" fontStyle="Bold" horizontalOverflow="Overflow" />
-    <Text class="modelDataName" preferredWidth="500" preferredHeight="30" alignment="MiddleCenter" fontStyle="Bold" resizeTextForBestFit="true" resizeTextMaxSize="30" />
-    <VerticalScrollView scrollSensitivity="40" />
+    <Text class="unitName" color="White" fontSize="23" alignment="MiddleCenter" fontStyle="Bold" resizeTextForBestFit="true" resizeTextMaxSize="22" />
+    <Text class="modelData" resizeTextForBestFit="true" resizeTextMaxSize="17" preferredWidth="500" horizontalOverflow="Overflow"  />
+    <Text class="modelDataTitle" resizeTextForBestFit="true" fontSize="17" preferredHeight="17" preferredWidth="500" fontStyle="Bold" horizontalOverflow="Overflow" />
+    <Text class="modelDataName" preferredWidth="500" preferredHeight="20" alignment="MiddleCenter" fontStyle="Bold" resizeTextForBestFit="true" resizeTextMaxSize="20" />
+    <VerticalScrollView scrollSensitivity="60" />
     <HorizontalScrollView scrollSensitivity="40" />
     <Button class="unassignedWeapon" preferredHeight="24" flexibleWidth="1" resizeTextForBestFit="true" resizeTextMinSize="10" resizeTextMaxSize="18" />  <!--fontSize="18"-->
     <Button class="assignedWeapon" preferredHeight="24" flexibleWidth="1" resizeTextForBestFit="true" resizeTextMinSize="10" resizeTextMaxSize="18" colors="White|#fdb7c2|Red|White" />
@@ -24,23 +25,24 @@
 </Defaults>
 
 <Panel id="mainPanel" class="mainWindow" hideAnimation="FadeOut" animationDuration="0.2" active="false">
-    <VerticalLayout id="loading" class="panelContainer" padding="70" spacing="15" visibility="hidden" childForceExpandWidth="false">
-        <Text id="loadingText" fontSize="30" fontStyle="Bold">The Techpriests are currently chanting their hymns over your army list</Text>
-        <Text id="loadingText" fontSize="30" fontStyle="Bold">please allow them to finish their sacred task</Text>
+    <VerticalLayout id="loading" class="panelContainer" padding="20" spacing="15" visibility="hidden" childForceExpandWidth="false">
+        <Text id="loadingText" color="#f2f0ed" fontSize="20" fontStyle="Bold">The Techpriests are currently chanting their hymns over your army list</Text>
+        <Text id="loadingText" color="#f2f0ed" fontSize="20" fontStyle="Bold">please allow them to finish their sacred task</Text>
         <!--<Text id="loadingDots" fontSize="60" fontStyle="Bold"></Text>-->
     </VerticalLayout>
-    <VerticalLayout id="welcomeWindow" class="panelContainer" padding="10 10 35 10" spacing="20" color="#e1e9a5" active="false" visibility="hidden">
+    <VerticalLayout id="welcomeWindow" class="panelContainer" padding="1 1 1 1" spacing="10" color="#4a5e6b" active="false" visibility="hidden">
         <VerticalLayout spacing="5" childAlignment="LowerCenter" height="200" childForceExpandHeight="false" childForceExpandWidth="false">
-            <Text fontSize="40" fontStyle="Bold">Welcome to Yellowscribe v2!</Text>
-            <Text fontSize="20">To get started, upload your Battlescribe Roster file to yellowscribe.link</Text>
-            <Text fontSize="20" color="#FF0000">Do NOT go to yellowscribe.net or yellowscribe.xyz - those sites are dead now!</Text>
-            <Text fontSize="20">Then enter the code you received below:</Text>
+            <Text fontSize="37" color="#facd02" fontStyle="Bold">Welcome to Yellowscribe v2!</Text>
+            <Text fontSize="20" color="#f2f0ed">For Yellowscribe support, go to: https://discord.gg/FmTJ2tNVyr</Text>
+            <Text fontSize="20" color="#f2f0ed"></Text>
+            <Text fontSize="20" color="#f2f0ed">To get started, export a code from your favorite army list builder.</Text>
+            <Text fontSize="20" color="#f2f0ed">Then copy the code you recieve and paste below:</Text>
         </VerticalLayout>
 
-        <InputField id="armyInput" onEndEdit="46ccee/updateArmyInputText" lineType="SingleLine" preferredHeight="103" flexibleWidth="1" fontSize="80" color="White" textAlignment="MiddleCenter" placeholder="Copy and paste your code here!" />
+        <InputField id="armyInput" onEndEdit="46ccee/updateArmyInputText" lineType="SingleLine" preferredHeight="90" preferredWidth="600" flexibleWidth="0" fontSize="55" color="White" textAlignment="MiddleCenter" placeholder="Paste code here" />
         <Button preferredHeight="40" preferredWidth="200" color="Green" textColor="White" text="Submit" fontSize="20" fontStyle="Bold" onClick="46ccee/moveToLoadingScreen()" />
     </VerticalLayout>
-    <Panel height="30" width="30" childForceExpandWidth="false" ignoreLayout="true" position="600 350 0" pivot="1 1">
+    <Panel height="30" width="30" childForceExpandWidth="false" ignoreLayout="true" position="437 192 0" pivot="1 1">
         <Panel rectAlignment="UpperRight" height="30" width="30">
             <Button color="Red" textColor="White" onClick="46ccee/closeWelcomeWindow" fontStyle="Bold">X</Button>
         </Panel>
@@ -54,6 +56,6 @@
         </HorizontalLayout>
     </VerticalLayout>
 </Panel>
-<VerticalScrollView id="loadedScrollContainer" scale="1.2 1.2 1.2" width="2030" height="3000" active="false" color="#ffffff00" position="1545 0 -150" verticalScrollbarVisibility="AutoHideAndExpandViewport">
-    <VerticalLayout childForceExpandHeight="false" spacing="60" class="transparent" flexibleWidth="1" id="loadedContainer" childForceExpandWidth="false" childAlignment="MiddleCenter" />
+<VerticalScrollView id="loadedScrollContainer" width="400" height="1070" active="false" color="#ffffff00" rectAlignment="UpperRight" verticalScrollbarVisibility="AutoHideAndExpandViewport">
+    <VerticalLayout childForceExpandHeight="false" spacing="30" class="transparent" flexibleWidth="1" id="loadedContainer" childForceExpandWidth="false" childAlignment="MiddleCenter" />
 </VerticalScrollView>

@@ -341,8 +341,8 @@
                     </VerticalLayout>
 
                     <!-- Models 11e -->
-                    <VerticalLayout padding="0 580 0 0" id="modelsTable11e" active="false" color="#00000000" childForceExpandWidth="true" childForceExpandHeight="false">
-                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60" color="#00000000">
+                    <VerticalLayout padding="0 520 0 0" id="modelsTable11e" active="false" color="#00000000" childForceExpandWidth="true" childForceExpandHeight="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" columnWidths="225 60 60 60 60 60 60 60" color="#00000000">
                             <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>

@@ -101,6 +101,16 @@ local uiTemplates = {
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${ld}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${oc}</Text></Cell>
                 </Row>]],
+    models11e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="32">
+                    <Cell><Text color="White" fontSize="16" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${m}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${t}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${sv}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${insv}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${w}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${ld}</Text></Cell>
+                    <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${oc}</Text></Cell>
+                </Row>]],
     weapons9e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="32">
                     <Cell><Text color="White" fontSize="16" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="16" alignment="MiddleCenter">${range}</Text></Cell>
@@ -110,7 +120,7 @@ local uiTemplates = {
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${d}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="16" alignment="MiddleCenter">${abilities}</Text></Cell>
                 </Row>]],
-    weapons10e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="32">
+    weapons10e11e = [[ <Row color="${rowParity}" dontUseTableRowBackground="true" preferredHeight="32">
                     <Cell><Text color="White" fontSize="16" preferredHeight="20" fontStyle="Bold" alignment="MiddleCenter">${name}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" resizeTextForBestFit="true" resizeTextMinSize="6" resizeTextMaxSize="16" alignment="MiddleCenter">${range}</Text></Cell>
                     <Cell><Text color="White" fontStyle="Normal" fontSize="16" alignment="MiddleCenter">${a}</Text></Cell>

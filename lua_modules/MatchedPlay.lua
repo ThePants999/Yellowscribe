@@ -38,7 +38,7 @@ function changeModelWoundCount(mod, target)
         end
 
         local damagedCutoff = nil
-        if unitData.edition == "10e" then
+        if unitData.edition == "10e" or unitData.edition == "11e" then
             for _,ability in ipairs(unitData.abilities) do
                 if ability.name == "Core" then
                     -- Rosterizer version
@@ -567,17 +567,28 @@ function buildUI()
     self.UI.setValue("factionKeywords", unitData.factionKeywords)
     self.UI.setValue("keywords", unitData.keywords)
 
-    if unitData.edition == "10e" then
+    if unitData.edition == "11e" then
+        self.UI.setAttribute("modelsTable9e", "active", false)
+        self.UI.setAttribute("modelsTable10e", "active", false)
+        self.UI.setAttribute("modelsTable11e", "active", true)
+        buildXMLForSection("models11e", "models")
+
+        self.UI.setAttribute("weaponsTable9e", "active", false)
+        self.UI.setAttribute("weaponsTable10e11e", "active", true)
+        buildXMLForSection("weapons10e11e", "weapons")
+    elseif unitData.edition == "10e" then
         self.UI.setAttribute("modelsTable9e", "active", false)
         self.UI.setAttribute("modelsTable10e", "active", true)
+        self.UI.setAttribute("modelsTable11e", "active", false)
         buildXMLForSection("models10e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", false)
-        self.UI.setAttribute("weaponsTable10e", "active", true)
-        buildXMLForSection("weapons10e", "weapons")
+        self.UI.setAttribute("weaponsTable10e11e", "active", true)
+        buildXMLForSection("weapons10e11e", "weapons")
     else
         self.UI.setAttribute("modelsTable9e", "active", true)
         self.UI.setAttribute("modelsTable10e", "active", false)
+        self.UI.setAttribute("modelsTable11e", "active", false)
         buildXMLForSection("models9e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", true)

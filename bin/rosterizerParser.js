@@ -1,5 +1,5 @@
 const AdmZip = require("adm-zip");
-const Model = require("./10eDataModel");
+const Model = require("./10e11eDataModel");
 const { raw } = require("body-parser");
 const { parse } = require("path");
 
@@ -24,7 +24,7 @@ function extractRegistryJSON(rawData) {
 }
 
 function parseRegistry(json) {
-    let roster = new Model.Roster();
+    let roster = new Model.Roster(edition = "10e");
 
     discoverUnits(roster, json);
 
@@ -51,7 +51,7 @@ function discoverUnits(roster, asset) {
 }
 
 function parseModel(modelAsset, unit) {
-    let name = modelAsset.name ? 
+    let name = modelAsset.name ?
         `${modelAsset.name} (${modelAsset.aspects?.label || modelAsset.designation})`
         : (modelAsset.aspects?.label || modelAsset.designation);
     let m = modelAsset.stats.M.processed.format.current;

@@ -337,7 +337,24 @@
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">OC</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="models10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60"  color="#00000000" />
+                        <TableLayout id="models10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60"  color="#00000000" />
+                    </VerticalLayout>
+
+                    <!-- Models 11e -->
+                    <VerticalLayout padding="0 580 0 0" id="modelsTable11e" active="false" color="#00000000" childForceExpandWidth="true" childForceExpandHeight="false">
+                        <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60" color="#00000000">
+                            <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">M</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">T</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Sv</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">InSv</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">W</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">LD</Text></Cell>
+                                <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">OC</Text></Cell>
+                            </Row>
+                        </TableLayout>
+                        <TableLayout id="models11e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 60"  color="#00000000" />
                     </VerticalLayout>
 
                     <!-- Weapons 9e -->

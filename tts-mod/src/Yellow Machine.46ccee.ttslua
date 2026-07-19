@@ -101,14 +101,14 @@ local CHANGING_CHARACTERISTICS_TEMPLATE = [[,
 ]]
 local WEAPON_TEMPLATE_9E = [[[c6c930]${name}[-]
 ${rangeAndType} S:${s} AP:${ap} D:${d} ${ability} ]]
-local RANGED_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
+local RANGED_WEAPON_TEMPLATE_10E11E = [[[c6c930]${name}[-]
 ${range} A:${a} BS:${bs} S:${s} AP:${ap} D:${d} [7bc596]${ability}[-] ]]
-local MELEE_WEAPON_TEMPLATE_10E = [[[c6c930]${name}[-]
+local MELEE_WEAPON_TEMPLATE_10E11E = [[[c6c930]${name}[-]
 A:${a} WS:${ws} S:${s} AP:${ap} D:${d} [7bc596]${ability}[-] ]]
 local DEFAULT_BRACKET_VALUE_TEMPLATE = "[98ffa7]${val}[-]"
 local ABILITITY_STRING_TEMPLATE = '{ name = [[${name}]], desc = [=[${desc}]=] }'
 local WEAPON_ENTRY_TEMPLATE_9E = '{ name="${name}", range=[[${range}]], type="${type}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]] }'
-local WEAPON_ENTRY_TEMPLATE_10E = '{ name="${name}", range=[[${range}]], a="${a}", bsws="${bsws}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]], shortabilities=[[${shortabilities}]] }'
+local WEAPON_ENTRY_TEMPLATE_10E11E = '{ name="${name}", range=[[${range}]], a="${a}", bsws="${bsws}", s="${s}", ap="${ap}", d="${d}", abilities=[[${abilities}]], shortabilities=[[${shortabilities}]] }'
 local CHANGING_CHARACTERISTICS_ENTRY_TEMPLATE = '["${name}"] = { "${characteristics}" }'
 local WOUND_TRACK_ENTRY_TEMPLATE = [[       ["${name}"] = {
             ${tracks}
@@ -966,7 +966,7 @@ function formatLeaderScript(unit)
             return tableToFlatString(profile)
         end), ",\n\t\t"),
 
-        weapons = table.concat(map(unit.weapons, |weapon| interpolate(edition == "10e" and WEAPON_ENTRY_TEMPLATE_10E or WEAPON_ENTRY_TEMPLATE_9E, weapon)), ",\n\t\t"),
+        weapons = table.concat(map(unit.weapons, |weapon| interpolate((edition == "10e" or edition == "11e") and WEAPON_ENTRY_TEMPLATE_10E11E or WEAPON_ENTRY_TEMPLATE_9E, weapon)), ",\n\t\t"),
 
         endBracket = "]]",
         uuid = unit.uuid,
@@ -1265,9 +1265,9 @@ end
 -- formats the string for a weapon entry in a model's description
 function formatWeapon(weaponProfile, number)
     weaponName = number == 1 and weaponProfile.name or (number.."x "..weaponProfile.name)
-    if edition == "10e" then
+    if edition == "10e" or edition == "11e" then
         if weaponProfile.range:lower() == "melee" then
-            return  interpolate(MELEE_WEAPON_TEMPLATE_10E, {
+            return  interpolate(MELEE_WEAPON_TEMPLATE_10E11E, {
                 name = weaponName,
                 a = weaponProfile.a,
                 ws = weaponProfile.bsws,
@@ -1277,7 +1277,7 @@ function formatWeapon(weaponProfile, number)
                 ability = weaponProfile.shortAbilities == "-" and "" or "[" .. weaponProfile.shortAbilities .. "]"
             })
         else
-            return  interpolate(RANGED_WEAPON_TEMPLATE_10E, {
+            return  interpolate(RANGED_WEAPON_TEMPLATE_10E11E, {
                 name = weaponName,
                 range = weaponProfile.range,
                 a = weaponProfile.a,

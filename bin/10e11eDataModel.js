@@ -27,13 +27,14 @@ weaponAbilityShortNames.set("extra attacks", "EA");
 const MELEE_RANGE = "Melee";
 
 class Roster {
-    edition = "10e";
+    edition;
     order = [];
     units = new Map();
     errors = [];
     wargearAllocationMode;
 
-    constructor(wargearAllocationMode = "allModels") {
+    constructor(edition = "11e", wargearAllocationMode = "allModels") {
+        this.edition = edition;
         this.wargearAllocationMode = wargearAllocationMode;
     }
 
@@ -55,8 +56,9 @@ class ModelCharacteristics {
     w;
     ld;
     oc;
+    insv;
 
-    constructor(name, m, t, sv, w, ld, oc) {
+    constructor(name, m, t, sv, w, ld, oc, insv) {
         this.name = name;
         this.m = m;
         this.t = t;
@@ -64,6 +66,7 @@ class ModelCharacteristics {
         this.w = w;
         this.ld = ld;
         this.oc = oc;
+        this.insv = insv;
     }
 
     characteristicsMatch(other) {
@@ -73,7 +76,9 @@ class ModelCharacteristics {
             (this.sv == other.sv) &&
             (this.w == other.w) &&
             (this.ld == other.ld) &&
-            (this.oc == other.oc));
+            (this.oc == other.oc) &&
+            (this.insv == other.insv)
+        );
     }
 }
 
@@ -299,7 +304,7 @@ class Unit {
     // In the 9e data model, "rules" were any abilities so common-
     // place that the roster didn't bother including their rules
     // text, and the parser in TTS is expecting a list, but is fine
-    // with it being empty. The 10e equivalent is Core/Faction
+    // with it being empty. The 10e/11e equivalent is Core/Faction
     // abilities, which we handle elsewhere, so this will forever
     // be empty.
     rules = [];

@@ -1,9 +1,10 @@
 const AdmZip = require("adm-zip");
 const {parseXML} = require("./xml");
 const Roster = require("./9eRoster");
-const DataModel = require("./10eDataModel");
+const DataModel = require("./10e11eDataModel");
 
 const BS_10E_SYSTEM_ID = "sys-352e-adc2-7639-d6a9";
+const BS_11E_SYSTEM_ID = "sys-352e-adc2-7639-d610";
 const FACTION_KEYWORD_PREFIX = "Faction: ";
 
 function extractRosterXML(rawData) {
@@ -23,8 +24,8 @@ function extractRosterXML(rawData) {
     return zip.readAsText(zipEntries[0]);
 }
 
-function parse10eRoster(forces, wargearAllocationMode) {
-    let roster = new DataModel.Roster(wargearAllocationMode);
+function parse10e11eRoster(edition, forces, wargearAllocationMode) {
+    let roster = new DataModel.Roster(edition, wargearAllocationMode);
 
     for (const force of forces[0].force) {
         if (force.selections && force.selections[0]) {
@@ -100,9 +101,9 @@ function parseUnit(selection, roster) {
 }
 
 function parseModelCharacteristics(profile) {
-    let chrM, chrT, chrSv, chrW, chrLd, chrOC = null;
+    let chrM, chrT, chrSv, chrW, chrLd, chrOC, chrInSv = null;
     for (const characteristic of profile.characteristics[0].characteristic) {
-        switch (characteristic.$.name) {
+        switch (characteristic.$.name.toUpperCase()) {
             case "M":
                 chrM = characteristic._;
                 break;
@@ -121,9 +122,12 @@ function parseModelCharacteristics(profile) {
             case "OC":
                 chrOC = characteristic._;
                 break;
+            case "INSV":
+                chrInSv = characteristic._;
+                break;
         }
     }
-    return new DataModel.ModelCharacteristics(profile.$.name, chrM, chrT, chrSv, chrW, chrLd, chrOC);
+    return new DataModel.ModelCharacteristics(profile.$.name, chrM, chrT, chrSv, chrW, chrLd, chrOC, chrInSv);
 }
 
 function parseModel(selection, unit) {
@@ -271,8 +275,10 @@ function parseAbility(profile) {
 module.exports.roszParse = (rawData, wargearAllocationMode) => {
     const xmlData = extractRosterXML(rawData);
     const result = parseXML(xmlData);
-    if (result.roster.$.gameSystemId == BS_10E_SYSTEM_ID) {
-        return parse10eRoster(result.roster.forces, wargearAllocationMode);
+    if (result.roster.$.gameSystemId == BS_11E_SYSTEM_ID) {
+        return parse10e11eRoster("11e", result.roster.forces, wargearAllocationMode);
+    } else if (result.roster.$.gameSystemId == BS_10E_SYSTEM_ID) {
+        return parse10e11eRoster("10e", result.roster.forces, wargearAllocationMode);
     } else {
         return Roster.parse(result.roster.forces);
     }

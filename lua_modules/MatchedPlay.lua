@@ -578,9 +578,10 @@ function buildUI()
         self.UI.setAttribute("modelsTable11e", "active", true)
         buildXMLForSection("models11e", "models")
 
+        -- 11e weapon profiles are identical to 10e, so both editions share the "10e" table
         self.UI.setAttribute("weaponsTable9e", "active", false)
-        self.UI.setAttribute("weaponsTable10e11e", "active", true)
-        buildXMLForSection("weapons10e11e", "weapons")
+        self.UI.setAttribute("weaponsTable10e", "active", true)
+        buildXMLForSection("weapons10e", "weapons")
     elseif unitData.edition == "10e" then
         self.UI.setAttribute("modelsTable9e", "active", false)
         self.UI.setAttribute("modelsTable10e", "active", true)
@@ -588,8 +589,8 @@ function buildUI()
         buildXMLForSection("models10e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", false)
-        self.UI.setAttribute("weaponsTable10e11e", "active", true)
-        buildXMLForSection("weapons10e11e", "weapons")
+        self.UI.setAttribute("weaponsTable10e", "active", true)
+        buildXMLForSection("weapons10e", "weapons")
     else
         self.UI.setAttribute("modelsTable9e", "active", true)
         self.UI.setAttribute("modelsTable10e", "active", false)

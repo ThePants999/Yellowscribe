@@ -374,7 +374,7 @@
                     </VerticalLayout>
 
                     <!-- Weapons 10e -->
-                    <VerticalLayout id="weaponsTable10e" childForceExpandHeight="false" childAlignment="TopLeft" active="false" color="#00000000">
+                    <VerticalLayout id="weaponsTable10e11e" childForceExpandHeight="false" childAlignment="TopLeft" active="false" color="#00000000">
                         <TableLayout cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 0" color="#00000000">
                             <Row color="#1a1a1a" preferredHeight="32" dontUseTableRowBackground="true">
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Name</Text></Cell>
@@ -387,7 +387,7 @@
                                 <Cell><Text fontStyle="Bold" fontSize="16" color="#ffffff" alignment="MiddleCenter">Abilities</Text></Cell>
                             </Row>
                         </TableLayout>
-                        <TableLayout id="weapons10e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 0" color="#00000000" />
+                        <TableLayout id="weapons10e11e" cellPadding="5" childForceExpandHeight="false" autoCalculateHeight="true" horizontalOverflow="Wrap" columnWidths="225 60 60 60 60 60 60 0" color="#00000000" />
                     </VerticalLayout>
 
                     <!-- Abilities list -->

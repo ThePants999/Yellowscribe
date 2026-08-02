@@ -597,7 +597,7 @@ function buildUI()
         buildXMLForSection("models9e", "models")
 
         self.UI.setAttribute("weaponsTable9e", "active", true)
-        self.UI.setAttribute("weaponsTable10e", "active", false)
+        self.UI.setAttribute("weaponsTable10e11e", "active", false)
         buildXMLForSection("weapons9e", "weapons")
     end
 
